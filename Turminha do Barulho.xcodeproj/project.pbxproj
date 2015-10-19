@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AD1BD55047002EA06A /* AppDelegate.swift */; };
+		3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AF1BD55047002EA06A /* ViewController.swift */; };
+		3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B11BD55047002EA06A /* Main.storyboard */; };
+		3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14B41BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld */; };
+		3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B71BD55047002EA06A /* Assets.xcassets */; };
+		3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */; };
+		3F0F14C61BD55047002EA06A /* Turminha_do_BarulhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14C51BD55047002EA06A /* Turminha_do_BarulhoTests.swift */; };
+		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F0F14C21BD55047002EA06A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F0F14A21BD55047002EA06A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0F14A91BD55047002EA06A;
+			remoteInfo = "Turminha do Barulho";
+		};
+		3F0F14CD1BD55047002EA06A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F0F14A21BD55047002EA06A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0F14A91BD55047002EA06A;
+			remoteInfo = "Turminha do Barulho";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turminha do Barulho.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0F14AD1BD55047002EA06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F0F14AF1BD55047002EA06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F0F14B21BD55047002EA06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turminha_do_Barulho.xcdatamodel; sourceTree = "<group>"; };
+		3F0F14B71BD55047002EA06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F0F14BA1BD55047002EA06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F0F14BC1BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F0F14C11BD55047002EA06A /* Turminha do BarulhoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Turminha do BarulhoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0F14C51BD55047002EA06A /* Turminha_do_BarulhoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turminha_do_BarulhoTests.swift; sourceTree = "<group>"; };
+		3F0F14C71BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F0F14CC1BD55047002EA06A /* Turminha do BarulhoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Turminha do BarulhoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turminha_do_BarulhoUITests.swift; sourceTree = "<group>"; };
+		3F0F14D21BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F0F14A71BD55047002EA06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14BE1BD55047002EA06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14C91BD55047002EA06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F0F14A11BD55047002EA06A = {
+			isa = PBXGroup;
+			children = (
+				3F0F14AC1BD55047002EA06A /* Turminha do Barulho */,
+				3F0F14C41BD55047002EA06A /* Turminha do BarulhoTests */,
+				3F0F14CF1BD55047002EA06A /* Turminha do BarulhoUITests */,
+				3F0F14AB1BD55047002EA06A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F0F14AB1BD55047002EA06A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */,
+				3F0F14C11BD55047002EA06A /* Turminha do BarulhoTests.xctest */,
+				3F0F14CC1BD55047002EA06A /* Turminha do BarulhoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F0F14AC1BD55047002EA06A /* Turminha do Barulho */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F14AD1BD55047002EA06A /* AppDelegate.swift */,
+				3F0F14AF1BD55047002EA06A /* ViewController.swift */,
+				3F0F14B11BD55047002EA06A /* Main.storyboard */,
+				3F0F14B71BD55047002EA06A /* Assets.xcassets */,
+				3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */,
+				3F0F14BC1BD55047002EA06A /* Info.plist */,
+				3F0F14B41BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld */,
+			);
+			path = "Turminha do Barulho";
+			sourceTree = "<group>";
+		};
+		3F0F14C41BD55047002EA06A /* Turminha do BarulhoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F14C51BD55047002EA06A /* Turminha_do_BarulhoTests.swift */,
+				3F0F14C71BD55047002EA06A /* Info.plist */,
+			);
+			path = "Turminha do BarulhoTests";
+			sourceTree = "<group>";
+		};
+		3F0F14CF1BD55047002EA06A /* Turminha do BarulhoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */,
+				3F0F14D21BD55047002EA06A /* Info.plist */,
+			);
+			path = "Turminha do BarulhoUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F0F14A91BD55047002EA06A /* Turminha do Barulho */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do Barulho" */;
+			buildPhases = (
+				3F0F14A61BD55047002EA06A /* Sources */,
+				3F0F14A71BD55047002EA06A /* Frameworks */,
+				3F0F14A81BD55047002EA06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Turminha do Barulho";
+			productName = "Turminha do Barulho";
+			productReference = 3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F0F14C01BD55047002EA06A /* Turminha do BarulhoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F0F14D81BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do BarulhoTests" */;
+			buildPhases = (
+				3F0F14BD1BD55047002EA06A /* Sources */,
+				3F0F14BE1BD55047002EA06A /* Frameworks */,
+				3F0F14BF1BD55047002EA06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F0F14C31BD55047002EA06A /* PBXTargetDependency */,
+			);
+			name = "Turminha do BarulhoTests";
+			productName = "Turminha do BarulhoTests";
+			productReference = 3F0F14C11BD55047002EA06A /* Turminha do BarulhoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3F0F14CB1BD55047002EA06A /* Turminha do BarulhoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F0F14DB1BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do BarulhoUITests" */;
+			buildPhases = (
+				3F0F14C81BD55047002EA06A /* Sources */,
+				3F0F14C91BD55047002EA06A /* Frameworks */,
+				3F0F14CA1BD55047002EA06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F0F14CE1BD55047002EA06A /* PBXTargetDependency */,
+			);
+			name = "Turminha do BarulhoUITests";
+			productName = "Turminha do BarulhoUITests";
+			productReference = 3F0F14CC1BD55047002EA06A /* Turminha do BarulhoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F0F14A21BD55047002EA06A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Lucas Coiado Mota";
+				TargetAttributes = {
+					3F0F14A91BD55047002EA06A = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					3F0F14C01BD55047002EA06A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 3F0F14A91BD55047002EA06A;
+					};
+					3F0F14CB1BD55047002EA06A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 3F0F14A91BD55047002EA06A;
+					};
+				};
+			};
+			buildConfigurationList = 3F0F14A51BD55047002EA06A /* Build configuration list for PBXProject "Turminha do Barulho" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F0F14A11BD55047002EA06A;
+			productRefGroup = 3F0F14AB1BD55047002EA06A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F0F14A91BD55047002EA06A /* Turminha do Barulho */,
+				3F0F14C01BD55047002EA06A /* Turminha do BarulhoTests */,
+				3F0F14CB1BD55047002EA06A /* Turminha do BarulhoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F0F14A81BD55047002EA06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */,
+				3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */,
+				3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14BF1BD55047002EA06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14CA1BD55047002EA06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F0F14A61BD55047002EA06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */,
+				3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */,
+				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14BD1BD55047002EA06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0F14C61BD55047002EA06A /* Turminha_do_BarulhoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0F14C81BD55047002EA06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F0F14C31BD55047002EA06A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0F14A91BD55047002EA06A /* Turminha do Barulho */;
+			targetProxy = 3F0F14C21BD55047002EA06A /* PBXContainerItemProxy */;
+		};
+		3F0F14CE1BD55047002EA06A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0F14A91BD55047002EA06A /* Turminha do Barulho */;
+			targetProxy = 3F0F14CD1BD55047002EA06A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F0F14B11BD55047002EA06A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F0F14B21BD55047002EA06A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F0F14BA1BD55047002EA06A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F0F14D31BD55047002EA06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F0F14D41BD55047002EA06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F0F14D61BD55047002EA06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-Barulho";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3F0F14D71BD55047002EA06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-Barulho";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3F0F14D91BD55047002EA06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Turminha do BarulhoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-BarulhoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turminha do Barulho.app/Turminha do Barulho";
+			};
+			name = Debug;
+		};
+		3F0F14DA1BD55047002EA06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Turminha do BarulhoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-BarulhoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turminha do Barulho.app/Turminha do Barulho";
+			};
+			name = Release;
+		};
+		3F0F14DC1BD55047002EA06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Turminha do BarulhoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-BarulhoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Turminha do Barulho";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		3F0F14DD1BD55047002EA06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Turminha do BarulhoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-BarulhoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Turminha do Barulho";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F0F14A51BD55047002EA06A /* Build configuration list for PBXProject "Turminha do Barulho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0F14D31BD55047002EA06A /* Debug */,
+				3F0F14D41BD55047002EA06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do Barulho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0F14D61BD55047002EA06A /* Debug */,
+				3F0F14D71BD55047002EA06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3F0F14D81BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do BarulhoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0F14D91BD55047002EA06A /* Debug */,
+				3F0F14DA1BD55047002EA06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3F0F14DB1BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do BarulhoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0F14DC1BD55047002EA06A /* Debug */,
+				3F0F14DD1BD55047002EA06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F0F14B41BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */,
+			);
+			currentVersion = 3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */;
+			path = Turminha_do_Barulho.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3F0F14A21BD55047002EA06A /* Project object */;
+}
