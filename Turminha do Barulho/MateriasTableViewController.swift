@@ -11,6 +11,9 @@ import UIKit
 class MateriasTableViewController: UITableViewController {
 
     var materias : [Materia] = materiasData
+    
+    var chosenCell : UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +53,12 @@ class MateriasTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath)
+       
+        self.performSegueWithIdentifier("Detalhe", sender: self)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,14 +95,25 @@ class MateriasTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    
+        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        //Como o texto e o icone a celula.
+        let secondViewController = segue.destinationViewController as! MateriasDetalheViewController
+        
+        let cell = self.chosenCell
+        
+        secondViewController.receiveCellData(cell!);
+        
+        
+        
     }
-    */
+    
 
 }

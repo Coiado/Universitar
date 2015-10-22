@@ -9,4 +9,5 @@
 import UIKit
 
 let materiasData = [
-    Materia(name: "Medicina", color: UIColor(red: 12/255, green: 92/255, blue: 40/255, alpha: 1), icon: UIImage(named:"MedicinaIcon"))]
+    Materia(name: "Medicina", color: UIColor(red: 12/255, green: 92/255, blue: 40/255, alpha: 1), icon: UIImage(named:"MedicinaIcon")),
+    Materia(name: "Engenharia", color: UIColor(red: 89/255, green: 109/255, blue: 239/255, alpha: 1), icon: UIImage(named:"EngenhariaIcon"))]
