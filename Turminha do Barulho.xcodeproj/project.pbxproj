@@ -20,6 +20,8 @@
 		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; settings = {ASSET_TAGS = (); }; };
 		3F0F14E51BD66809002EA06A /* MateriasTeste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E41BD66809002EA06A /* MateriasTeste.swift */; settings = {ASSET_TAGS = (); }; };
 		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		3F0F14E21BD6658B002EA06A /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		3F0F14E41BD66809002EA06A /* MateriasTeste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasTeste.swift; sourceTree = "<group>"; };
 		5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
+		5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarContaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				3F0F14AF1BD55047002EA06A /* ViewController.swift */,
+				5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */,
 				3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */,
 				180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */,
 				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
+				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -305,11 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */,
 				3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */,
 				5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */,
 				3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */,
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
 				3F0F14E51BD66809002EA06A /* MateriasTeste.swift in Sources */,
+				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */,
 				180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */,

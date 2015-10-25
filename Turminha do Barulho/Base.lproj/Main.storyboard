@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Feed de Perguntas-->
@@ -271,7 +271,7 @@
         <!--Criar Conta-->
         <scene sceneID="CnX-QZ-1p8">
             <objects>
-                <viewController title="Criar Conta" id="m2D-bE-Wxj" sceneMemberID="viewController">
+                <viewController title="Criar Conta" id="m2D-bE-Wxj" customClass="CriarContaViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mxC-Hw-5s1"/>
                         <viewControllerLayoutGuide type="bottom" id="zEm-cI-bFA"/>
@@ -522,7 +522,7 @@
         <!--Login-->
         <scene sceneID="JaA-dU-EEc">
             <objects>
-                <viewController title="Login" id="2gb-Zh-hbK" sceneMemberID="viewController">
+                <viewController title="Login" id="2gb-Zh-hbK" customClass="LoginViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wWc-6I-HjM"/>
                         <viewControllerLayoutGuide type="bottom" id="EAC-8L-MPx"/>
