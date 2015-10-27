@@ -6,16 +6,51 @@
 //  Copyright © 2015 Lucas Coiado Mota. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import MapKit
 
 struct Materia {
-    var name: String?
-    var color: UIColor?
-    var icon: UIImage?
+    let identifier: Int
+    let name: String
+    let description: String
+    let icon: String
+    let Universidades: NSArray
+    let color: NSArray
+}
+
+// MARK: - Support for loading data from plist
+
+extension Materia {
     
-    init(name: String?, color: UIColor?, icon: UIImage?) {
-        self.name = name
-        self.color = color
-        self.icon = icon
+    static func loadAllMateria() -> [Materia] {
+        return loadMateriaFromPlistNamed("materias")
+    }
+    
+    private static func loadMateriaFromPlistNamed(plistName: String) -> [Materia] {
+        guard
+            let path = NSBundle.mainBundle().pathForResource(plistName, ofType: "plist"),
+            let dictArray = NSArray(contentsOfFile: path) as? [[String : AnyObject]]
+            else {
+                fatalError("An error occurred while reading \(plistName).plist")
+        }
+        
+        var MateriasArray = [Materia]()
+        
+        for dict in dictArray {
+            guard
+                let identifier    = dict["identifier"]    as? Int,
+                let name          = dict["name"]          as? String,
+                let description  = dict["description"]  as? String,
+                let icon = dict["icon"] as? String,
+                let Universidades = dict["Universidades"]      as? NSArray,
+                let color = dict["color"]      as? NSArray
+                else {
+                    fatalError("Error parsing dict \(dict)")
+            }
+            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, color: color)
+            MateriasArray.append(materia)
+        }
+        
+        return MateriasArray
     }
 }

@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Feed-->
@@ -485,7 +487,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Materia" rowHeight="60" id="LP8-hG-uNi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Materia" rowHeight="60" id="LP8-hG-uNi" customClass="MateriaTableViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LP8-hG-uNi" id="a4A-Vj-7vW">
@@ -522,14 +524,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-LU-Vbi">
-                                <rect key="frame" x="45" y="126" width="285" height="267"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-LU-Vbi">
+                                <rect key="frame" x="20" y="103" width="335" height="374"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="267" id="zke-bg-BYH"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99587804079055786" green="1" blue="0.99584418535232544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOa-h0-bpW">
@@ -547,34 +554,38 @@
                                 <color key="backgroundColor" red="0.6029256435" green="0.98916319939999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="OLz-pi-aem"/>
-                                    <constraint firstAttribute="height" constant="100" id="dMV-gu-aCz"/>
+                                    <constraint firstAttribute="width" secondItem="59e-pr-P1F" secondAttribute="height" multiplier="1:1" id="fwH-Jx-VZ2"/>
                                 </constraints>
-                                <state key="normal" title="Informações"/>
+                                <state key="normal" title="Universidades"/>
+                                <connections>
+                                    <segue destination="Qh2-zL-pu6" kind="show" identifier="Universidades" id="rmh-6n-oAg"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3a-fU-5v0">
-                                <rect key="frame" x="20" y="72" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Titulo  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3a-fU-5v0">
+                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="eVf-XG-035"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.99587804079055786" green="1" blue="0.99584418535232544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zfs-LU-Vbi" firstAttribute="top" secondItem="t3a-fU-5v0" secondAttribute="bottom" constant="33" id="06x-Xe-qol"/>
+                            <constraint firstItem="zfs-LU-Vbi" firstAttribute="top" secondItem="t3a-fU-5v0" secondAttribute="bottom" constant="10" id="06x-Xe-qol"/>
                             <constraint firstAttribute="trailing" secondItem="59e-pr-P1F" secondAttribute="trailing" constant="45" id="48A-Jp-q5z"/>
                             <constraint firstItem="t3a-fU-5v0" firstAttribute="top" secondItem="HLx-9X-Sfv" secondAttribute="bottom" constant="8" id="832-Og-I6Y"/>
                             <constraint firstItem="oOa-h0-bpW" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="45" id="GvW-Vg-btg"/>
                             <constraint firstItem="070-i2-6kk" firstAttribute="top" secondItem="oOa-h0-bpW" secondAttribute="bottom" constant="11" id="KGx-zx-Rci"/>
-                            <constraint firstItem="59e-pr-P1F" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="114" id="Kt3-fu-HjI"/>
-                            <constraint firstItem="t3a-fU-5v0" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="20" id="N2m-Y6-nVN"/>
-                            <constraint firstItem="oOa-h0-bpW" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="114" id="act-qJ-Cuw"/>
-                            <constraint firstAttribute="trailing" secondItem="zfs-LU-Vbi" secondAttribute="trailing" constant="45" id="dLJ-cU-69e"/>
-                            <constraint firstItem="zfs-LU-Vbi" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="45" id="ooe-AQ-xlC"/>
+                            <constraint firstItem="59e-pr-P1F" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="30" id="Kt3-fu-HjI"/>
+                            <constraint firstItem="oOa-h0-bpW" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="30" id="act-qJ-Cuw"/>
+                            <constraint firstItem="t3a-fU-5v0" firstAttribute="centerX" secondItem="LCZ-Ly-xMZ" secondAttribute="centerX" id="c7H-37-9Qw"/>
+                            <constraint firstAttribute="trailing" secondItem="zfs-LU-Vbi" secondAttribute="trailing" constant="20" id="dLJ-cU-69e"/>
+                            <constraint firstItem="zfs-LU-Vbi" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="20" id="ooe-AQ-xlC"/>
+                            <constraint firstItem="t3a-fU-5v0" firstAttribute="width" secondItem="LCZ-Ly-xMZ" secondAttribute="width" id="xIO-fU-0zL"/>
                             <constraint firstItem="070-i2-6kk" firstAttribute="top" secondItem="59e-pr-P1F" secondAttribute="bottom" constant="11" id="ygz-L7-XDd"/>
                         </constraints>
                     </view>
@@ -588,6 +599,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nW-ul-x5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741.5" y="-1450.5"/>
+        </scene>
+        <!--Universidade Table View Controller-->
+        <scene sceneID="V4S-jd-Tz8">
+            <objects>
+                <tableViewController id="Qh2-zL-pu6" customClass="UniversidadeTableViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="4mR-To-dAW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Universidades" rowHeight="71" id="opO-ut-Okb" customClass="UniversidadeTableViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="71"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="opO-ut-Okb" id="j1r-rp-Wc8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6rH-hd-bwp">
+                                            <rect key="frame" x="8" y="8" width="139" height="55"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dY0-w3-Zft">
+                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="55"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="77" id="BjJ-lT-U5T"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Dd-l1g">
+                                                    <rect key="frame" x="97" y="18" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </stackView>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="6rH-hd-bwp" firstAttribute="centerY" secondItem="j1r-rp-Wc8" secondAttribute="centerY" id="47G-Ds-HVa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6rH-hd-bwp" secondAttribute="bottom" id="EYY-VH-w9d"/>
+                                        <constraint firstItem="6rH-hd-bwp" firstAttribute="top" secondItem="j1r-rp-Wc8" secondAttribute="topMargin" id="i7f-FU-jUP"/>
+                                        <constraint firstItem="6rH-hd-bwp" firstAttribute="leading" secondItem="j1r-rp-Wc8" secondAttribute="leadingMargin" id="lpb-g1-c2m"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="UniversidadeIcon" destination="dY0-w3-Zft" id="ieK-eJ-d4y"/>
+                                    <outlet property="UniversidadeNome" destination="shy-Dd-l1g" id="FeM-e5-kJY"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qh2-zL-pu6" id="fHc-1V-pEC"/>
+                            <outlet property="delegate" destination="Qh2-zL-pu6" id="swI-vD-A8Y"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drv-rq-jqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1349.5" y="-1450.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eEs-M8-7sb">
