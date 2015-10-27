@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Feed-->
@@ -186,18 +188,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-bN-QxI">
-                                            <rect key="frame" x="8" y="8" width="359" height="98.5"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cky-D3-rMl">
-                                                    <rect key="frame" x="152" y="68" width="75" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Responder"/>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxX-xw-ltG">
                                             <rect key="frame" x="18" y="18" width="64" height="64"/>
                                             <animations/>
@@ -223,6 +213,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-bN-QxI">
+                                            <rect key="frame" x="8" y="8" width="359" height="98.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cky-D3-rMl">
+                                                    <rect key="frame" x="152" y="68" width="75" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Responder"/>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -538,7 +540,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-LU-Vbi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-LU-Vbi">
                                 <rect key="frame" x="20" y="103" width="335" height="374"/>
                                 <animations/>
                                 <attributedString key="attributedText">
@@ -575,39 +577,27 @@
                                     <segue destination="Qh2-zL-pu6" kind="show" identifier="Universidades" id="rmh-6n-oAg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Titulo  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3a-fU-5v0">
-                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="eVf-XG-035"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.99587804079055786" green="1" blue="0.99584418535232544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zfs-LU-Vbi" firstAttribute="top" secondItem="t3a-fU-5v0" secondAttribute="bottom" constant="10" id="06x-Xe-qol"/>
                             <constraint firstAttribute="trailing" secondItem="59e-pr-P1F" secondAttribute="trailing" constant="45" id="48A-Jp-q5z"/>
-                            <constraint firstItem="t3a-fU-5v0" firstAttribute="top" secondItem="HLx-9X-Sfv" secondAttribute="bottom" constant="8" id="832-Og-I6Y"/>
                             <constraint firstItem="oOa-h0-bpW" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="45" id="GvW-Vg-btg"/>
                             <constraint firstItem="070-i2-6kk" firstAttribute="top" secondItem="oOa-h0-bpW" secondAttribute="bottom" constant="11" id="KGx-zx-Rci"/>
                             <constraint firstItem="59e-pr-P1F" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="30" id="Kt3-fu-HjI"/>
                             <constraint firstItem="oOa-h0-bpW" firstAttribute="top" secondItem="zfs-LU-Vbi" secondAttribute="bottom" constant="30" id="act-qJ-Cuw"/>
-                            <constraint firstItem="t3a-fU-5v0" firstAttribute="centerX" secondItem="LCZ-Ly-xMZ" secondAttribute="centerX" id="c7H-37-9Qw"/>
                             <constraint firstAttribute="trailing" secondItem="zfs-LU-Vbi" secondAttribute="trailing" constant="20" id="dLJ-cU-69e"/>
                             <constraint firstItem="zfs-LU-Vbi" firstAttribute="leading" secondItem="LCZ-Ly-xMZ" secondAttribute="leading" constant="20" id="ooe-AQ-xlC"/>
-                            <constraint firstItem="t3a-fU-5v0" firstAttribute="width" secondItem="LCZ-Ly-xMZ" secondAttribute="width" id="xIO-fU-0zL"/>
                             <constraint firstItem="070-i2-6kk" firstAttribute="top" secondItem="59e-pr-P1F" secondAttribute="bottom" constant="11" id="ygz-L7-XDd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nBA-cW-r1C"/>
+                    <navigationItem key="navigationItem" title="Title" id="4Q8-yW-JC6"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="Titulo" destination="t3a-fU-5v0" id="JME-bb-pSW"/>
-                        <outlet property="texto" destination="zfs-LU-Vbi" id="bX6-1F-wfa"/>
+                        <outlet property="FeedButton" destination="oOa-h0-bpW" id="6lR-DB-0J5"/>
+                        <outlet property="UniversidadeButton" destination="59e-pr-P1F" id="ii0-x8-KnT"/>
+                        <outlet property="texto" destination="zfs-LU-Vbi" id="8Rw-Cz-qes"/>
+                        <outlet property="titulo" destination="4Q8-yW-JC6" id="d2U-yL-BGC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nW-ul-x5h" userLabel="First Responder" sceneMemberID="firstResponder"/>

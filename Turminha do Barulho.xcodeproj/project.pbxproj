@@ -397,6 +397,7 @@
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
 				185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */,
+				3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */,
 				3F0F14E51BD66809002EA06A /* MateriasTeste.swift in Sources */,
 				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,

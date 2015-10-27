@@ -198,6 +198,8 @@ class QuestionFeedTableViewController: UITableViewController {
             
             if pergunta != ""{
                 print("titulo = \(titulo) e pergunta = \(pergunta)")
+                self.question.append(Question(nickname: "Bruno", userIcon: UIImage(named: "userIcon"), questionTitle: titulo, questionText: pergunta))
+                
                 
                 for subview in self.criarPerguntaView.subviews{
                     subview.removeFromSuperview()
@@ -205,6 +207,7 @@ class QuestionFeedTableViewController: UITableViewController {
                 
                 self.criarPerguntaView.removeFromSuperview()
 
+                self.tableView.reloadData()
             }
             else{
                 let alert = UIAlertView (title: "Erro", message: "Preencha a pergunta", delegate: self, cancelButtonTitle: "Ok")

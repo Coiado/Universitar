@@ -10,7 +10,10 @@ import UIKit
 
 class MateriasDetalheViewController: UIViewController {
 
-    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var UniversidadeButton: UIButton!
+    @IBOutlet weak var FeedButton: UIButton!
+    
+    @IBOutlet weak var titulo: UINavigationItem!
     @IBOutlet weak var texto: UITextView!
     
     var passedCell : MateriaTableViewCell!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
@@ -18,13 +21,16 @@ class MateriasDetalheViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.texto.layer.cornerRadius = 8
-        self.titulo.layer.cornerRadius = 15
+
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = passedCell.backgroundColor
-        self.titulo.text = passedCell.textLabel?.text
+        self.titulo.title = passedCell.textLabel?.text
         self.texto.text = passedCell.descricao
         self.texto.editable = false
+        
+        configButtons()
         
     }
     
@@ -46,7 +52,20 @@ class MateriasDetalheViewController: UIViewController {
         
         secondViewController.receiveCellData(cell!);
         
+    }
+    
+    
+    func configButtons(){
         
+        UniversidadeButton.layer.cornerRadius = 10
+        FeedButton.layer.cornerRadius = 10
         
     }
+    
+    
 }
+
+
+
+
+
