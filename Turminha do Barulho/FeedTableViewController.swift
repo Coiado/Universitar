@@ -50,6 +50,7 @@ class FeedTableViewController: UITableViewController {
         
         
         let info = data[indexPath.row] as Dados
+        cell.upvoteCount.text = "\(String(info.upvote!)) Pontos"
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
@@ -65,11 +66,11 @@ class FeedTableViewController: UITableViewController {
     
     func createData()
     {
-        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "JornalismoIcon")))
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "JornalismoIcon"),upvote: 1042))
         
-        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon")))
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon"), upvote: 12))
         
-        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI sobre 69?", imagem: UIImage(named: "CompIcon")))
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI sobre 69?", imagem: UIImage(named: "CompIcon"),upvote: 69))
         
         self.tableView.reloadData()
     }

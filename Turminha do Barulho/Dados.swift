@@ -14,13 +14,15 @@ struct Dados {
     var subtitulo : String?
     var texto: String?
     var imagem: UIImage?
+    var upvote: Int?
     
-    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?)
+    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int?)
     {
         self.titulo = titulo
         self.subtitulo = subtitulo
         self.texto = texto
         self.imagem = imagem
+        self.upvote = upvote
     }
     
     

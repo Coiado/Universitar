@@ -14,6 +14,7 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var nickName: UILabel!
     @IBOutlet weak var questionText: UILabel!
     @IBOutlet weak var questionView: UIView!
+    @IBOutlet weak var perguntaTitulo: UILabel!
     
     
     override func awakeFromNib() {
