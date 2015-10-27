@@ -1,27 +1,30 @@
 //
-//  MateriasTableViewController.swift
+//  UniversidadeTableViewController.swift
 //  Turminha do Barulho
 //
-//  Created by Lucas Coiado Mota on 10/20/15.
+//  Created by Lucas Coiado Mota on 10/23/15.
 //  Copyright © 2015 Lucas Coiado Mota. All rights reserved.
 //
 
 import UIKit
 
-class MateriasTableViewController: UITableViewController {
+class UniversidadeTableViewController: UITableViewController {
 
-    var materias : [Materia] = []
-    
-    var chosenCell : MateriaTableViewCell!
+    var passedCell : MateriaTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        materias = Materia.loadAllMateria()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func receiveCellData(cell: MateriaTableViewCell) {
+        self.passedCell = cell;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,29 +41,17 @@ class MateriasTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return materias.count
+        return passedCell.Universidades.count
     }
 
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as! MateriaTableViewCell
-
-        let materia = materias[indexPath.row] as Materia
-        cell.descricao = materia.description
-        cell.Universidades = materia.Universidades
-        cell.textLabel?.text = materia.name
-        cell.imageView?.image = UIImage(named: materia.icon)
-        cell.backgroundColor = UIColor(red: 12/255, green: 90/255, blue: 40/255, alpha: 1)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Universidades", forIndexPath: indexPath) as! UniversidadeTableViewCell
+        
+        let Universidade = passedCell.Universidades[indexPath.row]
+        cell.UniversidadeNome.text = Universidade as! String
         return cell
     }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! MateriaTableViewCell
-       
-        self.performSegueWithIdentifier("Detalhe", sender: self)
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,25 +88,14 @@ class MateriasTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
-        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
-        //Como o texto e o icone a celula.
-        let secondViewController = segue.destinationViewController as! MateriasDetalheViewController
-        
-        let cell = self.chosenCell
-        
-        secondViewController.receiveCellData(cell!);
-        
-        
-        
     }
-    
+    */
 
 }
