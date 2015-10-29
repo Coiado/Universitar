@@ -114,8 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */,
-				3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */,
-				180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */,
 			);
 			name = Materias;
 			sourceTree = "<group>";
@@ -123,7 +121,6 @@
 		185125511BDA919C00E59F89 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
 				185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */,
 				3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */,
-				3F0F14E51BD66809002EA06A /* MateriasTeste.swift in Sources */,
 				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
