@@ -48,6 +48,7 @@ class QuestionFeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("questionFeedCell", forIndexPath: indexPath) as! QuestionFeedCell
 
         let info = question[indexPath.row] as Question
+        cell.perguntaTitulo.text = info.questionTitle
         cell.userIcon.image = info.userIcon
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText

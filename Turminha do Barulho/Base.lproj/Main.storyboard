@@ -37,6 +37,9 @@
                                                     <state key="normal" title="UpVote">
                                                         <color key="titleColor" red="0.96060938880000002" green="1" blue="0.97648621570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="Upvoted:" destination="CNN-8M-TlH" eventType="touchUpInside" id="lzv-pw-qOO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-o5-1Fj">
                                                     <rect key="frame" x="182" y="160" width="178" height="30"/>
@@ -87,6 +90,13 @@
                                                         <constraint firstAttribute="height" constant="100" id="0xs-rE-cO2"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sn-Oe-wKc">
+                                                    <rect key="frame" x="8" y="136" width="170" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,6 +130,8 @@
                                     <outlet property="subTitle" destination="pIJ-uu-4Tk" id="F5D-QK-yJx"/>
                                     <outlet property="textField" destination="SUD-Sx-Nkq" id="KDn-Oa-WzI"/>
                                     <outlet property="title" destination="Wuz-vZ-HYf" id="G7G-sj-kly"/>
+                                    <outlet property="upvoteButton" destination="rc7-vl-Uc2" id="lNh-an-99l"/>
+                                    <outlet property="upvoteCount" destination="4Sn-Oe-wKc" id="dku-80-PBc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gef-cB-CZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406.5" y="1142.5"/>
+            <point key="canvasLocation" x="-618.5" y="766.5"/>
         </scene>
         <!--Feed de Perguntas-->
         <scene sceneID="qJV-pW-foo">
@@ -188,12 +200,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-bN-QxI">
+                                            <rect key="frame" x="8" y="8.5" width="359" height="98.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cky-D3-rMl">
+                                                    <rect key="frame" x="152" y="68" width="75" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Responder"/>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxX-xw-ltG">
                                             <rect key="frame" x="18" y="18" width="64" height="64"/>
                                             <animations/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pergunta:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wit-51-tt1">
-                                            <rect key="frame" x="90" y="18" width="74" height="21"/>
+                                            <rect key="frame" x="90" y="18" width="263" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -213,18 +237,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-bN-QxI">
-                                            <rect key="frame" x="8" y="8" width="359" height="98.5"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cky-D3-rMl">
-                                                    <rect key="frame" x="152" y="68" width="75" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Responder"/>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -232,6 +244,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="nickName" destination="Azb-I2-bFB" id="cuX-v9-xcZ"/>
+                                    <outlet property="perguntaTitulo" destination="Wit-51-tt1" id="eYF-Ea-yjD"/>
                                     <outlet property="questionText" destination="xE3-dD-ssY" id="RRa-fc-CHh"/>
                                     <outlet property="questionView" destination="cSn-bN-QxI" id="3oC-nS-utQ"/>
                                     <outlet property="userIcon" destination="pxX-xw-ltG" id="wgT-eO-W5k"/>

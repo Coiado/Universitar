@@ -15,8 +15,10 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var upvoteCount: UILabel!
     
-    
+    @IBOutlet weak var upvoteButton: UIButton!
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,5 +42,7 @@ class FeedCell: UITableViewCell {
         
         
     }
+    
+    
     
 }
