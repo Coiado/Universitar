@@ -15,7 +15,7 @@ struct Materia {
     let description: String
     let icon: String
     let Universidades: NSArray
-    let color: NSArray
+    let color: UIColor
 }
 
 // MARK: - Support for loading data from plist
@@ -47,7 +47,10 @@ extension Materia {
                 else {
                     fatalError("Error parsing dict \(dict)")
             }
-            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, color: color)
+            let red = CGFloat(color[0] as! NSNumber)/255
+            let green = CGFloat(color[1] as! NSNumber)/255
+            let blue = CGFloat(color[2] as! NSNumber)/255
+            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, color: UIColor(red: red, green: green, blue: blue, alpha: 1))
             MateriasArray.append(materia)
         }
         

@@ -50,7 +50,7 @@ class MateriasTableViewController: UITableViewController {
         cell.Universidades = materia.Universidades
         cell.textLabel?.text = materia.name
         cell.imageView?.image = UIImage(named: materia.icon)
-        cell.backgroundColor = UIColor(red: 12/255, green: 90/255, blue: 40/255, alpha: 1)
+        cell.backgroundColor = materia.color
 
         return cell
     }
