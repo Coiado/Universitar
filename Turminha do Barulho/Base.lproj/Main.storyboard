@@ -37,6 +37,9 @@
                                                     <state key="normal" title="UpVote">
                                                         <color key="titleColor" red="0.96060938880000002" green="1" blue="0.97648621570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="Upvoted:" destination="CNN-8M-TlH" eventType="touchUpInside" id="lzv-pw-qOO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-o5-1Fj">
                                                     <rect key="frame" x="182" y="160" width="178" height="30"/>
@@ -127,6 +130,7 @@
                                     <outlet property="subTitle" destination="pIJ-uu-4Tk" id="F5D-QK-yJx"/>
                                     <outlet property="textField" destination="SUD-Sx-Nkq" id="KDn-Oa-WzI"/>
                                     <outlet property="title" destination="Wuz-vZ-HYf" id="G7G-sj-kly"/>
+                                    <outlet property="upvoteButton" destination="rc7-vl-Uc2" id="lNh-an-99l"/>
                                     <outlet property="upvoteCount" destination="4Sn-Oe-wKc" id="dku-80-PBc"/>
                                 </connections>
                             </tableViewCell>

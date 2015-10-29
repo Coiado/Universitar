@@ -55,6 +55,13 @@ class FeedTableViewController: UITableViewController {
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
         cell.picture.image = info.imagem
+        
+        //configurar botao para o upvote
+       // cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
+        cell.upvoteButton.tag = indexPath.row
+        
+        //cell.upvoteButton
+        
         cell.cardSetup()
         return cell
     }
@@ -120,5 +127,36 @@ class FeedTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MARK:- Metodos para upvoted
+    
+    @IBAction func Upvoted(sender: AnyObject) {
+        
+        let row = sender.tag
+        
+        let cell = data[row]
+        
+        let upvotes:Int = data[row].upvote!
+        
+        if cell.upvoted == false {
+            
+            data[row].upvoted = true
+            data[row].upvote = (upvotes + 1)
+        }
+        else {
+            
+            data[row].upvoted = false
+            data[row].upvote = upvotes - 1
+        }
+        
+        //self.tableView.reloadData()
+        
+        let indexpath = NSIndexPath(forRow: row, inSection: 0)
+        
+        self.tableView.reloadRowsAtIndexPaths([indexpath] ,withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
 }
+
+
+
