@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125541BDA91EB00E59F89 /* FeedTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125571BDA91F200E59F89 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125561BDA91F200E59F89 /* FeedCell.swift */; settings = {ASSET_TAGS = (); }; };
-		185125591BDA91F800E59F89 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125581BDA91F800E59F89 /* Dados.swift */; settings = {ASSET_TAGS = (); }; };
-		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; settings = {ASSET_TAGS = (); }; };
-		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CF1291BDE8777003E7488 /* materias.plist */; settings = {ASSET_TAGS = (); }; };
-		3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */; };
+		185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125541BDA91EB00E59F89 /* FeedTableViewController.swift */; };
+		185125571BDA91F200E59F89 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125561BDA91F200E59F89 /* FeedCell.swift */; };
+		185125591BDA91F800E59F89 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125581BDA91F800E59F89 /* Dados.swift */; };
+		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; };
+		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; };
+		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; };
+		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; };
+		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; };
+		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; };
+		3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CF1291BDE8777003E7488 /* materias.plist */; };
+		3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */; };
 		3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AD1BD55047002EA06A /* AppDelegate.swift */; };
 		3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AF1BD55047002EA06A /* ViewController.swift */; };
 		3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B11BD55047002EA06A /* Main.storyboard */; };
@@ -27,11 +27,12 @@
 		3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */; };
 		3F0F14C61BD55047002EA06A /* Turminha_do_BarulhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14C51BD55047002EA06A /* Turminha_do_BarulhoTests.swift */; };
 		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
-		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; settings = {ASSET_TAGS = (); }; };
-		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; };
+		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; };
+		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; };
+		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; };
+		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; };
+		5FF948981BE2A9BC003C6D2E /* FeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarContaViewController.swift; sourceTree = "<group>"; };
+		5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				185125541BDA91EB00E59F89 /* FeedTableViewController.swift */,
 				185125561BDA91F200E59F89 /* FeedCell.swift */,
+				5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */,
 				3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */,
 				3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */,
+				5FF948981BE2A9BC003C6D2E /* FeedDetailsViewController.swift in Sources */,
 				185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */,
 				185125571BDA91F200E59F89 /* FeedCell.swift in Sources */,
 				3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */,

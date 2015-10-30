@@ -16,9 +16,10 @@ struct Dados {
     var imagem: UIImage?
     var upvote: Int?
     var upvoted:Bool = false
+    var fulltext: String
 
     
-    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0)
+    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0, fulltext: String)
     {
         self.titulo = titulo
         self.subtitulo = subtitulo
@@ -26,6 +27,7 @@ struct Dados {
         self.imagem = imagem
         self.upvote = upvote
         self.upvoted = false
+        self.fulltext = fulltext
     }
     
     

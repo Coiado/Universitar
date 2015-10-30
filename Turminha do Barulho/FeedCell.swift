@@ -18,6 +18,8 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var upvoteCount: UILabel!
     
     @IBOutlet weak var upvoteButton: UIButton!
+    
+    var fullText: String!
         
     override func awakeFromNib() {
         super.awakeFromNib()
