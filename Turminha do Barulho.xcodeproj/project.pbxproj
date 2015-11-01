@@ -19,6 +19,8 @@
 		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; settings = {ASSET_TAGS = (); }; };
 		3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CF1291BDE8777003E7488 /* materias.plist */; settings = {ASSET_TAGS = (); }; };
 		3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		3F0CF12E1BE29C6B003E7488 /* AnswerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12D1BE29C6B003E7488 /* AnswerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3F0CF1301BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12F1BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AD1BD55047002EA06A /* AppDelegate.swift */; };
 		3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AF1BD55047002EA06A /* ViewController.swift */; };
 		3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B11BD55047002EA06A /* Main.storyboard */; };
@@ -64,6 +66,8 @@
 		3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeData.swift; path = ../UniversidadeData.swift; sourceTree = "<group>"; };
 		3F0CF1291BDE8777003E7488 /* materias.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = materias.plist; sourceTree = "<group>"; };
 		3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaTableViewCell.swift; sourceTree = "<group>"; };
+		3F0CF12D1BE29C6B003E7488 /* AnswerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerTableViewController.swift; sourceTree = "<group>"; };
+		3F0CF12F1BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turminha do Barulho.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0F14AD1BD55047002EA06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F0F14AF1BD55047002EA06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			children = (
 				185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */,
 				185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */,
+				3F0CF12F1BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift */,
+				3F0CF12D1BE29C6B003E7488 /* AnswerTableViewController.swift */,
 			);
 			name = QuestionFeed;
 			sourceTree = "<group>";
@@ -393,12 +399,14 @@
 				3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */,
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
+				3F0CF1301BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift in Sources */,
 				185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */,
 				3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */,
 				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
 				3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */,
+				3F0CF12E1BE29C6B003E7488 /* AnswerTableViewController.swift in Sources */,
 				180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */,
 				185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */,
 			);

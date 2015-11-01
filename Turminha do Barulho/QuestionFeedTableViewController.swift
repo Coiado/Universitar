@@ -12,6 +12,8 @@ class QuestionFeedTableViewController: UITableViewController {
 
     var question : [Question] = []
     
+    var chosenCell : QuestionFeedCell!
+    
     
     override func viewDidLoad() {
         
@@ -62,6 +64,15 @@ class QuestionFeedTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 120
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! QuestionFeedCell
+        self.performSegueWithIdentifier("Answer", sender: self)
+    }
+    
+   
+    
+    
     
     func createQuestion()
     {
@@ -232,6 +243,27 @@ class QuestionFeedTableViewController: UITableViewController {
         }
         
         self.criarPerguntaView.removeFromSuperview()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        //Como o texto e o icone a celula.
+        if segue.identifier == "Answer" {
+            if let destination = segue.destinationViewController as? AnswerTableViewController {
+                let path = self.tableView?.indexPathForSelectedRow!
+                let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
+                destination.passedCell = cell
+                }
+        }
+//        let secondViewController = segue.destinationViewController as! AnswerTableViewController
+//        
+//        let cell = self.chosenCell
+//        
+//        secondViewController.receiveCellData(cell!);
+        
     }
     
 }
