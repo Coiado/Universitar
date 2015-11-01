@@ -12,6 +12,7 @@ class FeedTableViewController: UITableViewController {
 
     var data : [Dados] = []
     
+    var chosenCell: FeedCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,7 @@ class FeedTableViewController: UITableViewController {
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
         cell.picture.image = info.imagem
+        cell.fullText = info.fulltext
         
         //configurar botao para o upvote
        // cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
@@ -71,16 +73,36 @@ class FeedTableViewController: UITableViewController {
     }
     
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FeedCell
+        
+        self.performSegueWithIdentifier("detalhesNoticia", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        let secondViewController = segue.destinationViewController as! FeedDetailsViewController
+        
+        let cell = self.chosenCell
+        
+        secondViewController.receiveCellData(cell!);
+        
+    }
+    
+    
     func createData()
     {
-        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "JornalismoIcon"),upvote: 1042))
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "JornalismoIcon"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
         
-        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon"), upvote: 12))
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon"), upvote: 12,fulltext:"texto inteiro de economia"))
         
-        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI sobre 69?", imagem: UIImage(named: "CompIcon"),upvote: 69))
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI sobre 69?", imagem: UIImage(named: "CompIcon"),upvote: 69,fulltext:"texto inteiro de computacao"))
         
         self.tableView.reloadData()
     }
+    
     
 
     /*

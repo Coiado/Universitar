@@ -198,6 +198,12 @@ class QuestionFeedTableViewController: UITableViewController {
         
         
     }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     
     func criaPergunta()
     {
