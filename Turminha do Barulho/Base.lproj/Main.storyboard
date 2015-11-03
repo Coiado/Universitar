@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -92,7 +92,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCard" rowHeight="200" id="blW-1k-vaN" customClass="FeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blW-1k-vaN" id="Imh-a5-RgZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -127,6 +127,9 @@
                                                     <state key="normal" title="Mais">
                                                         <color key="titleColor" red="0.96060938880000002" green="1" blue="0.97648621570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="GoToDetail:" destination="CNN-8M-TlH" eventType="touchUpInside" id="E1S-YL-mUq"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wuz-vZ-HYf">
                                                     <rect key="frame" x="8" y="8" width="344" height="21"/>
@@ -154,7 +157,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="76" id="zkd-fy-qb9"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -201,6 +204,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="cardView" destination="ebR-LA-gI2" id="mr8-8C-cSc"/>
+                                    <outlet property="moreButton" destination="r7l-o5-1Fj" id="m7i-tY-Vhk"/>
                                     <outlet property="picture" destination="g2R-Ve-Mh4" id="aD0-Ft-gXP"/>
                                     <outlet property="subTitle" destination="pIJ-uu-4Tk" id="F5D-QK-yJx"/>
                                     <outlet property="textField" destination="SUD-Sx-Nkq" id="KDn-Oa-WzI"/>
@@ -215,7 +219,7 @@
                             <outlet property="delegate" destination="CNN-8M-TlH" id="FBr-kz-YDl"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feed" id="VWh-3g-Svl"/>
+                    <navigationItem key="navigationItem" id="z9k-bR-PYE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="ihL-bu-1DM" kind="show" identifier="detalhesNoticia" id="nP0-bz-EQi"/>
@@ -223,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmS-0N-fe8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1188.5" y="-319.5"/>
+            <point key="canvasLocation" x="-601.5" y="-319.5"/>
         </scene>
         <!--Answer Table View Controller-->
         <scene sceneID="uGa-J0-zag">
@@ -424,7 +428,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGs-R4-aa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-764.5" y="-319.5"/>
+            <point key="canvasLocation" x="-177.5" y="-319.5"/>
         </scene>
         <!--Config View Controller-->
         <scene sceneID="Is6-iX-Mni">
@@ -622,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIg-Cd-ihS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344.5" y="-605.5"/>
+            <point key="canvasLocation" x="931.5" y="-605.5"/>
         </scene>
         <!--Criar Conta-->
         <scene sceneID="CnX-QZ-1p8">
@@ -717,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeH-Qs-Tzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350.5" y="-639.5"/>
+            <point key="canvasLocation" x="1937.5" y="-639.5"/>
         </scene>
         <!--Materias-->
         <scene sceneID="1DD-X4-CQk">
@@ -913,7 +917,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CNN-8M-TlH" kind="relationship" relationship="viewControllers" id="AwY-56-Auk"/>
+                        <segue destination="XQz-o1-Zad" kind="relationship" relationship="viewControllers" id="AwY-56-Auk"/>
                         <segue destination="j3x-IH-hc5" kind="relationship" relationship="viewControllers" id="Vqd-tu-kiS"/>
                         <segue destination="ZCU-Lg-wuW" kind="relationship" relationship="viewControllers" id="6mu-EP-pSn"/>
                         <segue destination="Cxl-pG-q0P" kind="relationship" relationship="viewControllers" id="85a-aK-N6O"/>
@@ -933,6 +937,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1014,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bs-6a-GrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806.5" y="-649.5"/>
+            <point key="canvasLocation" x="1393.5" y="-649.5"/>
         </scene>
         <!--Configuração-->
         <scene sceneID="fCK-TS-d7a">
@@ -1026,6 +1031,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1034,7 +1040,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otk-Cd-EQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242.5" y="-605.5"/>
+            <point key="canvasLocation" x="344.5" y="-605.5"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="bJM-e4-YD0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQz-o1-Zad" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" id="VWh-3g-Svl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Fj-WA-ZmS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CNN-8M-TlH" kind="relationship" relationship="rootViewController" id="rav-ie-Ut8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcP-hz-Er2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1683.5" y="480.5"/>
         </scene>
     </scenes>
     <resources>

@@ -18,6 +18,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var upvoteCount: UILabel!
     
     @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
     
     var fullText: String!
         
@@ -41,6 +42,8 @@ class FeedCell: UITableViewCell {
         let path = UIBezierPath(rect: self.cardView.bounds)
         self.cardView.layer.shadowPath = path.CGPath
         self.cardView.layer.shadowOpacity = 1
+        
+        self.textField.editable = false
         
         
     }
