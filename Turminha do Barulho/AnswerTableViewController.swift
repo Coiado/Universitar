@@ -10,6 +10,8 @@ import UIKit
 
 class AnswerTableViewController: UITableViewController {
 
+    @IBOutlet weak var tableViewAnswer: UITableView!
+    @IBOutlet var tableViewQuestion: UITableView!
     var passedCell : QuestionFeedCell!
     
     override func viewDidLoad() {
@@ -46,14 +48,27 @@ class AnswerTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerQuestionTableViewCell
-        cell.perguntaTitulo.text = passedCell.perguntaTitulo.text
-        cell.userIcon.image = passedCell.userIcon.image
-        cell.nickName.text = passedCell.nickName.text
-        cell.questionText.text = passedCell.questionText.text
-        cell.cardSetup()
-
-        return cell
+        if(tableView == tableViewQuestion){
+            let cell = tableView.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! AnswerQuestionTableViewCell
+            cell.perguntaTitulo.text = passedCell.perguntaTitulo.text
+            cell.userIcon.image = passedCell.userIcon.image
+            cell.nickName.text = passedCell.nickName.text
+            cell.questionText.text = passedCell.questionText.text
+            cell.cardSetup()
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerTableViewCell
+            if(tableView == tableViewAnswer){
+            let info  = passedCell.answers[indexPath.row] as Answer
+            cell.answerText.text = info.answerText
+            cell.userIcon.image = info.userIcon
+            cell.nickName.text = info.nickname
+            cell.cardSetup()
+            }
+            
+            return cell
+        }
     }
 
 

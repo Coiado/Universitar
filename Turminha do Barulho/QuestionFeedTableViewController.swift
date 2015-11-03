@@ -14,6 +14,8 @@ class QuestionFeedTableViewController: UITableViewController {
     
     var chosenCell : QuestionFeedCell!
     
+    var answers = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "E bom sim!"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    
     
     override func viewDidLoad() {
         
@@ -54,6 +56,7 @@ class QuestionFeedTableViewController: UITableViewController {
         cell.userIcon.image = info.userIcon
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText
+        cell.answers = info.answers
         cell.cardSetup()
         
 
@@ -76,13 +79,14 @@ class QuestionFeedTableViewController: UITableViewController {
     
     func createQuestion()
     {
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?"))
+        
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?", answers: self.answers))
         
         
-        self.question.append(Question(nickname: "Paulo", userIcon: UIImage(named: "userIcon"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?"))
+        self.question.append(Question(nickname: "Paulo", userIcon: UIImage(named: "userIcon"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers))
         
         
-        self.question.append(Question(nickname: "Maria", userIcon: UIImage(named: "userIcon"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?"))
+        self.question.append(Question(nickname: "Maria", userIcon: UIImage(named: "userIcon"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers))
         
         self.tableView.reloadData()
     }
@@ -216,7 +220,7 @@ class QuestionFeedTableViewController: UITableViewController {
             
             if pergunta != ""{
                 print("titulo = \(titulo) e pergunta = \(pergunta)")
-                self.question.append(Question(nickname: "Bruno", userIcon: UIImage(named: "userIcon"), questionTitle: titulo, questionText: pergunta))
+                self.question.append(Question(nickname: "Bruno", userIcon: UIImage(named: "userIcon"), questionTitle: titulo, questionText: pergunta, answers: self.answers))
                 
                 
                 for subview in self.criarPerguntaView.subviews{
@@ -258,7 +262,7 @@ class QuestionFeedTableViewController: UITableViewController {
         //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
         //Como o texto e o icone a celula.
         if segue.identifier == "Answer" {
-            if let destination = segue.destinationViewController as? AnswerTableViewController {
+            if let destination = segue.destinationViewController as? AnswerViewController {
                 let path = self.tableView?.indexPathForSelectedRow!
                 let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
                 destination.passedCell = cell

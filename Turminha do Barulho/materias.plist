@@ -5,9 +5,9 @@
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -28,9 +28,9 @@
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -51,9 +51,9 @@
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -75,9 +75,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -98,9 +98,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -121,9 +121,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -144,9 +144,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -167,9 +167,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -190,9 +190,9 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -214,9 +214,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -237,9 +237,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -260,9 +260,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -283,9 +283,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -306,9 +306,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
@@ -329,9 +329,9 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 	<dict>
 		<key>color</key>
 		<array>
-			<integer>12</integer>
-			<integer>93</integer>
-			<integer>40</integer>
+			<integer>255</integer>
+			<integer>255</integer>
+			<integer>255</integer>
 			<integer>1</integer>
 		</array>
 		<key>identifier</key>
