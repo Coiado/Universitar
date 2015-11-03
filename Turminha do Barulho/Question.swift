@@ -14,13 +14,15 @@ struct Question{
     var userIcon: UIImage?
     var questionTitle: String?
     var questionText: String?
+    var answers : [Answer] = []
     
-    init(nickname: String?, userIcon: UIImage?, questionTitle: String?, questionText: String?)
+    init(nickname: String?, userIcon: UIImage?, questionTitle: String?, questionText: String?, answers: [Answer])
     {
         self.nickname = nickname
         self.userIcon = userIcon
         self.questionText = questionText
         self.questionTitle = questionTitle
+        self.answers = answers
         
     }
     

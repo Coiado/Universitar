@@ -15,6 +15,9 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var questionText: UILabel!
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var perguntaTitulo: UILabel!
+    var answers : [Answer] = []
+    
+    
         
     override func awakeFromNib() {
         super.awakeFromNib()
