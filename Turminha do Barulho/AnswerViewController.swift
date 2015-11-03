@@ -76,6 +76,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
+    @IBAction func sendQuestion(sender: AnyObject) {
+        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
+        alert.show()
+    }
 
     /*
     // MARK: - Navigation
