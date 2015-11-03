@@ -11,8 +11,8 @@ import UIKit
 class FeedTableViewController: UITableViewController {
 
     var data : [Dados] = []
-    
-    var chosenCell: FeedCell?
+        
+    var chosenCell: Dados?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,6 @@ class FeedTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCard", forIndexPath: indexPath) as! FeedCell
         
-        
-        
         let info = data[indexPath.row] as Dados
         cell.upvoteCount.text = "\(String(info.upvote!)) Pontos"
         cell.title.text = info.titulo
@@ -59,10 +57,11 @@ class FeedTableViewController: UITableViewController {
         cell.fullText = info.fulltext
         
         //configurar botao para o upvote
-       // cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
+        //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
         cell.upvoteButton.tag = indexPath.row
         
-        //cell.upvoteButton
+        //cell.moreButton
+        cell.moreButton.tag = indexPath.row
         
         cell.cardSetup()
         return cell
@@ -72,14 +71,6 @@ class FeedTableViewController: UITableViewController {
         return 200
     }
     
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FeedCell
-        
-        self.performSegueWithIdentifier("detalhesNoticia", sender: self)
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
@@ -152,7 +143,21 @@ class FeedTableViewController: UITableViewController {
     
     // MARK:- Metodos para upvoted
     
+    @IBAction func GoToDetail(sender: AnyObject) {
+       
+        let row = sender.tag
+        self.chosenCell = data[row]
+        
+        performSegueWithIdentifier("detalhesNoticia", sender: self)
+        
+        
+        
+    }
+    
+    
     @IBAction func Upvoted(sender: AnyObject) {
+        
+        let button = sender as! UIButton
         
         let row = sender.tag
         
@@ -164,11 +169,14 @@ class FeedTableViewController: UITableViewController {
             
             data[row].upvoted = true
             data[row].upvote = (upvotes + 1)
+            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
         }
         else {
             
             data[row].upvoted = false
             data[row].upvote = upvotes - 1
+            button.highlighted = false
+            button.backgroundColor = UIColor.darkGrayColor()
         }
         
         //self.tableView.reloadData()

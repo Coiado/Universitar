@@ -15,14 +15,14 @@ class FeedDetailsViewController: UIViewController {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var fullText: UITextView!
     
-    var passedCell: FeedCell!
+    var passedCell: Dados!
     
     override func viewDidLoad() {
         
-        image.image = passedCell.picture.image
-        fullText.text = passedCell.fullText
-        subTitle.text = passedCell.subTitle.text
-        navigationBarTitle.topItem?.title = passedCell.title.text
+        image.image = passedCell.imagem
+        fullText.text = passedCell.fulltext
+        subTitle.text = passedCell.subtitulo
+        navigationBarTitle.topItem?.title = passedCell.titulo
         
         fullText.layer.cornerRadius = 15
         fullText.layer.borderWidth = 3
@@ -30,7 +30,7 @@ class FeedDetailsViewController: UIViewController {
     }
     
     
-    func receiveCellData(cell: FeedCell) {
+    func receiveCellData(cell: Dados) {
         self.passedCell = cell;
         
     }
