@@ -14,7 +14,7 @@ class QuestionFeedTableViewController: UITableViewController {
     
     var chosenCell : QuestionFeedCell!
     
-    var answers = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "E bom sim!"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim!"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
     
     
     override func viewDidLoad() {
