@@ -23,6 +23,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         self.createQuestion()
         self.tableView.separatorColor = UIColor.clearColor()
         
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -212,8 +215,21 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        textField.resignFirstResponder()
         return false
+    }
+    
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n"{
+            
+//            self.view.endEditing(true)
+            textView.resignFirstResponder()
+            return false
+        
+        }
+        
+        return true
     }
     
     
