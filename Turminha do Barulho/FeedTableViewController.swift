@@ -169,14 +169,16 @@ class FeedTableViewController: UITableViewController {
             
             data[row].upvoted = true
             data[row].upvote = (upvotes + 1)
-            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+            button.backgroundColor = UIColor.darkGrayColor()
+
         }
         else {
             
             data[row].upvoted = false
             data[row].upvote = upvotes - 1
             button.highlighted = false
-            button.backgroundColor = UIColor.darkGrayColor()
+            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+
         }
         
         //self.tableView.reloadData()
