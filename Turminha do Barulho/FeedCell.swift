@@ -25,6 +25,7 @@ class FeedCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -44,6 +45,7 @@ class FeedCell: UITableViewCell {
         self.cardView.layer.shadowOpacity = 1
         
         self.textField.editable = false
+        
         
         
     }
