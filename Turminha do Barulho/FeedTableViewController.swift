@@ -60,6 +60,7 @@ class FeedTableViewController: UITableViewController {
         //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
         cell.upvoteButton.tag = indexPath.row
         
+        
         //cell.moreButton
         cell.moreButton.tag = indexPath.row
         
@@ -167,25 +168,31 @@ class FeedTableViewController: UITableViewController {
         
         if cell.upvoted == false {
             
+            
             data[row].upvoted = true
             data[row].upvote = (upvotes + 1)
-            button.backgroundColor = UIColor.darkGrayColor()
+            //ESSA EH A COR AZUL
+            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+            
 
         }
         else {
             
+            
             data[row].upvoted = false
             data[row].upvote = upvotes - 1
-            button.highlighted = false
-            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+            //ESSA EH A COR CINZA
+            button.backgroundColor = UIColor.darkGrayColor()
+
 
         }
         
         //self.tableView.reloadData()
-        
         let indexpath = NSIndexPath(forRow: row, inSection: 0)
-        
         self.tableView.reloadRowsAtIndexPaths([indexpath] ,withRowAnimation: UITableViewRowAnimation.None)
+        
+        
+        
     }
     
 }
