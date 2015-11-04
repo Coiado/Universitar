@@ -575,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gef-cB-CZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222.5" y="282.5"/>
+            <point key="canvasLocation" x="377.5" y="342.5"/>
         </scene>
         <!--Feed de Perguntas-->
         <scene sceneID="qJV-pW-foo">
