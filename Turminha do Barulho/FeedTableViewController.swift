@@ -59,10 +59,17 @@ class FeedTableViewController: UITableViewController {
         //configurar botao para o upvote
         //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
         cell.upvoteButton.tag = indexPath.row
-        
-        
+        if info.upvoted == false{
+            cell.upvoteButton.backgroundColor = UIColor.darkGrayColor()
+        }
+        else{
+            cell.upvoteButton.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+        }
         //cell.moreButton
         cell.moreButton.tag = indexPath.row
+        
+        
+        
         
         cell.cardSetup()
         return cell
@@ -158,13 +165,14 @@ class FeedTableViewController: UITableViewController {
     
     @IBAction func Upvoted(sender: AnyObject) {
         
-        let button = sender as! UIButton
-        
         let row = sender.tag
         
         let cell = data[row]
         
         let upvotes:Int = data[row].upvote!
+        
+        
+        let indexpath = NSIndexPath(forRow: row, inSection: 0)
         
         if cell.upvoted == false {
             
@@ -172,8 +180,8 @@ class FeedTableViewController: UITableViewController {
             data[row].upvoted = true
             data[row].upvote = (upvotes + 1)
             //ESSA EH A COR AZUL
-            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
-            
+//            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+
 
         }
         else {
@@ -182,13 +190,11 @@ class FeedTableViewController: UITableViewController {
             data[row].upvoted = false
             data[row].upvote = upvotes - 1
             //ESSA EH A COR CINZA
-            button.backgroundColor = UIColor.darkGrayColor()
-
+//            button.backgroundColor = UIColor.darkGrayColor()
 
         }
         
         //self.tableView.reloadData()
-        let indexpath = NSIndexPath(forRow: row, inSection: 0)
         self.tableView.reloadRowsAtIndexPaths([indexpath] ,withRowAnimation: UITableViewRowAnimation.None)
         
         
