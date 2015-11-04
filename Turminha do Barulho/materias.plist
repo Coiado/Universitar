@@ -17,7 +17,7 @@
 		<key>description</key>
 		<string>O biólogo estuda todas as formas de vida, macroscópica ou microscópica. Ele pesquisa a origem, a evolução, a estrutura e o funcionamento dos organismos. Analisa as relações entre os diversos seres e entre eles e o meio ambiente. O vasto campo de estudos na graduação permite que, depois de formado, o profissional siga caminhos diversos, conforme seu interesse. Da pesquisa com células-tronco ao trabalho ambiental, a carreira do biólogo é abrangente e promissora, em razão, especialmente, da crescente preocupação, em nível mundial, com o meio ambiente. A atuação desse profissional é ainda fundamental na descoberta de aplicações de organismos na medicina, no desenvolvimento de medicamentos e na indústria, em áreas de fabricação de bebidas e de alimentos. O licenciado está apto a dar aulas de Biologia no ensino médio e, no fundamental, pode atuar como educador ambiental ou docente de ciências. Sua formação também permite desenvolver ações educativas em museus, unidades de conservação, ONGs e empresas e escolas. Nas secretarias de Educação, atua como consultor e elabora novas propostas para o ensino da disciplina. Com pós-graduação, está habilitado a dar aulas no ensino superior. </string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -40,7 +40,7 @@
 		<key>description</key>
 		<string>O Médico veterinário dá assistência clínica e cirúrgica a animais domésticos e silvestres, além de cuidar da saúde, da alimentação e da reprodução de rebanhos. Outra de suas funções, complementando sua atenção na saúde animal e na saúde pública, é inspecionar a produção de alimentos de origem animal. Neste caso, o médico veterinário verifica o cumprimento das normas de higiene nas indústrias, a fim de evitar a transmissão de doenças para o ser humano. Na indústria alimentícia, ele controla as tecnologias de produção. Em qualquer indústria que utilize matéria-prima de origem animal, a presença do médico veterinário é indispensável para realizar o controle dessa matéria-prima. Pode atuar, ainda, na área de vendas de alimentos, medicamentos, vacinas e de outros artigos para animais.</string>
 		<key>icon</key>
-		<string>Vet-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -64,7 +64,7 @@
 		<string>A gastronomia é uma das profissões que mais ganharam status e espaço no Brasil nos últimos anos. Indício disso é a grande quantidade de programas de culinária na TV e a valorização do crítico gastronômico. Mas o profissional dessa área tem responsabilidades que vão muito além do modismo – muitas delas sem glamour nenhum. Mais do que criar pratos com bela apresentação, o bacharel lida com temas como a segurança alimentar, o gerenciamento de funcionários e das finanças 
 de um restaurante. Pode se especializar em confeitaria, panificação ou num tipo específico de culinária, como japonesa, francesa ou vegetariana. Além de acompanhar o dia a dia da cozinha, negocia com fornecedores e desenvolve estratégias de marketing. Planeja cardápios, avaliando a disponibilidade de ingredientes, e entende de bebidas. O campo de atuação é amplo: restaurantes, lanchonetes, bares, hotéis, bufês, hospitais e empresas de catering (que fornecem refeições para companhias aéreas ou eventos). Você pode ingressar na carreira com um curso superior de tecnologia na área.</string>
 		<key>icon</key>
-		<string>Gastronomia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -87,7 +87,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<key>description</key>
 		<string>É a ciência que cuida da aplicação das normas jurídicas vigentes em um país, para organizar as relações entre indivíduos e grupos na sociedade. Zelar pela harmonia e pela correção das relações entre os cidadãos, as empresas e o poder público é a função do bacharel em direito. Como advogado, defende os interesses do cliente em diversos campos. Como juiz, resolve litígios entre indivíduos ou empresas. Para isso, ele analisa as disputas e os conflitos com base no que está estabelecido na constituição e regulamentado pelas leis. Há duas carreiras distintas para o bacharel: ele pode atuar como advogado ou seguir a carreira jurídica (veja ao lado). para ser advogado é preciso passar em exame da OAB. Já o candidato a juiz, promotor ou delegado de polícia tem de prestar concurso público. Para se tornar juiz, é necessário ter ainda dois anos de inscrição na OAB como advogado.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -110,7 +110,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<key>description</key>
 		<string>É o estudo das origens, do desenvolvimento e da organização das sociedades e culturas atuais. O cientista social estuda os fenômenos, as estruturas e as relações que caracterizam as organizações sociais, culturais, econômicas e políticas. Esse bacharel analisa os movimentos e os conflitos sociais, a construção das identidades e a formação das opiniões. Pesquisa costumes e hábitos e investiga as relações entre indivíduos, famílias, grupos e instituições. Desenvolve e utiliza um conjunto variado de técnicas e métodos de pesquisa para o estudo das coletividades humanas e interpreta os problemas da sociedade, da política e da cultura.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -133,7 +133,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<key>description</key>
 		<string>O Bacharel em Jornalismo trabalha na procura e na divulgação de informações por meio de veículos de comunicação, como jornais, revistas, rádio, TV e internet. É o profissional da notícia. Ele investiga e divulga fatos e informações de interesse público, redige e edita reportagens, faz entrevistas e escreve artigos, adaptando o tamanho, a abordagem e a linguagem dos textos ao veículo e ao público a que se destinam. Senso crítico, capacidade de expressão, domínio do português, de técnicas de redação e de softwares de edição de textos e de imagens são requisitos fundamentais.</string>
 		<key>icon</key>
-		<string>Jornalismo-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -156,7 +156,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<key>description</key>
 		<string>O Psicólogo estuda os fenômenos psíquicos e de comportamento do ser humano por intermédio da análise de suas emoções, suas ideias e seus valores. Ele diagnostica, previne e trata doenças mentais, distúrbios emocionais e de personalidade. Ele observa e analisa as atitudes, os sentimentos e os mecanismos mentais do paciente e procura ajudá-lo a identificar as causas dos problemas e a rever comportamentos inadequados. Este profissional atua em consultórios, em hospitais e nas mais variadas instituições de saúde, contribuindo, do ponto de vista psicológico, para a recuperação da saúde das pessoas. Em escolas e instituições, colabora na orientação educacional. É necessário registrar-se no Conselho Regional de Psicologia para exercer a profissão. O licenciado atua, em geral, no desenvolvimento de metodologias pedagógicas com os professores dos ensinos básico e médio, cursos profissionalizantes e técnicos. Pode trabalhar também na elaboração de estratégias psicossociais para ONGs, abrigos comunitários e centros socioeducativos.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -179,7 +179,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<key>description</key>
 		<string>O Médico investiga a natureza e as causas das doenças humanas, procurando sua cura e prevenção. A saúde humana é o objeto de estudo do médico. Ele pesquisa, previne e trata disfunções e moléstias. Para isso, é imprescindível que ele esteja sempre bem-informado e atualizado a respeito de novas drogas, técnicas e tecnologias. Faz diagnósticos, pede exames, prescreve medicamentos e realiza cirurgias. Participa também de programas de prevenção e de planejamento da saúde coletiva. Há trabalho para o médico em hospitais, clínicas, postos de saúde e empresas. Grande parte atua em consultório próprio.</string>
 		<key>icon</key>
-		<string>Medicina-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -203,7 +203,7 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		<string>O Químico estuda a matéria, sua composição e suas propriedades. Ele analisa substâncias e compostos, identifica suas características físico-químicas, como elasticidade ou toxicidade. 
 Investiga como os compostos reagem às variações de pressão e temperatura, entre outros fatores. Em indústrias químicas, o profissional pesquisa, por exemplo, novos materiais, supervisiona a produção e aplica testes de qualidade. Entre suas atribuições também estão a elaboração de projetos de instalações industriais e a manutenção de equipamentos.</string>
 		<key>icon</key>
-		<string>Quimica-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -226,7 +226,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>É a condução das relações entre povos, nações e empresas nas áreas política, econômica, social, militar, cultural, comercial e do direito. Esse bacharel analisa o cenário mundial, investiga mercados e a situação política das nações, avalia as possibilidades de negócios e aconselha investimentos no exterior. Promove entendimentos entre empresas e governos de diferentes países, abrindo caminho para exportações, importações e acordos bilaterais ou multilaterais. A internacionalização da economia amplia o campo de atuação desse profissional, que pode trabalhar em ministérios, embaixadas e ONGs.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -249,7 +249,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>É a área das Ciências Biológicas voltada para a pesquisa das doenças humanas, suas causas e os meios de tratá-las. O biomédico identifica, classifica e estuda os microrganismos causadores de enfermidades e procura medicamentos e vacinas para combatê-las. Faz exames e interpreta os resultados de análises clínicas, para diagnosticar doenças, e análises gramatológicas, para verificar contaminações em alimentos. Trabalha em hospitais, laboratórios e órgãos públicos de saúde, fazendo pesquisas e testes. Atua em parceria com bioquímicos, biólogos, médicos e farmacêuticos.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -272,7 +272,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>Este bacharel elabora e produz filmes e vídeos artísticos, publicitários, documentais, institucionais ou jornalísticos para veiculação em cinema, Tv, internet ou circuito fechado. Pode se encarregar do roteiro, do figurino, da cenógrafa, iluminação, edição, direção ou sonorização. Em emissoras de Tv, monta a programação, edita e dirige programas, chefa equipes de produção. Pode, ainda, trabalhar na captação de recursos para a produção. O licenciado leciona a disciplina em cursos livres e elabora projetos pedagógicos audiovisuais para escolas, museus e centros culturais. É possível ingressar na carreira como tecnólogo.</string>
 		<key>icon</key>
-		<string>Cinema-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -295,7 +295,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>O economista estuda a produção e a distribuição de bens e serviços na sociedade em geral, entre os indivíduos, empresas ou nações. Ele se dedica tanto a grandes questões, nacionais ou mundiais, quanto a problemas de pequenas empresas ou investidores individuais. Ajuda a construir, a ampliar e a preservar o patrimônio de pessoas, empresas e governos. Desenvolve planos para a solução de problemas financeiros, econômicos e administrativos em empresas do comércio, de serviços, na indústria ou no setor financeiro. Graças a essa versatilidade, encontra trabalho em entidades privadas, institutos e órgãos municipais, estaduais e federais. Pode atuar, ainda, como consultor autônomo.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -318,7 +318,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>A função do bacharel em Relações Públicas (RP) é construir, promover e preservar a boa imagem de empresas ou instituições perante o público interno e o externo. Para isso, ele define a estratégia e executa projetos de comunicação, transmitindo os valores, objetivos e as ações da organização. Seu trabalho se volta tanto para o público externo (clientes, fornecedores e agentes do governo) quanto para o interno (funcionários). Cria programas de integração com a comunidade e organiza atividades promocionais. É comum que este bacharel trabalhe em equipes que integram outros funcionários, como administradores, pessoal de marketing e jornalistas. É possível ingressar na carreira como tecnólogo.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -341,7 +341,7 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>description</key>
 		<string>O publicitário é um profissional especializado em campanhas e peças publicitárias. Ele trabalha para apresentar um produto ou serviço ao consumidor, promover sua venda ou garantir a boa imagem da marca. Pesquisa o perfil do público-alvo, levantando dados como idade, condição socioeconômica, escolaridade, costumes e hábitos de consumo. Faz a arte de embalagens e cria logotipos. Escolhe a abordagem e os meios de comunicação mais adequados à campanha: anúncios, comerciais de rádio e TV, ou banners e pop-ups em sites da internet. Cria os textos e as imagens e acompanha sua produção. Depois da campanha, avalia o impacto da propaganda sobre o consumidor. Parte das atribuições do publicitário é exercida por graduados em Marketing. E você pode ingressar na carreira tanto como bacharel quanto como tecnólogo.</string>
 		<key>icon</key>
-		<string>Biologia-icon</string>
+		<string></string>
 		<key>Universidades</key>
 		<array/>
 	</dict>

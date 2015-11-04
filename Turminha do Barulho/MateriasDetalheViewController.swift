@@ -54,6 +54,10 @@ class MateriasDetalheViewController: UIViewController {
         
     }
     
+    @IBAction func feedMateria(sender: AnyObject) {
+        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
+        alert.show()
+    }
     
     func configButtons(){
         

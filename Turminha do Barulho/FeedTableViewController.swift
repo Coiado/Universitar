@@ -89,7 +89,7 @@ class FeedTableViewController: UITableViewController {
         
         self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon"), upvote: 12,fulltext:"texto inteiro de economia"))
         
-        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI sobre 69?", imagem: UIImage(named: "CompIcon"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "CompIcon"),upvote: 69,fulltext:"texto inteiro de computacao"))
         
         self.tableView.reloadData()
     }
