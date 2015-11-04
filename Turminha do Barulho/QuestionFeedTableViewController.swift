@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionFeedTableViewController: UITableViewController {
+class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate {
 
     var question : [Question] = []
     
@@ -150,58 +150,62 @@ class QuestionFeedTableViewController: UITableViewController {
     @IBAction func CriaPergunta(sender: AnyObject) {
         
         
-        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-        alert.show()
+//        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
+//        alert.show()
         
-//        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.05, width:
-//            self.view.frame.width*0.90, height: self.view.frame.height*0.85)
-//        
-//        criarPerguntaView.backgroundColor = UIColor.grayColor()
-//        
-//        criarPerguntaView.layer.cornerRadius = 10
-//        
-//        self.view.addSubview(criarPerguntaView)
-//        
-//        let closeButton = UIButton()
-//        
-//        closeButton.setTitle("X", forState: .Normal)
-//        
-//        closeButton.layer.cornerRadius = 10
-//        closeButton.backgroundColor = UIColor.blackColor()
-//        
-//        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
-//        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.1 ,  height: self.criarPerguntaView.frame.width * 0.1)
-//        self.criarPerguntaView.addSubview(closeButton)
-//        
-//        tituloTextfield.attributedText = nil
-//        tituloTextfield.placeholder = "Título"
-//        
-//        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
-//        
-//        tituloTextfield.layer.cornerRadius = 10
-//        
-//        tituloTextfield.backgroundColor = UIColor.whiteColor()
-//        
-//        self.criarPerguntaView.addSubview(tituloTextfield)
-//
-//        perguntaTextview.attributedText = nil
-//        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
-//
-//        perguntaTextview.layer.cornerRadius = 10
-//        
-//        perguntaTextview.backgroundColor = UIColor.whiteColor()
-//        
-//        self.criarPerguntaView.addSubview(perguntaTextview)
-//        
-//        
-//        let criaButton = UIButton()
-//        
-//        criaButton.layer.cornerRadius = 10
-//        criaButton.setTitle("Criar", forState: .Normal)
-//        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.825, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
-//        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        self.criarPerguntaView.addSubview(criaButton)
+        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.05, width:
+            self.view.frame.width*0.90, height: self.view.frame.height*0.85)
+        
+        criarPerguntaView.backgroundColor = UIColor.grayColor()
+        
+        criarPerguntaView.layer.cornerRadius = 10
+        
+        self.view.addSubview(criarPerguntaView)
+        
+        let closeButton = UIButton()
+        
+        closeButton.setTitle("X", forState: .Normal)
+        
+        closeButton.layer.cornerRadius = 10
+        closeButton.backgroundColor = UIColor.blackColor()
+        
+        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
+        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.1 ,  height: self.criarPerguntaView.frame.width * 0.1)
+        self.criarPerguntaView.addSubview(closeButton)
+        
+        tituloTextfield.attributedText = nil
+        tituloTextfield.placeholder = "Título"
+        
+        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
+        
+        tituloTextfield.layer.cornerRadius = 10
+        
+        tituloTextfield.backgroundColor = UIColor.whiteColor()
+        
+        tituloTextfield.delegate = self
+        
+        self.criarPerguntaView.addSubview(tituloTextfield)
+
+        perguntaTextview.attributedText = nil
+        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
+
+        perguntaTextview.layer.cornerRadius = 10
+        
+        perguntaTextview.backgroundColor = UIColor.whiteColor()
+        
+        perguntaTextview.delegate = self
+        
+        self.criarPerguntaView.addSubview(perguntaTextview)
+        
+        
+        let criaButton = UIButton()
+        
+        criaButton.layer.cornerRadius = 10
+        criaButton.setTitle("Criar", forState: .Normal)
+        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.825, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
+        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.criarPerguntaView.addSubview(criaButton)
         
         
         

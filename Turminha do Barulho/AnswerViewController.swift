@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
 
     
     @IBOutlet weak var tableViewAnswer: UITableView!
@@ -18,6 +18,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,6 +30,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - keyboardnotification
+    
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y -= 200
     }
     
     // MARK: - Table view data source
@@ -81,6 +88,14 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alert.show()
     }
 
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        self.view.frame.origin.y -= self.view.frame.origin.y
+        return false
+    }
+    
+    
     /*
     // MARK: - Navigation
 
