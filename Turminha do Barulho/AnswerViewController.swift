@@ -11,15 +11,15 @@ import UIKit
 class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
 
     
+    @IBOutlet weak var newQuestion: UITextField!
     @IBOutlet weak var tableViewAnswer: UITableView!
     @IBOutlet var tableViewQuestion: UITableView!
     var passedCell : QuestionFeedCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        
+        newQuestion.enabled = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -83,9 +83,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
+    
     @IBAction func sendQuestion(sender: AnyObject) {
-        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-        alert.show()
+        if(newQuestion.text != "" && newQuestion.text != nil){
+            passedCell.answers.append(Answer(nickname: "João", userIcon:UIImage(named: "userIcon") , answerText: newQuestion.text))
+            tableViewAnswer.reloadData()
+        }
     }
 
     

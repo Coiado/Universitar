@@ -456,19 +456,19 @@
                                     <outlet property="delegate" destination="ETo-HA-SXP" id="tHC-hJ-Xjc"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-Lv-1Jj">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-Lv-1Jj">
                                 <rect key="frame" x="-4" y="518" width="383" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxz-dK-Jm4">
-                                        <rect key="frame" x="10" y="42" width="42" height="30"/>
+                                        <rect key="frame" x="10" y="35" width="42" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Enviar"/>
                                         <connections>
                                             <action selector="sendQuestion:" destination="ETo-HA-SXP" eventType="touchUpInside" id="Jsv-xo-3Zh"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARC-Cf-ITw">
-                                        <rect key="frame" x="76" y="42" width="299" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARC-Cf-ITw">
+                                        <rect key="frame" x="77" y="34" width="299" height="26.5"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="299" id="1De-Vz-MJK"/>
@@ -484,6 +484,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ARC-Cf-ITw" firstAttribute="leading" secondItem="Nxz-dK-Jm4" secondAttribute="trailing" constant="25" id="1wT-8a-aWo"/>
+                                    <constraint firstItem="ARC-Cf-ITw" firstAttribute="centerY" secondItem="oe8-Lv-1Jj" secondAttribute="centerY" constant="3" id="8zj-mE-ZMl"/>
                                     <constraint firstItem="Nxz-dK-Jm4" firstAttribute="leading" secondItem="oe8-Lv-1Jj" secondAttribute="leading" constant="10" id="Gvi-m9-VVc"/>
                                     <constraint firstItem="Nxz-dK-Jm4" firstAttribute="centerY" secondItem="oe8-Lv-1Jj" secondAttribute="centerY" id="Keg-fP-iqR"/>
                                     <constraint firstItem="ARC-Cf-ITw" firstAttribute="height" secondItem="oe8-Lv-1Jj" secondAttribute="height" multiplier="0.3" id="hCz-AK-RAP"/>
@@ -552,6 +553,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="newQuestion" destination="ARC-Cf-ITw" id="hpW-QD-Ieh"/>
                         <outlet property="tableViewAnswer" destination="Gtz-fr-lmc" id="FA1-0S-Y6M"/>
                         <outlet property="tableViewQuestion" destination="D2z-td-vbh" id="pvo-LV-fbd"/>
                     </connections>
