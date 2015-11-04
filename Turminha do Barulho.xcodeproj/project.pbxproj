@@ -7,25 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125541BDA91EB00E59F89 /* FeedTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125571BDA91F200E59F89 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125561BDA91F200E59F89 /* FeedCell.swift */; settings = {ASSET_TAGS = (); }; };
-		185125591BDA91F800E59F89 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125581BDA91F800E59F89 /* Dados.swift */; settings = {ASSET_TAGS = (); }; };
-		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; settings = {ASSET_TAGS = (); }; };
-		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CF1291BDE8777003E7488 /* materias.plist */; settings = {ASSET_TAGS = (); }; };
-		3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1301BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12F1BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CF1321BE6A93C003E7488 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1311BE6A93C003E7488 /* AnswerTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CFCAD1BE80BE10031F8DF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CFCAC1BE80BE10031F8DF /* Answer.swift */; settings = {ASSET_TAGS = (); }; };
-		3F0CFCAF1BE83DCF0031F8DF /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CFCAE1BE83DCF0031F8DF /* AnswerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */; };
+		185125551BDA91EB00E59F89 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125541BDA91EB00E59F89 /* FeedTableViewController.swift */; };
+		185125571BDA91F200E59F89 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125561BDA91F200E59F89 /* FeedCell.swift */; };
+		185125591BDA91F800E59F89 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125581BDA91F800E59F89 /* Dados.swift */; };
+		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; };
+		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; };
+		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; };
+		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; };
+		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; };
+		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; };
+		3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CF1291BDE8777003E7488 /* materias.plist */; };
+		3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */; };
+		3F0CF1301BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF12F1BE3A43D003E7488 /* AnswerQuestionTableViewCell.swift */; };
+		3F0CF1321BE6A93C003E7488 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1311BE6A93C003E7488 /* AnswerTableViewCell.swift */; };
+		3F0CFCAD1BE80BE10031F8DF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CFCAC1BE80BE10031F8DF /* Answer.swift */; };
+		3F0CFCAF1BE83DCF0031F8DF /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CFCAE1BE83DCF0031F8DF /* AnswerViewController.swift */; };
 		3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AD1BD55047002EA06A /* AppDelegate.swift */; };
 		3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AF1BD55047002EA06A /* ViewController.swift */; };
-		3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B11BD55047002EA06A /* Main.storyboard */; };
 		3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14B41BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld */; };
 		3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B71BD55047002EA06A /* Assets.xcassets */; };
 		3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */; };
@@ -33,6 +32,7 @@
 		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
 		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; };
 		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; };
+		3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */; };
 		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; };
 		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; };
 		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; };
@@ -76,7 +76,6 @@
 		3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turminha do Barulho.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0F14AD1BD55047002EA06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F0F14AF1BD55047002EA06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3F0F14B21BD55047002EA06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turminha_do_Barulho.xcdatamodel; sourceTree = "<group>"; };
 		3F0F14B71BD55047002EA06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0F14BA1BD55047002EA06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		3F0F14D21BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasTableViewController.swift; sourceTree = "<group>"; };
 		3F0F14E21BD6658B002EA06A /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		3FF2D3BB1BEA6F3F00D085F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarContaViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		3F0A99E71BD803D60083B187 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				3F0F14B11BD55047002EA06A /* Main.storyboard */,
+				3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -371,8 +371,8 @@
 			files = (
 				3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */,
 				3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */,
-				3F0F14B31BD55047002EA06A /* Main.storyboard in Resources */,
 				3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */,
+				3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,20 +456,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3F0F14B11BD55047002EA06A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F0F14B21BD55047002EA06A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F0F14BA1BD55047002EA06A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FF2D3BB1BEA6F3F00D085F0 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -562,6 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-Barulho";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -574,6 +575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lucas.Turminha-do-Barulho";
 				PRODUCT_NAME = "$(TARGET_NAME)";

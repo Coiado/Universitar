@@ -20,6 +20,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         newQuestion.enabled = true
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -45,9 +46,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
-    @IBAction func backQuestions(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+   
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

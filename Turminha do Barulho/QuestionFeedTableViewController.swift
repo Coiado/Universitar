@@ -24,9 +24,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         super.viewDidLoad()
         self.createQuestion()
         self.tableView.separatorColor = UIColor.clearColor()
-        
-        
-        
+        let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -158,8 +157,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 //        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
 //        alert.show()
         
-        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.05, width:
-            self.view.frame.width*0.90, height: self.view.frame.height*0.85)
+        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
+            self.view.frame.width*0.90, height: self.view.frame.height*0.8)
         
         criarPerguntaView.backgroundColor = UIColor.grayColor()
         
