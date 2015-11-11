@@ -17,9 +17,6 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var upvoteCount: UILabel!
     
-    @IBOutlet weak var upvoteButton: UIButton!
-    @IBOutlet weak var moreButton: UIButton!
-    
     var fullText: String!
         
     override func awakeFromNib() {
@@ -36,20 +33,18 @@ class FeedCell: UITableViewCell {
 
     func cardSetup(){
         
+        //Desenhamos a "sombra" da celula
         self.cardView.layer.masksToBounds = false
-        self.cardView.layer.cornerRadius = 1
         self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
         self.cardView.layer.shadowRadius = 1
         let path = UIBezierPath(rect: self.cardView.bounds)
         self.cardView.layer.shadowPath = path.CGPath
         self.cardView.layer.shadowOpacity = 1
         
+        //Seta text field para que não seja editavel ou "scrollavel"
         self.textField.editable = false
-        
-        
+        self.textField.scrollEnabled = false
         
     }
-    
-    
     
 }

@@ -49,7 +49,7 @@ class FeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCard", forIndexPath: indexPath) as! FeedCell
         
         let info = data[indexPath.row] as Dados
-        cell.upvoteCount.text = "\(String(info.upvote!)) Pontos"
+        cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
@@ -58,6 +58,7 @@ class FeedTableViewController: UITableViewController {
         
         //configurar botao para o upvote
         //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
+        /*
         cell.upvoteButton.tag = indexPath.row
         if info.upvoted == false{
             cell.upvoteButton.backgroundColor = UIColor.darkGrayColor()
@@ -67,6 +68,7 @@ class FeedTableViewController: UITableViewController {
         }
         //cell.moreButton
         cell.moreButton.tag = indexPath.row
+        */
         
         
         
@@ -76,9 +78,13 @@ class FeedTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+        return 94
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.GoToDetail(indexPath.row)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
@@ -93,11 +99,17 @@ class FeedTableViewController: UITableViewController {
     
     func createData()
     {
-        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "JornalismoIcon"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
         
-        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "EconomiaIcon"), upvote: 12,fulltext:"texto inteiro de economia"))
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
         
-        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "CompIcon"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
+        
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
+        
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:"texto inteiro de computacao"))
         
         self.tableView.reloadData()
     }
@@ -151,10 +163,9 @@ class FeedTableViewController: UITableViewController {
     
     // MARK:- Metodos para upvoted
     
-    @IBAction func GoToDetail(sender: AnyObject) {
+     func GoToDetail(sender: Int) {
        
-        let row = sender.tag
-        self.chosenCell = data[row]
+        self.chosenCell = data[sender]
         
         performSegueWithIdentifier("detalhesNoticia", sender: self)
         
@@ -180,7 +191,7 @@ class FeedTableViewController: UITableViewController {
             data[row].upvoted = true
             data[row].upvote = (upvotes + 1)
             //ESSA EH A COR AZUL
-//            button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
+            //button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
 
 
         }
@@ -190,7 +201,7 @@ class FeedTableViewController: UITableViewController {
             data[row].upvoted = false
             data[row].upvote = upvotes - 1
             //ESSA EH A COR CINZA
-//            button.backgroundColor = UIColor.darkGrayColor()
+            //button.backgroundColor = UIColor.darkGrayColor()
 
         }
         
