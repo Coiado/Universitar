@@ -49,6 +49,7 @@ class FeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCard", forIndexPath: indexPath) as! FeedCell
         
         let info = data[indexPath.row] as Dados
+        
         cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo
@@ -110,6 +111,19 @@ class FeedTableViewController: UITableViewController {
         self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
         
         self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
+        
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
+        
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        
+        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
+        
+        self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
+        
+        self.data.append(Dados(titulo: "Computação", subtitulo: "Mercado em Alta", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:"texto inteiro de computacao"))
+        
         
         self.tableView.reloadData()
     }

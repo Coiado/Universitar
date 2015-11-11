@@ -13,7 +13,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subTitle: UILabel!
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textField: UILabel!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var upvoteCount: UILabel!
     
@@ -40,10 +40,7 @@ class FeedCell: UITableViewCell {
         let path = UIBezierPath(rect: self.cardView.bounds)
         self.cardView.layer.shadowPath = path.CGPath
         self.cardView.layer.shadowOpacity = 1
-        
-        //Seta text field para que não seja editavel ou "scrollavel"
-        self.textField.editable = false
-        self.textField.scrollEnabled = false
+                
         
     }
     
