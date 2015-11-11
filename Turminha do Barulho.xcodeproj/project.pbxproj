@@ -14,6 +14,7 @@
 		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; };
 		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; };
 		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; };
+		18E8C9341BF3688E00E55A54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18E8C9331BF3688E00E55A54 /* Assets.xcassets */; };
 		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; };
 		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; };
 		3F0CF1281BDAED4C003E7488 /* UniversidadeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */; };
@@ -26,7 +27,6 @@
 		3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AD1BD55047002EA06A /* AppDelegate.swift */; };
 		3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14AF1BD55047002EA06A /* ViewController.swift */; };
 		3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14B41BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld */; };
-		3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B71BD55047002EA06A /* Assets.xcassets */; };
 		3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */; };
 		3F0F14C61BD55047002EA06A /* Turminha_do_BarulhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14C51BD55047002EA06A /* Turminha_do_BarulhoTests.swift */; };
 		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
@@ -66,6 +66,7 @@
 		1851255E1BDA9A2A00E59F89 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedTableViewController.swift; sourceTree = "<group>"; };
 		185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedCell.swift; sourceTree = "<group>"; };
+		18E8C9331BF3688E00E55A54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeTableViewCell.swift; path = ../UniversidadeTableViewCell.swift; sourceTree = "<group>"; };
 		3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeTableViewController.swift; path = ../UniversidadeTableViewController.swift; sourceTree = "<group>"; };
 		3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeData.swift; path = ../UniversidadeData.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		3F0F14AD1BD55047002EA06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F0F14AF1BD55047002EA06A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turminha_do_Barulho.xcdatamodel; sourceTree = "<group>"; };
-		3F0F14B71BD55047002EA06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0F14BA1BD55047002EA06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F0F14BC1BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0F14C11BD55047002EA06A /* Turminha do BarulhoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Turminha do BarulhoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +245,7 @@
 				3F0A99E51BD8037A0083B187 /* View */,
 				3F0A99E41BD8036A0083B187 /* Model */,
 				3F0F14AD1BD55047002EA06A /* AppDelegate.swift */,
-				3F0F14B71BD55047002EA06A /* Assets.xcassets */,
+				18E8C9331BF3688E00E55A54 /* Assets.xcassets */,
 				3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */,
 				3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */,
 				3F0F14BC1BD55047002EA06A /* Info.plist */,
@@ -376,8 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */,
-				3F0F14B81BD55047002EA06A /* Assets.xcassets in Resources */,
 				3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */,
+				18E8C9341BF3688E00E55A54 /* Assets.xcassets in Resources */,
 				3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

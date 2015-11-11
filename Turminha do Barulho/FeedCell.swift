@@ -13,12 +13,9 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subTitle: UILabel!
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textField: UILabel!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var upvoteCount: UILabel!
-    
-    @IBOutlet weak var upvoteButton: UIButton!
-    @IBOutlet weak var moreButton: UIButton!
     
     var fullText: String!
         
@@ -36,20 +33,15 @@ class FeedCell: UITableViewCell {
 
     func cardSetup(){
         
+        //Desenhamos a "sombra" da celula
         self.cardView.layer.masksToBounds = false
-        self.cardView.layer.cornerRadius = 1
         self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
         self.cardView.layer.shadowRadius = 1
         let path = UIBezierPath(rect: self.cardView.bounds)
         self.cardView.layer.shadowPath = path.CGPath
         self.cardView.layer.shadowOpacity = 1
-        
-        self.textField.editable = false
-        
-        
+                
         
     }
-    
-    
     
 }
