@@ -20,9 +20,12 @@
 		<string></string>
 		<key>Universidades</key>
 		<array>
-			<string>Unicamp</string>
-			<string>USP</string>
-			<string>Unesp</string>
+			<dict>
+				<key>Descrição</key>
+				<string>Legal</string>
+			</dict>
+			<dict/>
+			<dict/>
 		</array>
 	</dict>
 	<dict>
