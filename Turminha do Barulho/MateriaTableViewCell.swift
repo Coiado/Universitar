@@ -13,6 +13,7 @@ class MateriaTableViewCell: UITableViewCell {
     var descricao: String!
     var name: String!
     var Universidades: NSArray!
+    var Semestres: NSArray!
     
     
     override func awakeFromNib() {

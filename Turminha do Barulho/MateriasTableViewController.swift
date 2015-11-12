@@ -48,6 +48,7 @@ class MateriasTableViewController: UITableViewController {
         let materia = materias[indexPath.row] as Materia
         cell.descricao = materia.description
         cell.Universidades = materia.Universidades
+        cell.Semestres = [materia.Semestre1,materia.Semestre2,materia.Semestre3]
         cell.textLabel?.text = materia.name
         cell.imageView?.image = UIImage(named: materia.icon)
         cell.backgroundColor = materia.color

@@ -18,14 +18,35 @@
 		<string>O biólogo estuda todas as formas de vida, macroscópica ou microscópica. Ele pesquisa a origem, a evolução, a estrutura e o funcionamento dos organismos. Analisa as relações entre os diversos seres e entre eles e o meio ambiente. O vasto campo de estudos na graduação permite que, depois de formado, o profissional siga caminhos diversos, conforme seu interesse. Da pesquisa com células-tronco ao trabalho ambiental, a carreira do biólogo é abrangente e promissora, em razão, especialmente, da crescente preocupação, em nível mundial, com o meio ambiente. A atuação desse profissional é ainda fundamental na descoberta de aplicações de organismos na medicina, no desenvolvimento de medicamentos e na indústria, em áreas de fabricação de bebidas e de alimentos. O licenciado está apto a dar aulas de Biologia no ensino médio e, no fundamental, pode atuar como educador ambiental ou docente de ciências. Sua formação também permite desenvolver ações educativas em museus, unidades de conservação, ONGs e empresas e escolas. Nas secretarias de Educação, atua como consultor e elabora novas propostas para o ensino da disciplina. Com pós-graduação, está habilitado a dar aulas no ensino superior. </string>
 		<key>icon</key>
 		<string></string>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>Universidades</key>
 		<array>
-			<dict>
-				<key>Descrição</key>
-				<string>Legal</string>
-			</dict>
-			<dict/>
-			<dict/>
+			<string>Unicamp</string>
+			<string>USP</string>
+			<string>Unesp</string>
 		</array>
 	</dict>
 	<dict>
@@ -44,6 +65,30 @@
 		<string>O Médico veterinário dá assistência clínica e cirúrgica a animais domésticos e silvestres, além de cuidar da saúde, da alimentação e da reprodução de rebanhos. Outra de suas funções, complementando sua atenção na saúde animal e na saúde pública, é inspecionar a produção de alimentos de origem animal. Neste caso, o médico veterinário verifica o cumprimento das normas de higiene nas indústrias, a fim de evitar a transmissão de doenças para o ser humano. Na indústria alimentícia, ele controla as tecnologias de produção. Em qualquer indústria que utilize matéria-prima de origem animal, a presença do médico veterinário é indispensável para realizar o controle dessa matéria-prima. Pode atuar, ainda, na área de vendas de alimentos, medicamentos, vacinas e de outros artigos para animais.</string>
 		<key>icon</key>
 		<string></string>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>Universidades</key>
 		<array>
 			<string>Unicamp</string>
@@ -74,8 +119,49 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 			<string>USP</string>
 			<string>Unesp</string>
 		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -97,8 +183,39 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 			<string>USP</string>
 			<string>Unesp</string>
 		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -122,6 +239,30 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -145,6 +286,30 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -168,6 +333,30 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -191,6 +380,30 @@ de um restaurante. Pode se especializar em confeitaria, panificação ou num tip
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -215,6 +428,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -238,6 +475,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -261,6 +522,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -284,6 +569,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -307,6 +616,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -330,6 +663,30 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		</array>
 	</dict>
 	<dict>
+		<key>Semestre 1</key>
+		<array>
+			<string>Geometria Analitica</string>
+			<string>Quimica Geral</string>
+			<string>Fisica I</string>
+			<string>Calculo I</string>
+		</array>
+		<key>Semestre 2</key>
+		<array>
+			<string>Calculo II</string>
+			<string>Fisica III</string>
+			<string>Algoritmos e Programação de Computadores</string>
+			<string>Termodinamica</string>
+			<string>Estatica</string>
+		</array>
+		<key>Semestre 3</key>
+		<array>
+			<string>Calculo III</string>
+			<string>Circuitos </string>
+			<string>Estrutura de Dados</string>
+			<string>Resistencia dos Materiais</string>
+			<string>Materias para Engenharia</string>
+			<string>Fisica IV</string>
+		</array>
 		<key>color</key>
 		<array>
 			<integer>255</integer>
@@ -346,7 +703,11 @@ Investiga como os compostos reagem às variações de pressão e temperatura, en
 		<key>icon</key>
 		<string></string>
 		<key>Universidades</key>
-		<array/>
+		<array>
+			<string>Unicamp</string>
+			<string>USP</string>
+			<string>Unesp</string>
+		</array>
 	</dict>
 </array>
 </plist>

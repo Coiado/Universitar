@@ -13,6 +13,8 @@ class UniversidadeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var UniversidadeNome: UILabel!
     @IBOutlet weak var UniversidadeIcon: UIImageView!
+    var Semestres: NSArray!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
