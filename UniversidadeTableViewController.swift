@@ -52,6 +52,7 @@ class UniversidadeTableViewController: UITableViewController {
         
         let Universidade = passedCell.Universidades[indexPath.row]
         cell.UniversidadeNome.text = Universidade as? String
+        cell.Semestres = passedCell.Semestres
         return cell
     }
     

@@ -9,4 +9,6 @@
 import UIKit
 
 class DescricaoCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var descricao: UITextView!
 }

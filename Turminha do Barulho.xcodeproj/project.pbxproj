@@ -32,6 +32,8 @@
 		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
 		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; };
 		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; };
+		3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75CB4E1BF604E6002241AC /* MateriaCollectionViewCell.swift */; };
+		3F75CB511BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75CB501BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift */; };
 		3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */; };
 		3FFA23D11BF21F3300D7AEDB /* Universidade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA23D01BF21F3300D7AEDB /* Universidade.swift */; };
 		3FFA23D31BF247AE00D7AEDB /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA23D21BF247AE00D7AEDB /* Subjects.swift */; };
@@ -93,6 +95,8 @@
 		3F0F14D21BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasTableViewController.swift; sourceTree = "<group>"; };
 		3F0F14E21BD6658B002EA06A /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		3F75CB4E1BF604E6002241AC /* MateriaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F75CB501BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaSemestreCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FF2D3BB1BEA6F3F00D085F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FFA23D01BF21F3300D7AEDB /* Universidade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Universidade.swift; sourceTree = "<group>"; };
 		3FFA23D21BF247AE00D7AEDB /* Subjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */,
+				3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */,
+				180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */,
 			);
 			name = Materias;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 				3F0CF12B1BDFBE28003E7488 /* MateriaTableViewCell.swift */,
 				3FFA23D81BF4CD5900D7AEDB /* DescricaoCollectionViewCell.swift */,
 				3FFA23D41BF4BE6200D7AEDB /* DetalheUniversidadesLayout.swift */,
+				3F75CB4E1BF604E6002241AC /* MateriaCollectionViewCell.swift */,
+				3F75CB501BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -209,8 +217,6 @@
 				185125501BDA919100E59F89 /* Materias */,
 				3F0F14AF1BD55047002EA06A /* ViewController.swift */,
 				5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */,
-				3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */,
-				180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */,
 				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
 				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
 				3FFA23D61BF4C70800D7AEDB /* UniversidadesCollectionViewController.swift */,
@@ -436,10 +442,12 @@
 				3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */,
 				3F0CFCAF1BE83DCF0031F8DF /* AnswerViewController.swift in Sources */,
 				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
+				3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
 				3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */,
 				180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */,
+				3F75CB511BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift in Sources */,
 				185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
