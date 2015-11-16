@@ -8,17 +8,39 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController {
+class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var data : [Dados] = []
-        
+    
+    var dadosFiltrados = [Dados]()
+    
+    var resultSearchController = UISearchController()
+    
+    
     var chosenCell: Dados?
+    
+    override func viewWillAppear(animated: Bool) {
+       // self.navigationController?.navigationBarHidden = true
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createData()
         self.tableView.separatorColor = UIColor.clearColor()
-
+        
+        //rself.navigationController?.navigationBarHidden = true
+        
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        
+        self.tableView.tableHeaderView = self.resultSearchController.searchBar
+        
+        self.tableView.reloadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,7 +62,14 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data.count
+        
+        if self.resultSearchController.active{
+            return dadosFiltrados.count
+        }
+        
+        else{
+            return data.count
+        }
     }
 
     
@@ -48,30 +77,24 @@ class FeedTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCard", forIndexPath: indexPath) as! FeedCell
         
-        let info = data[indexPath.row] as Dados
+        let info: Dados
         
+        if self.resultSearchController.active{
+        
+            info = dadosFiltrados[indexPath.row] as Dados
+            
+        }
+        else{
+        
+            info = data[indexPath.row] as Dados
+        
+        }
         cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
         cell.picture.image = info.imagem
         cell.fullText = info.fulltext
-        
-        //configurar botao para o upvote
-        //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
-        /*
-        cell.upvoteButton.tag = indexPath.row
-        if info.upvoted == false{
-            cell.upvoteButton.backgroundColor = UIColor.darkGrayColor()
-        }
-        else{
-            cell.upvoteButton.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
-        }
-        //cell.moreButton
-        cell.moreButton.tag = indexPath.row
-        */
-        
-        
         
         
         cell.cardSetup()
@@ -85,6 +108,11 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.GoToDetail(indexPath.row)
+    }
+    
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1.0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -175,6 +203,23 @@ class FeedTableViewController: UITableViewController {
     }
     */
     
+    //MARK: - Métodos para o search
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        self.dadosFiltrados.removeAll(keepCapacity: false)
+        
+        self.dadosFiltrados = self.data.filter({ (Dados:Dados) -> Bool in
+            let stringMatch = Dados.subtitulo!.rangeOfString(searchController.searchBar.text!)
+            return (stringMatch != nil)
+        })
+        
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
     // MARK:- Metodos para upvoted
     
      func GoToDetail(sender: Int) {
@@ -188,43 +233,6 @@ class FeedTableViewController: UITableViewController {
     }
     
     
-    @IBAction func Upvoted(sender: AnyObject) {
-        
-        let row = sender.tag
-        
-        let cell = data[row]
-        
-        let upvotes:Int = data[row].upvote!
-        
-        
-        let indexpath = NSIndexPath(forRow: row, inSection: 0)
-        
-        if cell.upvoted == false {
-            
-            
-            data[row].upvoted = true
-            data[row].upvote = (upvotes + 1)
-            //ESSA EH A COR AZUL
-            //button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
-
-
-        }
-        else {
-            
-            
-            data[row].upvoted = false
-            data[row].upvote = upvotes - 1
-            //ESSA EH A COR CINZA
-            //button.backgroundColor = UIColor.darkGrayColor()
-
-        }
-        
-        //self.tableView.reloadData()
-        self.tableView.reloadRowsAtIndexPaths([indexpath] ,withRowAnimation: UITableViewRowAnimation.None)
-        
-        
-        
-    }
     
 }
 
