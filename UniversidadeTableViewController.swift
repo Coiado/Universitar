@@ -12,6 +12,8 @@ class UniversidadeTableViewController: UITableViewController {
 
     var passedCell : MateriaTableViewCell!
     
+    var chosenCell : UniversidadeTableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,10 +51,30 @@ class UniversidadeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Universidades", forIndexPath: indexPath) as! UniversidadeTableViewCell
         
         let Universidade = passedCell.Universidades[indexPath.row]
-        cell.UniversidadeNome.text = Universidade as! String
+        cell.UniversidadeNome.text = Universidade as? String
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! UniversidadeTableViewCell
+        
+    }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        //Como o texto e o icone a celula.
+        if segue.identifier == "DetalheUniversidades" {
+            if let destination = segue.destinationViewController as? UniversidadesCollectionViewController {
+                let path = self.tableView?.indexPathForSelectedRow!
+                let cell = self.tableView!.cellForRowAtIndexPath(path!) as! UniversidadeTableViewCell
+                destination.passedCell = cell
+            }
+        }
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

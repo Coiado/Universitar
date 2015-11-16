@@ -15,6 +15,9 @@ struct Materia {
     let description: String
     let icon: String
     let Universidades: NSArray
+    let Semestre1: NSArray
+    let Semestre2: NSArray
+    let Semestre3: NSArray
     let color: UIColor
 }
 
@@ -42,7 +45,10 @@ extension Materia {
                 let name          = dict["name"]          as? String,
                 let description  = dict["description"]  as? String,
                 let icon = dict["icon"] as? String,
-                let Universidades = dict["Universidades"]      as? NSArray,
+                let Universidades = dict["Universidades"] as? NSArray,
+                let Semestre1 = dict["Semestre 1"] as? NSArray,
+                let Semestre2 = dict["Semestre 2"] as? NSArray,
+                let Semestre3 = dict["Semestre 3"] as? NSArray,
                 let color = dict["color"]      as? NSArray
                 else {
                     fatalError("Error parsing dict \(dict)")
@@ -50,7 +56,7 @@ extension Materia {
             let red = CGFloat(color[0] as! NSNumber)/255
             let green = CGFloat(color[1] as! NSNumber)/255
             let blue = CGFloat(color[2] as! NSNumber)/255
-            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, color: UIColor(red: red, green: green, blue: blue, alpha: 1))
+            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, Semestre1: Semestre1,Semestre2: Semestre2, Semestre3: Semestre3, color: UIColor(red: red, green: green, blue: blue, alpha: 1))
             MateriasArray.append(materia)
         }
         
