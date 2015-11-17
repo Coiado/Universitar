@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpJ-Jf-euu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1551.5" y="603.5"/>
+            <point key="canvasLocation" x="-2207.5" y="587.5"/>
         </scene>
         <!--Feed-->
         <scene sceneID="PD1-m7-nOu">
@@ -168,10 +168,30 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="z9k-bR-PYE">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="bTd-KU-PvH">
+                            <connections>
+                                <action selector="searchDisplay:" destination="CNN-8M-TlH" id="7rC-Ez-XMq"/>
+                            </connections>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gAk-qs-Zqr">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <segments>
+                                <segment title="Recentes"/>
+                                <segment title="Tops"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segmentedControlTapped:" destination="CNN-8M-TlH" eventType="valueChanged" id="bAs-Bv-3o8"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="1QM-PB-DpE" id="nLl-ZK-zlk"/>
+                        <outlet property="segmentedControl" destination="gAk-qs-Zqr" id="zuy-Oz-Jwa"/>
                         <segue destination="ihL-bu-1DM" kind="show" identifier="detalhesNoticia" id="nP0-bz-EQi"/>
                     </connections>
                 </tableViewController>
@@ -185,7 +205,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1557.5" y="-264.5"/>
+            <point key="canvasLocation" x="-2213.5" y="-280.5"/>
         </scene>
         <!--Answer View Controller-->
         <scene sceneID="UjR-VR-2VW">
@@ -1175,12 +1195,20 @@
         <scene sceneID="eEs-M8-7sb">
             <objects>
                 <tabBarController id="qdT-60-V3d" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="HvR-uz-7WE">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="HvR-uz-7WE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.76560547903040033" blue="0.17975365743930782" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="XQz-o1-Zad" kind="relationship" relationship="viewControllers" id="AwY-56-Auk"/>
@@ -1327,7 +1355,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcP-hz-Er2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2027.5" y="-296.5"/>
+            <point key="canvasLocation" x="-2683.5" y="-312.5"/>
         </scene>
         <!--Perguntas-->
         <scene sceneID="qnx-Nu-9Di">

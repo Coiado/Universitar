@@ -8,9 +8,13 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
+class FeedTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var data : [Dados] = []
+    
+    @IBOutlet weak var searchView: UIView!
     
     var dadosFiltrados = [Dados]()
     
@@ -29,12 +33,16 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         self.createData()
         self.tableView.separatorColor = UIColor.clearColor()
         
-        //rself.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.setNeedsStatusBarAppearanceUpdate()
+        //self.navigationController?.navigationBarHidden = true
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
         
         self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.obscuresBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
         
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
@@ -46,6 +54,10 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +98,19 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         }
         else{
         
-            info = data[indexPath.row] as Dados
+            if self.segmentedControl.selectedSegmentIndex == 0{
+                
+                info = data[indexPath.row] as Dados
+                
+            }
         
+            else{
+                
+                let arrayCurtido: [Dados] = data.sort{$0.upvote > $1.upvote}
+                info = arrayCurtido[indexPath.row] as Dados
+                
+                
+            }
         }
         cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
@@ -219,12 +242,41 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         
     }
     
+    @IBAction func searchDisplay(sender: AnyObject) {
+        
+        self.resultSearchController.becomeFirstResponder()
+        
+    }
+    
+    func presentSearchController(searchController: UISearchController) {
+    }
     
     // MARK:- Metodos para upvoted
     
      func GoToDetail(sender: Int) {
        
-        self.chosenCell = data[sender]
+        if self.resultSearchController.active{
+            
+            self.chosenCell = dadosFiltrados[sender] as Dados
+            
+        }
+        else{
+            
+            if self.segmentedControl.selectedSegmentIndex == 0{
+                
+                self.chosenCell = data[sender] as Dados
+                
+            }
+                
+            else{
+                
+                let arrayCurtido: [Dados] = data.sort{$0.upvote > $1.upvote}
+                self.chosenCell = arrayCurtido[sender] as Dados
+                
+                
+            }
+        
+        }
         
         performSegueWithIdentifier("detalhesNoticia", sender: self)
         
@@ -232,6 +284,14 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         
     }
     
+    
+    //MARK:- Metodos do segmented control
+    
+    @IBAction func segmentedControlTapped(sender: AnyObject) {
+        
+        self.tableView.reloadData()
+        
+    }
     
     
 }
