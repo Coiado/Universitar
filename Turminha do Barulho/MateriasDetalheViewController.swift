@@ -16,7 +16,8 @@ class MateriasDetalheViewController: UIViewController {
     @IBOutlet weak var titulo: UINavigationItem!
     @IBOutlet weak var texto: UITextView!
     
-    var passedCell : MateriaTableViewCell!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
+    //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
+    var passedCell : MateriaTableViewCell!
     
     
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class MateriasDetalheViewController: UIViewController {
         
     }
     
+    //Celula passada pela view com as materias é recebida por esse metodo
     func receiveCellData(cell: MateriaTableViewCell) {
         self.passedCell = cell;
       

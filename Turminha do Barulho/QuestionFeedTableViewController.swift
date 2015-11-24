@@ -14,7 +14,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim!"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Gosto muito albdsbashcbdsbajdbakjbckadcbjsdcjdnsjkcbdscndnacbdsbckjbdsjcjnsdcjnsjkdcjkdsbchbshdbcajndcjbdskbcjdsabcjkasdjasdkjkadjaschasbcasbkcbaskhcbas"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
     
     var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "userIcon"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "userIcon"), answerText: "É no sabado")]
     
@@ -60,6 +60,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.userIcon.image = info.userIcon
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText
+        cell.questionText.sizeToFit()
+    
+        cell.updateConstraints()
         cell.answers = info.answers
         cell.cardSetup()
         
