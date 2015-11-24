@@ -19,6 +19,8 @@ class FeedDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        self.navigationController?.navigationBarHidden = false
+        
         image.image = passedCell.imagem
         fullText.text = passedCell.fulltext
         subTitle.text = passedCell.subtitulo

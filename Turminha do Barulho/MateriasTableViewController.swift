@@ -65,6 +65,9 @@ class MateriasTableViewController: UITableViewController {
         cell.textLabel?.text = materia.name
         cell.imageView?.image = UIImage(named: materia.icon)
         cell.backgroundColor = materia.color
+        
+        //cell.backgroundColor = UIColor.blackColor()
+        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
 
         return cell
     }

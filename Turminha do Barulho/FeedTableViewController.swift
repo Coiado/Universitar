@@ -8,22 +8,47 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController {
-
+class FeedTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
+    
+    var customSearchController: CustomSearchController!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var data : [Dados] = []
-        
+    
+    var dadosFiltrados = [Dados]()
+    
     var chosenCell: Dados?
+    
+    @IBOutlet weak var searchView: UIView!
+    
+    var shouldShowSearchResults = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createData()
         self.tableView.separatorColor = UIColor.clearColor()
+        
+        //self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+            self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.setNeedsStatusBarAppearanceUpdate()
 
+        configureCustomSearchController()
+        
+        self.tableView.reloadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +65,14 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data.count
+        
+        if self.shouldShowSearchResults{
+            return dadosFiltrados.count
+        }
+        
+        else{
+            return data.count
+        }
     }
 
     
@@ -48,30 +80,35 @@ class FeedTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCard", forIndexPath: indexPath) as! FeedCell
         
-        let info = data[indexPath.row] as Dados
+        let info: Dados
         
+        if self.shouldShowSearchResults{
+        
+            info = dadosFiltrados[indexPath.row] as Dados
+            
+        }
+        else{
+        
+            if self.segmentedControl.selectedSegmentIndex == 0{
+                
+                info = data[indexPath.row] as Dados
+                
+            }
+        
+            else{
+                
+                let arrayCurtido: [Dados] = data.sort{$0.upvote > $1.upvote}
+                info = arrayCurtido[indexPath.row] as Dados
+                
+                
+            }
+        }
         cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo
         cell.textField.text = info.texto
         cell.picture.image = info.imagem
         cell.fullText = info.fulltext
-        
-        //configurar botao para o upvote
-        //cell.upvoteButton.addTarget(self, action: "Upvoted", forControlEvents: .TouchUpInside)
-        /*
-        cell.upvoteButton.tag = indexPath.row
-        if info.upvoted == false{
-            cell.upvoteButton.backgroundColor = UIColor.darkGrayColor()
-        }
-        else{
-            cell.upvoteButton.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
-        }
-        //cell.moreButton
-        cell.moreButton.tag = indexPath.row
-        */
-        
-        
         
         
         cell.cardSetup()
@@ -85,6 +122,11 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.GoToDetail(indexPath.row)
+    }
+    
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1.0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -175,11 +217,52 @@ class FeedTableViewController: UITableViewController {
     }
     */
     
+    //MARK: - Métodos para o search
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        self.dadosFiltrados.removeAll(keepCapacity: false)
+        
+        self.dadosFiltrados = self.data.filter({ (Dados:Dados) -> Bool in
+            let stringMatch = Dados.subtitulo!.rangeOfString(searchController.searchBar.text!)
+            return (stringMatch != nil)
+        })
+        
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
+    func presentSearchController(searchController: UISearchController) {
+    }
+    
     // MARK:- Metodos para upvoted
     
      func GoToDetail(sender: Int) {
        
-        self.chosenCell = data[sender]
+        if self.shouldShowSearchResults{
+            
+            self.chosenCell = dadosFiltrados[sender] as Dados
+            
+        }
+        else{
+            
+            if self.segmentedControl.selectedSegmentIndex == 0{
+                
+                self.chosenCell = data[sender] as Dados
+                
+            }
+                
+            else{
+                
+                let arrayCurtido: [Dados] = data.sort{$0.upvote > $1.upvote}
+                self.chosenCell = arrayCurtido[sender] as Dados
+                
+                
+            }
+        
+        }
         
         performSegueWithIdentifier("detalhesNoticia", sender: self)
         
@@ -187,44 +270,55 @@ class FeedTableViewController: UITableViewController {
         
     }
     
+    //MARK: - SearchController
     
-    @IBAction func Upvoted(sender: AnyObject) {
+    func configureCustomSearchController() {
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1), searchBarTintColor: UIColor.blackColor())
         
-        let row = sender.tag
+        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        self.tableView.tableHeaderView = customSearchController.customSearchBar
         
-        let cell = data[row]
-        
-        let upvotes:Int = data[row].upvote!
-        
-        
-        let indexpath = NSIndexPath(forRow: row, inSection: 0)
-        
-        if cell.upvoted == false {
-            
-            
-            data[row].upvoted = true
-            data[row].upvote = (upvotes + 1)
-            //ESSA EH A COR AZUL
-            //button.backgroundColor = UIColor.init(red: 10/255, green: 96/255, blue: 254/255, alpha: 1.0)
-
-
-        }
-        else {
-            
-            
-            data[row].upvoted = false
-            data[row].upvote = upvotes - 1
-            //ESSA EH A COR CINZA
-            //button.backgroundColor = UIColor.darkGrayColor()
-
-        }
-        
-        //self.tableView.reloadData()
-        self.tableView.reloadRowsAtIndexPaths([indexpath] ,withRowAnimation: UITableViewRowAnimation.None)
-        
-        
+        customSearchController.customDelegate = self
         
     }
+    
+    func didStartSearching() {
+        shouldShowSearchResults = true
+        self.tableView.reloadData()
+    }
+    
+    func didTapOnSearchButton() {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didTapOnCancelButton() {
+        shouldShowSearchResults = false
+        self.tableView.reloadData()
+    }
+    
+    func didChangeSearchText(searchText: String) {
+        // Filter the data array and get only those countries that match the search text.
+        self.dadosFiltrados = self.data.filter({ (Dados) -> Bool in
+            let stringMatch: NSString = Dados.subtitulo!
+            
+            return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+        })
+        
+        // Reload the tableview.
+        self.tableView.reloadData()
+    }
+    
+    //MARK:- Metodos do segmented control
+    
+    @IBAction func segmentedControlTapped(sender: AnyObject) {
+        
+        self.tableView.reloadData()
+        
+    }
+    
     
 }
 
