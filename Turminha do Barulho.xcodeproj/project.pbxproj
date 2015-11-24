@@ -41,6 +41,8 @@
 		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; };
 		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; };
 		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; };
+		5FBFDA4A1C03F9CE0087B76E /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBFDA491C03F9CE0087B76E /* CustomSearchBar.swift */; };
+		5FBFDA4D1C03FD810087B76E /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBFDA4C1C03FD810087B76E /* CustomSearchController.swift */; };
 		5FF948981BE2A9BC003C6D2E /* FeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarContaViewController.swift; sourceTree = "<group>"; };
+		5FBFDA491C03F9CE0087B76E /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		5FBFDA4C1C03FD810087B76E /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +218,7 @@
 				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
 				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
 				3FFA23D61BF4C70800D7AEDB /* UniversidadesCollectionViewController.swift */,
+				5FBFDA4B1C03FD480087B76E /* SearchController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +284,15 @@
 				3F0F14D21BD55047002EA06A /* Info.plist */,
 			);
 			path = "Turminha do BarulhoUITests";
+			sourceTree = "<group>";
+		};
+		5FBFDA4B1C03FD480087B76E /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				5FBFDA491C03F9CE0087B76E /* CustomSearchBar.swift */,
+				5FBFDA4C1C03FD810087B76E /* CustomSearchController.swift */,
+			);
+			name = SearchController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +428,7 @@
 			files = (
 				5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */,
 				3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */,
+				5FBFDA4A1C03F9CE0087B76E /* CustomSearchBar.swift in Sources */,
 				3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */,
 				3FFA23D71BF4C70800D7AEDB /* UniversidadesCollectionViewController.swift in Sources */,
 				5FF948981BE2A9BC003C6D2E /* FeedDetailsViewController.swift in Sources */,
@@ -427,6 +442,7 @@
 				3F0F14B01BD55047002EA06A /* ViewController.swift in Sources */,
 				3FFA23D91BF4CD5900D7AEDB /* DescricaoCollectionViewCell.swift in Sources */,
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
+				5FBFDA4D1C03FD810087B76E /* CustomSearchController.swift in Sources */,
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
 				3FFA23D11BF21F3300D7AEDB /* Universidade.swift in Sources */,
 				3FFA23D31BF247AE00D7AEDB /* Subjects.swift in Sources */,

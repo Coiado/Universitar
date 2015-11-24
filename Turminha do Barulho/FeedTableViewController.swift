@@ -8,44 +8,35 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
-
+class FeedTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
+    
+    var customSearchController: CustomSearchController!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var data : [Dados] = []
     
-    @IBOutlet weak var searchView: UIView!
-    
     var dadosFiltrados = [Dados]()
-    
-    var resultSearchController = UISearchController()
-    
     
     var chosenCell: Dados?
     
-    override func viewWillAppear(animated: Bool) {
-       // self.navigationController?.navigationBarHidden = true
-        
-    }
+    @IBOutlet weak var searchView: UIView!
+    
+    var shouldShowSearchResults = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createData()
         self.tableView.separatorColor = UIColor.clearColor()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        //self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+            self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         self.setNeedsStatusBarAppearanceUpdate()
-        //self.navigationController?.navigationBarHidden = true
-        
-        self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
-        
-        self.resultSearchController.dimsBackgroundDuringPresentation = false
-        self.resultSearchController.obscuresBackgroundDuringPresentation = false
-        self.resultSearchController.searchBar.sizeToFit()
-        
-        self.tableView.tableHeaderView = self.resultSearchController.searchBar
+
+        configureCustomSearchController()
         
         self.tableView.reloadData()
         
@@ -75,7 +66,7 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        if self.resultSearchController.active{
+        if self.shouldShowSearchResults{
             return dadosFiltrados.count
         }
         
@@ -91,7 +82,7 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
         
         let info: Dados
         
-        if self.resultSearchController.active{
+        if self.shouldShowSearchResults{
         
             info = dadosFiltrados[indexPath.row] as Dados
             
@@ -242,11 +233,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
         
     }
     
-    @IBAction func searchDisplay(sender: AnyObject) {
-        
-        self.resultSearchController.becomeFirstResponder()
-        
-    }
     
     func presentSearchController(searchController: UISearchController) {
     }
@@ -255,7 +241,7 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
     
      func GoToDetail(sender: Int) {
        
-        if self.resultSearchController.active{
+        if self.shouldShowSearchResults{
             
             self.chosenCell = dadosFiltrados[sender] as Dados
             
@@ -284,6 +270,46 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
         
     }
     
+    //MARK: - SearchController
+    
+    func configureCustomSearchController() {
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1), searchBarTintColor: UIColor.blackColor())
+        
+        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        self.tableView.tableHeaderView = customSearchController.customSearchBar
+        
+        customSearchController.customDelegate = self
+        
+    }
+    
+    func didStartSearching() {
+        shouldShowSearchResults = true
+        self.tableView.reloadData()
+    }
+    
+    func didTapOnSearchButton() {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didTapOnCancelButton() {
+        shouldShowSearchResults = false
+        self.tableView.reloadData()
+    }
+    
+    func didChangeSearchText(searchText: String) {
+        // Filter the data array and get only those countries that match the search text.
+        self.dadosFiltrados = self.data.filter({ (Dados) -> Bool in
+            let stringMatch: NSString = Dados.subtitulo!
+            
+            return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+        })
+        
+        // Reload the tableview.
+        self.tableView.reloadData()
+    }
     
     //MARK:- Metodos do segmented control
     

@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="z2J-Te-ggd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mUB-wR-UXH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wed-ZZ-A5Z">
@@ -88,13 +88,13 @@
             <objects>
                 <tableViewController storyboardIdentifier="Feed" title="Feed" id="CNN-8M-TlH" customClass="FeedTableViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="HXh-QW-g8E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCard" rowHeight="140" id="blW-1k-vaN" customClass="FeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blW-1k-vaN" id="Imh-a5-RgZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
@@ -1342,10 +1342,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQz-o1-Zad" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="tabBarFeed" id="VWh-3g-Svl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Fj-WA-ZmS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="2Fj-WA-ZmS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

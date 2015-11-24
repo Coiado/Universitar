@@ -16,6 +16,16 @@ class MateriasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setando o navigation bar
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
+        
+        //setando a tableview
+        
+        self.tableView.backgroundColor = UIColor.blackColor()
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
+        
         materias = Materia.loadAllMateria()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,6 +62,9 @@ class MateriasTableViewController: UITableViewController {
         cell.textLabel?.text = materia.name
         cell.imageView?.image = UIImage(named: materia.icon)
         cell.backgroundColor = materia.color
+        
+        //cell.backgroundColor = UIColor.blackColor()
+        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
 
         return cell
     }
