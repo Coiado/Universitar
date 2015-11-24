@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
+class FeedTableViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
     
     var customSearchController: CustomSearchController!
     
@@ -24,21 +24,22 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
     
     var shouldShowSearchResults = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createData()
         self.tableView.separatorColor = UIColor.clearColor()
         
-        //self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-            self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
         
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         self.setNeedsStatusBarAppearanceUpdate()
 
         configureCustomSearchController()
         
+        configRefresh()
+        
         self.tableView.reloadData()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -171,70 +172,27 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating, U
     }
     
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK - Metodos para o refresh
     
-    //MARK: - Métodos para o search
+    func configRefresh(){
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.backgroundColor = UIColor.blackColor()
+        self.refreshControl!.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.refreshControl!.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl!)
+        
+    }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func refreshTableView(sender: AnyObject){
         
-        self.dadosFiltrados.removeAll(keepCapacity: false)
-        
-        self.dadosFiltrados = self.data.filter({ (Dados:Dados) -> Bool in
-            let stringMatch = Dados.subtitulo!.rangeOfString(searchController.searchBar.text!)
-            return (stringMatch != nil)
-        })
-        
+        print("refresh")
         
         self.tableView.reloadData()
         
-    }
-    
-    
-    func presentSearchController(searchController: UISearchController) {
+        self.refreshControl!.endRefreshing()
+        
     }
     
     // MARK:- Metodos para upvoted
