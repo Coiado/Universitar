@@ -18,8 +18,16 @@ class MateriasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setando o navigation bar
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
         
-        //Dados em hardcode sendo carregados de um arquivo plist
+        //setando a tableview
+        
+        self.tableView.backgroundColor = UIColor.blackColor()
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
+        
         materias = Materia.loadAllMateria()
         
         // Uncomment the following line to preserve selection between presentations
