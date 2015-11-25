@@ -19,6 +19,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         newQuestion.enabled = true
+        tableViewQuestion.estimatedRowHeight = 90
+        tableViewQuestion.rowHeight = UITableViewAutomaticDimension
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,8 +54,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return passedCell.answers.count+2
     }
     
-    
-    
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.row==0){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
@@ -61,6 +61,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.userIcon.image = passedCell.userIcon.image
             cell.nickName.text = passedCell.nickName.text
             cell.questionText.text = passedCell.questionText.text
+            cell.questionText.sizeToFit()
+            cell.updateConstraints()
             cell.cardSetup()
             return cell
         }
@@ -68,6 +70,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
             var numberComments = String(passedCell.answers.count)
             cell.comments.text = numberComments+" Comentários:"
+            
             return cell
             }
             else{

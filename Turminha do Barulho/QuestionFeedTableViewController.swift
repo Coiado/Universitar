@@ -91,7 +91,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?", answers: self.answers1))
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?ajhasjdasjgkajfgahdsfkasdfhasdgfkhsdgfsagdfjsdf", answers: self.answers1))
         
         
         self.question.append(Question(nickname: "Paulo", userIcon: UIImage(named: "userIcon"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
