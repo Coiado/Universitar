@@ -54,6 +54,7 @@ class MateriasDetalheViewController: UIViewController {
         
     }
     
+    //Celula passada pela view com as materias é recebida por esse metodo
     func receiveCellData(cell: MateriaTableViewCell) {
         self.passedCell = cell;
       

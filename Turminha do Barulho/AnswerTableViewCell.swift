@@ -15,6 +15,11 @@ class AnswerTableViewCell: UITableViewCell {
     @IBOutlet weak var nickName: UILabel!
     @IBOutlet weak var answerText: UILabel!
     @IBOutlet weak var answerView: UIView!
+    @IBOutlet weak var likes: UILabel!
+    var liked : Bool = false
+    var disliked : Bool = false
+    @IBOutlet weak var viewAnswer: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +43,35 @@ class AnswerTableViewCell: UITableViewCell {
         self.answerView.layer.shadowOpacity = 1
         
         
+    }
+    @IBAction func UpVote(sender: AnyObject) {
+        if !liked{
+            var like = Int(self.likes.text!)! as Int
+            like = like+1
+            self.likes.text = String(like) as! String
+            liked = true
+        }
+        else{
+            var like = Int(self.likes.text!)! as Int
+            like = like-1
+            self.likes.text = String(like) as! String
+            liked = false
+        }
+        
+    }
+    @IBAction func DownVote(sender: AnyObject) {
+        if !disliked{
+            var like = Int(self.likes.text!)! as Int
+            like = like-1
+            self.likes.text = String(like) as! String
+            disliked = true
+        }
+        else{
+            var like = Int(self.likes.text!)! as Int
+            like = like+1
+            self.likes.text = String(like) as! String
+            disliked = false
+        }
     }
 
 }

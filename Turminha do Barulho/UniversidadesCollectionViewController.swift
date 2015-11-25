@@ -58,16 +58,21 @@ class UniversidadesCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return (self.passedCell.Semestres[0].count)+1
     }
 
-//    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-//        let cellDescricao = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier1, forIndexPath: indexPath)
-//    
-//        // Configure the cell
-//    
-//        return cell
-//    }
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if (indexPath.item == 0){
+            let cellDescricao = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier1, forIndexPath: indexPath) as! DescricaoCollectionViewCell
+            cellDescricao.descricao.text = String("É mais legal")
+            return cellDescricao
+        }
+        else{
+            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier2, forIndexPath: indexPath) as! MateriaCollectionViewCell
+            cellMateria.materiaSemestre.text = self.passedCell.Semestres[0][indexPath.row] as? String
+            return cellMateria
+        }
+    }
 
     // MARK: UICollectionViewDelegate
 
