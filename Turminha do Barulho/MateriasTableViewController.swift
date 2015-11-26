@@ -9,14 +9,27 @@
 import UIKit
 
 class MateriasTableViewController: UITableViewController {
-
-    var materias : [Materia] = []
     
+    //Classes com dados em hardcode que serão utilizados para popular o aplicativo
+    var materias : [Materia] = []
+
+    //Celula que será selecionada e passada para a proxima view
     var chosenCell : MateriaTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setando o navigation bar
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
+        
+        //setando a tableview
+        
+        self.tableView.backgroundColor = UIColor.blackColor()
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
+        
         materias = Materia.loadAllMateria()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,21 +57,33 @@ class MateriasTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as! MateriaTableViewCell
-
+        
         let materia = materias[indexPath.row] as Materia
+        
+        //Descrição da materia que sera passada para a próxima view
         cell.descricao = materia.description
+        
+        //Lista de Universdades que possuem os cursos
         cell.Universidades = materia.Universidades
+        
+        //Lista com grade horária das materias daquele curso
         cell.Semestres = [materia.Semestre1,materia.Semestre2,materia.Semestre3]
+        
+        //Configuração da celula de materias
         cell.textLabel?.text = materia.name
         cell.imageView?.image = UIImage(named: materia.icon)
         cell.backgroundColor = materia.color
+        
+        //cell.backgroundColor = UIColor.blackColor()
+        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
 
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //Quando a celula é selecionada ela chama a próxima view com o Detalhe das materias
         self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! MateriaTableViewCell
-       
         self.performSegueWithIdentifier("Detalhe", sender: self)
     }
     
