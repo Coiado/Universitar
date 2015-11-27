@@ -48,13 +48,13 @@ class AnswerTableViewCell: UITableViewCell {
         if !liked{
             var like = Int(self.likes.text!)! as Int
             like = like+1
-            self.likes.text = String(like) as! String
+            self.likes.text = String(like)
             liked = true
         }
         else{
             var like = Int(self.likes.text!)! as Int
             like = like-1
-            self.likes.text = String(like) as! String
+            self.likes.text = String(like)
             liked = false
         }
         
@@ -63,13 +63,13 @@ class AnswerTableViewCell: UITableViewCell {
         if !disliked{
             var like = Int(self.likes.text!)! as Int
             like = like-1
-            self.likes.text = String(like) as! String
+            self.likes.text = String(like)
             disliked = true
         }
         else{
             var like = Int(self.likes.text!)! as Int
             like = like+1
-            self.likes.text = String(like) as! String
+            self.likes.text = String(like)
             disliked = false
         }
     }
