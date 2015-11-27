@@ -80,7 +80,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         //Muda de identifier para identifier
-        return 100;
+
+        return 700;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -91,6 +92,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.categoriaTitle.text = self.passedCell.titulo
         cell.subTitle.text = self.passedCell.subtitulo
         cell.fullText.text = self.passedCell.fulltext
+        
+        cell.prepareCell()
         
         
         return cell //A priori
