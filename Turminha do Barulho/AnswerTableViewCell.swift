@@ -45,32 +45,49 @@ class AnswerTableViewCell: UITableViewCell {
         
     }
     @IBAction func UpVote(sender: AnyObject) {
-        if !liked{
+        if !disliked && !liked{
             var like = Int(self.likes.text!)! as Int
             like = like+1
             self.likes.text = String(like) as! String
             liked = true
         }
         else{
-            var like = Int(self.likes.text!)! as Int
-            like = like-1
-            self.likes.text = String(like) as! String
-            liked = false
+            if !disliked{
+                var like = Int(self.likes.text!)! as Int
+                like = like-1
+                self.likes.text = String(like) as! String
+                liked = false
+            }
+            else{
+                var like = Int(self.likes.text!)! as Int
+                like = like+2
+                self.likes.text = String(like) as! String
+                disliked = false
+            }
         }
         
     }
     @IBAction func DownVote(sender: AnyObject) {
-        if !disliked{
+        if !disliked && !liked{
             var like = Int(self.likes.text!)! as Int
             like = like-1
             self.likes.text = String(like) as! String
             disliked = true
         }
         else{
-            var like = Int(self.likes.text!)! as Int
-            like = like+1
-            self.likes.text = String(like) as! String
-            disliked = false
+            if !liked{
+                var like = Int(self.likes.text!)! as Int
+                like = like+1
+                self.likes.text = String(like) as! String
+                disliked = false
+            }
+            else{
+                var like = Int(self.likes.text!)! as Int
+                like = like-2
+                self.likes.text = String(like) as! String
+                liked = false
+            }
+            
         }
     }
 
