@@ -14,6 +14,8 @@
 		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; };
 		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; };
 		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; };
+		18CC108A1C0879A700FDA6D3 /* DetalhesNoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */; };
+		18CC108C1C087B3F00FDA6D3 /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */; };
 		18E8C9341BF3688E00E55A54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18E8C9331BF3688E00E55A54 /* Assets.xcassets */; };
 		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; };
 		3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */; };
@@ -72,6 +74,8 @@
 		1851255E1BDA9A2A00E59F89 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedTableViewController.swift; sourceTree = "<group>"; };
 		185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedCell.swift; sourceTree = "<group>"; };
+		18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalhesNoticiaCell.xib; sourceTree = "<group>"; };
+		18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		18E8C9331BF3688E00E55A54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeTableViewCell.swift; path = ../UniversidadeTableViewCell.swift; sourceTree = "<group>"; };
 		3F0CF1231BDAE40B003E7488 /* UniversidadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeTableViewController.swift; path = ../UniversidadeTableViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				185125541BDA91EB00E59F89 /* FeedTableViewController.swift */,
 				185125561BDA91F200E59F89 /* FeedCell.swift */,
 				5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */,
+				18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */,
+				18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */,
 				18E8C9341BF3688E00E55A54 /* Assets.xcassets in Resources */,
 				3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */,
+				18CC108A1C0879A700FDA6D3 /* DetalhesNoticiaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +496,7 @@
 				3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
+				18CC108C1C087B3F00FDA6D3 /* NewsDetailCell.swift in Sources */,
 				3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */,
 				180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */,
 				3F75CB511BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift in Sources */,
