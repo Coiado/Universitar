@@ -80,6 +80,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         //Muda de identifier para identifier
+
         return 700;
     }
     

@@ -106,7 +106,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         }
         cell.upvoteCount.text = "\(String(info.upvote!))"
         cell.title.text = info.titulo
-        cell.subTitle.text = info.subtitulo
+        cell.subTitle.text = info.subtitulo!
         cell.textField.text = info.texto
         cell.picture.image = info.imagem
         cell.fullText = info.fulltext
@@ -143,7 +143,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     func createData()
     {
-        self.data.append(Dados(titulo: "Jornalismo", subtitulo: "Altas aventuras", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
+        self.data.append(Dados(titulo: "Teste", subtitulo: "Jornalismo", texto: "Saiba mais sobre o jornalista que cobriu de perto o estado islamico", imagem: UIImage(named: "Jtest"),upvote: 1042,fulltext:"texto inteiro de jornalismo"))
         
         self.data.append(Dados(titulo: "Economia", subtitulo: "Dólar em alta", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:"texto inteiro de economia"))
         

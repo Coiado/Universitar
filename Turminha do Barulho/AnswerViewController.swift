@@ -68,8 +68,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         else{if(indexPath.row==1){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
-            var numberComments = String(passedCell.answers.count)
-            cell.comments.text = numberComments+" Comentários:"
+            let numberComments = String(passedCell.answers.count)
+            cell.comments.text = numberComments + " Comentários:"
             
             return cell
             }
