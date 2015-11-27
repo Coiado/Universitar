@@ -132,12 +132,18 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
-        let secondViewController = segue.destinationViewController as! FeedDetailsViewController
-        
-        let cell = self.chosenCell
-        
-        secondViewController.receiveCellData(cell!);
-        
+//        let secondViewController = segue.destinationViewController as! FeedDetailsViewController
+//        
+//        let cell = self.chosenCell
+//        
+//        secondViewController.receiveCellData(cell!);
+        if segue.identifier == "detalhesNoticia" {
+            if let destination = segue.destinationViewController as? FeedDetailsViewController {
+                let path = self.tableView?.indexPathForSelectedRow!
+                let cell = self.tableView!.cellForRowAtIndexPath(path!) as! FeedCell
+                destination.passedCell = cell
+            }
+        }
     }
     
     
