@@ -14,7 +14,21 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var categoriaTitle: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var fullText: UILabel!
+    
+    //Atributos do quadrado branco
+    let squareOrigin : CGPoint = CGPoint(x: 0, y: 0)
+    let squareSize : CGSize = CGSize(width: 120, height: 30)
 
+    func prepareCell()
+    {
+        let whiteSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))
+        whiteSquare.backgroundColor = UIColor.whiteColor()
+        whiteSquare.alpha = 0.8
+        self.imagem.addSubview(whiteSquare)
+        
+        self.bringSubviewToFront(self.subTitle)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

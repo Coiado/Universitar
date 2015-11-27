@@ -41,8 +41,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         fullText.layer.cornerRadius = 15
         fullText.layer.borderWidth = 3
         */
-        self.detailsTableView.estimatedRowHeight = 100;
-        self.detailsTableView.rowHeight = UITableViewAutomaticDimension
         
     }
     
@@ -82,7 +80,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         //Muda de identifier para identifier
-        return 0;
+        return 700;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -93,6 +91,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.categoriaTitle.text = self.passedCell.titulo
         cell.subTitle.text = self.passedCell.subtitulo
         cell.fullText.text = self.passedCell.fulltext
+        
+        cell.prepareCell()
         
         
         return cell //A priori
