@@ -252,9 +252,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCard" rowHeight="94" id="blW-1k-vaN" customClass="FeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="94"/>
@@ -382,7 +382,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-Lv-1Jj">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-Lv-1Jj">
                                 <rect key="frame" x="0.0" y="504" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxz-dK-Jm4">
@@ -409,7 +409,7 @@
                                     </textField>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ARC-Cf-ITw" firstAttribute="leading" secondItem="Nxz-dK-Jm4" secondAttribute="trailing" constant="25" id="1wT-8a-aWo"/>
                                     <constraint firstAttribute="centerY" secondItem="ARC-Cf-ITw" secondAttribute="centerY" id="8zj-mE-ZMl"/>
@@ -421,7 +421,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D2z-td-vbh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="1" selectionStyle="none" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="113" id="yhn-RX-Ov0" customClass="QuestionFeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="113"/>
@@ -485,7 +486,7 @@
                                                 </view>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zDE-If-bOa" secondAttribute="bottom" constant="2.5" id="SoQ-xb-zFU"/>
                                                 <constraint firstAttribute="trailing" secondItem="zDE-If-bOa" secondAttribute="trailing" id="jFW-R9-5PL"/>
@@ -722,7 +723,7 @@
                             </tableView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O5Y-rT-SvI" firstAttribute="top" secondItem="oe8-Lv-1Jj" secondAttribute="bottom" id="5k9-g0-zgi"/>
                             <constraint firstItem="D2z-td-vbh" firstAttribute="leading" secondItem="TCK-Bf-n3o" secondAttribute="leading" id="AFO-cy-8AY"/>

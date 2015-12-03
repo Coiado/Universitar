@@ -26,6 +26,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         newQuestion.enabled = true
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
+        self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.None
         
     }
     

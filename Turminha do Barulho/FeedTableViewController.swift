@@ -28,7 +28,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         super.viewDidLoad()
         self.createData()
         
-        self.view.backgroundColor = UIColor.whiteColor()//UIColor.blackColor()
+        self.view.backgroundColor = UIColor.blackColor()
         
         self.tableView.separatorColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         
