@@ -71,6 +71,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.cardSetup()
         
 
+        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
         return cell
     }
     

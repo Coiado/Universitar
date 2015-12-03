@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
+protocol novaResposta {
+    func salvarNovaResposta(text:String, user:String)
+}
+
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
 
     
     @IBOutlet weak var newQuestion: UITextField!
@@ -17,16 +21,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         newQuestion.enabled = true
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,9 +36,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - keyboardnotification
     
-    func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= 200
-    }
+//    func keyboardWillShow(sender: NSNotification) {
+//        self.view.frame.origin.y -= 200
+//    }
     
     // MARK: - Table view data source
     
@@ -89,6 +89,14 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
+    func salvarNovaResposta(text:String, user:String){
+        
+        if(text != ""){
+            passedCell.answers.append(Answer(nickname: user, userIcon:UIImage(named: "userIcon") , answerText: text))
+            tableViewQuestion.reloadData()
+        }
+        
+    }
     
     @IBAction func sendQuestion(sender: AnyObject) {
         if(newQuestion.text != "" && newQuestion.text != nil){
@@ -98,11 +106,19 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    func textFieldDidBeginEditing(textField: UITextField) {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        self.view.frame.origin.y -= self.view.frame.origin.y
-        return false
+        performSegueWithIdentifier("responderPergunta", sender: self)
+        self.newQuestion.endEditing(true)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "responderPergunta"{
+            let destination = segue.destinationViewController as! CriaRespostaViewController
+            
+            destination.respostaDelegate = self
+        }
     }
     
     

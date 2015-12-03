@@ -34,14 +34,19 @@ class FeedCell: UITableViewCell {
     func cardSetup(){
         
         //Desenhamos a "sombra" da celula
-        self.cardView.layer.masksToBounds = false
-        self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
-        self.cardView.layer.shadowRadius = 1
-        let path = UIBezierPath(rect: self.cardView.bounds)
-        self.cardView.layer.shadowPath = path.CGPath
-        self.cardView.layer.shadowOpacity = 1
-        self.subTitle.textColor = UIColor.lightGrayColor()
-                
+//        self.cardView.layer.masksToBounds = false
+//        self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
+//        self.cardView.layer.shadowRadius = 1
+//        let path = UIBezierPath(rect: self.cardView.bounds)
+//        self.cardView.layer.shadowPath = path.CGPath
+//        self.cardView.layer.shadowOpacity = 1
+//        self.subTitle.textColor = UIColor.lightGrayColor()
+//        self.cardView.layer.cornerRadius = 15
+//        
+//        self.picture.layer.masksToBounds = true
+//        self.picture.layer.cornerRadius = 15
+
+        
         
     }
     
