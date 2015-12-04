@@ -15,6 +15,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
 
     var passedCell : UniversidadeTableViewCell!
     
+    @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier1)
-
+//        self.UniversidadeCollectionView.registerClass(DescricaoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier1)
+//        self.UniversidadeCollectionView.registerClass(MateriaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier2)
         // Do any additional setup after loading the view.
     }
 
@@ -58,21 +59,40 @@ class UniversidadesCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return (self.passedCell.Semestres[0].count)+1
+        return self.passedCell.Semestres.count+1
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if (indexPath.item == 0){
-            let cellDescricao = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier1, forIndexPath: indexPath) as! DescricaoCollectionViewCell
-            cellDescricao.descricao.text = String("É mais legal")
+//        self.UniversidadeCollectionView.registerClass(DescricaoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier1)
+//        self.UniversidadeCollectionView.registerClass(MateriaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier2)
+        if (indexPath.row == 0){
+            let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
+            let legal = "É mais legal"
+            cellDescricao.descricaoLabel.text = legal
             return cellDescricao
         }
         else{
-            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier2, forIndexPath: indexPath) as! MateriaCollectionViewCell
+            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
             cellMateria.materiaSemestre.text = self.passedCell.Semestres[0][indexPath.row] as? String
             return cellMateria
         }
     }
+    
+//    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//            if (indexPath.row == 0){
+//                size.width +=
+//                size.height += 10
+//                return size
+//            }
+//                return CGSize(width: 100, height: 100)
+//        }
+//        
+//        //3
+//        func collectionView(collectionView: UICollectionView,
+//            layout collectionViewLayout: UICollectionViewLayout,
+//            insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//                return sectionInsets
+//        }
 
     // MARK: UICollectionViewDelegate
 
