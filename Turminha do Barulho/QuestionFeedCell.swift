@@ -33,7 +33,7 @@ class QuestionFeedCell: UITableViewCell {
     func cardSetup(){
         
         self.questionView.layer.masksToBounds = false
-        self.questionView.layer.cornerRadius = 1
+        self.questionView.layer.cornerRadius = 15
         self.questionView.layer.shadowOffset = CGSizeMake(1, 1) //??
         self.questionView.layer.shadowRadius = 1
         let path = UIBezierPath(rect: self.questionView.bounds)

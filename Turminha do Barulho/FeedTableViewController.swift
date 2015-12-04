@@ -27,7 +27,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createData()
-        self.tableView.separatorColor = UIColor.clearColor()
+        
+        self.view.backgroundColor = UIColor.blackColor()
+        
+        self.tableView.separatorColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         
         self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
         
@@ -127,7 +130,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1.0
+        return 0.4
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -266,7 +269,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     func didChangeSearchText(searchText: String) {
         // Filter the data array and get only those countries that match the search text.
         self.dadosFiltrados = self.data.filter({ (Dados) -> Bool in
-            let stringMatch: NSString = Dados.subtitulo!
+            let stringMatch: NSString = Dados.titulo!
             
             return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
         })
