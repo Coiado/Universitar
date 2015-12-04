@@ -19,6 +19,11 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var tableViewQuestion: UITableView!
     var passedCell : QuestionFeedCell!
     
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableViewQuestion.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +31,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         newQuestion.enabled = true
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
-        self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
         
     }
     
@@ -59,31 +64,41 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(indexPath.row==0){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
             cell.perguntaTitulo.text = passedCell.perguntaTitulo.text
+//            cell.perguntaTitulo.sizeToFit()
+//            cell.updateConstraints()
             cell.userIcon.image = passedCell.userIcon.image
+            cell.userIcon.layer.cornerRadius = 15
             cell.nickName.text = passedCell.nickName.text
             cell.questionText.text = passedCell.questionText.text
+            cell.questionText.font = UIFont(name: "Futura", size: 14.0)
+            
             cell.questionText.sizeToFit()
             cell.updateConstraints()
-            cell.cardSetup()
+            //cell.cardSetup()
             return cell
         }
         else{if(indexPath.row==1){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
             let numberComments = String(passedCell.answers.count)
             cell.comments.text = numberComments + " Comentários:"
+            cell.comments.font = UIFont(name: "Futura", size: 14.0)
             
             return cell
             }
             else{
                 let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerTableViewCell
                 let info = passedCell.answers[indexPath.row-2] as Answer
+                cell.userIcon.image = info.userIcon
+                cell.userIcon.layer.masksToBounds = true
+                cell.userIcon.layer.cornerRadius = 15
+                cell.nickName.text = info.nickname
+                cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
+                cell.answerText.font = UIFont(name: "Futura", size: 14.0)
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
-                cell.userIcon.image = info.userIcon
-                cell.nickName.text = info.nickname
                 cell.likes.text = String(15)
-                cell.cardSetup()
+                //cell.cardSetup()
                 return cell
             }
         }
