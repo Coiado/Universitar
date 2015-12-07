@@ -47,7 +47,6 @@ extension Materia {
                 let description  = dict["description"]  as? String,
                 let icon = dict["icon"] as? String,
                 let Universidades = dict["Universidades"] as? NSArray,
-                let Unicamp = dict["Unicamp"] as? NSArray,
                 let Semestre1 = dict["Semestre 1"] as? NSArray,
                 let Semestre2 = dict["Semestre 2"] as? NSArray,
                 let Semestre3 = dict["Semestre 3"] as? NSArray,

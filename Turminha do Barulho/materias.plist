@@ -96,16 +96,6 @@
 			<string>USP</string>
 			<string>Unesp</string>
 		</array>
-		<key>Unicamp</key>
-		<array>
-			<array>
-				<string>Química</string>
-				<string>Cálculo I</string>
-				<string>Física I</string>
-				<string>Geometria Analítica</string>
-				<string>Introdução a Engenharia de Controle e Automação</string>
-			</array>
-		</array>
 	</dict>
 	<dict>
 		<key>color</key>
