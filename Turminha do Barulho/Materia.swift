@@ -19,7 +19,6 @@ struct Materia {
     let Semestre2: NSArray
     let Semestre3: NSArray
     let color: UIColor
-    let Unicamp : NSArray
 }
 
 // MARK: - Support for loading data from plist
@@ -57,7 +56,7 @@ extension Materia {
             let red = CGFloat(color[0] as! NSNumber)/255
             let green = CGFloat(color[1] as! NSNumber)/255
             let blue = CGFloat(color[2] as! NSNumber)/255
-            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, Semestre1: Semestre1,Semestre2: Semestre2, Semestre3: Semestre3, color: UIColor(red: red, green: green, blue: blue, alpha: 1), Unicamp:Unicamp)
+            let materia = Materia(identifier: identifier, name: name, description: description, icon: icon, Universidades: Universidades, Semestre1: Semestre1,Semestre2: Semestre2, Semestre3: Semestre3, color: UIColor(red: red, green: green, blue: blue, alpha: 1))
             MateriasArray.append(materia)
         }
         
