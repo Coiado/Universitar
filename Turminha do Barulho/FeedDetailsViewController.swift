@@ -22,7 +22,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     //Celula da noticia
     var newsCell : NewsDetailCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Gosto muito albdsbashcbdsbajdbakjbckadcbjsdcjdnsjkcbdscndnacbdsbckjbdsjcjnsdcjnsjkdcjkdsbchbshdbcajndcjbdskbcjdsabcjkasdjasdkjkadjaschasbcasbkcbaskhcbas"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Interessante"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Caramba!")]
     
     
     

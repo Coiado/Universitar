@@ -14,9 +14,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Gosto muito albdsbashcbdsbajdbakjbckadcbjsdcjdnsjkcbdscndnacbdsbckjbdsjcjnsdcjnsjkdcjkdsbchbshdbcajndcjbdskbcjdsabcjkasdjasdkjkadjaschasbcasbkcbaskhcbasÉ bom sim! Gosto muito albdsbashcbdsbajdbakjbckadcbjsdcjdnsjkcbdscndnacbdsbckjbdsjcjnsdcjnsjkdcjkdsbchbshdbcajndcjbdskbcjdsabcjkasdjasdkjkadjaschasbcasbkcbaskhcbasÉ bom sim!"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "É bom sim! Gosto muito. É bom sim!"), Answer(nickname: "ogari", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
     
-    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "userIcon"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "userIcon"), answerText: "É no sabado")]
+    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É no sabado")]
     
     
     override func viewDidAppear(animated: Bool) {
@@ -145,13 +145,13 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?ajhasjdasjgkajfgahdsfkasdfhasdgfkhsdgfsagdfjsdf", answers: self.answers1))
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?", answers: self.answers1))
         
         
-        self.question.append(Question(nickname: "Paulo", userIcon: UIImage(named: "userIcon"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
+        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
         
         
-        self.question.append(Question(nickname: "Maria", userIcon: UIImage(named: "userIcon"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers2))
+        self.question.append(Question(nickname: "Jailson", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers2))
         
         self.tableView.reloadData()
     }
