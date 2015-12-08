@@ -13,9 +13,10 @@
 		<key>identifier</key>
 		<integer>0</integer>
 		<key>name</key>
-		<string>Biologia</string>
+		<string>Engenharia Mecatrônica</string>
 		<key>description</key>
-		<string>O biólogo estuda todas as formas de vida, macroscópica ou microscópica. Ele pesquisa a origem, a evolução, a estrutura e o funcionamento dos organismos. Analisa as relações entre os diversos seres e entre eles e o meio ambiente. O vasto campo de estudos na graduação permite que, depois de formado, o profissional siga caminhos diversos, conforme seu interesse. Da pesquisa com células-tronco ao trabalho ambiental, a carreira do biólogo é abrangente e promissora, em razão, especialmente, da crescente preocupação, em nível mundial, com o meio ambiente. A atuação desse profissional é ainda fundamental na descoberta de aplicações de organismos na medicina, no desenvolvimento de medicamentos e na indústria, em áreas de fabricação de bebidas e de alimentos. O licenciado está apto a dar aulas de Biologia no ensino médio e, no fundamental, pode atuar como educador ambiental ou docente de ciências. Sua formação também permite desenvolver ações educativas em museus, unidades de conservação, ONGs e empresas e escolas. Nas secretarias de Educação, atua como consultor e elabora novas propostas para o ensino da disciplina. Com pós-graduação, está habilitado a dar aulas no ensino superior. </string>
+		<string>O profissional formado em Engenharia Mecatrônica pode criar e aplicar projetos de automação em indústrias. Ele é capaz de operar, construir e dar manutenção nos mais diversos tipos de máquinas, além de projetar sistemas para controle de equipamentos em prédios comerciais e residenciais.
+É uma profissão que exige grande capacidade de observação, atualização constante, habilidade com cálculos e capacidade de trabalhar em equipe. Ser criativo, curioso, interessado e organizado também são características importantes para quem deseja seguir a carreira de Engenharia Mecatrônica.</string>
 		<key>icon</key>
 		<string></string>
 		<key>Semestre 1</key>
@@ -60,9 +61,9 @@
 		<key>identifier</key>
 		<integer>1</integer>
 		<key>name</key>
-		<string>Medicina Veterinária</string>
+		<string>Ciência da Computação</string>
 		<key>description</key>
-		<string>O Médico veterinário dá assistência clínica e cirúrgica a animais domésticos e silvestres, além de cuidar da saúde, da alimentação e da reprodução de rebanhos. Outra de suas funções, complementando sua atenção na saúde animal e na saúde pública, é inspecionar a produção de alimentos de origem animal. Neste caso, o médico veterinário verifica o cumprimento das normas de higiene nas indústrias, a fim de evitar a transmissão de doenças para o ser humano. Na indústria alimentícia, ele controla as tecnologias de produção. Em qualquer indústria que utilize matéria-prima de origem animal, a presença do médico veterinário é indispensável para realizar o controle dessa matéria-prima. Pode atuar, ainda, na área de vendas de alimentos, medicamentos, vacinas e de outros artigos para animais.</string>
+		<string>Este bacharel trabalha, fundamentalmente, na elaboração de programas de informática. Ele analisa as necessidades dos usuários, desenvolve softwares e aplicativos, gerencia equipes de criação e instala sistemas de computação. Cria ferramentas diversas da informática, dos softwares mais básicos, como os usados para controle de estoques, até os mais complexos sistemas de processamento de informações. Profissional essencial a todos os setores da economia, também dá assistência aos usuários, mantém redes de computadores em funcionamento e assegura as conexões com a internet. Em indústrias e institutos de pesquisa, implanta bancos de dados e instala sistemas de segurança para as operações de compra e venda pela rede.</string>
 		<key>icon</key>
 		<string></string>
 		<key>Semestre 1</key>

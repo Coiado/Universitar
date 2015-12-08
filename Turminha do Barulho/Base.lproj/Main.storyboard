@@ -1191,6 +1191,9 @@
                                         <rect key="frame" x="250" y="30" width="46" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="Qh2-zL-pu6" kind="show" id="gkb-Gr-KM3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -1263,7 +1266,7 @@
                         <color key="sectionIndexColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Universidades" editingAccessoryType="disclosureIndicator" rowHeight="71" id="opO-ut-Okb" customClass="UniversidadeTableViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="71"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="opO-ut-Okb" id="j1r-rp-Wc8">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="70.5"/>
@@ -1325,6 +1328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wew-AW-3TJ">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1333,47 +1337,46 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Descricao" id="gaI-lJ-1yQ" customClass="DescricaoCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="1" y="0.0" width="373" height="238"/>
+                                <rect key="frame" x="1" y="64" width="373" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="373" height="238"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como é o curso lá?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-CS-guy">
-                                            <rect key="frame" x="8" y="8" width="146.5" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como é o curso lá?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-CS-guy">
+                                            <rect key="frame" x="28" y="8" width="146.5" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wSS-y6-xfx">
-                                            <rect key="frame" x="28" y="37" width="317" height="186.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-rW-x5k">
+                                            <rect key="frame" x="29" y="48.5" width="326" height="20.5"/>
                                             <animations/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <color key="backgroundColor" red="0.99587804079055786" green="1" blue="0.99584418535232544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="wSS-y6-xfx" firstAttribute="height" secondItem="gaI-lJ-1yQ" secondAttribute="height" multiplier="0.7" constant="20" id="B2N-s7-bqN"/>
-                                    <constraint firstItem="Phc-CS-guy" firstAttribute="leading" secondItem="gaI-lJ-1yQ" secondAttribute="leadingMargin" id="LOj-tf-bix"/>
-                                    <constraint firstItem="wSS-y6-xfx" firstAttribute="width" secondItem="gaI-lJ-1yQ" secondAttribute="width" multiplier="0.85" id="Lxw-us-kpD"/>
-                                    <constraint firstItem="wSS-y6-xfx" firstAttribute="leading" secondItem="gaI-lJ-1yQ" secondAttribute="leadingMargin" constant="20" id="SEu-FI-5Fp"/>
-                                    <constraint firstItem="wSS-y6-xfx" firstAttribute="top" secondItem="Phc-CS-guy" secondAttribute="bottom" constant="8.5" id="gVK-Jh-V5T"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="lrR-rW-x5k" secondAttribute="trailing" constant="10" id="KDQ-us-AjE"/>
+                                    <constraint firstItem="Phc-CS-guy" firstAttribute="leading" secondItem="gaI-lJ-1yQ" secondAttribute="leadingMargin" constant="20" id="LOj-tf-bix"/>
+                                    <constraint firstItem="lrR-rW-x5k" firstAttribute="leading" secondItem="gaI-lJ-1yQ" secondAttribute="leadingMargin" constant="21" id="MQQ-W1-d0j"/>
+                                    <constraint firstItem="lrR-rW-x5k" firstAttribute="top" secondItem="Phc-CS-guy" secondAttribute="bottom" constant="20" id="bOa-0W-ua9"/>
                                     <constraint firstItem="Phc-CS-guy" firstAttribute="top" secondItem="gaI-lJ-1yQ" secondAttribute="topMargin" id="gjK-uq-dZG"/>
                                 </constraints>
                                 <size key="customSize" width="373" height="238"/>
                                 <connections>
-                                    <outlet property="descricao" destination="wSS-y6-xfx" id="AAX-yQ-q8b"/>
+                                    <outlet property="descricaoLabel" destination="lrR-rW-x5k" id="yRl-Pl-hgL"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Materia" id="bai-MW-kuW">
-                                <rect key="frame" x="142.5" y="248" width="90" height="55"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Materia" id="bai-MW-kuW" customClass="MateriaCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                                <rect key="frame" x="142.5" y="312" width="90" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
@@ -1391,6 +1394,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="customSize" width="90" height="55"/>
                                 <connections>
                                     <outlet property="materiaSemestre" destination="IBq-82-nKH" id="lny-t2-ys9"/>
@@ -1404,6 +1408,9 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="RgY-Ae-TE8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="UniversidadeCollectionView" destination="ybO-fk-UcV" id="qVS-bD-Vyh"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZt-Np-mTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
