@@ -41,8 +41,7 @@ class FeedCell: UITableViewCell {
     func cardSetup(){
         
         
-          self.cardView.layer.masksToBounds = false
-        
+        self.cardView.layer.masksToBounds = false
         self.cardView.layer.cornerRadius = 15
        
         self.picture.layer.masksToBounds = true
