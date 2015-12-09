@@ -56,30 +56,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkk-Bg-Tg7">
                                                     <rect key="frame" x="18" y="9" width="349" height="114.5"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7f-5n-thu">
-                                                            <rect key="frame" x="70" y="85" width="20" height="20"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI7-ox-gq8">
+                                                            <rect key="frame" x="116" y="86" width="20" height="20"/>
                                                             <animations/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="23" id="MGk-07-IAt"/>
-                                                                <constraint firstAttribute="width" constant="20" id="OeY-sD-3D9"/>
-                                                                <constraint firstAttribute="height" constant="20" id="fI0-fc-LQm"/>
-                                                                <constraint firstAttribute="width" secondItem="c7f-5n-thu" secondAttribute="height" multiplier="1:1" id="iKe-uZ-aDn"/>
+                                                                <constraint firstAttribute="width" secondItem="lI7-ox-gq8" secondAttribute="height" multiplier="1:1" id="7qq-bd-zFl"/>
+                                                                <constraint firstAttribute="height" constant="20" id="FC3-sx-CzM"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="materia2"/>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="MGk-07-IAt"/>
-                                                                    <exclude reference="iKe-uZ-aDn"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <connections>
-                                                                <action selector="UpVote:" destination="NHB-Hd-WAv" eventType="touchUpInside" id="kGH-1A-yRi"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI7-ox-gq8">
-                                                            <rect key="frame" x="100" y="78" width="64" height="35"/>
-                                                            <animations/>
-                                                            <state key="normal" title="Descurtir"/>
+                                                            <state key="normal" title="Descurtir" image="descurtir"/>
                                                             <connections>
                                                                 <action selector="DownVote:" destination="NHB-Hd-WAv" eventType="touchUpInside" id="ar3-xV-vkg"/>
                                                             </connections>
@@ -142,6 +126,26 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7f-5n-thu">
+                                                            <rect key="frame" x="70" y="86" width="20" height="20"/>
+                                                            <animations/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="MGk-07-IAt"/>
+                                                                <constraint firstAttribute="width" constant="20" id="OeY-sD-3D9"/>
+                                                                <constraint firstAttribute="height" constant="20" id="fI0-fc-LQm"/>
+                                                                <constraint firstAttribute="width" secondItem="c7f-5n-thu" secondAttribute="height" multiplier="1:1" id="iKe-uZ-aDn"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="curtir"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="MGk-07-IAt"/>
+                                                                    <exclude reference="iKe-uZ-aDn"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <connections>
+                                                                <action selector="UpVote:" destination="NHB-Hd-WAv" eventType="touchUpInside" id="kGH-1A-yRi"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,7 +154,7 @@
                                                         <constraint firstItem="aBM-SF-07x" firstAttribute="leading" secondItem="rkk-Bg-Tg7" secondAttribute="leadingMargin" id="2eS-Z2-Ljv"/>
                                                         <constraint firstItem="NUO-19-bFo" firstAttribute="leading" secondItem="aBM-SF-07x" secondAttribute="trailing" constant="5" id="3af-iq-PpR"/>
                                                         <constraint firstItem="oUF-Ol-aLw" firstAttribute="top" secondItem="4Rc-TE-VBI" secondAttribute="bottom" constant="5" id="5gQ-NI-wYB"/>
-                                                        <constraint firstItem="lI7-ox-gq8" firstAttribute="top" secondItem="oUF-Ol-aLw" secondAttribute="bottom" constant="2.5" id="BsD-gq-64J"/>
+                                                        <constraint firstItem="lI7-ox-gq8" firstAttribute="top" secondItem="oUF-Ol-aLw" secondAttribute="bottom" constant="10.5" id="BsD-gq-64J"/>
                                                         <constraint firstItem="c7f-5n-thu" firstAttribute="leading" secondItem="aBM-SF-07x" secondAttribute="trailing" constant="10" id="FZb-E5-GBw"/>
                                                         <constraint firstItem="oUF-Ol-aLw" firstAttribute="top" secondItem="4Rc-TE-VBI" secondAttribute="bottom" constant="5" id="Gcb-l9-FEX"/>
                                                         <constraint firstItem="hOp-CB-2nm" firstAttribute="top" secondItem="rkk-Bg-Tg7" secondAttribute="top" constant="10" id="Gev-x0-dnf"/>
@@ -170,7 +174,7 @@
                                                         <constraint firstItem="4Rc-TE-VBI" firstAttribute="baseline" secondItem="aBM-SF-07x" secondAttribute="firstBaseline" id="h0B-55-10P"/>
                                                         <constraint firstItem="NUO-19-bFo" firstAttribute="top" secondItem="rkk-Bg-Tg7" secondAttribute="top" constant="3" id="hLr-iH-cyR"/>
                                                         <constraint firstItem="oUF-Ol-aLw" firstAttribute="leading" secondItem="hOp-CB-2nm" secondAttribute="trailing" constant="5" id="hU0-Y9-qqe"/>
-                                                        <constraint firstItem="lI7-ox-gq8" firstAttribute="leading" secondItem="c7f-5n-thu" secondAttribute="trailing" constant="10" id="mCg-st-5gR"/>
+                                                        <constraint firstItem="lI7-ox-gq8" firstAttribute="leading" secondItem="c7f-5n-thu" secondAttribute="trailing" constant="26" id="mCg-st-5gR"/>
                                                         <constraint firstItem="NUO-19-bFo" firstAttribute="centerY" secondItem="aBM-SF-07x" secondAttribute="centerY" id="o44-lC-99H"/>
                                                         <constraint firstItem="aBM-SF-07x" firstAttribute="centerY" secondItem="4Rc-TE-VBI" secondAttribute="centerY" id="qk5-Qd-4AS"/>
                                                         <constraint firstItem="aBM-SF-07x" firstAttribute="bottom" secondItem="rkk-Bg-Tg7" secondAttribute="bottomMargin" id="sAM-Yb-Rgw"/>
@@ -189,6 +193,7 @@
                                                             <exclude reference="FZb-E5-GBw"/>
                                                             <exclude reference="JMC-6P-Tqf"/>
                                                             <exclude reference="Jq8-Fz-TgI"/>
+                                                            <exclude reference="awf-aq-pEl"/>
                                                             <exclude reference="2eS-Z2-Ljv"/>
                                                             <exclude reference="qk5-Qd-4AS"/>
                                                             <exclude reference="sAM-Yb-Rgw"/>
@@ -577,7 +582,7 @@
                                                     <rect key="frame" x="18" y="9" width="349" height="115"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Cq-KkN">
-                                                            <rect key="frame" x="50" y="98" width="20" height="20"/>
+                                                            <rect key="frame" x="50" y="92" width="20" height="20"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="0g4-si-qw6"/>
@@ -585,7 +590,7 @@
                                                                 <constraint firstAttribute="width" constant="20" id="Z28-5b-E0e"/>
                                                                 <constraint firstAttribute="width" secondItem="G1O-Cq-KkN" secondAttribute="height" multiplier="1:1" id="nBf-Wh-3G4"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="materia2"/>
+                                                            <state key="normal" title="Button" image="curtir"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="3gf-Sa-7UI"/>
@@ -594,14 +599,6 @@
                                                             </variation>
                                                             <connections>
                                                                 <action selector="UpVote:" destination="heK-zo-4qO" eventType="touchUpInside" id="8iG-Ve-q8O"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-1r-kE0">
-                                                            <rect key="frame" x="80" y="88" width="64" height="41"/>
-                                                            <animations/>
-                                                            <state key="normal" title="Descurtir"/>
-                                                            <connections>
-                                                                <action selector="DownVote:" destination="heK-zo-4qO" eventType="touchUpInside" id="vbA-zV-idL"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73X-AL-Lvp">
@@ -662,15 +659,26 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-1r-kE0">
+                                                            <rect key="frame" x="92" y="92" width="20" height="20"/>
+                                                            <animations/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="0Ce-1r-kE0" secondAttribute="height" multiplier="1:1" id="YqN-hB-9pz"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Descurtir" image="descurtir"/>
+                                                            <connections>
+                                                                <action selector="DownVote:" destination="heK-zo-4qO" eventType="touchUpInside" id="vbA-zV-idL"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="G1O-Cq-KkN" firstAttribute="top" secondItem="2eu-NS-OhC" secondAttribute="bottom" constant="10" id="0Vp-0J-KJc"/>
+                                                        <constraint firstItem="G1O-Cq-KkN" firstAttribute="top" secondItem="2eu-NS-OhC" secondAttribute="bottom" constant="4" id="0Vp-0J-KJc"/>
                                                         <constraint firstItem="G1O-Cq-KkN" firstAttribute="leading" secondItem="dQi-UB-QBk" secondAttribute="trailing" constant="10" id="1SL-qG-HEI"/>
                                                         <constraint firstItem="73X-AL-Lvp" firstAttribute="top" secondItem="qwP-O9-10g" secondAttribute="top" constant="8" id="39a-JW-IO0"/>
                                                         <constraint firstItem="dQi-UB-QBk" firstAttribute="leading" secondItem="qwP-O9-10g" secondAttribute="leadingMargin" id="4IL-IH-JS3"/>
-                                                        <constraint firstItem="0Ce-1r-kE0" firstAttribute="top" secondItem="2eu-NS-OhC" secondAttribute="bottom" id="6Dq-Zq-ZVF"/>
+                                                        <constraint firstItem="0Ce-1r-kE0" firstAttribute="top" secondItem="2eu-NS-OhC" secondAttribute="bottom" constant="4" id="6Dq-Zq-ZVF"/>
                                                         <constraint firstItem="73X-AL-Lvp" firstAttribute="baseline" secondItem="dQi-UB-QBk" secondAttribute="firstBaseline" id="7Nb-QZ-rLV"/>
                                                         <constraint firstItem="YKU-HS-06U" firstAttribute="top" secondItem="qwP-O9-10g" secondAttribute="top" constant="3" id="831-tI-PpK"/>
                                                         <constraint firstItem="2eu-NS-OhC" firstAttribute="top" secondItem="f2g-WQ-JDm" secondAttribute="bottom" constant="21" id="8TM-tp-XYb"/>
@@ -684,7 +692,7 @@
                                                         <constraint firstAttribute="height" secondItem="2eu-NS-OhC" secondAttribute="height" constant="70" id="Ozd-Fy-ORp"/>
                                                         <constraint firstItem="YKU-HS-06U" firstAttribute="leading" secondItem="qwP-O9-10g" secondAttribute="leading" id="TeI-Dg-peA"/>
                                                         <constraint firstAttribute="trailing" secondItem="G1O-Cq-KkN" secondAttribute="trailing" constant="20" id="aQ5-hW-SlH"/>
-                                                        <constraint firstItem="0Ce-1r-kE0" firstAttribute="leading" secondItem="G1O-Cq-KkN" secondAttribute="trailing" constant="10" id="cL2-Ra-6EV"/>
+                                                        <constraint firstItem="0Ce-1r-kE0" firstAttribute="leading" secondItem="G1O-Cq-KkN" secondAttribute="trailing" constant="22" id="cL2-Ra-6EV"/>
                                                         <constraint firstItem="73X-AL-Lvp" firstAttribute="top" secondItem="YKU-HS-06U" secondAttribute="bottom" constant="-38" id="dlS-yn-nfk"/>
                                                         <constraint firstItem="2eu-NS-OhC" firstAttribute="leading" secondItem="YKU-HS-06U" secondAttribute="trailing" constant="15" id="drJ-6v-PFB"/>
                                                         <constraint firstItem="0Ce-1r-kE0" firstAttribute="centerY" secondItem="G1O-Cq-KkN" secondAttribute="centerY" id="fOB-mj-fhy"/>
@@ -741,6 +749,8 @@
                                         <connections>
                                             <outlet property="answerText" destination="2eu-NS-OhC" id="EXF-iR-WNK"/>
                                             <outlet property="answerView" destination="qwP-O9-10g" id="9W9-xt-hBW"/>
+                                            <outlet property="dislikeButton" destination="0Ce-1r-kE0" id="h0e-rR-ftB"/>
+                                            <outlet property="likeButton" destination="G1O-Cq-KkN" id="Hqo-27-qHm"/>
                                             <outlet property="likes" destination="dQi-UB-QBk" id="T4H-Ua-m3e"/>
                                             <outlet property="nickName" destination="73X-AL-Lvp" id="6O1-Tb-qFI"/>
                                             <outlet property="userIcon" destination="YKU-HS-06U" id="sBz-kD-c4e"/>
@@ -1242,7 +1252,7 @@
                                     <rect key="frame" x="319" y="14" width="16" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <state key="normal" image="lupa2" backgroundImage="lupa2"/>
+                                    <state key="normal" image="aumentaLetra" backgroundImage="aumentaLetra"/>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1616,10 +1626,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="aumentaLetra" width="32" height="32"/>
         <image name="commentSquare" width="512" height="512"/>
         <image name="config2" width="32" height="32"/>
+        <image name="curtir" width="32" height="32"/>
+        <image name="descurtir" width="32" height="32"/>
         <image name="feed2" width="32" height="32"/>
-        <image name="lupa2" width="16" height="16"/>
         <image name="materia2" width="344" height="348"/>
         <image name="materias2" width="32" height="32"/>
         <image name="moon2" width="16" height="16"/>

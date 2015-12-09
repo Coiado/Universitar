@@ -69,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasDetalheViewController.swift; sourceTree = "<group>"; };
-		181C499F1C166CA3003B2AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../Turminha do Barulho/Assets.xcassets"; sourceTree = "<group>"; };
+		181C499F1C166CA3003B2AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Turminha do Barulho/Assets.xcassets"; sourceTree = "<group>"; };
 		185125541BDA91EB00E59F89 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		185125561BDA91F200E59F89 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		185125581BDA91F800E59F89 /* Dados.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dados.swift; sourceTree = "<group>"; };
