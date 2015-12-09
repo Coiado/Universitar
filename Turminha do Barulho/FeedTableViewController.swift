@@ -284,7 +284,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: detailsColor, searchBarTintColor: bgColor)
         
         customSearchController.searchBar.searchBarStyle = UISearchBarStyle.Default
-        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        customSearchController.customSearchBar.placeholder = "Procure"
         self.tableView.tableHeaderView = customSearchController.customSearchBar
         
         customSearchController.customDelegate = self
