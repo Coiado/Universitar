@@ -10,5 +10,12 @@ import UIKit
 
 class DescricaoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var descricao: UITextView!
+    @IBOutlet var descricaoLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    
 }

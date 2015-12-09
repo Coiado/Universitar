@@ -8,25 +8,31 @@
 
 import UIKit
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
+protocol novaResposta {
+    func salvarNovaResposta(text:String, user:String)
+}
+
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
 
     
     @IBOutlet weak var newQuestion: UITextField!
     @IBOutlet var tableViewQuestion: UITableView!
     var passedCell : QuestionFeedCell!
     
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableViewQuestion.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         newQuestion.enabled = true
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,9 +42,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - keyboardnotification
     
-    func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= 200
-    }
+//    func keyboardWillShow(sender: NSNotification) {
+//        self.view.frame.origin.y -= 200
+//    }
     
     // MARK: - Table view data source
     
@@ -58,37 +64,55 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(indexPath.row==0){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
             cell.perguntaTitulo.text = passedCell.perguntaTitulo.text
+//            cell.perguntaTitulo.sizeToFit()
+//            cell.updateConstraints()
             cell.userIcon.image = passedCell.userIcon.image
+            cell.userIcon.layer.cornerRadius = 15
             cell.nickName.text = passedCell.nickName.text
             cell.questionText.text = passedCell.questionText.text
+            cell.questionText.font = UIFont(name: "Futura", size: 14.0)
+            
             cell.questionText.sizeToFit()
             cell.updateConstraints()
-            cell.cardSetup()
+            //cell.cardSetup()
             return cell
         }
         else{if(indexPath.row==1){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
-            var numberComments = String(passedCell.answers.count)
-            cell.comments.text = numberComments+" Comentários:"
+            let numberComments = String(passedCell.answers.count)
+            cell.comments.text = numberComments + " Comentários:"
+            cell.comments.font = UIFont(name: "Futura", size: 14.0)
             
             return cell
             }
             else{
                 let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerTableViewCell
                 let info = passedCell.answers[indexPath.row-2] as Answer
+                cell.userIcon.image = info.userIcon
+                cell.userIcon.layer.masksToBounds = true
+                cell.userIcon.layer.cornerRadius = 15
+                cell.nickName.text = info.nickname
+                cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
+                cell.answerText.font = UIFont(name: "Futura", size: 14.0)
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
-                cell.userIcon.image = info.userIcon
-                cell.nickName.text = info.nickname
                 cell.likes.text = String(15)
-                cell.cardSetup()
+                //cell.cardSetup()
                 return cell
             }
         }
     }
 
     
+    func salvarNovaResposta(text:String, user:String){
+        
+        if(text != ""){
+            passedCell.answers.append(Answer(nickname: user, userIcon:UIImage(named: "userIcon") , answerText: text))
+            tableViewQuestion.reloadData()
+        }
+        
+    }
     
     @IBAction func sendQuestion(sender: AnyObject) {
         if(newQuestion.text != "" && newQuestion.text != nil){
@@ -98,11 +122,19 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    func textFieldDidBeginEditing(textField: UITextField) {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        self.view.frame.origin.y -= self.view.frame.origin.y
-        return false
+        performSegueWithIdentifier("responderPergunta", sender: self)
+        self.newQuestion.endEditing(true)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "responderPergunta"{
+            let destination = segue.destinationViewController as! CriaRespostaViewController
+            
+            destination.respostaDelegate = self
+        }
     }
     
     

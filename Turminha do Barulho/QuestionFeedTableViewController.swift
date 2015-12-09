@@ -14,18 +14,27 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Gosto muito albdsbashcbdsbajdbakjbckadcbjsdcjdnsjkcbdscndnacbdsbckjbdsjcjnsdcjnsjkdcjkdsbchbshdbcajndcjbdskbcjdsabcjkasdjasdkjkadjaschasbcasbkcbaskhcbas"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "É bom sim! Gosto muito. É bom sim!"), Answer(nickname: "ogari", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
     
-    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "userIcon"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "userIcon"), answerText: "É no sabado")]
+    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É no sabado")]
     
+    //CORES
+    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        self.tableView.reloadData()
+    
+    }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.createQuestion()
-        self.tableView.separatorColor = UIColor.clearColor()
-        let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backItem
+        //self.tableView.separatorColor = UIColor.clearColor()
+        //let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
+        //navigationItem.backBarButtonItem = backItem
         
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
@@ -36,6 +45,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.tableView.backgroundColor = tableBG
+        self.tableView.separatorColor = tableBG
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,42 +74,88 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         let info = question[indexPath.row] as Question
         cell.perguntaTitulo.text = info.questionTitle
         cell.userIcon.image = info.userIcon
+        cell.userIcon.layer.cornerRadius = 15
+        cell.userIcon.layer.masksToBounds = true
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText
         cell.questionText.sizeToFit()
     
+        
+        /*
+        if (indexPath.row)%2 == 0{
+            
+            let color = UIColor.init(red: 177/255, green: 237/255, blue: 232/255, alpha: 1.0)
+            let textColor = UIColor.init(red: 255/255, green: 105/255, blue: 120/255, alpha: 1.0)
+            let colorBottom = UIColor.whiteColor().CGColor
+            
+            //let color = UIColor.init(red: 215/255, green: 217/255, blue: 206/255, alpha: 1).CGColor
+            
+            let gl = CAGradientLayer()
+            
+            gl.colors = [colorBottom, color.CGColor, colorBottom]
+            gl.locations = [0.0,1.5]
+            
+            //cell.questionView.backgroundColor = color
+            cell.perguntaTitulo.textColor = textColor
+            cell.nickName.textColor = textColor
+            cell.questionText.textColor = textColor
+            
+            let backgroundLayer = gl
+            backgroundLayer.frame = cell.questionView.frame
+            cell.questionView.layer.insertSublayer(backgroundLayer, atIndex: 0)
+            
+            
+        }
+        else{
+            
+            let textColor = UIColor.init(red: 255/255, green: 252/255, blue: 249/255, alpha: 1.0)
+            let color = UIColor.init(red: 255/255, green: 105/255, blue: 120/255, alpha: 1.0)
+            
+            let gl = CAGradientLayer()
+            
+            gl.colors = [textColor.CGColor , color.CGColor, textColor.CGColor]
+            gl.locations = [0.0,1.5]
+            
+            cell.questionView.backgroundColor = color
+            cell.perguntaTitulo.textColor = textColor
+            cell.nickName.textColor = textColor
+            cell.questionText.textColor = textColor
+            
+            let backgroundLayer = gl
+            backgroundLayer.frame = cell.questionView.frame
+            cell.questionView.layer.insertSublayer(backgroundLayer, atIndex: 0)
+        }
+        */
         cell.updateConstraints()
         cell.answers = info.answers
         cell.cardSetup()
         
 
+        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
         return cell
     }
     
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
-    }
-    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 120
+//    }
+//    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! QuestionFeedCell
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
-   
-    
-    
-    
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "userIcon"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?ajhasjdasjgkajfgahdsfkasdfhasdgfkhsdgfsagdfjsdf", answers: self.answers1))
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom? Sou safadao Sou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadao", answers: self.answers1))
         
         
-        self.question.append(Question(nickname: "Paulo", userIcon: UIImage(named: "userIcon"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
+        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
         
         
-        self.question.append(Question(nickname: "Maria", userIcon: UIImage(named: "userIcon"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers2))
+        self.question.append(Question(nickname: "Jailson", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers2))
         
         self.tableView.reloadData()
     }

@@ -28,6 +28,9 @@ class MateriasDetalheViewController: UIViewController {
     
     var passedCell : MateriaTableViewCell!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
 
+    override func viewWillDisappear(animated: Bool) {
+        print("teste")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +41,9 @@ class MateriasDetalheViewController: UIViewController {
         self.view.backgroundColor = passedCell.backgroundColor
         self.titulo.title = passedCell.textLabel?.text
         self.texto.text = passedCell.descricao
-        //self.texto.editable = false
-        
         self.texto.numberOfLines = 0
         
         self.texto.font = UIFont(name: "Futura", size: 17.0)
-        
-        //let size = texto.text!.sizeWithAttributes([NSFontAttributeName:texto.font!])
-        
-        //texto.frame = CGRectMake(texto.frame.origin.x, texto.frame.origin.y, size.width, size.height)
-        
-        //self.scrollView.contentSize = CGSizeMake(self.texto.frame.height, self.texto.frame.width)
         
         configButtons()
         
