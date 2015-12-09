@@ -35,9 +35,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKX-lg-U7t">
                         <rect key="frame" x="8" y="242" width="359" height="37"/>
                         <animations/>
-<<<<<<< HEAD
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-=======
+
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
 >>>>>>> 096547f8e4eb0f3d77369197d855f1786f5d12df
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
