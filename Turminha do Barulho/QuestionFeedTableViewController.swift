@@ -18,6 +18,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É no sabado")]
     
+    //CORES
+    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+
     
     override func viewDidAppear(animated: Bool) {
         
@@ -42,6 +45,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.tableView.backgroundColor = tableBG
+        self.tableView.separatorColor = tableBG
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +80,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.questionText.text = info.questionText
         cell.questionText.sizeToFit()
     
+        
+        /*
         if (indexPath.row)%2 == 0{
             
             let color = UIColor.init(red: 177/255, green: 237/255, blue: 232/255, alpha: 1.0)
@@ -117,10 +125,10 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
             backgroundLayer.frame = cell.questionView.frame
             cell.questionView.layer.insertSublayer(backgroundLayer, atIndex: 0)
         }
-        
+        */
         cell.updateConstraints()
         cell.answers = info.answers
-        //cell.cardSetup()
+        cell.cardSetup()
         
 
         cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
@@ -138,14 +146,10 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
-   
-    
-    
-    
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom?", answers: self.answers1))
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom? Sou safadao Sou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadao", answers: self.answers1))
         
         
         self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))

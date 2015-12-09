@@ -219,7 +219,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         self.data.append(Dados(titulo: "Mercado em Alta", subtitulo: "Computação", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:computacao))
         
-       
         
         
         self.tableView.reloadData()

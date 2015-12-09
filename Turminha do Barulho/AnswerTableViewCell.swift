@@ -19,6 +19,8 @@ class AnswerTableViewCell: UITableViewCell {
     var liked : Bool = false
     var disliked : Bool = false
     @IBOutlet weak var viewAnswer: UIView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dislikeButton: UIButton!
     
     
     override func awakeFromNib() {
@@ -45,50 +47,45 @@ class AnswerTableViewCell: UITableViewCell {
         
     }
     @IBAction func UpVote(sender: AnyObject) {
-        if !disliked && !liked{
+
+        if !liked{
             var like = Int(self.likes.text!)! as Int
             like = like+1
             self.likes.text = String(like)
             liked = true
+            //self.likeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         }
         else{
-            if !disliked{
-                var like = Int(self.likes.text!)! as Int
-                like = like-1
-                self.likes.text = String(like) as! String
-                liked = false
-            }
-            else{
-                var like = Int(self.likes.text!)! as Int
-                like = like+2
-                self.likes.text = String(like) as! String
-                disliked = false
-            }
-        }
-        
-    }
-    @IBAction func DownVote(sender: AnyObject) {
-        if !disliked && !liked{
+            
             var like = Int(self.likes.text!)! as Int
             like = like-1
             self.likes.text = String(like)
-            disliked = true
-        }
-        else{
-            if !liked{
-                var like = Int(self.likes.text!)! as Int
-                like = like+1
-                self.likes.text = String(like) as! String
-                disliked = false
-            }
-            else{
-                var like = Int(self.likes.text!)! as Int
-                like = like-2
-                self.likes.text = String(like) as! String
-                liked = false
-            }
+            liked = false
+            //self.likeButton.backgroundColor = UIColor.clearColor()
             
         }
+        
+        
+    }
+    @IBAction func DownVote(sender: AnyObject) {
+
+        if !disliked{
+            var like = Int(self.likes.text!)! as Int
+            like = like - 1
+            self.likes.text = String(like)
+            disliked = true
+            //self.dislikeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        }
+        else{
+            
+            var like = Int(self.likes.text!)! as Int
+            like = like + 1
+            self.likes.text = String(like)
+            disliked = false
+            //self.dislikeButton.backgroundColor = UIColor.clearColor()
+            
+        }
+    
     }
 
 }
