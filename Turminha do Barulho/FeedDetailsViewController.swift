@@ -8,8 +8,9 @@
 
 import UIKit
 
-class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
     
+    @IBOutlet weak var comentarTextField: UITextField!
     //TableView
     @IBOutlet weak var detailsTableView : UITableView!
     
@@ -36,6 +37,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.detailsTableView.reloadData()
         detailsTableView.estimatedRowHeight = 700
         detailsTableView.rowHeight = UITableViewAutomaticDimension
+        
         /*
         image.image = passedCell.imagem
         fullText.text = passedCell.fulltext
@@ -118,5 +120,43 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             return cell //A priori
         }
     }
+    
+    
+    //#MARK - TextField e criar novo comentário
+    
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+    
+        
+        performSegueWithIdentifier("criarComentário", sender: self)
+
+        self.comentarTextField.endEditing(true)
+        
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "criarComentário"
+        {
+            let destination = segue.destinationViewController as! CriaRespostaViewController
+            
+            destination.respostaDelegate = self // seta o delegate do viewcontroller
+        }
+    }
+    
+    func salvarNovaResposta(text:String, user:String){ //metodo para adicionar novo comentário
+        
+        if(text != ""){
+            
+            self.answers1.append(Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: text))
+            
+            self.detailsTableView.reloadData()
+            
+            
+        }
+        
+    }
+    
+    
     
 }
