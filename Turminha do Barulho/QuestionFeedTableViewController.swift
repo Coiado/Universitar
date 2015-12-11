@@ -14,9 +14,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "É bom sim! Gosto muito. É bom sim!"), Answer(nickname: "ogari", userIcon: UIImage(named: "userIcon"), answerText: "Não gosto")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "A Unicamp fornece moradia e alimentação de graça para estudantes de baixa renda. Além disso existe a oportunidade de conseguir bolsas trabalhos."), Answer(nickname: "ogari", userIcon: UIImage(named: "ogari"), answerText: "Apesar de oferecer tudo isso, as bolsas são escassas e não contemplam todos os alunos necessitados")]
     
-    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Não sei"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É no sabado")]
+    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "É o melhor do Brasil!"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É muito bom, porém não é fácil.")]
+    
+    
+    var answers3 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Semana que vem, no sábado."), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "Nossa já ia esquecer, obrigado!")]
     
     //CORES
     let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
@@ -149,13 +152,13 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Bandeco da Unicamp", questionText: "O Bandeco da Unicamp é bom? Sou safadao Sou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadaoSou safadao", answers: self.answers1))
+        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
         
         
-        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de eng. na Unicamp?", answers: self.answers1))
+        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
         
         
-        self.question.append(Question(nickname: "Jailson", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers2))
+        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
         
         self.tableView.reloadData()
     }
@@ -225,7 +228,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
             self.view.frame.width*0.90, height: self.view.frame.height*0.8)
         
-        criarPerguntaView.backgroundColor = UIColor.grayColor()
+        criarPerguntaView.backgroundColor = UIColor.blackColor()
         
         criarPerguntaView.layer.cornerRadius = 10
         
@@ -236,10 +239,11 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         closeButton.setTitle("X", forState: .Normal)
         
         closeButton.layer.cornerRadius = 10
-        closeButton.backgroundColor = UIColor.blackColor()
+        closeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+
         
         closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
-        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.1 ,  height: self.criarPerguntaView.frame.width * 0.1)
+        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.08 ,  height: self.criarPerguntaView.frame.width * 0.08)
         self.criarPerguntaView.addSubview(closeButton)
         
         tituloTextfield.attributedText = nil
@@ -269,9 +273,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         let criaButton = UIButton()
         
+        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+, forState: UIControlState.Normal)
+        
         criaButton.layer.cornerRadius = 10
         criaButton.setTitle("Criar", forState: .Normal)
-        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.825, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
+        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
         criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.criarPerguntaView.addSubview(criaButton)
