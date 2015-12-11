@@ -38,6 +38,11 @@ class QuestionFeedCell: UITableViewCell {
         
         self.contentView.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
         
+        self.userIcon.layer.masksToBounds = true
+        self.userIcon.layer.cornerRadius = self.userIcon.frame.height/2
+    
+        print("AQUI")
+        
         /*
         self.questionView.layer.masksToBounds = false
         self.questionView.layer.cornerRadius = 15
