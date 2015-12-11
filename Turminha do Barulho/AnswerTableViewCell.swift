@@ -43,7 +43,8 @@ class AnswerTableViewCell: UITableViewCell {
         let path = UIBezierPath(rect: self.answerView.bounds)
         self.answerView.layer.shadowPath = path.CGPath
         self.answerView.layer.shadowOpacity = 1
-        
+        self.userIcon.layer.masksToBounds = true
+        self.userIcon.layer.cornerRadius = self.userIcon.frame.height/2
         
     }
     @IBAction func UpVote(sender: AnyObject) {
