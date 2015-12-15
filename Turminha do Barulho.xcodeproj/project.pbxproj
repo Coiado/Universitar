@@ -189,6 +189,7 @@
 		185125511BDA919C00E59F89 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -254,11 +255,9 @@
 				185125531BDA91DA00E59F89 /* Feed */,
 				185125511BDA919C00E59F89 /* Config */,
 				185125501BDA919100E59F89 /* Materias */,
-				5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */,
+				5F68A5291C2078930087621A /* Login e cadastro */,
 				3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */,
 				180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */,
-				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
-				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
 				3FFA23D61BF4C70800D7AEDB /* UniversidadesCollectionViewController.swift */,
 				3F0E2DE01C06117500CB4722 /* SearchController */,
 			);
@@ -393,6 +392,15 @@
 				5F68A5121C2064C10087621A /* Parse.framework */,
 			);
 			name = Parse;
+			sourceTree = "<group>";
+		};
+		5F68A5291C2078930087621A /* Login e cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
+				5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */,
+			);
+			name = "Login e cadastro";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
