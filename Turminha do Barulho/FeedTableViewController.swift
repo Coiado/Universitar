@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class FeedTableViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
     
@@ -47,7 +48,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.createData()
         
         self.configRefresh()

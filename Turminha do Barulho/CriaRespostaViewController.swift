@@ -47,11 +47,7 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func responderAction(sender: AnyObject) {
         
-        print("action")
-        
         if respostaDelegate != nil{
-            
-            print("if")
             
             respostaDelegate.salvarNovaResposta(respostaTextView.text, user: "josé")
 

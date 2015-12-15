@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CustomSearchControllerDelegate {
+protocol CustomSearchControllerDelegate { // protocol para conseguir pegar as mudanças no searchbar
     func didStartSearching()
     
     func didTapOnSearchButton()
@@ -26,7 +26,7 @@ class CustomSearchController: UISearchController,UISearchBarDelegate {
     init(searchResultsController: UIViewController!, searchBarFrame: CGRect, searchBarFont: UIFont, searchBarTextColor: UIColor, searchBarTintColor: UIColor) {
         super.init(searchResultsController: searchResultsController)
         
-        configureSearchBar(searchBarFrame, font: searchBarFont, textColor: searchBarTextColor, bgColor: searchBarTintColor)
+        configureSearchBar(searchBarFrame, font: searchBarFont, textColor: searchBarTextColor, bgColor: searchBarTintColor) 
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
