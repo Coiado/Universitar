@@ -807,6 +807,15 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="edH-6w-2wH" firstAttribute="top" secondItem="C53-hy-RBa" secondAttribute="bottom" constant="29" id="3vf-Oi-GWm"/>
+                            <constraint firstItem="Eql-CI-U96" firstAttribute="top" secondItem="edH-6w-2wH" secondAttribute="bottom" constant="232" id="Ncu-zX-Kt1"/>
+                            <constraint firstItem="edH-6w-2wH" firstAttribute="top" secondItem="KFR-fb-1Wr" secondAttribute="bottom" constant="8" symbolic="YES" id="VBX-YI-9Fd"/>
+                            <constraint firstItem="edH-6w-2wH" firstAttribute="leading" secondItem="als-iM-6lX" secondAttribute="leadingMargin" id="WfR-yM-Vo6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="edH-6w-2wH" secondAttribute="trailing" id="cfR-Ps-fI8"/>
+                            <constraint firstItem="KFR-fb-1Wr" firstAttribute="top" secondItem="C53-hy-RBa" secondAttribute="bottom" id="fEq-WR-152"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KFR-fb-1Wr" secondAttribute="trailing" constant="4" id="yGT-O4-kjI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R6w-ih-je3">
                         <barButtonItem key="rightBarButtonItem" title="Responder" id="xXa-6j-HcA">
