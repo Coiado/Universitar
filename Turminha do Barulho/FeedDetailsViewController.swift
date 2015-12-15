@@ -23,7 +23,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     //Celula da noticia
     var newsCell : NewsDetailCell!
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: "É bom sim! Interessante"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Caramba!")]
+    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText:"Interessante"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Caramba!")]
     
     
     
@@ -84,17 +84,17 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         return 1;
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //Muda de identifier para identifier
-        var height : CGFloat
-        if (indexPath.row==0){
-            height = 700.0
-        }
-        else{
-            height = 150.0
-        }
-        return height;
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        //Muda de identifier para identifier
+//        var height : CGFloat
+//        if (indexPath.row==0){
+//            
+//        }
+//        else{
+//            height = 150.0
+//        }
+//        return height;
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //Precisamos retornar uma celula de noticia caso seja a primeira celula ou celulas de comentarios
@@ -105,6 +105,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.categoriaTitle.text = self.passedCell.title.text
             cell.subTitle.text = self.passedCell.subTitle.text
             cell.fullText.text = self.passedCell.fullText
+            cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell
         }else{
