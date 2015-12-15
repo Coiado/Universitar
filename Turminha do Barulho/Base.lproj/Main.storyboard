@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2gb-Zh-hbK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -991,7 +991,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cnF-Ef-xD3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="p0u-KA-sZF">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-B7-RNb">
@@ -1062,25 +1062,29 @@
                                 <rect key="frame" x="146" y="469" width="69" height="30"/>
                                 <state key="normal" title="Confirmar"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EB-Qe-RU5">
-                                <rect key="frame" x="132" y="109" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-5Q-a7r">
-                                <rect key="frame" x="132" y="191" width="97" height="30"/>
+                                <rect key="frame" x="132" y="188" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m2D-bE-Wxj" id="23i-h3-u4Z"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yqg-Cq-WyS">
                                 <rect key="frame" x="132" y="261" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m2D-bE-Wxj" id="4ZW-Ym-jzx"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eI1-Tq-rWH">
                                 <rect key="frame" x="132" y="337" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m2D-bE-Wxj" id="aDu-Wn-nw6"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-ke-CaE">
                                 <rect key="frame" x="259" y="105" width="54" height="34"/>
@@ -1100,10 +1104,35 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-OE-9d2">
+                                <rect key="frame" x="162" y="217" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EB-Qe-RU5">
+                                <rect key="frame" x="132" y="109" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m2D-bE-Wxj" id="4OO-uh-R0a"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Fhp-OE-9d2" id="BNw-wT-AP9"/>
+                        <outlet property="confirmaButton" destination="UNl-iC-K5x" id="oNx-0z-Nva"/>
+                        <outlet property="confirmationCheck" destination="CcP-7U-2bi" id="pF8-WA-GfV"/>
+                        <outlet property="confirmationTextField" destination="Yqg-Cq-WyS" id="MWU-PX-I6q"/>
+                        <outlet property="emailCheck" destination="JGb-b6-Fw8" id="GjV-Xi-KRq"/>
+                        <outlet property="emailTextField" destination="eI1-Tq-rWH" id="NUI-qR-0lO"/>
+                        <outlet property="nomeCheck" destination="jDk-ke-CaE" id="V9u-yU-5hq"/>
+                        <outlet property="nomeTextField" destination="4EB-Qe-RU5" id="8Mm-K2-gDq"/>
+                        <outlet property="passwordCheck" destination="tgN-uK-1CT" id="YMl-vb-JY7"/>
+                        <outlet property="passwordTextField" destination="fPL-5Q-a7r" id="kNM-ru-LVs"/>
+                        <segue destination="exc-qO-C5v" kind="show" identifier="configuração" id="2RD-5l-wvy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeH-Qs-Tzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1442,11 +1471,17 @@
                                 <rect key="frame" x="139" y="133" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2gb-Zh-hbK" id="6pl-fP-MjC"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJt-dR-1Vo">
                                 <rect key="frame" x="139" y="257" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2gb-Zh-hbK" id="gGx-U7-Cqq"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWn-re-Sk6">
                                 <rect key="frame" x="163" y="207" width="48" height="21"/>
@@ -1478,12 +1513,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-k3-bIV">
+                                <rect key="frame" x="170" y="270" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Hr8-k3-bIV" id="tkQ-Y8-7CG"/>
+                        <outlet property="forgetButton" destination="1Mj-p5-oGQ" id="2jO-VK-zec"/>
+                        <outlet property="loginButton" destination="jju-3u-lYc" id="BuV-cX-eGr"/>
+                        <outlet property="loginTextField" destination="kfl-L2-phK" id="Uw2-Nd-bSj"/>
+                        <outlet property="passwordTextField" destination="WJt-dR-1Vo" id="cPI-pH-4zn"/>
+                        <outlet property="signupButton" destination="Wyn-ga-i6s" id="YJ1-Iw-s5R"/>
                         <segue destination="m2D-bE-Wxj" kind="show" identifier="CriarConta" id="Hpj-VF-kBW"/>
+                        <segue destination="exc-qO-C5v" kind="show" identifier="configuração" id="gWl-Av-0qc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bs-6a-GrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1571,6 +1617,7 @@
         <image name="worker" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gWl-Av-0qc"/>
         <segue reference="1zD-E0-HBm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
