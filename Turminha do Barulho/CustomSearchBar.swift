@@ -16,13 +16,14 @@ class CustomSearchBar: UISearchBar {
     init(frame: CGRect, font: UIFont, textColor: UIColor) {
         
         super.init(frame:frame)
-        
+        //seta o frame, font e dor do texto
         self.frame = frame
         
         self.preferredColor = textColor
         
         self.preferredFont = font
         
+        //muda o estilo da searchbar
         self.searchBarStyle = UISearchBarStyle.Prominent
         translucent = false
         
@@ -33,13 +34,13 @@ class CustomSearchBar: UISearchBar {
     }
     
     
-    func indexOfSearchFieldInSubviews() -> Int!{
+    func indexOfSearchFieldInSubviews() -> Int!{ //metodo para pegar o index do textfield
         
         var index: Int!
         
         let searchBarView = subviews[0] 
         
-        for var i = 0; i<searchBarView.subviews.count; ++i{
+        for var i = 0; i<searchBarView.subviews.count; ++i{ //for para procurar dentro das subviews e achar o index
             
             if searchBarView.subviews[i].isKindOfClass(UITextField){
                 index = i
@@ -69,12 +70,12 @@ class CustomSearchBar: UISearchBar {
             searchField.backgroundColor = barTintColor
             
         }
-        
+        //prepara para fazer a linha embaixo da searchbar
         let startPoint = CGPointMake(0.0, frame.size.height)
         let endPoint = CGPointMake(frame.size.width, frame.size.height)
         let path = UIBezierPath()
         path.moveToPoint(startPoint)
-        path.addLineToPoint(endPoint)
+        path.addLineToPoint(endPoint) // seta onde vai ser o começo e o fim da linha
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.CGPath

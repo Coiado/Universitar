@@ -22,14 +22,14 @@ class MateriasDetalheViewController: UIViewController {
     
     var isModoNoturno:Bool = false
     
-    let fontSize:[CGFloat] = [17.0, 20.0, 23.0, 26.0]
+    let fontSize:[CGFloat] = [17.0, 20.0, 23.0]
     
     var actualFontSize:Int = 0
     
     var passedCell : MateriaTableViewCell!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
 
     override func viewWillDisappear(animated: Bool) {
-        print("teste")
+
     }
     
     override func viewDidLoad() {

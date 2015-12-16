@@ -26,6 +26,9 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
         self.wordCount.text = String(stringMaxLength)
         
         self.respostaTextView.becomeFirstResponder()
+        
+        self.respostaTextView.layer.cornerRadius = 15
+        
     }
     
     func textViewDidChange(textView: UITextView) {
@@ -44,11 +47,7 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func responderAction(sender: AnyObject) {
         
-        print("action")
-        
         if respostaDelegate != nil{
-            
-            print("if")
             
             respostaDelegate.salvarNovaResposta(respostaTextView.text, user: "josé")
 

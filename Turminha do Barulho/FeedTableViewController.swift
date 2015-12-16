@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class FeedTableViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
     
@@ -47,7 +48,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.createData()
         
         self.configRefresh()
@@ -299,7 +300,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: detailsColor, searchBarTintColor: bgColor)
         
         customSearchController.searchBar.searchBarStyle = UISearchBarStyle.Default
-        customSearchController.customSearchBar.placeholder = "Procure por mais notícias aqui"
+        customSearchController.customSearchBar.placeholder = "Procure"
         self.tableView.tableHeaderView = customSearchController.customSearchBar
         
         customSearchController.customDelegate = self
