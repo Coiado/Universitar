@@ -40,8 +40,6 @@ class QuestionFeedCell: UITableViewCell {
         
         self.userIcon.layer.masksToBounds = true
         self.userIcon.layer.cornerRadius = self.userIcon.frame.height/2
-    
-        print("AQUI")
         
         /*
         self.questionView.layer.masksToBounds = false

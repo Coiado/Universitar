@@ -14,6 +14,8 @@ protocol novaPergunta {
 
 class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate, novaPergunta {
 
+    @IBOutlet weak var pergunteButton: UIButton!
+    
     var question : [Question] = []
     
     var chosenCell : QuestionFeedCell!
@@ -41,6 +43,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         super.viewDidLoad()
         self.createQuestion()
+        
+        configureButton()
+        
         //self.tableView.separatorColor = UIColor.clearColor()
         //let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
         //navigationItem.backBarButtonItem = backItem
@@ -64,6 +69,24 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func configureButton(){
+        
+        self.pergunteButton.addTarget(self, action: "fazerPergunta", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    
+    func fazerPergunta(){
+        
+        print("testando a segue")
+        
+        self.performSegueWithIdentifier("fazerPergunta", sender: self)
+        
+    }
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -215,99 +238,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     */
 
     
-    
-    //MARK: Criar pergunta
-    
-    
-    var criarPerguntaView = UIView()
-    
-    var tituloTextfield = UITextField()
-    
-    var perguntaTextview = UITextView()
-    
-//    @IBAction func CriaPergunta(sender: AnyObject) {
-//        
-//        
-////        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-////        alert.show()
-//        
-//        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
-//            self.view.frame.width*0.90, height: self.view.frame.height*0.8)
-//        
-//        criarPerguntaView.backgroundColor = UIColor.blackColor()
-//        
-//        criarPerguntaView.layer.cornerRadius = 10
-//        
-//        self.view.addSubview(criarPerguntaView)
-//        
-//        let closeButton = UIButton()
-//        
-//        closeButton.setTitle("X", forState: .Normal)
-//        
-//        closeButton.layer.cornerRadius = 10
-//        closeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-//
-//        
-//        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
-//        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.08 ,  height: self.criarPerguntaView.frame.width * 0.08)
-//        self.criarPerguntaView.addSubview(closeButton)
-//        
-//        tituloTextfield.attributedText = nil
-//        tituloTextfield.placeholder = "Título"
-//        
-//        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
-//        
-//        tituloTextfield.layer.cornerRadius = 10
-//        
-//        tituloTextfield.backgroundColor = UIColor.whiteColor()
-//        
-//        tituloTextfield.delegate = self
-//        
-//        self.criarPerguntaView.addSubview(tituloTextfield)
-//
-//        perguntaTextview.attributedText = nil
-//        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
-//
-//        perguntaTextview.layer.cornerRadius = 10
-//        
-//        perguntaTextview.backgroundColor = UIColor.whiteColor()
-//        
-//        perguntaTextview.delegate = self
-//        
-//        self.criarPerguntaView.addSubview(perguntaTextview)
-//        
-//        
-//        let criaButton = UIButton()
-//        
-//        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-//, forState: UIControlState.Normal)
-//        
-//        criaButton.layer.cornerRadius = 10
-//        criaButton.setTitle("Criar", forState: .Normal)
-//        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
-//        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        self.criarPerguntaView.addSubview(criaButton)
-//        
-//        
-//        
-//    }
-    
-    // Lembrar de jah dispor do segue
-
-    @IBAction func fazerPergunta(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("fazerPergunta", sender: self)
-        
-    }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "fazerPergunta"{
-//            let destination = segue.destinationViewController as! CriaPerguntaViewController
-//            
-//            destination.perguntaDelegate = self
-//        }
-//    }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -335,52 +265,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
             self.tableView.reloadData()
         }
         
-    }
-    
-    func criaPergunta()
-    {
-        
-        let titulo = tituloTextfield.text
-        
-        let pergunta = perguntaTextview.text
-        
-        if titulo != "" {
-            
-            if pergunta != ""{
-                print("titulo = \(titulo) e pergunta = \(pergunta)")
-                self.question.append(Question(nickname: "Bruno", userIcon: UIImage(named: "userIcon"), questionTitle: titulo, questionText: pergunta, answers: self.answers1))
-                
-                
-                for subview in self.criarPerguntaView.subviews{
-                    subview.removeFromSuperview()
-                }
-                
-                self.criarPerguntaView.removeFromSuperview()
-
-                self.tableView.reloadData()
-            }
-            else{
-                let alert = UIAlertView (title: "Erro", message: "Preencha a pergunta", delegate: self, cancelButtonTitle: "Ok")
-            }
-        }
-        
-        else{
-            
-            let alert = UIAlertView (title: "Erro", message: "Preencha o título", delegate: self, cancelButtonTitle: "Ok")
-            alert.show()
-            
-        }
-        
-    }
-    
-    func closeTutorial()
-    {
-        
-        for subview in self.criarPerguntaView.subviews{
-            subview.removeFromSuperview()
-        }
-        
-        self.criarPerguntaView.removeFromSuperview()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
