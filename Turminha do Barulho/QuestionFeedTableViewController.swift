@@ -8,11 +8,17 @@
 
 import UIKit
 
-class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate {
+protocol novaPergunta {
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String)
+}
+
+class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate, novaPergunta {
 
     var question : [Question] = []
     
     var chosenCell : QuestionFeedCell!
+    
+     //[Answer(nickname: nil, userIcon: UIImage(named: nil), answerText: nil)]
     
     var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "A Unicamp fornece moradia e alimentação de graça para estudantes de baixa renda. Além disso existe a oportunidade de conseguir bolsas trabalhos."), Answer(nickname: "ogari", userIcon: UIImage(named: "ogari"), answerText: "Apesar de oferecer tudo isso, as bolsas são escassas e não contemplam todos os alunos necessitados")]
     
@@ -219,73 +225,89 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var perguntaTextview = UITextView()
     
-    @IBAction func CriaPergunta(sender: AnyObject) {
-        
-        
-//        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-//        alert.show()
-        
-        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
-            self.view.frame.width*0.90, height: self.view.frame.height*0.8)
-        
-        criarPerguntaView.backgroundColor = UIColor.blackColor()
-        
-        criarPerguntaView.layer.cornerRadius = 10
-        
-        self.view.addSubview(criarPerguntaView)
-        
-        let closeButton = UIButton()
-        
-        closeButton.setTitle("X", forState: .Normal)
-        
-        closeButton.layer.cornerRadius = 10
-        closeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+//    @IBAction func CriaPergunta(sender: AnyObject) {
+//        
+//        
+////        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
+////        alert.show()
+//        
+//        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
+//            self.view.frame.width*0.90, height: self.view.frame.height*0.8)
+//        
+//        criarPerguntaView.backgroundColor = UIColor.blackColor()
+//        
+//        criarPerguntaView.layer.cornerRadius = 10
+//        
+//        self.view.addSubview(criarPerguntaView)
+//        
+//        let closeButton = UIButton()
+//        
+//        closeButton.setTitle("X", forState: .Normal)
+//        
+//        closeButton.layer.cornerRadius = 10
+//        closeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+//
+//        
+//        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
+//        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.08 ,  height: self.criarPerguntaView.frame.width * 0.08)
+//        self.criarPerguntaView.addSubview(closeButton)
+//        
+//        tituloTextfield.attributedText = nil
+//        tituloTextfield.placeholder = "Título"
+//        
+//        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
+//        
+//        tituloTextfield.layer.cornerRadius = 10
+//        
+//        tituloTextfield.backgroundColor = UIColor.whiteColor()
+//        
+//        tituloTextfield.delegate = self
+//        
+//        self.criarPerguntaView.addSubview(tituloTextfield)
+//
+//        perguntaTextview.attributedText = nil
+//        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
+//
+//        perguntaTextview.layer.cornerRadius = 10
+//        
+//        perguntaTextview.backgroundColor = UIColor.whiteColor()
+//        
+//        perguntaTextview.delegate = self
+//        
+//        self.criarPerguntaView.addSubview(perguntaTextview)
+//        
+//        
+//        let criaButton = UIButton()
+//        
+//        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+//, forState: UIControlState.Normal)
+//        
+//        criaButton.layer.cornerRadius = 10
+//        criaButton.setTitle("Criar", forState: .Normal)
+//        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
+//        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
+//        
+//        self.criarPerguntaView.addSubview(criaButton)
+//        
+//        
+//        
+//    }
+    
+    // Lembrar de jah dispor do segue
 
+    @IBAction func fazerPergunta(sender: AnyObject) {
         
-        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
-        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.08 ,  height: self.criarPerguntaView.frame.width * 0.08)
-        self.criarPerguntaView.addSubview(closeButton)
-        
-        tituloTextfield.attributedText = nil
-        tituloTextfield.placeholder = "Título"
-        
-        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
-        
-        tituloTextfield.layer.cornerRadius = 10
-        
-        tituloTextfield.backgroundColor = UIColor.whiteColor()
-        
-        tituloTextfield.delegate = self
-        
-        self.criarPerguntaView.addSubview(tituloTextfield)
-
-        perguntaTextview.attributedText = nil
-        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
-
-        perguntaTextview.layer.cornerRadius = 10
-        
-        perguntaTextview.backgroundColor = UIColor.whiteColor()
-        
-        perguntaTextview.delegate = self
-        
-        self.criarPerguntaView.addSubview(perguntaTextview)
-        
-        
-        let criaButton = UIButton()
-        
-        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-, forState: UIControlState.Normal)
-        
-        criaButton.layer.cornerRadius = 10
-        criaButton.setTitle("Criar", forState: .Normal)
-        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
-        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.criarPerguntaView.addSubview(criaButton)
-        
-        
+        self.performSegueWithIdentifier("fazerPergunta", sender: self)
         
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "fazerPergunta"{
+//            let destination = segue.destinationViewController as! CriaPerguntaViewController
+//            
+//            destination.perguntaDelegate = self
+//        }
+//    }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -305,6 +327,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         return true
     }
     
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String){
+        
+        if(titleText != "" && doubtText != ""){
+            
+            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
+            self.tableView.reloadData()
+        }
+        
+    }
     
     func criaPergunta()
     {
@@ -364,6 +395,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
                 let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
                 destination.passedCell = cell
                 }
+        }
+        
+        if segue.identifier == "fazerPergunta"{
+            let destination = segue.destinationViewController as! CriaPerguntaViewController
+            
+            destination.perguntaDelegate = self
         }
 //        let secondViewController = segue.destinationViewController as! AnswerTableViewController
 //        

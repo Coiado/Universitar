@@ -878,7 +878,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pv4-zZ-BQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438.5" y="571.5"/>
+            <point key="canvasLocation" x="438.5" y="603.5"/>
         </scene>
         <!--Perguntar-->
         <scene sceneID="ohi-vf-D9Y">
@@ -1027,16 +1027,85 @@
                                     <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="CriaPergunta:" destination="j3x-IH-hc5" eventType="touchUpInside" id="40L-zt-W4w"/>
+                                    <action selector="fazerPergunta:" destination="j3x-IH-hc5" eventType="touchUpInside" id="Y3a-Qu-0AO"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="LO7-rS-tcM" kind="show" identifier="fazerPergunta" id="pPj-1s-uP1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGs-R4-aa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-158.5" y="-267.5"/>
+        </scene>
+        <!--Cria Pergunta View-->
+        <scene sceneID="uDg-CF-vdN">
+            <objects>
+                <viewController id="LO7-rS-tcM" userLabel="Cria Pergunta View" customClass="CriaPerguntaViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RCN-Bd-abO"/>
+                        <viewControllerLayoutGuide type="bottom" id="mKF-EF-Bm5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JGo-xq-TtY">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Pergunta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5jW-sq-YFW">
+                                <rect key="frame" x="0.0" y="219" width="375" height="178"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnp-MI-jsA">
+                                <rect key="frame" x="303" y="190" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGK-tz-noL">
+                                <rect key="frame" x="20" y="78" width="335" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iox-On-hGf">
+                                <rect key="frame" x="303" y="49" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="D3o-eR-2NP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="H4A-nM-BTf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WWu-gc-94k">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Perguntar"/>
+                                <connections>
+                                    <action selector="perguntarAction:" destination="LO7-rS-tcM" eventType="touchUpInside" id="Hyn-ld-cKu"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="perguntaTextView" destination="5jW-sq-YFW" id="s7x-hF-73H"/>
+                        <outlet property="titleWordCount" destination="Iox-On-hGf" id="O9E-C6-DTJ"/>
+                        <outlet property="tituloTextField" destination="NGK-tz-noL" id="fSa-ox-tdg"/>
+                        <outlet property="wordCount" destination="Nnp-MI-jsA" id="dHA-fS-UOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEa-bL-CMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438.5" y="-267.5"/>
         </scene>
         <!--Config View Controller-->
         <scene sceneID="Is6-iX-Mni">
@@ -1668,7 +1737,7 @@
         <image name="worker" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zD-E0-HBm"/>
+        <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
