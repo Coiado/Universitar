@@ -95,6 +95,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         return cell
         
+        // Codigo para deixar um gradiente de cor numa celula do question Feed
         /*
         if (indexPath.row)%2 == 0{
             
@@ -222,10 +223,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     var perguntaTextview = UITextView()
     
     @IBAction func CriaPergunta(sender: AnyObject) {
-        
-        
-//        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-//        alert.show()
         
         criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
             self.view.frame.width*0.90, height: self.view.frame.height*0.8)
@@ -358,20 +355,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
-        //Como o texto e o icone a celula.
+        // Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        // Como o texto e o icone a celula.
         if segue.identifier == "Answer" {
             if let destination = segue.destinationViewController as? AnswerViewController {
                 let path = self.tableView?.indexPathForSelectedRow!
                 let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
                 destination.passedCell = cell
-                }
+            }
         }
-//        let secondViewController = segue.destinationViewController as! AnswerTableViewController
-//        
-//        let cell = self.chosenCell
-//        
-//        secondViewController.receiveCellData(cell!);
         
     }
     

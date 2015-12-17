@@ -14,10 +14,10 @@ private let reuseIdentifier2 = "Materia"
 class UniversidadesCollectionViewController: UICollectionViewController {
 
     var passedCell : UniversidadeTableViewCell!
-    var Semestre : NSMutableArray = [["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Introducao a Engenharia"]]
+    var Semestre : [[String]] = [["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Introducao a Engenhariaasjdashdafabnbzncjkabsbchabchbdchbjnaslkjdkas;lkcakskcnjadndkhcabdjcndjsbkcbakjbdcasd"]]
     var numSemestre : Int = 0
     
-    let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     
     @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
@@ -72,11 +72,31 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         }
         
     }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+            
+        case UICollectionElementKindSectionHeader:
+            if(indexPath.section == 0){
+                var numSemestre = indexPath.section + 1
+                let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
+                headerView.header.text = "Descrição"
+                return headerView
+            }
+            else{
+                var numSemestre = indexPath.section
+                let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
+                headerView.header.text = "Semestre " + String(numSemestre)
+                return headerView
+            }
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-//        self.UniversidadeCollectionView.registerClass(DescricaoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier1)
-//        self.UniversidadeCollectionView.registerClass(MateriaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier2)
         if (indexPath.section == 0){
             let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
             let legal = "É mais legalasxajskcndakbcakhsbvajvfahdfbvhadfbabivubverbaiuebjsbdkbafkhvbafhkbdbfhkvdbvfhkadbvkadhbvrubkvahbkhvfbdhkvabdkhfhkbvfadhbvkdbfhvbadfhkveofefjjfjfd"
@@ -86,7 +106,15 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         }
         else{
             let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
-            cellMateria.materiaSemestre.text = self.Semestre[indexPath.section-1] as? String
+            cellMateria.materiaSemestre.adjustsFontSizeToFitWidth = true
+            cellMateria.layer.masksToBounds = true
+            cellMateria.layer.cornerRadius = 10.0
+            cellMateria.contentView.layer.cornerRadius = 10.0
+            cellMateria.contentView.layer.borderWidth = 1.0
+            cellMateria.contentView.layer.masksToBounds = true
+            cellMateria.materiaSemestre.text = self.Semestre[indexPath.section-1][indexPath.row] as? String
+            cellMateria.contentMode = .Center
+            cellMateria.updateConstraints()
             return cellMateria
             
         }
@@ -94,19 +122,19 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-            if (indexPath.section == 0){
-                
-                return CGSize(width: 400, height: 200)
-            }
-                return CGSize(width: 100, height: 100)
+        if (indexPath.section == 0){
+            return CGSize(width: 400, height: 200)
+        }
+        else{
+            return CGSize(width: 100, height: 100)
         }
         
-        //3
-        func collectionView(collectionView: UICollectionView,
-            layout collectionViewLayout: UICollectionViewLayout,
-            insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-                return sectionInsets
-        }
+    }
+        
+    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return sectionInsets
+    }
 
     // MARK: UICollectionViewDelegate
 

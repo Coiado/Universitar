@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -790,7 +790,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="edH-6w-2wH">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="edH-6w-2wH">
                                 <rect key="frame" x="0.0" y="25" width="375" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -799,7 +799,7 @@
                                     <outlet property="delegate" destination="o6X-ci-G4o" id="3lV-xx-Lpk"/>
                                 </connections>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFR-fb-1Wr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFR-fb-1Wr">
                                 <rect key="frame" x="313" y="0.0" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1321,13 +1321,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wew-AW-3TJ">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Descricao" id="gaI-lJ-1yQ" customClass="DescricaoCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="1" y="64" width="373" height="238"/>
+                                <rect key="frame" x="1" y="114" width="373" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="373" height="238"/>
@@ -1348,7 +1348,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.99587804079055786" green="1" blue="0.99584418535232544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="lrR-rW-x5k" secondAttribute="trailing" constant="10" id="KDQ-us-AjE"/>
                                     <constraint firstItem="Phc-CS-guy" firstAttribute="leading" secondItem="gaI-lJ-1yQ" secondAttribute="leadingMargin" constant="20" id="LOj-tf-bix"/>
@@ -1361,15 +1361,15 @@
                                     <outlet property="descricaoLabel" destination="lrR-rW-x5k" id="yRl-Pl-hgL"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Materia" id="bai-MW-kuW" customClass="MateriaCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="142.5" y="312" width="90" height="55"/>
+                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="Materia" id="bai-MW-kuW" customClass="MateriaCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                                <rect key="frame" x="142.5" y="362" width="90" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Materia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
-                                            <rect key="frame" x="25" y="17" width="46" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1377,13 +1377,50 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="top" secondItem="bai-MW-kuW" secondAttribute="top" id="FDY-9n-syO"/>
+                                    <constraint firstAttribute="bottom" secondItem="IBq-82-nKH" secondAttribute="bottom" id="G4Z-Gb-zpa"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="centerX" secondItem="bai-MW-kuW" secondAttribute="centerX" id="Rbl-vy-rWy"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="centerX" secondItem="bai-MW-kuW" secondAttribute="centerX" id="UDN-iU-SWf"/>
+                                    <constraint firstAttribute="trailing" secondItem="IBq-82-nKH" secondAttribute="trailing" id="XEs-Cv-6fA"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="leading" secondItem="bai-MW-kuW" secondAttribute="leading" id="gz0-06-DGP"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="centerY" secondItem="bai-MW-kuW" secondAttribute="centerY" id="iUK-Aq-mIL"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="centerY" secondItem="bai-MW-kuW" secondAttribute="centerY" id="kjo-Jz-r2f"/>
+                                </constraints>
                                 <size key="customSize" width="90" height="55"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UDN-iU-SWf"/>
+                                        <exclude reference="iUK-Aq-mIL"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="materiaSemestre" destination="IBq-82-nKH" id="lny-t2-ys9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Header" reuseIdentifier="Header" id="Tse-El-4uq" customClass="HeaderSemestreCollection" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e8-1F-TSj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="9e8-1F-TSj" secondAttribute="bottom" id="LfZ-o2-II5"/>
+                                <constraint firstItem="9e8-1F-TSj" firstAttribute="leading" secondItem="Tse-El-4uq" secondAttribute="leading" id="Lyn-oV-V1b"/>
+                                <constraint firstItem="9e8-1F-TSj" firstAttribute="top" secondItem="Tse-El-4uq" secondAttribute="top" id="mJs-08-N3M"/>
+                                <constraint firstAttribute="trailing" secondItem="9e8-1F-TSj" secondAttribute="trailing" id="uZF-6X-AQl"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="header" destination="9e8-1F-TSj" id="0vS-om-y9w"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="czY-ht-LoF" id="c68-3p-BBH"/>
                             <outlet property="delegate" destination="czY-ht-LoF" id="qK2-s5-kuc"/>
@@ -1612,8 +1649,8 @@
         <image name="worker" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="v9w-QC-30v"/>
         <segue reference="gWl-Av-0qc"/>
-        <segue reference="1zD-E0-HBm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
