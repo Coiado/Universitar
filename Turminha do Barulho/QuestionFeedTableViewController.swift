@@ -8,7 +8,11 @@
 
 import UIKit
 
-class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate {
+protocol novaPergunta {
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String)
+}
+
+class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate, novaPergunta {
 
     // Vetor com questoes que serao apresentadas na tela
     var question : [Question] = []
@@ -261,30 +265,19 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         perguntaTextview.attributedText = nil
         perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
 
-        perguntaTextview.layer.cornerRadius = 10
+    @IBAction func fazerPergunta(sender: AnyObject) {
         
-        perguntaTextview.backgroundColor = UIColor.whiteColor()
-        
-        perguntaTextview.delegate = self
-        
-        self.criarPerguntaView.addSubview(perguntaTextview)
-        
-        
-        let criaButton = UIButton()
-        
-        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-, forState: UIControlState.Normal)
-        
-        criaButton.layer.cornerRadius = 10
-        criaButton.setTitle("Criar", forState: .Normal)
-        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
-        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.criarPerguntaView.addSubview(criaButton)
-        
-        
+        self.performSegueWithIdentifier("fazerPergunta", sender: self)
         
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "fazerPergunta"{
+//            let destination = segue.destinationViewController as! CriaPerguntaViewController
+//            
+//            destination.perguntaDelegate = self
+//        }
+//    }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -304,6 +297,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         return true
     }
     
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String){
+        
+        if(titleText != "" && doubtText != ""){
+            
+            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
+            self.tableView.reloadData()
+        }
+        
+    }
     
     func criaPergunta()
     {
