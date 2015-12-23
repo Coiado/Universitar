@@ -20,7 +20,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-     //[Answer(nickname: nil, userIcon: UIImage(named: nil), answerText: nil)]
+    // Questoes implementadas em hardcode elas serão colocadas no vetor de questoes, 
+    // na funcao chamada createQuestion
     
     var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "A Unicamp fornece moradia e alimentação de graça para estudantes de baixa renda. Além disso existe a oportunidade de conseguir bolsas trabalhos."), Answer(nickname: "ogari", userIcon: UIImage(named: "ogari"), answerText: "Apesar de oferecer tudo isso, as bolsas são escassas e não contemplam todos os alunos necessitados")]
     
@@ -29,7 +30,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var answers3 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Semana que vem, no sábado."), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "Nossa já ia esquecer, obrigado!")]
     
-    //CORES
+    // Cores que serao usadas para colorir o fundo da tableview
     let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
 
     
@@ -50,6 +51,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         //let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
         //navigationItem.backBarButtonItem = backItem
         
+        // Mudanca na coloracao da navigationBar
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
@@ -110,9 +112,19 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.userIcon.layer.masksToBounds = true
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText
-        cell.questionText.sizeToFit()
-    
         
+        // Fazendo com que o texto fique adaptavel com a celula da tableview
+        cell.questionText.sizeToFit()
+        cell.updateConstraints()
+        cell.answers = info.answers
+        cell.cardSetup()
+        
+        // Deixando a foto do perfil arredondada
+        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
+        return cell
+        
+        // Codigo para deixar um gradiente de cor numa celula do question Feed
         /*
         if (indexPath.row)%2 == 0{
             
@@ -158,26 +170,17 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
             cell.questionView.layer.insertSublayer(backgroundLayer, atIndex: 0)
         }
         */
-        cell.updateConstraints()
-        cell.answers = info.answers
-        cell.cardSetup()
         
-
-        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
-        
-        return cell
     }
     
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 120
-//    }
-//    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! QuestionFeedCell
+        // Envio de informacao para a proxima tela atraves de um cell
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
+    // Criacao do vetor com as informacoes a serem apresentadas
     func createQuestion()
     {
         
@@ -271,26 +274,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
-        //Como o texto e o icone a celula.
+        // Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        // Como o texto e o icone a celula.
         if segue.identifier == "Answer" {
             if let destination = segue.destinationViewController as? AnswerViewController {
                 let path = self.tableView?.indexPathForSelectedRow!
                 let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
                 destination.passedCell = cell
-                }
+            }
         }
-        
-        if segue.identifier == "fazerPergunta"{
-            let destination = segue.destinationViewController as! CriaPerguntaViewController
-            
-            destination.perguntaDelegate = self
-        }
-//        let secondViewController = segue.destinationViewController as! AnswerTableViewController
-//        
-//        let cell = self.chosenCell
-//        
-//        secondViewController.receiveCellData(cell!);
         
     }
     
