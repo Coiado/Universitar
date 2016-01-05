@@ -32,12 +32,16 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBarHidden = false
         
         self.detailsTableView.registerNib(UINib(nibName: "DetalhesNoticiaCell", bundle: nil), forCellReuseIdentifier: "detailsCell")
-        
+        self.detailsTableView.registerNib(UINib(nibName: "ComentarioDetalhes", bundle: nil), forCellReuseIdentifier: "comentarioDetalhes")
         
         self.detailsTableView.reloadData()
+        
         detailsTableView.estimatedRowHeight = 700
         detailsTableView.rowHeight = UITableViewAutomaticDimension
-        
+        /*
+        self.detailsTableView.estimatedRowHeight = 500
+        self.detailsTableView.rowHeight = UITableViewAutomaticDimension
+        */
         /*
         image.image = passedCell.imagem
         fullText.text = passedCell.fulltext
@@ -47,6 +51,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         fullText.layer.cornerRadius = 15
         fullText.layer.borderWidth = 3
         */
+        
+        self.detailsTableView.separatorStyle = .SingleLine
         
     }
     
@@ -62,7 +68,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func receiveCellData(cell: FeedCell) {
         self.passedCell = cell;
-        
     }
 
     
@@ -84,17 +89,19 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         return 1;
     }
 
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        //Muda de identifier para identifier
-//        var height : CGFloat
-//        if (indexPath.row==0){
-//            
-//        }
-//        else{
-//            height = 150.0
-//        }
-//        return height;
-//    }
+    /*
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        //Muda de identifier para identifier
+        var height : CGFloat
+        if (indexPath.row==0){
+            //Provisorio
+            height = 1000;
+        }
+        else{
+            height = 200.0
+        }
+        return height;
+    }*/
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //Precisamos retornar uma celula de noticia caso seja a primeira celula ou celulas de comentarios
@@ -109,15 +116,16 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.prepareCell()
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("comentarioDetalhes", forIndexPath: indexPath) as! ComentarioDetalhesCell
             let info = answers1[indexPath.row-1] as Answer
-            cell.answerText.text = info.answerText
-            cell.answerText.sizeToFit()
-            cell.updateConstraints()
-            cell.userIcon.image = info.userIcon
-            cell.nickName.text = info.nickname
-            cell.likes.text = String(15)
-            cell.cardSetup()
+            cell.commentText.text = info.answerText
+            cell.commentText.sizeToFit()
+            //cell.updateConstraints()
+            //PRECISAMOS ALTERAR A MANEIRA COMO A CELULA EH POPULADA
+            cell.userImage.image = info.userIcon
+            cell.userName.text = info.nickname
+            cell.numberOfLikes = 15
+            cell.cellSetup()
             return cell //A priori
         }
     }
@@ -149,15 +157,9 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if(text != ""){
             
-            self.answers1.append(Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText: text))
+            self.answers1.append(Answer(nickname: "Jose", userIcon: UIImage(named: "userIcon"), answerText: text))
             
             self.detailsTableView.reloadData()
-            
-            
         }
-        
     }
-    
-    
-    
 }

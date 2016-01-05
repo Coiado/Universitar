@@ -16,7 +16,7 @@ class CustomSearchBar: UISearchBar {
     init(frame: CGRect, font: UIFont, textColor: UIColor) {
         
         super.init(frame:frame)
-        //seta o frame, font e dor do texto
+        //seta o frame, font e cor do texto
         self.frame = frame
         
         self.preferredColor = textColor

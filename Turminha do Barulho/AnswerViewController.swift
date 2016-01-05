@@ -62,19 +62,20 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.row==0){
+            
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
-            cell.perguntaTitulo.text = passedCell.perguntaTitulo.text
-//            cell.perguntaTitulo.sizeToFit()
-//            cell.updateConstraints()
+            cell.perguntaTitulo.text = passedCell.perguntaTitulo.text   
+            //cell.perguntaTitulo.sizeToFit()
+            //cell.updateConstraints()
             cell.userIcon.image = passedCell.userIcon.image
             cell.userIcon.layer.cornerRadius = 15
             cell.nickName.text = passedCell.nickName.text
             cell.questionText.text = passedCell.questionText.text
             cell.questionText.font = UIFont(name: "Futura", size: 14.0)
-            
             cell.questionText.sizeToFit()
             cell.updateConstraints()
             //cell.cardSetup()
+            
             return cell
         }
         else{if(indexPath.row==1){

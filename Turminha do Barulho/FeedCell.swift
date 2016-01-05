@@ -31,6 +31,7 @@ class FeedCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //Funcao temporaria usada para testes para o modo noturno, talvez nao precisemos dela
     func setColors()
     {
         self.title.textColor = UIColor.redColor()
@@ -38,34 +39,32 @@ class FeedCell: UITableViewCell {
        
     }
 
+    //Seta o layout da carta
     func cardSetup(){
         
         
+        //Arredondamos a celula e a imagem da noticia
         self.cardView.layer.masksToBounds = false
         self.cardView.layer.cornerRadius = 15
        
         self.picture.layer.masksToBounds = true
         self.picture.layer.cornerRadius = 15
         
+        //Alteramos o background da celula (nao da card view)
         self.contentView.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
         
+        //Alteramos o texto da tag para que haja contraste entre os textos
         self.subTitle.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         
         //Desenhamos a "sombra" da celula
-        
-            /*
-          self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
-          self.cardView.layer.shadowRadius = 1
-          var path = UIBezierPath(rect: self.cardView.bounds)
-        
-          self.cardView.layer.shadowPath = path.CGPath
-          self.cardView.layer.shadowOpacity = 1
-            */
-        
-
-
-       
-        
+        //Talvez nao a usemos mais, manterei aqui caso mudemos de ideia
+        /*
+        self.cardView.layer.shadowOffset = CGSizeMake(1, 1) //??
+        self.cardView.layer.shadowRadius = 1
+        var path = UIBezierPath(rect: self.cardView.bounds)
+        self.cardView.layer.shadowPath = path.CGPath
+        self.cardView.layer.shadowOpacity = 1
+        */
         
     }
     

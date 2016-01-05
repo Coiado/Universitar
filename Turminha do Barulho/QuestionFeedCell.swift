@@ -40,8 +40,6 @@ class QuestionFeedCell: UITableViewCell {
         
         self.userIcon.layer.masksToBounds = true
         self.userIcon.layer.cornerRadius = self.userIcon.frame.height/2
-    
-        print("AQUI")
         
         /*
         self.questionView.layer.masksToBounds = false
@@ -52,8 +50,6 @@ class QuestionFeedCell: UITableViewCell {
         self.questionView.layer.shadowPath = path.CGPath
         self.questionView.layer.shadowOpacity = 1
         */
-        
-        
     }
 
     

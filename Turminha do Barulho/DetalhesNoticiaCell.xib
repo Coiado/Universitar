@@ -8,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailsCell" rowHeight="616" id="oRC-gG-AmF" customClass="NewsDetailCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailsCell" rowHeight="655" id="oRC-gG-AmF" customClass="NewsDetailCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="655"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oRC-gG-AmF" id="uh6-Le-h5l">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="615.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="654.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-a1-axf">
@@ -46,20 +46,39 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comentários" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyd-75-DW6">
+                        <rect key="frame" x="8" y="623" width="359" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
                     <constraint firstItem="Xmn-a1-axf" firstAttribute="top" secondItem="uh6-Le-h5l" secondAttribute="top" id="1Cp-70-d4D"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Tyd-75-DW6" secondAttribute="bottom" constant="2.5" id="7Un-CY-Hgd"/>
+                    <constraint firstItem="Tyd-75-DW6" firstAttribute="top" secondItem="nNe-Qb-UUS" secondAttribute="bottom" constant="7.5" id="8Sv-fY-18R"/>
+                    <constraint firstItem="Tyd-75-DW6" firstAttribute="top" secondItem="nNe-Qb-UUS" secondAttribute="bottom" constant="7.5" id="996-rp-ZYs"/>
                     <constraint firstAttribute="trailing" secondItem="Xmn-a1-axf" secondAttribute="trailing" id="GHu-H6-CU6"/>
-                    <constraint firstAttribute="height" secondItem="nNe-Qb-UUS" secondAttribute="height" constant="280" id="ICA-E7-GYl"/>
+                    <constraint firstAttribute="height" secondItem="nNe-Qb-UUS" secondAttribute="height" constant="319" id="ICA-E7-GYl"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="top" secondItem="WKX-lg-U7t" secondAttribute="bottom" constant="1" id="IXE-KA-Loe"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" id="Jzz-i8-VyT"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="RAm-cs-GFb"/>
+                    <constraint firstItem="Tyd-75-DW6" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="SnK-rQ-hHK"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="top" secondItem="Xmn-a1-axf" secondAttribute="bottom" constant="8" id="ZD9-iQ-R3b"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" id="cxp-I8-oT9"/>
                     <constraint firstItem="Xmn-a1-axf" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leading" id="dhK-f1-e4d"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="m1k-Xg-HR9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Tyd-75-DW6" secondAttribute="bottom" constant="2.5" id="xKl-4P-2j6"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="7Un-CY-Hgd"/>
+                        <exclude reference="8Sv-fY-18R"/>
+                        <exclude reference="xKl-4P-2j6"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <accessibility key="accessibilityConfiguration">
@@ -71,7 +90,7 @@
                 <outlet property="imagem" destination="Xmn-a1-axf" id="cdP-ao-jhB"/>
                 <outlet property="subTitle" destination="ecd-8O-C3f" id="xt6-Sp-lW5"/>
             </connections>
-            <point key="canvasLocation" x="386.5" y="211"/>
+            <point key="canvasLocation" x="386.5" y="230.5"/>
         </tableViewCell>
     </objects>
 </document>

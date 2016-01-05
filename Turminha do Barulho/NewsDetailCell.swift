@@ -21,24 +21,20 @@ class NewsDetailCell: UITableViewCell {
 
     func prepareCell()
     {
+        //Quadrado branco com a label da noticia
         let whiteSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))
         whiteSquare.backgroundColor = UIColor.whiteColor()
         whiteSquare.alpha = 0.8
         self.imagem.addSubview(whiteSquare)
-        
         self.bringSubviewToFront(self.subTitle)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        //super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        //Nao queremos que a celula seja selecionavel
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        
     }
 
 }

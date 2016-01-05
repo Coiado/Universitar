@@ -39,12 +39,13 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     var cellArray : [FeedCell] = []
     var nightMode : Bool!
     
-    
     //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
     //Colors
-    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
-    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1)
-    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    
+    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    
+    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1) //Cor do fundo apenas da tableview
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,8 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
     }
     
+    //Funcao que usaremos para eventualmente implementar metodo de leitura noturna, talvez
+    //nao precisemos mais
     @IBAction func setNightMode(sender: AnyObject) {
     
      self.nightMode = !self.nightMode
@@ -77,10 +80,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     }
     
-    
+    //Esta funcao seta todas as cores da view, é usada como redundancia ao storyboard para que tenhamos
+    //total controle sobre elas
     func refreshColors()
     {
-        //Refresh colors, used on night mode
        
         //Set the colors of the view
         self.view.backgroundColor = bgColor;
@@ -185,6 +188,8 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         return cell
     }
     
+    //Este tamanho de celula é hardcoded, pois a priori todas as celulas tem o mesmo tamanho, deve ser mudado
+    //caso precisemos colocar um tamanho dinamico nas celulas
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 94
     }
@@ -193,7 +198,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.GoToDetail(indexPath.row)
     }
-    
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.4
@@ -216,7 +220,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         }
     }
     
-
+    //Essa funcao cria dados hardcoded para que possamos testar o layout da tableview
     func createData()
     {
         self.data.append(Dados(titulo: "Jornal na guerra", subtitulo: "Jornalismo", texto: "Saiba mais sobre os jornalistas que cobriram de perto algumas guerras", imagem: UIImage(named: "Jtest"),upvote: 5,fulltext:jornalismo))
@@ -231,9 +235,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         self.data.append(Dados(titulo: "Comvest 2016", subtitulo: "Vestibular", texto: "Inscrições para o vestibular da Comvest começam segunda-feira"
             , imagem: UIImage(named: "Vtest"),upvote: 100,fulltext:vestibular))
-        
-        
-        
         
         self.tableView.reloadData()
     }
@@ -254,9 +255,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     func refreshTableView(sender: AnyObject){
         
         print("refresh")
-        
         self.tableView.reloadData()
-        
         self.refreshControl!.endRefreshing()
         
     }
@@ -266,32 +265,21 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
      func GoToDetail(sender: Int) {
        
         if self.shouldShowSearchResults{
-            
             self.chosenCell = dadosFiltrados[sender] as Dados
             
         }
         else{
             
             if self.segmentedControl.selectedSegmentIndex == 0{
-                
                 self.chosenCell = data[sender] as Dados
-                
             }
                 
                 else{
-                
                 let arrayCurtido: [Dados] = data.sort{$0.upvote > $1.upvote}
                 self.chosenCell = arrayCurtido[sender] as Dados
-                
-                
             }
-        
         }
-        
         performSegueWithIdentifier("detalhesNoticia", sender: self)
-        
-        
-        
     }
     
     //MARK: - SearchController
@@ -331,19 +319,14 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
             
             return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
         })
-        
         // Reload the tableview.
         self.tableView.reloadData()
     }
     
     //MARK:- Metodos do segmented control
-    
     @IBAction func segmentedControlTapped(sender: AnyObject) {
-        
         self.tableView.reloadData()
-        
     }
-    
     
 }
 

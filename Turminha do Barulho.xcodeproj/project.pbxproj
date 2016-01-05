@@ -15,6 +15,8 @@
 		1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851255E1BDA9A2A00E59F89 /* Question.swift */; };
 		185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */; };
 		185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */; };
+		18C459D51C21995E00242FEB /* ComentarioDetalhes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C459D41C21995D00242FEB /* ComentarioDetalhes.xib */; };
+		18C459DC1C21A2A900242FEB /* ComentarioDetalhesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C459DB1C21A2A900242FEB /* ComentarioDetalhesCell.swift */; };
 		18CC108A1C0879A700FDA6D3 /* DetalhesNoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */; };
 		18CC108C1C087B3F00FDA6D3 /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */; };
 		3F0CF1221BDAE3D7003E7488 /* UniversidadeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */; };
@@ -88,6 +90,8 @@
 		1851255E1BDA9A2A00E59F89 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		185125601BDA9AF900E59F89 /* QuestionFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedTableViewController.swift; sourceTree = "<group>"; };
 		185125621BDA9B1400E59F89 /* QuestionFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFeedCell.swift; sourceTree = "<group>"; };
+		18C459D41C21995D00242FEB /* ComentarioDetalhes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComentarioDetalhes.xib; sourceTree = "<group>"; };
+		18C459DB1C21A2A900242FEB /* ComentarioDetalhesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComentarioDetalhesCell.swift; path = ../ComentarioDetalhesCell.swift; sourceTree = "<group>"; };
 		18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalhesNoticiaCell.xib; sourceTree = "<group>"; };
 		18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		3F0CF1211BDAE3D7003E7488 /* UniversidadeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversidadeTableViewCell.swift; path = ../UniversidadeTableViewCell.swift; sourceTree = "<group>"; };
@@ -211,15 +215,13 @@
 			name = Materias;
 			sourceTree = "<group>";
 		};
-		185125531BDA91DA00E59F89 /* Feed */ = {
+		185125531BDA91DA00E59F89 /* FeedNoticias */ = {
 			isa = PBXGroup;
 			children = (
-				185125541BDA91EB00E59F89 /* FeedTableViewController.swift */,
-				185125561BDA91F200E59F89 /* FeedCell.swift */,
-				5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */,
-				18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */,
+				18C459D81C21A0CD00242FEB /* Detalhes */,
+				18C459D61C21A0C300242FEB /* Feed */,
 			);
-			name = Feed;
+			name = FeedNoticias;
 			sourceTree = "<group>";
 		};
 		1851255D1BDA99FD00E59F89 /* QuestionFeed */ = {
@@ -230,6 +232,25 @@
 				5F23DED91C109FA400C754DD /* CriaRespostaViewController.swift */,
 			);
 			name = QuestionFeed;
+			sourceTree = "<group>";
+		};
+		18C459D61C21A0C300242FEB /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				185125541BDA91EB00E59F89 /* FeedTableViewController.swift */,
+				185125561BDA91F200E59F89 /* FeedCell.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		18C459D81C21A0CD00242FEB /* Detalhes */ = {
+			isa = PBXGroup;
+			children = (
+				5FF948971BE2A9BC003C6D2E /* FeedDetailsViewController.swift */,
+				18C459DB1C21A2A900242FEB /* ComentarioDetalhesCell.swift */,
+				18CC108B1C087B3F00FDA6D3 /* NewsDetailCell.swift */,
+			);
+			name = Detalhes;
 			sourceTree = "<group>";
 		};
 		3F0A99E41BD8036A0083B187 /* Model */ = {
@@ -256,7 +277,7 @@
 			children = (
 				3F0E2DE01C06117500CB4722 /* SearchController */,
 				1851255D1BDA99FD00E59F89 /* QuestionFeed */,
-				185125531BDA91DA00E59F89 /* Feed */,
+				185125531BDA91DA00E59F89 /* FeedNoticias */,
 				185125511BDA919C00E59F89 /* Config */,
 				185125501BDA919100E59F89 /* Materias */,
 				5F68A5291C2078930087621A /* Login e cadastro */,
@@ -407,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				18CC10891C0879A700FDA6D3 /* DetalhesNoticiaCell.xib */,
+				18C459D41C21995D00242FEB /* ComentarioDetalhes.xib */,
 			);
 			name = "Xib Files";
 			sourceTree = "<group>";
@@ -514,6 +536,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C459D51C21995E00242FEB /* ComentarioDetalhes.xib in Resources */,
 				3F0F14BB1BD55047002EA06A /* LaunchScreen.storyboard in Resources */,
 				3F0CF12A1BDE8777003E7488 /* materias.plist in Resources */,
 				3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */,
@@ -543,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C459DC1C21A2A900242FEB /* ComentarioDetalhesCell.swift in Sources */,
 				3F0E2DE71C0615FE00CB4722 /* CustomSearchBar.swift in Sources */,
 				3F0E2DE81C0615FE00CB4722 /* CustomSearchController.swift in Sources */,
 				5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */,
@@ -719,12 +743,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Turminha",
-					do,
-					Barulho,
-					"$(PROJECT_DIR)/Turminha",
-					do,
-					Barulho,
+					"$(PROJECT_DIR)",
+					"\"./Turminha do Barulho/\"",
 				);
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -741,12 +761,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Turminha",
-					do,
-					Barulho,
-					"$(PROJECT_DIR)/Turminha",
-					do,
-					Barulho,
+					"$(PROJECT_DIR)",
+					"\"./Turminha do Barulho/\"",
 				);
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
