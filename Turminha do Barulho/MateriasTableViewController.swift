@@ -11,10 +11,12 @@ import UIKit
 class MateriasTableViewController: UITableViewController {
     
     //Classes com dados em hardcode que serão utilizados para popular o aplicativo
-    var materias : [Materia] = []
+    var materias : [String] = []
 
     //Celula que será selecionada e passada para a proxima view
-    var chosenCell : MateriaTableViewCell!
+    //var chosenCell : MateriaTableViewCell!
+    
+    var index : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +30,13 @@ class MateriasTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.blackColor()
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         
-        materias = Materia.loadAllMateria()
+        ParseModel.findAllMaterias { (array, error) -> Void in
+            if error == nil{
+                self.materias = array!
+                self.tableView.reloadData()
+            }
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,72 +58,47 @@ class MateriasTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as! MateriaTableViewCell
-        
-        let materia = materias[indexPath.row] as Materia
-        
-        //Descrição da materia que sera passada para a próxima view
-        cell.descricao = materia.description
-        
-        //Lista de Universdades que possuem os cursos
-        cell.Universidades = materia.Universidades
-        
-        //Lista com grade horária das materias daquele curso
-        cell.Semestres = [materia.Semestre1,materia.Semestre2,materia.Semestre3]
-        
-        //Configuração da celula de materias
-        cell.textLabel?.text = materia.name
-        cell.imageView?.image = UIImage(named: materia.icon)
-        cell.backgroundColor = materia.color
-        
-        //cell.backgroundColor = UIColor.blackColor()
-        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+//        let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as! MateriaTableViewCell
 
+        let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = self.materias[indexPath.row]
+        
+        
+//        let materia = materias[indexPath.row] as Materia
+//        
+//        //Descrição da materia que sera passada para a próxima view
+//        cell.descricao = materia.description
+//        
+//        //Lista de Universdades que possuem os cursos
+//        cell.Universidades = materia.Universidades
+//        
+//        //Lista com grade horária das materias daquele curso
+//        cell.Semestres = [materia.Semestre1,materia.Semestre2,materia.Semestre3]
+//        
+//        //Configuração da celula de materias
+//        cell.textLabel?.text = materia.name
+//        cell.imageView?.image = UIImage(named: materia.icon)
+//        cell.backgroundColor = materia.color
+//        
+//        //cell.backgroundColor = UIColor.blackColor()
+//        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+//
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //Quando a celula é selecionada ela chama a próxima view com o Detalhe das materias
-        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! MateriaTableViewCell
+//        Quando a celula é selecionada ela chama a próxima view com o Detalhe das materias
+//        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! MateriaTableViewCell
+//        self.performSegueWithIdentifier("Detalhe", sender: self)
+        
+        self.index = indexPath.row
         self.performSegueWithIdentifier("Detalhe", sender: self)
+        
+        
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
@@ -135,9 +112,9 @@ class MateriasTableViewController: UITableViewController {
         //Como o texto e o icone a celula.
         let secondViewController = segue.destinationViewController as! MateriasDetalheViewController
         
-        let cell = self.chosenCell
+        let course = self.materias[self.index]
         
-        secondViewController.receiveCellData(cell!);
+        secondViewController.receiveCellData(course);
         
         
         

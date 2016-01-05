@@ -66,20 +66,20 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         user.username = nome
         user.password = senha
         user.email = email
-        
-        user.signUpInBackgroundWithBlock { (Bool, ErrorType) -> Void in
+        if confirmacao == senha{
+            user.signUpInBackgroundWithBlock { (Bool, ErrorType) -> Void in
+                
+                self.activityIndicator.stopAnimating()
+                
+                if ErrorType == nil{
+                    self.performSegueWithIdentifier("configuração", sender: self)
+                }
+                else{
+                    print("ERROR CADASTRO")
+                }
             
-            self.activityIndicator.stopAnimating()
-            
-            if ErrorType == nil{
-                self.performSegueWithIdentifier("configuração", sender: self)
             }
-            else{
-                print("ERROR CADASTRO")
-            }
-            
         }
-        
     }
     
     

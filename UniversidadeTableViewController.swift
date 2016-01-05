@@ -9,10 +9,12 @@
 import UIKit
 
 class UniversidadeTableViewController: UITableViewController {
-
-    var passedCell : MateriaTableViewCell!
     
-    var chosenCell : UniversidadeTableViewCell!
+    var universidades = [String]()
+    
+    var course: String?
+    
+    var cursoInfo: CursoInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,9 @@ class UniversidadeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func receiveCellData(cell: MateriaTableViewCell) {
-        self.passedCell = cell;
-        
+    func receiveCellData(cell: [String],course: String) {
+        self.universidades = cell;
+        self.course = course
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,21 +45,32 @@ class UniversidadeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return passedCell.Universidades.count
+        return universidades.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Universidades", forIndexPath: indexPath) as! UniversidadeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Universidades", forIndexPath: indexPath)
         
-        let Universidade = passedCell.Universidades[indexPath.row]
-        cell.UniversidadeNome.text = Universidade as? String
-        cell.Semestres = passedCell.Semestres
+        cell.textLabel?.text = self.universidades[indexPath.row]
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! UniversidadeTableViewCell
+       
+        ParseModel.findUniversidade(self.course!, universidade: self.universidades[indexPath.row]) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                self.cursoInfo = object!
+                self.performSegueWithIdentifier("DetalhesUniversidades", sender: self)
+                
+            }
+            
+        }
+        
+        
         
     }
 
@@ -69,9 +82,7 @@ class UniversidadeTableViewController: UITableViewController {
         //Como o texto e o icone a celula.
         if segue.identifier == "DetalheUniversidades" {
             if let destination = segue.destinationViewController as? UniversidadesCollectionViewController {
-                let path = self.tableView?.indexPathForSelectedRow!
-                let cell = self.tableView!.cellForRowAtIndexPath(path!) as! UniversidadeTableViewCell
-                destination.passedCell = cell
+                destination.receiveCellData(self.cursoInfo!)
             }
         }
         

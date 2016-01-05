@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 struct Answer{
     
@@ -14,8 +15,19 @@ struct Answer{
     var userIcon: UIImage?
     var answerText: String?
     
-    init(nickname: String?, userIcon: UIImage?, answerText: String?)
+    init(nickname: String?, userIcon: UIImage? = nil, answerText: String? = "teste")
     {
+        
+//        let novaAtividade = PFObject(className: "Atividade")
+//        novaAtividade["tipo"] = "Resposta"
+//        novaAtividade["para"] = "RkkswrqiQw"
+//        novaAtividade["deUsuario"] = "jO84U8Q9iE"
+//        novaAtividade["conteudo"] = answerText
+//        novaAtividade["paraUsuario"] = "jO84U8Q9iE"
+//        
+//        novaAtividade.saveInBackground()
+
+        
         self.nickname = nickname
         self.userIcon = userIcon
         self.answerText = answerText

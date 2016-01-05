@@ -26,8 +26,10 @@ class MateriasDetalheViewController: UIViewController {
     
     var actualFontSize:Int = 0
     
-    var passedCell : MateriaTableViewCell!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
+    var course : String!       //Celula passada pela segue, iremos pegar as informacoes para editar a pagina
 
+    var universidade = [String]()
+    
     override func viewWillDisappear(animated: Bool) {
 
     }
@@ -38,9 +40,21 @@ class MateriasDetalheViewController: UIViewController {
         self.texto.layer.cornerRadius = 8
 
         self.automaticallyAdjustsScrollViewInsets = false
-        self.view.backgroundColor = passedCell.backgroundColor
-        self.titulo.title = passedCell.textLabel?.text
-        self.texto.text = passedCell.descricao
+//        self.view.backgroundColor = passedCell.backgroundColor
+//        self.titulo.title = passedCell.textLabel?.text
+//        self.texto.text = passedCell.descricao
+        
+        ParseModel.findMateria(course) { (object, error) -> Void in
+            
+            if error == nil{
+            
+                self.titulo.title = object?.curso
+                self.texto.text = object?.descricao
+                self.universidade = (object?.universidades)!
+            
+            }
+        }
+        
         self.texto.numberOfLines = 0
         
         self.texto.font = UIFont(name: "Futura", size: 17.0)
@@ -50,8 +64,8 @@ class MateriasDetalheViewController: UIViewController {
     }
     
     //Celula passada pela view com as materias é recebida por esse metodo
-    func receiveCellData(cell: MateriaTableViewCell) {
-        self.passedCell = cell;
+    func receiveCellData(cell: String) {
+        self.course = cell;
       
     }
     
@@ -63,16 +77,8 @@ class MateriasDetalheViewController: UIViewController {
         //Como o texto e o icone a celula.
         let secondViewController = segue.destinationViewController as! UniversidadeTableViewController
         
-        let cell = passedCell
+        secondViewController.receiveCellData(self.universidade, course: self.course)
         
-        
-        secondViewController.receiveCellData(cell!);
-        
-    }
-    
-    @IBAction func feedMateria(sender: AnyObject) {
-        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-        alert.show()
     }
     
     func configButtons(){

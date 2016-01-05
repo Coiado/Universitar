@@ -16,14 +16,10 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
 
     var respostaDelegate: novaResposta!
     
-    let stringMaxLength: Int = 910
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.respostaTextView.editable = true
-        
-        self.wordCount.text = String(stringMaxLength)
         
         self.respostaTextView.becomeFirstResponder()
         
@@ -31,19 +27,6 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    func textViewDidChange(textView: UITextView) {
-        
-        let string:String = self.respostaTextView.text
-        
-        self.wordCount.text = String(stringMaxLength - string.characters.count)
-        
-    }
-    
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).stringByReplacingCharactersInRange(range, withString: text)
-        let numberOfChars = newText.characters.count
-        return numberOfChars < 911;
-    }
 
     @IBAction func responderAction(sender: AnyObject) {
         

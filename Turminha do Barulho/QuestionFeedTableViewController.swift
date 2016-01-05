@@ -8,11 +8,20 @@
 
 import UIKit
 
-class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate {
+protocol novaPergunta {
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String)
+}
 
+class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate, novaPergunta {
+
+    @IBOutlet weak var pergunteButton: UIButton!
+    
     var question : [Question] = []
     
     var chosenCell : QuestionFeedCell!
+    
+    // Questoes implementadas em hardcode elas serão colocadas no vetor de questoes, 
+    // na funcao chamada createQuestion
     
     var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "A Unicamp fornece moradia e alimentação de graça para estudantes de baixa renda. Além disso existe a oportunidade de conseguir bolsas trabalhos."), Answer(nickname: "ogari", userIcon: UIImage(named: "ogari"), answerText: "Apesar de oferecer tudo isso, as bolsas são escassas e não contemplam todos os alunos necessitados")]
     
@@ -21,7 +30,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var answers3 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Semana que vem, no sábado."), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "Nossa já ia esquecer, obrigado!")]
     
-    //CORES
+    // Cores que serao usadas para colorir o fundo da tableview
     let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
 
     
@@ -35,10 +44,14 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         super.viewDidLoad()
         self.createQuestion()
+        
+        configureButton()
+        
         //self.tableView.separatorColor = UIColor.clearColor()
         //let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
         //navigationItem.backBarButtonItem = backItem
         
+        // Mudanca na coloracao da navigationBar
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
@@ -58,6 +71,24 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func configureButton(){
+        
+        self.pergunteButton.addTarget(self, action: "fazerPergunta", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    
+    func fazerPergunta(){
+        
+        print("testando a segue")
+        
+        self.performSegueWithIdentifier("fazerPergunta", sender: self)
+        
+    }
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -81,9 +112,19 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.userIcon.layer.masksToBounds = true
         cell.nickName.text = info.nickname
         cell.questionText.text = info.questionText
-        cell.questionText.sizeToFit()
-    
         
+        // Fazendo com que o texto fique adaptavel com a celula da tableview
+        cell.questionText.sizeToFit()
+        cell.updateConstraints()
+//        cell.answers = info.answers!
+        cell.cardSetup()
+        
+        // Deixando a foto do perfil arredondada
+        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
+        return cell
+        
+        // Codigo para deixar um gradiente de cor numa celula do question Feed
         /*
         if (indexPath.row)%2 == 0{
             
@@ -129,163 +170,43 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
             cell.questionView.layer.insertSublayer(backgroundLayer, atIndex: 0)
         }
         */
-        cell.updateConstraints()
-        cell.answers = info.answers
-        cell.cardSetup()
         
-
-        cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
-        
-        return cell
     }
     
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 120
-//    }
-//    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! QuestionFeedCell
+        // Envio de informacao para a proxima tela atraves de um cell
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
+    // Criacao do vetor com as informacoes a serem apresentadas
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
+//        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
+//        
+//        
+//        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
+//        
+//        
+//        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
         
-        
-        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
-        
-        
-        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
-        
-        self.tableView.reloadData()
+        ParseModel.findAllQuestion { (array, error) -> Void in
+            
+            if error == nil{
+                
+                self.question = array!
+                self.tableView.reloadData()
+                
+            }
+            
+        }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
-    
-    //MARK: Criar pergunta
-    
-    
-    var criarPerguntaView = UIView()
-    
-    var tituloTextfield = UITextField()
-    
-    var perguntaTextview = UITextView()
-    
-    @IBAction func CriaPergunta(sender: AnyObject) {
-        
-        
-//        let alert = UIAlertView (title: "Invalido", message: "Em construção, estamos finalizando", delegate: self, cancelButtonTitle: "Ok")
-//        alert.show()
-        
-        criarPerguntaView.frame =  CGRect(x: self.view.frame.width*0.05, y: self.view.frame.height * 0.01, width:
-            self.view.frame.width*0.90, height: self.view.frame.height*0.8)
-        
-        criarPerguntaView.backgroundColor = UIColor.blackColor()
-        
-        criarPerguntaView.layer.cornerRadius = 10
-        
-        self.view.addSubview(criarPerguntaView)
-        
-        let closeButton = UIButton()
-        
-        closeButton.setTitle("X", forState: .Normal)
-        
-        closeButton.layer.cornerRadius = 10
-        closeButton.backgroundColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-
-        
-        closeButton.addTarget(self, action: "closeTutorial", forControlEvents: UIControlEvents.TouchUpInside)
-        closeButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.85, y: 10, width: self.criarPerguntaView.frame.width * 0.08 ,  height: self.criarPerguntaView.frame.width * 0.08)
-        self.criarPerguntaView.addSubview(closeButton)
-        
-        tituloTextfield.attributedText = nil
-        tituloTextfield.placeholder = "Título"
-        
-        tituloTextfield.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.1, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.07)
-        
-        tituloTextfield.layer.cornerRadius = 10
-        
-        tituloTextfield.backgroundColor = UIColor.whiteColor()
-        
-        tituloTextfield.delegate = self
-        
-        self.criarPerguntaView.addSubview(tituloTextfield)
-
-        perguntaTextview.attributedText = nil
-        perguntaTextview.frame = CGRect(x: self.criarPerguntaView.frame.width*0.1, y: self.criarPerguntaView.frame.height*0.25, width: self.criarPerguntaView.frame.width*0.8, height: self.criarPerguntaView.frame.height*0.6)
-
-        perguntaTextview.layer.cornerRadius = 10
-        
-        perguntaTextview.backgroundColor = UIColor.whiteColor()
-        
-        perguntaTextview.delegate = self
-        
-        self.criarPerguntaView.addSubview(perguntaTextview)
-        
-        
-        let criaButton = UIButton()
-        
-        criaButton.setTitleColor(UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-, forState: UIControlState.Normal)
-        
-        criaButton.layer.cornerRadius = 10
-        criaButton.setTitle("Criar", forState: .Normal)
-        criaButton.frame = CGRect(x: self.criarPerguntaView.frame.width*0.425, y: self.criarPerguntaView.frame.height*0.775, width: self.criarPerguntaView.frame.width * 0.15 ,  height: self.criarPerguntaView.frame.width * 0.4)
-        criaButton.addTarget(self, action: "criaPergunta", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.criarPerguntaView.addSubview(criaButton)
-        
-        
-        
-    }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -305,71 +226,29 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         return true
     }
     
-    
-    func criaPergunta()
-    {
+    func salvarNovaPergunta(titleText:String, doubtText:String, user:String){
         
-        let titulo = tituloTextfield.text
-        
-        let pergunta = perguntaTextview.text
-        
-        if titulo != "" {
+        if(titleText != "" && doubtText != ""){
             
-            if pergunta != ""{
-                print("titulo = \(titulo) e pergunta = \(pergunta)")
-                self.question.append(Question(nickname: "Bruno", userIcon: UIImage(named: "userIcon"), questionTitle: titulo, questionText: pergunta, answers: self.answers1))
-                
-                
-                for subview in self.criarPerguntaView.subviews{
-                    subview.removeFromSuperview()
-                }
-                
-                self.criarPerguntaView.removeFromSuperview()
-
-                self.tableView.reloadData()
-            }
-            else{
-                let alert = UIAlertView (title: "Erro", message: "Preencha a pergunta", delegate: self, cancelButtonTitle: "Ok")
-            }
+//            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
+            self.tableView.reloadData()
         }
         
-        else{
-            
-            let alert = UIAlertView (title: "Erro", message: "Preencha o título", delegate: self, cancelButtonTitle: "Ok")
-            alert.show()
-            
-        }
-        
-    }
-    
-    func closeTutorial()
-    {
-        
-        for subview in self.criarPerguntaView.subviews{
-            subview.removeFromSuperview()
-        }
-        
-        self.criarPerguntaView.removeFromSuperview()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
-        //Como o texto e o icone a celula.
+        // Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
+        // Como o texto e o icone a celula.
         if segue.identifier == "Answer" {
             if let destination = segue.destinationViewController as? AnswerViewController {
                 let path = self.tableView?.indexPathForSelectedRow!
                 let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
                 destination.passedCell = cell
-                }
+            }
         }
-//        let secondViewController = segue.destinationViewController as! AnswerTableViewController
-//        
-//        let cell = self.chosenCell
-//        
-//        secondViewController.receiveCellData(cell!);
         
     }
     

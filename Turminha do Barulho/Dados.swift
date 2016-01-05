@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 struct Dados {
     
@@ -21,6 +22,16 @@ struct Dados {
     
     init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0, fulltext: String)
     {
+        
+//        let novaNoticia = PFObject(className: "Noticia")
+//        novaNoticia["titulo"] = titulo
+//        novaNoticia["texto"] = texto
+//        novaNoticia["textoInteiro"] = fulltext
+//        novaNoticia["tags"] = subtitulo
+//        novaNoticia["upvote"] = upvote
+//        
+//        novaNoticia.saveInBackground()
+//        
         self.titulo = titulo
         self.subtitulo = subtitulo
         self.texto = texto
