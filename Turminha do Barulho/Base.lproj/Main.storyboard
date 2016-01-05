@@ -1357,7 +1357,6 @@
                                 <connections>
                                     <outlet property="UniversidadeIcon" destination="dY0-w3-Zft" id="ieK-eJ-d4y"/>
                                     <outlet property="UniversidadeNome" destination="shy-Dd-l1g" id="FeM-e5-kJY"/>
-                                    <segue destination="czY-ht-LoF" kind="show" identifier="DetalheUniversidades" id="uoD-7Y-m1b"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1367,6 +1366,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="czY-ht-LoF" kind="show" identifier="DetalheUniversidades" id="Qh6-eT-Bec"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drv-rq-jqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -116,7 +116,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Fazendo com que o texto fique adaptavel com a celula da tableview
         cell.questionText.sizeToFit()
         cell.updateConstraints()
-        cell.answers = info.answers
+//        cell.answers = info.answers!
         cell.cardSetup()
         
         // Deixando a foto do perfil arredondada
@@ -184,61 +184,27 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     func createQuestion()
     {
         
-        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
+//        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
+//        
+//        
+//        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
+//        
+//        
+//        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
         
-        
-        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
-        
-        
-        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
-        
-        self.tableView.reloadData()
+        ParseModel.findAllQuestion { (array, error) -> Void in
+            
+            if error == nil{
+                
+                self.question = array!
+                self.tableView.reloadData()
+                
+            }
+            
+        }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
 
@@ -264,7 +230,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         if(titleText != "" && doubtText != ""){
             
-            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
+//            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
             self.tableView.reloadData()
         }
         

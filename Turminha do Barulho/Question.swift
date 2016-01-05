@@ -15,9 +15,14 @@ struct Question{
     var userIcon: UIImage?
     var questionTitle: String?
     var questionText: String?
-    var answers : [Answer] = []
+    var answers :[Answer]?
+    var id : String?
+    var comentarios : Int?
+    var upvotes: Int?
+    var tags: String?
+    var user: String?
     
-    init(nickname: String?, userIcon: UIImage?, questionTitle: String?, questionText: String?, answers: [Answer])
+    init(nickname: String?, userIcon: UIImage?, questionTitle: String?, questionText: String?, answers: [Answer]?, id: String?, comentarios: Int?, upvotes: Int?, tags: String?, user: String?)
     {
         
 //        let novaQuestao = PFObject(className: "Question")
@@ -29,13 +34,16 @@ struct Question{
 //        
 //        novaQuestao.saveInBackground()
         
-        
+        self.user = user
         self.nickname = nickname
         self.userIcon = userIcon
         self.questionText = questionText
         self.questionTitle = questionTitle
         self.answers = answers
-        
+        self.id = id
+        self.comentarios = comentarios
+        self.upvotes = upvotes
+        self.tags = tags
     }
     
 }

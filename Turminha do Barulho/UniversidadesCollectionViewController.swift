@@ -13,9 +13,9 @@ private let reuseIdentifier2 = "Materia"
 
 class UniversidadesCollectionViewController: UICollectionViewController {
 
-    var passedCell : UniversidadeTableViewCell!
-    var Semestre : [[String]] = [["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Introducao a Engenhariaasjdashdafabnbzncjkabsbchabchbdchbjnaslkjdkas;lkcakskcnjadndkhcabdjcndjsbkcbakjbdcasd"]]
-    var numSemestre : Int = 0
+    var passedData : CursoInfo!
+//    var Semestre : [[String]] = [["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Introducao a Engenhariaasjdashdafabnbzncjkabsbchabchbdchbjnaslkjdkas;lkcakskcnjadndkhcabdjcndjsbkcbakjbdcasd"]]
+//    var numSemestre : Int = 0
     
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     
@@ -39,26 +39,15 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func receiveCellData(cell: UniversidadeTableViewCell) {
-        self.passedCell = cell;
+    func receiveCellData(data: CursoInfo) {
+        
+        self.passedData = data;
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return passedCell.Semestres.count + 1
+        return passedData.semestres!.count + 1
     }
 
 
@@ -68,7 +57,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             return 1
         }
         else{
-            return self.Semestre[section-1].count
+            return self.passedData.semestres![section-1].count
         }
         
     }
@@ -78,15 +67,13 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             
         case UICollectionElementKindSectionHeader:
             if(indexPath.section == 0){
-                var numSemestre = indexPath.section + 1
                 let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
                 headerView.header.text = "Descrição"
                 return headerView
             }
             else{
-                var numSemestre = indexPath.section
                 let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
-                headerView.header.text = "Semestre " + String(numSemestre)
+                headerView.header.text = "Semestre " + String(indexPath.section)
                 return headerView
             }
             
@@ -112,7 +99,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             cellMateria.contentView.layer.cornerRadius = 10.0
             cellMateria.contentView.layer.borderWidth = 1.0
             cellMateria.contentView.layer.masksToBounds = true
-            cellMateria.materiaSemestre.text = self.Semestre[indexPath.section-1][indexPath.row] as? String
+            cellMateria.materiaSemestre.text = self.passedData.semestres![indexPath.section-1][indexPath.row]
             cellMateria.contentMode = .Center
             cellMateria.updateConstraints()
             return cellMateria
@@ -135,36 +122,5 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         return sectionInsets
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
 
 }
