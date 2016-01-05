@@ -16,6 +16,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
     @IBOutlet weak var pergunteButton: UIButton!
     
+    // teste
+    
     var question : [Question] = []
     
     var chosenCell : QuestionFeedCell!
