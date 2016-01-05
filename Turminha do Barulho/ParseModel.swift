@@ -300,7 +300,7 @@ class ParseModel {
                     let conteudo = object["conteudo"] as! String
                     let usuario = object["deUsuario"] as! String
                     
-                    let answer = Answer(user: usuario, answerText: conteudo)
+                    let answer = Answer(nickname: usuario, answerText: conteudo)
                     
                     array.append(answer)
                     
