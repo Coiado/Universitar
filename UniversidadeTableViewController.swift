@@ -59,12 +59,12 @@ class UniversidadeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
-        ParseModel.findUniversidade(self.course!, universidade: self.universidades[indexPath.row]) { (object, error) -> Void in
+        ParseModel.findCourseInfos(self.course!, universidade: self.universidades[indexPath.row]) { (object, error) -> Void in
             
             if error == nil{
                 
                 self.cursoInfo = object!
-                self.performSegueWithIdentifier("DetalhesUniversidades", sender: self)
+                self.performSegueWithIdentifier("DetalheUniversidades", sender: self)
                 
             }
             

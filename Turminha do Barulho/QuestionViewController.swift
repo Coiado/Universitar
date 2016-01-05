@@ -113,7 +113,7 @@ import UIKit
 //        }
 //        
 //    }
-//    
+//
 //    @IBAction func sendQuestion(sender: AnyObject) {
 //        if(newQuestion.text != "" && newQuestion.text != nil){
 //            passedCell.answers.append(Answer(nickname: "João", userIcon:UIImage(named: "userIcon") , answerText: newQuestion.text))

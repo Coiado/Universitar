@@ -14,8 +14,6 @@ private let reuseIdentifier2 = "Materia"
 class UniversidadesCollectionViewController: UICollectionViewController {
 
     var passedData : CursoInfo!
-//    var Semestre : [[String]] = [["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Calculo 3"],["Semestre 1","Calculo 1","GA","Introducao a Engenhariaasjdashdafabnbzncjkabsbchabchbdchbjnaslkjdkas;lkcakskcnjadndkhcabdjcndjsbkcbakjbdcasd"]]
-//    var numSemestre : Int = 0
     
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     
@@ -24,14 +22,6 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.UniversidadeCollectionView.registerClass(DescricaoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier1)
-//        self.UniversidadeCollectionView.registerClass(MateriaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier2)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +76,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         if (indexPath.section == 0){
             let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
-            let legal = "É mais legalasxajskcndakbcakhsbvajvfahdfbvhadfbabivubverbaiuebjsbdkbafkhvbafhkbdbfhkvdbvfhkadbvkadhbvrubkvahbkhvfbdhkvabdkhfhkbvfadhbvkdbfhvbadfhkveofefjjfjfd"
-            cellDescricao.descricaoLabel.text = legal
+            cellDescricao.descricaoLabel.text = self.passedData.descricaoUniversidade
             cellDescricao.descricaoLabel.sizeToFit()
             return cellDescricao
         }

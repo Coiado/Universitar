@@ -216,7 +216,7 @@ class ParseModel {
     }
     
     
-    static func findUniversidade(course: String, universidade: String, completionHandler: (object:CursoInfo?, error:NSError?) -> Void){
+    static func findUniversidade(course: String, universidade: String, completionHandler: (object:String?, descricao:String? , error:NSError?) -> Void){
         
         let query = PFQuery(className: "Universidades")
         
@@ -230,40 +230,89 @@ class ParseModel {
                 if let object = objects{
                     
                     let descricao = object[0]["descricaoUniversidade"] as! String
-                    let curso = object[0]["curso"] as! String
-                    let universidade = object[0]["universidade"] as! String
                     let id = object[0].objectId
-                    var array: [[String]]!
                     
-                    let query = PFQuery(className: "Semestres")
-                    query.whereKey("curso", equalTo: id!)
-                    query.orderByAscending("numero")
-                    query.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error:NSError?) -> Void in
-                        if error == nil{
-                            if let objects = objects{
-                                for object in objects{
-                                    
-                                    array.append(object["semestre"]! as! [String])
-                                    
-                                }
-                            }
-                        }
-                    })
-                    let cursoInfo = CursoInfo(curso: curso, universidade: universidade, descricaoUniversidade: descricao, semestres: array)
-                    
-                    completionHandler(object: cursoInfo, error: nil)
+                    completionHandler(object: id, descricao: descricao, error: nil)
                     
                 }
                 
             }
             else{
-                completionHandler(object: nil, error: error)
+                completionHandler(object: nil,descricao: nil, error: error)
             }
             
         }
     
     }
     
+    
+    static func findCourseInfos(curso: String, universidade: String, completionHandler: (object:CursoInfo?, error:NSError?) -> Void){
+        
+        self.findUniversidade(curso, universidade: universidade) { (object,descricao, error) -> Void in
+            
+            if error == nil{
+                
+                var array = [[String]]()
+                
+                let query = PFQuery(className: "Semestres")
+                query.whereKey("curso", equalTo: object!)
+                query.orderByAscending("numero")
+                query.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error:NSError?) -> Void in
+                    if error == nil{
+                        if let objects = objects{
+                            for object in objects{
+                                
+                                array.append(object["semestre"]! as! [String])
+                                
+                            }
+                        }
+                        let cursoInfo = CursoInfo(curso: curso, universidade: universidade, descricaoUniversidade: descricao, semestres: array)
+                        completionHandler(object: cursoInfo, error: nil)
+                    }else{
+                completionHandler(object: nil, error: error)
+                    }
+                })
+                
+            }
+        }
+    }
+    
+    
+    
+    static func findComents(para: String , completionHandler: (array:[Answer]?, error:NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        
+        query.whereKey("para", equalTo: para)
+        
+        query.whereKey("tipo", equalTo: "Comentario")
+        
+        query.orderByAscending("createdAt")
+        
+        var array = [Answer]()
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error:NSError?) -> Void in
+            
+            if error == nil{
+                
+                for object in objects! {
+                    
+                    let conteudo = object["conteudo"] as! String
+                    let usuario = object["deUsuario"] as! String
+                    
+                    let answer = Answer(user: usuario, answerText: conteudo)
+                    
+                    array.append(answer)
+                    
+                }
+                
+                completionHandler(array: array, error: nil)
+                
+            }
+            completionHandler(array: nil, error: error)
+        }
+        
+    }
     
     
     

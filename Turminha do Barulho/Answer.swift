@@ -11,11 +11,11 @@ import Parse
 
 struct Answer{
     
-    var nickname: String?
+    var user: String?
     var userIcon: UIImage?
     var answerText: String?
     
-    init(nickname: String?, userIcon: UIImage? = nil, answerText: String? = "teste")
+    init(user: String?, userIcon: UIImage? = nil, answerText: String? = "teste")
     {
         
 //        let novaAtividade = PFObject(className: "Atividade")
@@ -28,7 +28,7 @@ struct Answer{
 //        novaAtividade.saveInBackground()
 
         
-        self.nickname = nickname
+        self.user = user
         self.userIcon = userIcon
         self.answerText = answerText
         
