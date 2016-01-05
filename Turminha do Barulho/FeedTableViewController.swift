@@ -235,18 +235,13 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 //        self.data.append(Dados(titulo: "Comvest 2016", subtitulo: "Vestibular", texto: "Inscrições para o vestibular da Comvest começam segunda-feira"
 //            , imagem: UIImage(named: "Vtest"),upvote: 100,fulltext:vestibular))
         
-        self.data.append(Dados(titulo: "Alta do dolar", subtitulo: "Economia", texto: "Dólar subiu? Bolsa quebrou? Saiba como um economista influencia essa área", imagem: UIImage(named: "Etest"), upvote: 12,fulltext:economia))
-        
-        self.data.append(Dados(titulo: "Mercado em Alta", subtitulo: "Computação", texto: "Busca por profissionais na área de TI aumenta 78%", imagem: UIImage(named: "Ctest"),upvote: 69,fulltext:computacao))
-        
-         self.data.append(Dados(titulo: "Revolução", subtitulo: "Engenharia", texto: "Robôs estão revolucionando a indústria atual, dando destaque para carreiras na área de Mecatrônica", imagem: UIImage(named: "Mtest"),upvote: 24,fulltext:mecatronica))
-       
-          self.data.append(Dados(titulo: "Profissão Pizzaiolo", subtitulo: "Gastronomia", texto: "Universidade britânica oferece curso especializado em pizzas", imagem: UIImage(named: "Gtest"),upvote: 30,fulltext:gastronomia))
-        
-        self.data.append(Dados(titulo: "Comvest 2016", subtitulo: "Vestibular", texto: "Inscrições para o vestibular da Comvest começam segunda-feira"
-            , imagem: UIImage(named: "Vtest"),upvote: 100,fulltext:vestibular))
-        
-        self.tableView.reloadData()
+        ParseModel.findAllNews({ (array, error) -> Void in
+            
+            if error == nil{
+                self.data = array!
+                self.tableView.reloadData()
+            }
+        })
     }
     
     

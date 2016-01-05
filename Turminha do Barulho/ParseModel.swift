@@ -268,8 +268,11 @@ class ParseModel {
                         }
                         let cursoInfo = CursoInfo(curso: curso, universidade: universidade, descricaoUniversidade: descricao, semestres: array)
                         completionHandler(object: cursoInfo, error: nil)
-                    }else{
-                completionHandler(object: nil, error: error)
+                        
+                    }
+                    else
+                    {
+                        completionHandler(object: nil, error: error)
                     }
                 })
                 
