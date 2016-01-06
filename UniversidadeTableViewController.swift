@@ -14,8 +14,6 @@ class UniversidadeTableViewController: UITableViewController {
     
     var course: String?
     
-    var cursoInfo: CursoInfo?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,19 +56,8 @@ class UniversidadeTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
-        ParseModel.findCourseInfos(self.course!, universidade: self.universidades[indexPath.row]) { (object, error) -> Void in
-            
-            if error == nil{
-                
-                self.cursoInfo = object!
-                self.performSegueWithIdentifier("DetalheUniversidades", sender: self)
-                
-            }
-            
-        }
         
-        
+       self.performSegueWithIdentifier("DetalheUniversidades", sender: self)
         
     }
 
@@ -82,7 +69,11 @@ class UniversidadeTableViewController: UITableViewController {
         //Como o texto e o icone a celula.
         if segue.identifier == "DetalheUniversidades" {
             if let destination = segue.destinationViewController as? UniversidadesCollectionViewController {
-                destination.receiveCellData(self.cursoInfo!)
+                
+                let index = self.tableView.indexPathForSelectedRow?.row
+                let universidade = self.universidades[index!]
+                
+                destination.receiveCellData(self.course!,universidade: universidade)
             }
         }
         

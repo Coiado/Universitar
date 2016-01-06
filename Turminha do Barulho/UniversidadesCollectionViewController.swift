@@ -15,12 +15,30 @@ class UniversidadesCollectionViewController: UICollectionViewController {
 
     var passedData : CursoInfo!
     
+    var universidade : String?
+    
+    var curso: String?
+    
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     
     @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ParseModel.findCourseInfos(self.curso!, universidade: self.universidade!) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                self.passedData = object!
+                self.collectionView?.reloadData()
+                
+            }
+            
+        }
+        
+        
         
     }
 
@@ -29,15 +47,22 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func receiveCellData(data: CursoInfo) {
+    func receiveCellData(curso: String, universidade: String) {
         
-        self.passedData = data;
+        self.curso = curso
+        self.universidade = universidade
         
     }
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return passedData.semestres!.count + 1
+        
+        if let array = self.passedData{
+            return array.semestres!.count + 1
+        }
+        else{
+            return 0
+        }
     }
 
 
