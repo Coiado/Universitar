@@ -18,9 +18,10 @@ struct Dados {
     var upvote: Int?
     var upvoted:Bool = false
     var fulltext: String
+    var id : String
 
     
-    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0, fulltext: String)
+    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0, fulltext: String, id: String)
     {
         
 //        let novaNoticia = PFObject(className: "Noticia")
@@ -39,6 +40,7 @@ struct Dados {
         self.upvote = upvote
         self.upvoted = false
         self.fulltext = fulltext
+        self.id = id
     }
     
     

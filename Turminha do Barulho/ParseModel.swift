@@ -32,8 +32,9 @@ class ParseModel {
                         let tags = object["tags"] as! String
                         let upvote = object["upvote"] as! Int
                         //let imagem = object["imagem"] as! NAO SEI
+                        let id = (object.objectId)!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: nil, upvote: upvote, fulltext: textoInteiro)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: nil, upvote: upvote, fulltext: textoInteiro,id: id)
                         
                         array.append(dados)
                         
@@ -305,6 +306,24 @@ class ParseModel {
     }
     
     
+    static func findDenuncia(comentario: String, completionHandler:(object:PFObject?, error: NSError?)->Void){
+        
+        let query = PFQuery(className: "Denuncia")
+        query.whereKey("comentario", equalTo: comentario)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            if error == nil{
+                completionHandler(object: object, error: nil)
+            }
+            else{
+                
+                completionHandler(object: nil, error: error)
+                
+            }
+        }
+        
+    }
+    
+    
     //MARK: - Salvar
     
     
@@ -332,7 +351,6 @@ class ParseModel {
         comentario.saveInBackgroundWithBlock { (Bool, error) -> Void in
             
             if error == nil{
-                //CRIAR METODO PARA MUDAR LIKES E MUDAR COMENTARIOS
                 completionHandler(sucesso: true, error: nil)
             }
             else{
@@ -389,7 +407,47 @@ class ParseModel {
     
     }
     
+    
+    static func criarDenuncia(comentario: String, completionHandler:(sucesso:Bool, error: NSError?)->Void){
+        
+        let denuncia = PFObject(className: "Denuncia")
+        denuncia["comentario"] = comentario
+        denuncia["denuncias"] = 1
+        
+        denuncia.saveInBackgroundWithBlock { (Bool, error) -> Void in
+            
+            if error == nil {
+                
+                completionHandler(sucesso: true, error: nil)
+                
+            }
+            else{
+                
+                completionHandler(sucesso: false, error: error)
+                
+            }
+        }
+        
+    }
+    
     //MARK: - Atualizar objetos
+    
+    static func aumentarDenuncia(denuncia:PFObject, completionHandler: (sucesso:Bool, error: NSError?)-> Void){
+    
+        let denuncias = denuncia["denuncias"] as! Int
+        denuncia["denuncias"] = denuncias + 1
+        denuncia.saveInBackgroundWithBlock { (Bool, error) -> Void in
+            
+            if error == nil {
+                
+                completionHandler(sucesso: true, error: nil)
+                
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+        }
+    }
     
     
     static func aumentarComentarioPergunta(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
@@ -481,6 +539,37 @@ class ParseModel {
             
         }
         
+    }
+    
+    
+    static func aumentarComentarioNoticia(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let atual = object!["comentarios"] as! Int
+                
+                object!["comentarios"] = atual + 1
+                
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+
     }
     
     

@@ -91,6 +91,34 @@ class AnswerTableViewCell: UITableViewCell {
     }
     @IBAction func DownVote(sender: AnyObject) {
 
+        
+//        ParseModel.findDenuncia(self.id!) { (object, error) -> Void in
+//            
+//            if error == nil {
+//                
+//                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+//                    
+//                    if error == nil {
+//                        //fazer algo
+//                    }
+//                    
+//                })
+//                
+//            }
+//            else{
+//                
+//                ParseModel.criarDenuncia(self.id!, completionHandler: { (sucesso, error) -> Void in
+//                    
+//                    //fazer algo
+//                    
+//                })
+//                
+//            }
+//            
+//        }
+        
+        
+        
         if !disliked{
             var like = Int(self.likes.text!)! as Int
             like = like - 1

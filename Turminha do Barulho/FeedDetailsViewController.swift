@@ -15,16 +15,13 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var detailsTableView : UITableView!
     
     //Dados das noticias, devemos usar para mandar para nossa TableView
-    var passedCell: FeedCell!
+    var passedCell: Dados!
     
     //Vetor com os comentarios
-    var commentArray: [AnswerTableViewCell] = []
+    var commentArray: [Answer] = []
     
     //Celula da noticia
     var newsCell : NewsDetailCell!
-    
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "userIcon"), answerText:"Interessante"), Answer(nickname: "Joaquim", userIcon: UIImage(named: "userIcon"), answerText: "Caramba!")]
-    
     
     
     override func viewDidLoad() {
@@ -54,21 +51,37 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.detailsTableView.separatorStyle = .SingleLine
         
+        pegarComentarios()
+        
     }
     
     
-    func populateNewsDetails(cell: NewsDetailCell!)
-    {
-        cell.imagem.image = self.passedCell.picture.image
-        cell.categoriaTitle.text = self.passedCell.title.text
-        cell.subTitle.text = self.passedCell.subTitle.text
-        cell.fullText.text = self.passedCell.fullText
-        //Metodo de resolucao da celula, TO DO
+    func pegarComentarios(){
+        
+        let id = (self.passedCell.id)
+        
+        ParseModel.findComents(id) { (array, error) -> Void in
+            
+            if error == nil {
+                self.commentArray = array!
+                self.detailsTableView.reloadData()
+            }
+        }
+        
     }
     
-    func receiveCellData(cell: FeedCell) {
-        self.passedCell = cell;
-    }
+//    func populateNewsDetails(cell: NewsDetailCell!)
+//    {
+//        cell.imagem.image = self.passedCell.imagem
+//        cell.categoriaTitle.text = self.passedCell.titulo
+//        cell.subTitle.text = self.passedCell.subtitulo
+//        cell.fullText.text = self.passedCell.fulltext
+//        //Metodo de resolucao da celula, TO DO
+//    }
+    
+//    func receiveCellData(cell: FeedCell) {
+//        self.passedCell = cell;
+//    }
 
     
     @IBAction func dismiss(sender: AnyObject) {
@@ -82,7 +95,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Noticia + comentarios
-        return 1 + self.commentArray.count + self.answers1.count
+        return 1 + self.commentArray.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -108,23 +121,25 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         if (indexPath.row==0){
             let cell = tableView.dequeueReusableCellWithIdentifier("detailsCell", forIndexPath: indexPath) as! NewsDetailCell
             
-            cell.imagem.image = self.passedCell.picture.image
-            cell.categoriaTitle.text = self.passedCell.title.text
-            cell.subTitle.text = self.passedCell.subTitle.text
-            cell.fullText.text = self.passedCell.fullText
+            cell.imagem.image = self.passedCell.imagem
+            cell.categoriaTitle.text = self.passedCell.titulo
+            cell.subTitle.text = self.passedCell.subtitulo
+            cell.fullText.text = self.passedCell.fulltext
             cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("comentarioDetalhes", forIndexPath: indexPath) as! ComentarioDetalhesCell
-            let info = answers1[indexPath.row-1] as Answer
+            let index = indexPath.row - 1
+            
+            let info = self.commentArray[index] as Answer
             cell.commentText.text = info.answerText
             cell.commentText.sizeToFit()
             //cell.updateConstraints()
             //PRECISAMOS ALTERAR A MANEIRA COMO A CELULA EH POPULADA
             cell.userImage.image = info.userIcon
             cell.userName.text = info.nickname
-            cell.numberOfLikes = 15
+            cell.numberOfLikes = info.upvote
             cell.cellSetup()
             return cell //A priori
         }
@@ -157,7 +172,19 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if(text != ""){
             
-            self.answers1.append(Answer(nickname: "Jose", userIcon: UIImage(named: "userIcon"), answerText: text))
+            let para = self.passedCell.id
+            
+            ParseModel.salvarAtividade(para, paraUsuario: "", conteudo: text, tipo: "Comentario", completionHandler: { (sucesso, error) -> Void in
+                if error == nil{
+                    
+                    ParseModel.aumentarComentarioNoticia(para, completionHandler: { (sucesso, error) -> Void in
+                        //fzer algo
+                    })
+                    
+                    self.pegarComentarios()
+                    
+                }
+            })
             
             self.detailsTableView.reloadData()
         }
