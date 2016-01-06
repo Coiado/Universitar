@@ -123,8 +123,9 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
+        //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
-            return CGSize(width: 400, height: 200)
+            return CGSize(width: self.view.frame.width, height: self.view.frame.width)
         }
         else{
             return CGSize(width: 100, height: 100)

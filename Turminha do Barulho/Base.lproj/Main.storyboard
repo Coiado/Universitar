@@ -1193,19 +1193,13 @@
                                 <rect key="frame" x="10" y="84" width="355" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iA-ec-gKv">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="234" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-Yv-qYg">
-                                        <rect key="frame" x="59" y="30.5" width="55" height="30"/>
-                                        <state key="normal" title="Favorito">
-                                            <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbI-ge-TZ6">
-                                        <rect key="frame" x="198" y="30" width="98" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbI-ge-TZ6">
+                                        <rect key="frame" x="128" y="264" width="98" height="30"/>
                                         <state key="normal" title="Universidades">
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -1213,13 +1207,24 @@
                                             <segue destination="Qh2-zL-pu6" kind="show" id="30K-eK-NUD"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X6z-3f-cp4">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="234"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="234" id="IEg-dV-zjK"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="X6z-3f-cp4" firstAttribute="top" secondItem="84h-Wt-79b" secondAttribute="top" id="0cr-er-GUz"/>
+                                    <constraint firstItem="tbI-ge-TZ6" firstAttribute="centerX" secondItem="84h-Wt-79b" secondAttribute="centerX" id="7Q0-n5-yYl"/>
                                     <constraint firstItem="2iA-ec-gKv" firstAttribute="leading" secondItem="84h-Wt-79b" secondAttribute="leading" id="9QX-kP-ThC"/>
                                     <constraint firstItem="2iA-ec-gKv" firstAttribute="centerX" secondItem="84h-Wt-79b" secondAttribute="centerX" id="Ldo-AC-ydb"/>
+                                    <constraint firstItem="tbI-ge-TZ6" firstAttribute="top" secondItem="2iA-ec-gKv" secondAttribute="bottom" constant="9.5" id="OHm-N7-6CD"/>
+                                    <constraint firstItem="X6z-3f-cp4" firstAttribute="leading" secondItem="84h-Wt-79b" secondAttribute="leading" id="OJJ-aw-5ce"/>
                                     <constraint firstAttribute="bottom" secondItem="2iA-ec-gKv" secondAttribute="bottom" constant="70" id="irX-Hh-Wpm"/>
+                                    <constraint firstAttribute="trailing" secondItem="X6z-3f-cp4" secondAttribute="trailing" id="jdT-xN-DDU"/>
+                                    <constraint firstItem="2iA-ec-gKv" firstAttribute="top" secondItem="X6z-3f-cp4" secondAttribute="bottom" id="maJ-fj-uQ0"/>
                                     <constraint firstAttribute="trailing" secondItem="2iA-ec-gKv" secondAttribute="trailing" id="qeL-tU-fe9"/>
-                                    <constraint firstItem="2iA-ec-gKv" firstAttribute="top" secondItem="84h-Wt-79b" secondAttribute="top" id="xif-H0-jby"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1336,13 +1341,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wew-AW-3TJ">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Descricao" id="gaI-lJ-1yQ" customClass="DescricaoCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="1" y="64" width="373" height="238"/>
+                                <rect key="frame" x="1" y="114" width="373" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="373" height="238"/>
@@ -1377,14 +1382,14 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Materia" id="bai-MW-kuW" customClass="MateriaCollectionViewCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                                <rect key="frame" x="142.5" y="312" width="90" height="55"/>
+                                <rect key="frame" x="142.5" y="362" width="90" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
+                                            <rect key="frame" x="5" y="0.0" width="80" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1394,10 +1399,10 @@
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="IBq-82-nKH" secondAttribute="trailing" id="BF5-F6-1Tw"/>
+                                    <constraint firstAttribute="trailing" secondItem="IBq-82-nKH" secondAttribute="trailing" constant="5" id="BF5-F6-1Tw"/>
                                     <constraint firstAttribute="bottom" secondItem="IBq-82-nKH" secondAttribute="bottom" id="GV1-o9-M49"/>
                                     <constraint firstItem="IBq-82-nKH" firstAttribute="top" secondItem="bai-MW-kuW" secondAttribute="top" id="Rbw-o9-dEa"/>
-                                    <constraint firstItem="IBq-82-nKH" firstAttribute="leading" secondItem="bai-MW-kuW" secondAttribute="leading" id="WvA-ka-5SE"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="leading" secondItem="bai-MW-kuW" secondAttribute="leading" constant="5" id="WvA-ka-5SE"/>
                                 </constraints>
                                 <size key="customSize" width="90" height="55"/>
                                 <connections>
@@ -1405,19 +1410,25 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="W7v-Su-GNV" customClass="HeaderSemestreCollection" customModule="Turminha_do_Barulho" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="367" width="375" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="frf-Ze-1Yz" customClass="HeaderSemestreCollection" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufg-eD-DJO">
-                                    <rect key="frame" x="166" y="14" width="42" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-m8-VFS">
+                                    <rect key="frame" x="20" y="0.0" width="335" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="wpI-m8-VFS" secondAttribute="trailing" constant="20" id="HvY-wr-UWP"/>
+                                <constraint firstItem="wpI-m8-VFS" firstAttribute="leading" secondItem="frf-Ze-1Yz" secondAttribute="leading" constant="20" id="dGs-gq-NOZ"/>
+                                <constraint firstAttribute="bottom" secondItem="wpI-m8-VFS" secondAttribute="bottom" id="jiV-4k-EmW"/>
+                                <constraint firstItem="wpI-m8-VFS" firstAttribute="top" secondItem="frf-Ze-1Yz" secondAttribute="top" id="paH-V2-bXy"/>
+                            </constraints>
                             <connections>
-                                <outlet property="header" destination="ufg-eD-DJO" id="nHb-Tv-GDe"/>
+                                <outlet property="header" destination="wpI-m8-VFS" id="ASY-n3-gkP"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
