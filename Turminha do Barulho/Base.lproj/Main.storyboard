@@ -1337,7 +1337,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wew-AW-3TJ">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -1355,7 +1355,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-rW-x5k">
-                                            <rect key="frame" x="29" y="48.5" width="326" height="20.5"/>
+                                            <rect key="frame" x="29" y="48" width="326" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1383,8 +1383,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Materia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
-                                            <rect key="frame" x="25" y="17" width="46" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1393,12 +1393,33 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="IBq-82-nKH" secondAttribute="trailing" id="BF5-F6-1Tw"/>
+                                    <constraint firstAttribute="bottom" secondItem="IBq-82-nKH" secondAttribute="bottom" id="GV1-o9-M49"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="top" secondItem="bai-MW-kuW" secondAttribute="top" id="Rbw-o9-dEa"/>
+                                    <constraint firstItem="IBq-82-nKH" firstAttribute="leading" secondItem="bai-MW-kuW" secondAttribute="leading" id="WvA-ka-5SE"/>
+                                </constraints>
                                 <size key="customSize" width="90" height="55"/>
                                 <connections>
                                     <outlet property="materiaSemestre" destination="IBq-82-nKH" id="lny-t2-ys9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="W7v-Su-GNV" customClass="HeaderSemestreCollection" customModule="Turminha_do_Barulho" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="367" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufg-eD-DJO">
+                                    <rect key="frame" x="166" y="14" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <connections>
+                                <outlet property="header" destination="ufg-eD-DJO" id="nHb-Tv-GDe"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="czY-ht-LoF" id="c68-3p-BBH"/>
                             <outlet property="delegate" destination="czY-ht-LoF" id="qK2-s5-kuc"/>
