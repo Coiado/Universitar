@@ -17,9 +17,11 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     var universidade : String?
     
+    var heightDescricao : CGFloat?
+    
     var curso: String?
     
-    let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+    let sectionInsets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 20.0, right: 0.0)
     
     @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
@@ -33,10 +35,12 @@ class UniversidadesCollectionViewController: UICollectionViewController {
                 
                 self.passedData = object!
                 self.collectionView?.reloadData()
+                self.getSizeDescricao(self.passedData.descricaoUniversidade!)
                 
             }
             
         }
+        
         
         
         
@@ -52,6 +56,11 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         self.curso = curso
         self.universidade = universidade
         
+    }
+    
+    //Calculando o tamanho da celula da descrição
+    func getSizeDescricao(string: String){
+        self.heightDescricao = CGFloat((string.characters.count/30)*17 + 35)
     }
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -125,7 +134,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
-            return CGSize(width: self.view.frame.width, height: self.view.frame.width)
+            return CGSize(width: self.view.frame.width, height: self.heightDescricao!)
         }
         else{
             return CGSize(width: 100, height: 100)
