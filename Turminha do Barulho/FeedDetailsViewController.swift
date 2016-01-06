@@ -153,7 +153,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func salvarNovaResposta(text:String, user:String){ //metodo para adicionar novo comentário
+    func salvarNovaResposta(text:String){ //metodo para adicionar novo comentário
         
         if(text != ""){
             

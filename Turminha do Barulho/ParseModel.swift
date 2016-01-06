@@ -11,6 +11,9 @@ import Parse
 
 class ParseModel {
     
+    
+    //MARK: - pegar informaçoes
+    
     static func findAllNews(completionHandler: (array: [Dados]?, error: NSError?) -> Void){
         
         let query = PFQuery(className: "Noticia")
@@ -48,51 +51,7 @@ class ParseModel {
         
     }//func
     
-    static func findAllComents(from:String, completionHandler:(array: [Answer]?, error: NSError?) -> Void){
-        
-        let query = PFQuery(className: "Atividade")
 
-        query.whereKey("para", equalTo: from)
-        
-        var array = [Answer]()
-        
-        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil{
-                
-                if let objects = objects{
-                    
-                    for object in objects{
-                        
-                        let nick = object["deUsuario"] as! String
-                        //let icon = nao sei
-                        let text = object["conteudo"] as! String
-                        
-                        let answer = Answer(nickname: nick, answerText: text)
-                        
-                        array.append(answer)
-                        
-                    }
-                    
-                    completionHandler(array: array, error: nil)
-                    
-                }//if let
-                
-                
-            }// if
-            
-            else{
-                
-                completionHandler(array: nil, error: error)
-                
-            }
-            
-            
-        } // completion
-        
-      
-        
-    }// func
     
     
     static func findAllQuestion(completionHandler: (array: [Question]?, error: NSError?) -> Void ){
@@ -301,9 +260,11 @@ class ParseModel {
                 for object in objects! {
                     
                     let conteudo = object["conteudo"] as! String
-                    let usuario = object["deUsuario"] as! String
+                    let usuario = object["deUsuario"] as? String
+                    let upvote = object["upvote"] as? Int
+                    let id = (object.objectId)!
                     
-                    let answer = Answer(nickname: usuario, answerText: conteudo)
+                    let answer = Answer(nickname: usuario, answerText: conteudo, upvote: upvote,id: id)
                     
                     array.append(answer)
                     
@@ -312,16 +273,254 @@ class ParseModel {
                 completionHandler(array: array, error: nil)
                 
             }
-            completionHandler(array: nil, error: error)
+            else{
+                completionHandler(array: nil, error: error)
+            }
         }
         
     }
     
     
     
+    static func findAllNotifications(){
+        
+        let user = (PFUser.currentUser()?.objectId)!
+        
+        let query = PFQuery(className: "Atividade")
+        
+        query.whereKey("paraUsuario", equalTo: user)
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            if error == nil {
+                
+                //criar tipo notificacao
+                
+            }
+            else{
+                
+            }
+        }
+        
+    }
     
     
-}
+    //MARK: - Salvar
+    
+    
+    static func salvarAtividade(para: String, paraUsuario: String, conteudo: String,tipo:String, completionHandler:(sucesso: Bool, error: NSError?) -> Void){
+        
+        let comentario = PFObject(className: "Atividade")
+        
+        comentario["para"] = para
+        comentario["paraUsuario"] = paraUsuario
+        comentario["conteudo"] = conteudo
+        comentario["tipo"] = tipo
+        comentario["upvote"] = 0
+        
+        if let user = PFUser.currentUser()?.objectId {
+
+        comentario["deUsuario"] = user
+            
+        }
+        else{
+            let null = NSNull()
+
+            comentario["deUsuario"] = null
+
+        }
+        comentario.saveInBackgroundWithBlock { (Bool, error) -> Void in
+            
+            if error == nil{
+                //CRIAR METODO PARA MUDAR LIKES E MUDAR COMENTARIOS
+                completionHandler(sucesso: true, error: nil)
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+        }
+        
+    }
+    
+    static func salvarPergunta(titulo: String, tags: String, texto:String, completionHandler:(sucesso:Bool, error: NSError?) -> Void){
+        
+        let user = (PFUser.currentUser()?.objectId)!
+        
+        let pergunta = PFObject(className: "Question")
+        pergunta["textoPergunta"] = texto
+        pergunta["tituloPergunta"] = titulo
+        pergunta["tagsPergunta"] = tags
+        pergunta["upvotePergunta"] = 0
+        pergunta["comentariosPergunta"] = 0
+        pergunta["usuarioPergunta"] = user
+        
+        pergunta.saveInBackgroundWithBlock { (Bool, error) -> Void in
+            if error == nil {
+                
+                completionHandler(sucesso: true, error: nil)
+                
+            }else{
+                completionHandler(sucesso: false, error: error)
+            }
+        }
+        
+    }
+    
+    static func salvarNovoLike(para: String,usuario: String, completionHandler:(sucesso:Bool, error: NSError?)->Void){
+        
+        let user = PFUser.currentUser()?.objectId
+        
+        let like = PFObject(className: "Atividade")
+        like["tipo"] = "Upvote"
+        like["para"] = para
+        like["deUsuario"] = user!
+        like["paraUsuario"] = usuario
+        like.saveInBackgroundWithBlock { (Bool, error) -> Void in
+            
+            if error == nil{
+                completionHandler(sucesso: true, error: nil)
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    
+    }
+    
+    //MARK: - Atualizar objetos
+    
+    
+    static func aumentarComentarioPergunta(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Question")
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let atual = object!["comentariosPergunta"] as! Int
+                
+                object!["comentariosPergunta"] = atual + 1
+                
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    
+    static func aumentarLikeComentario(id:String, completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let atual = object!["upvote"] as! Int
+                
+                object!["upvote"] = atual + 1
+                
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    static func diminuirLikeComentario(id:String, completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let atual = object!["upvote"] as! Int
+                
+                object!["upvote"] = atual - 1
+                
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    
+    //MARK: - Apagar
+    
+    static func apagarLike(para:String, completionHandler:(sucesso:Bool, error:NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        let deUsuario = (PFUser.currentUser()?.objectId)!
+        
+        
+        query.whereKey("para", equalTo: para)
+        query.whereKey("deUsuario", equalTo: deUsuario)
+        query.whereKey("tipo", equalTo: "Upvote")
+        
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            
+            if error == nil {
+                
+                object?.deleteInBackgroundWithBlock({ (Bool, error) -> Void in
+                    if error == nil{
+                        
+                        completionHandler(sucesso: true, error: nil)
+                        
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    
+}//parse models
 
 
 

@@ -775,12 +775,6 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFR-fb-1Wr">
-                                <rect key="frame" x="313" y="0.0" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="edH-6w-2wH">
                                 <rect key="frame" x="16" y="29" width="343" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -795,11 +789,8 @@
                         <constraints>
                             <constraint firstItem="edH-6w-2wH" firstAttribute="top" secondItem="C53-hy-RBa" secondAttribute="bottom" constant="29" id="3vf-Oi-GWm"/>
                             <constraint firstItem="Eql-CI-U96" firstAttribute="top" secondItem="edH-6w-2wH" secondAttribute="bottom" constant="232" id="Ncu-zX-Kt1"/>
-                            <constraint firstItem="edH-6w-2wH" firstAttribute="top" secondItem="KFR-fb-1Wr" secondAttribute="bottom" constant="8" symbolic="YES" id="VBX-YI-9Fd"/>
                             <constraint firstItem="edH-6w-2wH" firstAttribute="leading" secondItem="als-iM-6lX" secondAttribute="leadingMargin" id="WfR-yM-Vo6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="edH-6w-2wH" secondAttribute="trailing" id="cfR-Ps-fI8"/>
-                            <constraint firstItem="KFR-fb-1Wr" firstAttribute="top" secondItem="C53-hy-RBa" secondAttribute="bottom" id="fEq-WR-152"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KFR-fb-1Wr" secondAttribute="trailing" constant="4" id="yGT-O4-kjI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R6w-ih-je3">
@@ -812,36 +803,65 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="respostaTextView" destination="edH-6w-2wH" id="8gK-5S-srI"/>
-                        <outlet property="wordCount" destination="KFR-fb-1Wr" id="sGR-sV-YuH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pv4-zZ-BQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438.5" y="571.5"/>
+            <point key="canvasLocation" x="-1313.5" y="635.5"/>
         </scene>
         <!--Perguntar-->
         <scene sceneID="ohi-vf-D9Y">
             <objects>
-                <viewController title="Perguntar" id="2pK-la-fxC" sceneMemberID="viewController">
+                <viewController title="Perguntar" id="2pK-la-fxC" customClass="CriaPerguntaViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Emx-eK-g2m"/>
                         <viewControllerLayoutGuide type="bottom" id="p1f-F2-gNv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7fj-m9-c2m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Título" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Dx-rC-fC4">
+                                <rect key="frame" x="16" y="0.0" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cWB-uB-bKQ">
+                                <rect key="frame" x="16" y="49" width="343" height="293"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oft-UK-RF8">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="oDC-he-boE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WKG-rb-rk0">
+                                <rect key="frame" x="260" y="7" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Criar Pergunta">
+                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="perguntarAction:" destination="2pK-la-fxC" eventType="touchUpInside" id="Kgx-Q3-rRl"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="perguntaTextView" destination="cWB-uB-bKQ" id="6Sh-eL-hZA"/>
+                        <outlet property="tituloTextField" destination="1Dx-rC-fC4" id="ZYF-ip-LP8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gef-cB-CZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964.5" y="342.5"/>
+            <point key="canvasLocation" x="377.5" y="-267.5"/>
         </scene>
         <!--Feed de Perguntas-->
         <scene sceneID="qJV-pW-foo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SGs-R4-aa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Feed de Perguntas" id="j3x-IH-hc5" customClass="QuestionFeedTableViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" id="HgW-Aj-wgw">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
@@ -948,9 +968,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tIg-Fn-9uq">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="F27-NT-Vfa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="F27-NT-Vfa">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HSW-pf-SHL">
-                                <rect key="frame" x="16" y="7" width="63" height="30"/>
+                                <rect key="frame" x="296" y="7" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Pergunte">
@@ -962,8 +982,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="pergunteButton" destination="HSW-pf-SHL" id="y1F-Dk-00s"/>
+                        <segue destination="2pK-la-fxC" kind="show" identifier="criarPergunta" id="zyZ-z0-5Hc"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGs-R4-aa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-158.5" y="-267.5"/>
         </scene>
@@ -1604,7 +1626,7 @@
         <image name="worker" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zD-E0-HBm"/>
+        <segue reference="v9w-QC-30v"/>
         <segue reference="gWl-Av-0qc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>

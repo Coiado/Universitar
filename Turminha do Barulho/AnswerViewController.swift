@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Parse
 
 protocol novaResposta {
-    func salvarNovaResposta(text:String, user:String)
+    func salvarNovaResposta(text:String)
 }
 
 class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
@@ -17,8 +18,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var newQuestion: UITextField!
     @IBOutlet var tableViewQuestion: UITableView!
-    var passedCell : QuestionFeedCell!
     
+    var question : Question?
+    
+    var comentarios = [Answer]()
     
     override func viewDidAppear(animated: Bool) {
         self.tableViewQuestion.reloadData()
@@ -27,24 +30,36 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         newQuestion.enabled = true
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
         self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
+        pegarComentarios()
+    }
+    
+    func pegarComentarios(){
+        
+        ParseModel.findComents((self.question?.id)!) { (array, error) -> Void in
+            
+            if error == nil{
+                
+                self.comentarios = array!
+
+                self.tableViewQuestion.reloadData()
+                
+            }
+            
+            
+        }
+        
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK: - keyboardnotification
-    
-//    func keyboardWillShow(sender: NSNotification) {
-//        self.view.frame.origin.y -= 200
-//    }
     
     // MARK: - Table view data source
     
@@ -57,20 +72,21 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return passedCell.answers.count+2
+        return self.comentarios.count + 2
     }
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.row==0){
             
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
-            cell.perguntaTitulo.text = passedCell.perguntaTitulo.text   
+            
+            cell.perguntaTitulo.text = self.question!.questionTitle
             //cell.perguntaTitulo.sizeToFit()
             //cell.updateConstraints()
-            cell.userIcon.image = passedCell.userIcon.image
+            //cell.userIcon.image = passedCell.userIcon.image
             cell.userIcon.layer.cornerRadius = 15
-            cell.nickName.text = passedCell.nickName.text
-            cell.questionText.text = passedCell.questionText.text
+            //cell.nickName.text = passedCell.nickName.text
+            cell.questionText.text = self.question!.questionText
             cell.questionText.font = UIFont(name: "Futura", size: 14.0)
             cell.questionText.sizeToFit()
             cell.updateConstraints()
@@ -80,7 +96,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         else{if(indexPath.row==1){
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
-            let numberComments = String(passedCell.answers.count)
+            let numberComments = String((self.question?.comentarios)!)
             cell.comments.text = numberComments + " Comentários:"
             cell.comments.font = UIFont(name: "Futura", size: 14.0)
             
@@ -88,17 +104,23 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             else{
                 let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerTableViewCell
-                let info = passedCell.answers[indexPath.row-2] as Answer
-                cell.userIcon.image = info.userIcon
+            
+                let index = indexPath.row - 2
+            
+                let info = self.comentarios[index]
+            
+                cell.id = info.id
+                cell.usuario = info.nickname
+                //cell.userIcon.image = info.userIcon
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
-                cell.nickName.text = info.nickname
+                //cell.nickName.text = info.nickname
                 cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
                 cell.answerText.font = UIFont(name: "Futura", size: 14.0)
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
-                cell.likes.text = String(15)
+                cell.likes.text = String(info.upvote!)
                 //cell.cardSetup()
                 return cell
             }
@@ -106,23 +128,40 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
-    func salvarNovaResposta(text:String, user:String){
+    func salvarNovaResposta(text:String){
+        
+        //fazer verificacao
         
         if(text != ""){
-            passedCell.answers.append(Answer(nickname: user, userIcon:UIImage(named: "userIcon") , answerText: text))
-            tableViewQuestion.reloadData()
+            
+            let para = (self.question?.id)!
+            let paraUsuario = (self.question?.user)!
+            let conteudo = text
+            let tipo = "Comentario"
+            
+            
+            
+            ParseModel.salvarAtividade(para, paraUsuario: paraUsuario, conteudo: conteudo, tipo: tipo, completionHandler: { (sucesso, error) -> Void in
+                
+                if error == nil{
+                    ParseModel.aumentarComentarioPergunta(para, completionHandler: { (sucesso, error) -> Void in
+                        if error == nil {
+                            
+                            self.tableViewQuestion.reloadData()
+                            
+                        }
+                    })
+                    self.pegarComentarios()
+                }
+                else{
+                    //cuidar do erro
+                }
+                
+            })
         }
         
     }
     
-    @IBAction func sendQuestion(sender: AnyObject) {
-        if(newQuestion.text != "" && newQuestion.text != nil){
-            passedCell.answers.append(Answer(nickname: "João", userIcon:UIImage(named: "userIcon") , answerText: newQuestion.text))
-            newQuestion.text = ""
-           tableViewQuestion.reloadData()
-        }
-    }
-
     func textFieldDidBeginEditing(textField: UITextField) {
     
         performSegueWithIdentifier("responderPergunta", sender: self)
@@ -138,15 +177,5 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

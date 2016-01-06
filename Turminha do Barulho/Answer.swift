@@ -11,11 +11,13 @@ import Parse
 
 struct Answer{
     
-    var nickname: String?
+    var nickname: String? // mudar para USUARIO depois
     var userIcon: UIImage?
     var answerText: String?
+    var upvote: Int?
+    var id: String?
     
-    init(nickname: String?, userIcon: UIImage? = nil, answerText: String? = "teste")
+    init(nickname: String?, userIcon: UIImage? = nil, answerText: String? = "teste", upvote: Int? = 0, id: String? = "97")
     {
         
 //        let novaAtividade = PFObject(className: "Atividade")
@@ -31,6 +33,8 @@ struct Answer{
         self.nickname = nickname
         self.userIcon = userIcon
         self.answerText = answerText
+        self.upvote = upvote
+        self.id = id
         
     }
     

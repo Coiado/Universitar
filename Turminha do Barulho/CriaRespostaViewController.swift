@@ -12,7 +12,6 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var respostaTextView: UITextView!
 
-    @IBOutlet weak var wordCount: UILabel!
 
     var respostaDelegate: novaResposta!
     
@@ -32,7 +31,7 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
         
         if respostaDelegate != nil{
             
-            respostaDelegate.salvarNovaResposta(respostaTextView.text, user: "josé")
+            respostaDelegate.salvarNovaResposta(respostaTextView.text)
 
         }
         

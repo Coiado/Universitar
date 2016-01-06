@@ -9,7 +9,7 @@
 import UIKit
 
 protocol novaPergunta {
-    func salvarNovaPergunta(titleText:String, doubtText:String, user:String)
+    func salvarNovaPergunta(titleText:String, doubtText:String)
 }
 
 class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegate,UITextViewDelegate, novaPergunta {
@@ -25,13 +25,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     // Questoes implementadas em hardcode elas serão colocadas no vetor de questoes, 
     // na funcao chamada createQuestion
     
-    var answers1 = [Answer(nickname: "Jorge", userIcon: UIImage(named: "henrique"), answerText: "A Unicamp fornece moradia e alimentação de graça para estudantes de baixa renda. Além disso existe a oportunidade de conseguir bolsas trabalhos."), Answer(nickname: "ogari", userIcon: UIImage(named: "ogari"), answerText: "Apesar de oferecer tudo isso, as bolsas são escassas e não contemplam todos os alunos necessitados")]
-    
-    var answers2 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "É o melhor do Brasil!"), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "É muito bom, porém não é fácil.")]
-    
-    
-    var answers3 = [Answer(nickname: "Leonardo", userIcon: UIImage(named: "lucas"), answerText: "Semana que vem, no sábado."), Answer(nickname: "Higor", userIcon: UIImage(named: "97"), answerText: "Nossa já ia esquecer, obrigado!")]
-    
     // Cores que serao usadas para colorir o fundo da tableview
     let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
 
@@ -45,7 +38,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.createQuestion()
+        self.getQuestion()
         
         configureButton()
         
@@ -83,9 +76,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     func fazerPergunta(){
         
-        print("testando a segue")
-        
-        self.performSegueWithIdentifier("fazerPergunta", sender: self)
+        self.performSegueWithIdentifier("criarPergunta", sender: self)
         
     }
     
@@ -183,17 +174,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     // Criacao do vetor com as informacoes a serem apresentadas
-    func createQuestion()
+    func getQuestion()
     {
-        
-//        self.question.append(Question(nickname: "João", userIcon: UIImage(named: "97"), questionTitle: "Morar na Unicamp", questionText: "Como é permanência estudantil na Unicamp?", answers: self.answers1))
-//        
-//        
-//        self.question.append(Question(nickname: "Fernão", userIcon: UIImage(named: "henrique"), questionTitle: "Engenharia", questionText: "Como é o curso de Engenharia de Computação na Unicamp?", answers: self.answers2))
-//        
-//        
-//        self.question.append(Question(nickname: "Carlos", userIcon: UIImage(named: "ogari"), questionTitle: "Vestibular", questionText: "Quando é o ENEM?", answers: self.answers3))
-        
         ParseModel.findAllQuestion { (array, error) -> Void in
             
             if error == nil{
@@ -202,38 +184,38 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
                 self.tableView.reloadData()
                 
             }
-            
-        }
-    }
-
-
-
-    
-
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
-    
-    
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n"{
-            
-//            self.view.endEditing(true)
-            textView.resignFirstResponder()
-            return false
-        
         }
         
-        return true
     }
+
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return false
+//    }
+//    
+//    
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if text == "\n"{
+//            
+////            self.view.endEditing(true)
+//            textView.resignFirstResponder()
+//            return false
+//        
+//        }
+//        
+//        return true
+//    }
     
-    func salvarNovaPergunta(titleText:String, doubtText:String, user:String){
-        
-        if(titleText != "" && doubtText != ""){
+    func salvarNovaPergunta(titleText:String, doubtText:String){
+    
+        ParseModel.salvarPergunta(titleText, tags: "Engenharia", texto: doubtText) { (sucesso, error) -> Void in
             
-//            self.question.append(Question(nickname: user, userIcon: UIImage(named: "userIcon"), questionTitle: titleText, questionText: doubtText, answers: []))
-            self.tableView.reloadData()
+            if error == nil {
+                self.getQuestion()
+            }
+            else{
+                //tratar erro
+            }
         }
         
     }
@@ -245,10 +227,17 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
         // Como o texto e o icone a celula.
         if segue.identifier == "Answer" {
+            
             if let destination = segue.destinationViewController as? AnswerViewController {
-                let path = self.tableView?.indexPathForSelectedRow!
-                let cell = self.tableView!.cellForRowAtIndexPath(path!) as! QuestionFeedCell
-                destination.passedCell = cell
+                let index = (self.tableView.indexPathForSelectedRow?.row)!
+                destination.question = self.question[index]
+            }
+        }
+        
+        if segue.identifier == "criarPergunta"{
+        
+            if let destination = segue.destinationViewController as? CriaPerguntaViewController{
+                destination.perguntaDelegate = self
             }
         }
         

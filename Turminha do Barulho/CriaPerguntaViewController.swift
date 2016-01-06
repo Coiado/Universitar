@@ -13,15 +13,12 @@ class CriaPerguntaViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var perguntaTextView: UITextView!
     @IBOutlet weak var tituloTextField: UITextField!
     
-    @IBOutlet weak var wordCount: UILabel!
-    @IBOutlet weak var titleWordCount: UILabel!
-    
     var perguntaDelegate: novaPergunta!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.perguntaTextView.editable = true
         self.perguntaTextView.becomeFirstResponder()
       //  self.tituloTextField.becomeFirstResponder()
@@ -34,10 +31,10 @@ class CriaPerguntaViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func perguntarAction(sender: AnyObject) {
         
-        // titleText:String, doubtText:String, user:String, answer: [Answer]
+        // fazer verificação
         
         if perguntaDelegate != nil{
-            perguntaDelegate.salvarNovaPergunta(tituloTextField.text!,doubtText: perguntaTextView.text, user: "josé" )
+            perguntaDelegate.salvarNovaPergunta(tituloTextField.text!,doubtText: perguntaTextView.text)
             
         }
         

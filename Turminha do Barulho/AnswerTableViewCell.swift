@@ -21,7 +21,8 @@ class AnswerTableViewCell: UITableViewCell {
     @IBOutlet weak var viewAnswer: UIView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
-    
+    var id: String?
+    var usuario : String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +51,26 @@ class AnswerTableViewCell: UITableViewCell {
     @IBAction func UpVote(sender: AnyObject) {
 
         if !liked{
+            
+//            ParseModel.aumentarLikeComentario(self.id!, completionHandler: { (sucesso, error) -> Void in
+//                if error == nil{
+//                    ParseModel.salvarNovoLike(self.id!, usuario: self.usuario!, completionHandler: { (sucesso, error) -> Void in
+//                        if error == nil{
+//                            print("foi")
+//                        }
+//                    })
+//                }
+//            })
+
+            
+//            ParseModel.diminuirLikeComentario(self.id!, completionHandler: { (sucesso, error) -> Void in
+//                if error == nil {
+//                    ParseModel.apagarLike(self.id!, completionHandler: { (sucesso, error) -> Void in
+//                        //FAZER ALGO
+//                    })
+//                }
+//            })
+            
             var like = Int(self.likes.text!)! as Int
             like = like+1
             self.likes.text = String(like)
