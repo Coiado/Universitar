@@ -31,10 +31,10 @@ class ParseModel {
                         let textoInteiro = object["textoInteiro"] as! String
                         let tags = object["tags"] as! String
                         let upvote = object["upvote"] as! Int
-                        //let imagem = object["imagem"] as! NAO SEI
+                        let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: nil, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
                         
                         array.append(dados)
                         
@@ -52,7 +52,6 @@ class ParseModel {
         
     }//func
     
-
     
     
     static func findAllQuestion(completionHandler: (array: [Question]?, error: NSError?) -> Void ){
@@ -322,6 +321,13 @@ class ParseModel {
         }
         
     }
+    
+    
+//    static func findUser(user: String, completionHandler:(object:User?, error:NSError? ) -> Void){
+//        
+//        
+//        
+//    }
     
     
     //MARK: - Salvar

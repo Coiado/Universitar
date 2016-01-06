@@ -62,6 +62,7 @@
 		5F68A5241C2065450087621A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5231C2065450087621A /* SystemConfiguration.framework */; };
 		5F68A5261C2065580087621A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5251C2065580087621A /* libz.tbd */; };
 		5F68A5281C2065620087621A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5271C2065620087621A /* libsqlite3.tbd */; };
+		5F778B641C3D79890074CB3E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778B631C3D79890074CB3E /* Usuario.swift */; };
 		5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */; };
 		5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */; };
 		5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */; };
@@ -150,6 +151,7 @@
 		5F68A5231C2065450087621A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5F68A5251C2065580087621A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5F68A5271C2065620087621A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5F778B631C3D79890074CB3E /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarContaViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				3F0CF1291BDE8777003E7488 /* materias.plist */,
 				5F09BF3F1C3BEC1E00227067 /* MateriaDescricao.swift */,
 				5F09BF411C3BF13400227067 /* CursoInfo.swift */,
+				5F778B631C3D79890074CB3E /* Usuario.swift */,
 			);
 			name = Materias;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				5F9082E11BDA839200FD2027 /* ConfiguracoesViewController.swift in Sources */,
 				08F10C221C2076C8000F2034 /* QuestionViewController.swift in Sources */,
 				3FFA23D91BF4CD5900D7AEDB /* DescricaoCollectionViewCell.swift in Sources */,
+				5F778B641C3D79890074CB3E /* Usuario.swift in Sources */,
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
 				3FFA23D11BF21F3300D7AEDB /* Universidade.swift in Sources */,

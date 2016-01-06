@@ -14,14 +14,14 @@ struct Dados {
     var titulo : String?
     var subtitulo : String?
     var texto: String?
-    var imagem: UIImage?
+    var imagem: PFFile?
     var upvote: Int?
     var upvoted:Bool = false
     var fulltext: String
     var id : String
 
     
-    init (titulo: String?, subtitulo: String?, texto: String?, imagem: UIImage?, upvote: Int? = 0, fulltext: String, id: String)
+    init (titulo: String?, subtitulo: String?, texto: String?, imagem: PFFile, upvote: Int? = 0, fulltext: String, id: String)
     {
         
 //        let novaNoticia = PFObject(className: "Noticia")

@@ -121,7 +121,11 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         if (indexPath.row==0){
             let cell = tableView.dequeueReusableCellWithIdentifier("detailsCell", forIndexPath: indexPath) as! NewsDetailCell
             
-            cell.imagem.image = self.passedCell.imagem
+            passedCell.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
+                
+                cell.imagem.image = UIImage(data: result!)
+                
+            })
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext

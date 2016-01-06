@@ -156,7 +156,13 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         cell.title.text = info.titulo
         cell.subTitle.text = info.subtitulo!
         cell.textField.text = info.texto
-        cell.picture.image = info.imagem
+        
+        info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
+            
+            cell.picture.image = UIImage(data: result!)
+            
+        })
+        
         cell.fullText = info.fulltext
         
         
