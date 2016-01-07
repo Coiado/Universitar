@@ -331,11 +331,10 @@ class ParseModel {
             if error == nil{
                 
                 let username = object!["username"] as! String
-                let escola = object!["escola"] as? String
                 let foto = object!["foto"] as? PFFile
-                let nome = object!["nome"] as? String
+                let nome = object!["nome"] as! String
                 
-                let user = Usuario(nome: nome, foto: foto, escola: escola, username: username)
+                let user = Usuario(nome: nome, foto: foto, username: username)
                 
                 completionHandler(object: user, error: nil)
                 

@@ -1071,6 +1071,12 @@
                                                     <rect key="frame" x="20" y="22" width="48" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Olá :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tS-QZ-iXT">
+                                                    <rect key="frame" x="156" y="6" width="41" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1086,7 +1092,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFR-ZV-dh2">
-                                                    <rect key="frame" x="18" y="8" width="342" height="75.5"/>
+                                                    <rect key="frame" x="16" y="8" width="342" height="75.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1753,7 +1759,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1zD-E0-HBm"/>
-        <segue reference="gWl-Av-0qc"/>
+        <segue reference="2RD-5l-wvy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

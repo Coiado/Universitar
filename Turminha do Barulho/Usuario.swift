@@ -11,17 +11,15 @@ import Parse
 
 struct Usuario {
     
-    var nome: String?
+    var nome: String
     var foto: PFFile?
-    var escola: String?
     var username: String
     
     
-    init(nome: String?, foto: PFFile?, escola: String?, username: String){
+    init(nome: String, foto: PFFile?, username: String){
         
         self.nome = nome
         self.foto = foto
-        self.escola = escola
         self.username = username
         
     }
