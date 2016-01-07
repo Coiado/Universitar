@@ -10,6 +10,7 @@ import UIKit
 
 class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var comentarTextField: UITextField!
     //TableView
     @IBOutlet weak var detailsTableView : UITableView!
@@ -22,6 +23,15 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     //Celula da noticia
     var newsCell : NewsDetailCell!
+    
+    var refreshControl : UIRefreshControl!
+    
+    
+    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    
+    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    
+    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1) //Cor do fundo apenas da tableview
     
     
     override func viewDidLoad() {
@@ -51,20 +61,41 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.detailsTableView.separatorStyle = .SingleLine
         
+        configRefresh()
+        
         pegarComentarios()
         
     }
+    //MARK: - Refresh
     
+    func configRefresh(){
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.backgroundColor = bgColor
+        self.refreshControl!.tintColor = detailsColor
+        self.refreshControl!.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        self.detailsTableView.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(sender: AnyObject){
+        
+        self.pegarComentarios()
+        self.refreshControl.endRefreshing()
+    }
     
     func pegarComentarios(){
         
         let id = (self.passedCell.id)
+        
+        self.activityIndicator.startAnimating()
         
         ParseModel.findComents(id) { (array, error) -> Void in
             
             if error == nil {
                 self.commentArray = array!
                 self.detailsTableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
         

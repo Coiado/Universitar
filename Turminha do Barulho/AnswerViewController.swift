@@ -16,12 +16,15 @@ protocol novaResposta {
 class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
 
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var newQuestion: UITextField!
     @IBOutlet var tableViewQuestion: UITableView!
     
     var question : Question?
     
     var comentarios = [Answer]()
+    
+    var refreshControl : UIRefreshControl!
     
     override func viewDidAppear(animated: Bool) {
         self.tableViewQuestion.reloadData()
@@ -35,9 +38,36 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
         self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
         pegarComentarios()
+        configRefresh()
     }
     
+    
+    //MARK: - Refresh
+    
+    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    
+    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    
+    func configRefresh(){
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.backgroundColor = bgColor
+        self.refreshControl!.tintColor = detailsColor
+        self.refreshControl!.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableViewQuestion.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(sender: AnyObject){
+        
+        self.pegarComentarios()
+        self.refreshControl!.endRefreshing()
+    }
+    
+    
     func pegarComentarios(){
+        
+        self.activityIndicator.startAnimating()
         
         ParseModel.findComents((self.question?.id)!) { (array, error) -> Void in
             
@@ -46,6 +76,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.comentarios = array!
 
                 self.tableViewQuestion.reloadData()
+                
+                self.activityIndicator.stopAnimating()
                 
             }
             

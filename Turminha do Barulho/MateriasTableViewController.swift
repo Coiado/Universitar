@@ -10,6 +10,7 @@ import UIKit
 
 class MateriasTableViewController: UITableViewController {
     
+    
     //Classes com dados em hardcode que serão utilizados para popular o aplicativo
     var materias : [String] = []
 
@@ -30,10 +31,13 @@ class MateriasTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.blackColor()
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         
+        
+        
         ParseModel.findAllMaterias { (array, error) -> Void in
             if error == nil{
                 self.materias = array!
                 self.tableView.reloadData()
+                
             }
         }
         

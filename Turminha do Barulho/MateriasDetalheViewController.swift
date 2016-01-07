@@ -11,7 +11,6 @@ import UIKit
 class MateriasDetalheViewController: UIViewController {
 
     @IBOutlet weak var UniversidadeButton: UIButton!
-    @IBOutlet weak var FeedButton: UIButton!
     
     @IBOutlet weak var titulo: UINavigationItem!
     @IBOutlet weak var texto: UILabel!
@@ -19,6 +18,8 @@ class MateriasDetalheViewController: UIViewController {
     
     @IBOutlet weak var aumentaLetra: UIButton!
     @IBOutlet weak var modoNoturno: UIButton!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var isModoNoturno:Bool = false
     
@@ -44,14 +45,18 @@ class MateriasDetalheViewController: UIViewController {
 //        self.titulo.title = passedCell.textLabel?.text
 //        self.texto.text = passedCell.descricao
         
+        self.activityIndicator.startAnimating()
+        
         ParseModel.findMateria(course) { (object, error) -> Void in
             
             if error == nil{
             
                 self.titulo.title = object?.curso
                 self.texto.text = object?.descricao
+                self.texto.textColor = UIColor.blackColor()
+                self.UniversidadeButton.titleLabel?.textColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1)
                 self.universidade = (object?.universidades)!
-            
+                self.activityIndicator.stopAnimating()
             }
         }
         

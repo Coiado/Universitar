@@ -11,6 +11,7 @@ import Parse
 
 class FeedTableViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     //Outlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var searchView: UIView!
@@ -205,11 +206,16 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     //Essa funcao cria dados hardcoded para que possamos testar o layout da tableview
     func createData()
     {
+        
+        self.activityIndicator.startAnimating()
+        
         ParseModel.findAllNews({ (array, error) -> Void in
             
             if error == nil{
                 self.data = array!
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
+                self.refreshControl!.endRefreshing()
             }
         })
     }
@@ -229,9 +235,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     func refreshTableView(sender: AnyObject){
         
-        //IMPLEMENTAR REFRESH
-        self.tableView.reloadData()
-        self.refreshControl!.endRefreshing()
+        self.createData()
         
     }
     

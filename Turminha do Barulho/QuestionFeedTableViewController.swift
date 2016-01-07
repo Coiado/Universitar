@@ -17,6 +17,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     @IBOutlet weak var pergunteButton: UIButton!
     
     // teste
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var question : [Question] = []
     
@@ -42,6 +43,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         configureButton()
         
+        configRefresh()
+        
         //self.tableView.separatorColor = UIColor.clearColor()
         //let backItem = UIBarButtonItem(title: "Voltar", style: .Bordered, target: nil, action: nil)
         //navigationItem.backBarButtonItem = backItem
@@ -66,6 +69,29 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //MARK: - Refresh
+    
+    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    
+    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    
+    func configRefresh(){
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.backgroundColor = bgColor
+        self.refreshControl!.tintColor = detailsColor
+        self.refreshControl!.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(sender: AnyObject){
+        
+        self.getQuestion()
+        self.refreshControl!.endRefreshing()
+    }
+    
     
     func configureButton(){
         
@@ -176,13 +202,16 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     // Criacao do vetor com as informacoes a serem apresentadas
     func getQuestion()
     {
+        
+        self.activityIndicator.startAnimating()
+        
         ParseModel.findAllQuestion { (array, error) -> Void in
             
             if error == nil{
                 
                 self.question = array!
                 self.tableView.reloadData()
-                
+                self.activityIndicator.stopAnimating()
             }
         }
         

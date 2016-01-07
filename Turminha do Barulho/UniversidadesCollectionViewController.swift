@@ -12,6 +12,8 @@ private let reuseIdentifier1 = "Descricao"
 private let reuseIdentifier2 = "Materia"
 
 class UniversidadesCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var passedData : CursoInfo!
     
@@ -21,13 +23,15 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     var curso: String?
     
-    let sectionInsets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 20.0, right: 0.0)
+    let sectionInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     
     @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.activityIndicator.startAnimating()
         
         ParseModel.findCourseInfos(self.curso!, universidade: self.universidade!) { (object, error) -> Void in
             
@@ -36,7 +40,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
                 self.passedData = object!
                 self.collectionView?.reloadData()
                 self.getSizeDescricao(self.passedData.descricaoUniversidade!)
-                
+                self.activityIndicator.stopAnimating()
             }
             
         }
@@ -112,6 +116,8 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
             cellDescricao.descricaoLabel.text = self.passedData.descricaoUniversidade
             cellDescricao.descricaoLabel.sizeToFit()
+            cellDescricao.layer.cornerRadius = 15
+            cellDescricao.contentView.layer.masksToBounds = true
             return cellDescricao
         }
         else{
@@ -134,10 +140,10 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
-            return CGSize(width: self.view.frame.width, height: self.heightDescricao!)
+            return CGSize(width: (self.view.frame.width)*0.8, height: self.heightDescricao!)
         }
         else{
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: 110, height: 60)
         }
         
     }
