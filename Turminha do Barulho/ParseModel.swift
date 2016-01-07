@@ -282,7 +282,7 @@ class ParseModel {
     
     
     
-    static func findAllNotifications(){
+    static func findAllNotifications(completionHandler:(sucesso:Bool, error:NSError?) -> Void){
         
         let user = (PFUser.currentUser()?.objectId)!
         
@@ -294,11 +294,11 @@ class ParseModel {
             
             if error == nil {
                 
-                //criar tipo notificacao
+                completionHandler(sucesso: true, error: nil)
                 
             }
             else{
-                
+                completionHandler(sucesso: false, error: error)
             }
         }
         
@@ -323,11 +323,33 @@ class ParseModel {
     }
     
     
-//    static func findUser(user: String, completionHandler:(object:User?, error:NSError? ) -> Void){
-//        
-//        
-//        
-//    }
+    static func findUser(user: String, completionHandler:(object:Usuario?, error:NSError? ) -> Void){
+        
+        let query = PFUser.query()!
+        query.getObjectInBackgroundWithId(user) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let username = object!["username"] as! String
+                let escola = object!["escola"] as? String
+                let foto = object!["foto"] as? PFFile
+                let nome = object!["nome"] as? String
+                
+                let user = Usuario(nome: nome, foto: foto, escola: escola, username: username)
+                
+                completionHandler(object: user, error: nil)
+                
+            }
+            else{
+                
+                completionHandler(object: nil, error: error)
+                
+            }
+            
+        }
+        
+        
+    }
     
     
     //MARK: - Salvar
