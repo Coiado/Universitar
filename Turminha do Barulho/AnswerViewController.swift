@@ -113,11 +113,19 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
             
             cell.perguntaTitulo.text = self.question!.questionTitle
-            //cell.perguntaTitulo.sizeToFit()
-            //cell.updateConstraints()
-            //cell.userIcon.image = passedCell.userIcon.image
+            cell.perguntaTitulo.sizeToFit()
+            cell.updateConstraints()
+            cell.userIcon.image = UIImage(named: "userIcon")
+            
+            question!.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                
+                cell.userIcon.image = UIImage(data: data!)
+                
+            })
+            
+            cell.userIcon.layer.masksToBounds = true
             cell.userIcon.layer.cornerRadius = 15
-            //cell.nickName.text = passedCell.nickName.text
+            cell.nickName.text = question?.nickname
             cell.questionText.text = self.question!.questionText
             cell.questionText.font = UIFont(name: "Futura", size: 14.0)
             cell.questionText.sizeToFit()
@@ -143,10 +151,17 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 cell.id = info.id
                 cell.usuario = info.nickname
-                //cell.userIcon.image = info.userIcon
+                cell.userIcon.image = UIImage(named: "userIcon")
+            
+                info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                    
+                    cell.userIcon.image = UIImage(data: data!)
+                    
+                })
+            
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
-                //cell.nickName.text = info.nickname
+                cell.nickName.text = info.nickname
                 cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
                 cell.answerText.font = UIFont(name: "Futura", size: 14.0)

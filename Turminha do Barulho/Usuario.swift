@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import Parse
 
 struct Usuario {
     
+    var nome: String
+    var foto: PFFile?
+    var username: String
     
+    
+    init(nome: String, foto: PFFile?, username: String){
+        
+        self.nome = nome
+        self.foto = foto
+        self.username = username
+        
+    }
     
 }
 

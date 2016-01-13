@@ -60,6 +60,8 @@ class ParseModel {
         
         let query = PFQuery(className: "Question")
         
+        query.includeKey("usuarioPergunta")
+        
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
             
             if error == nil{
@@ -68,6 +70,7 @@ class ParseModel {
                     
                     for object in objects{
                     
+                        
                         let text = object["textoPergunta"] as! String
                         
                         let titulo = object["tituloPergunta"] as! String
@@ -78,11 +81,15 @@ class ParseModel {
                     
                         let comentarios = object["comentariosPergunta"] as! Int
                         
-                        let user = object["usuarioPergunta"] as! String
+                        let user = object["usuarioPergunta"] as! PFUser
+                        
+                        let nick = user["nome"] as? String
+                        
+                        let icon = user["foto"] as? PFFile
                         
                         let id = object.objectId
                         
-                        let question = Question(nickname: nil, userIcon: nil, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user)
+                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!)
                         
                         array.append(question)
                         
@@ -251,6 +258,8 @@ class ParseModel {
         
         query.orderByAscending("createdAt")
         
+        query.includeKey("deUsuario")
+        
         var array = [Answer]()
         
         query.findObjectsInBackgroundWithBlock { (objects, error:NSError?) -> Void in
@@ -260,11 +269,14 @@ class ParseModel {
                 for object in objects! {
                     
                     let conteudo = object["conteudo"] as! String
-                    let usuario = object["deUsuario"] as? String
+                    let user = object["deUsuario"] as? PFUser
+                    let image = user!["foto"] as? PFFile
                     let upvote = object["upvote"] as? Int
                     let id = (object.objectId)!
+                    let nick = user!["nome"] as? String
                     
-                    let answer = Answer(nickname: usuario, answerText: conteudo, upvote: upvote,id: id)
+                    
+                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId)
                     
                     array.append(answer)
                     
@@ -282,7 +294,7 @@ class ParseModel {
     
     
     
-    static func findAllNotifications(){
+    static func findAllNotifications(completionHandler:(sucesso:Bool, error:NSError?) -> Void){
         
         let user = (PFUser.currentUser()?.objectId)!
         
@@ -294,11 +306,11 @@ class ParseModel {
             
             if error == nil {
                 
-                //criar tipo notificacao
+                completionHandler(sucesso: true, error: nil)
                 
             }
             else{
-                
+                completionHandler(sucesso: false, error: error)
             }
         }
         
@@ -323,11 +335,32 @@ class ParseModel {
     }
     
     
-//    static func findUser(user: String, completionHandler:(object:User?, error:NSError? ) -> Void){
-//        
-//        
-//        
-//    }
+    static func findUser(user: String, completionHandler:(object:Usuario?, error:NSError? ) -> Void){
+        
+        let query = PFUser.query()!
+        query.getObjectInBackgroundWithId(user) { (object, error) -> Void in
+            
+            if error == nil{
+                
+                let username = object!["username"] as! String
+                let foto = object!["foto"] as? PFFile
+                let nome = object!["nome"] as! String
+                
+                let user = Usuario(nome: nome, foto: foto, username: username)
+                
+                completionHandler(object: user, error: nil)
+                
+            }
+            else{
+                
+                completionHandler(object: nil, error: error)
+                
+            }
+            
+        }
+        
+        
+    }
     
     
     //MARK: - Salvar
@@ -343,7 +376,7 @@ class ParseModel {
         comentario["tipo"] = tipo
         comentario["upvote"] = 0
         
-        if let user = PFUser.currentUser()?.objectId {
+        if let user = PFUser.currentUser() {
 
         comentario["deUsuario"] = user
             
@@ -368,7 +401,7 @@ class ParseModel {
     
     static func salvarPergunta(titulo: String, tags: String, texto:String, completionHandler:(sucesso:Bool, error: NSError?) -> Void){
         
-        let user = (PFUser.currentUser()?.objectId)!
+        let user = PFUser.currentUser()!
         
         let pergunta = PFObject(className: "Question")
         pergunta["textoPergunta"] = texto
@@ -392,12 +425,12 @@ class ParseModel {
     
     static func salvarNovoLike(para: String,usuario: String, completionHandler:(sucesso:Bool, error: NSError?)->Void){
         
-        let user = PFUser.currentUser()?.objectId
+        let user = PFUser.currentUser()!
         
         let like = PFObject(className: "Atividade")
         like["tipo"] = "Upvote"
         like["para"] = para
-        like["deUsuario"] = user!
+        like["deUsuario"] = user
         like["paraUsuario"] = usuario
         like.saveInBackgroundWithBlock { (Bool, error) -> Void in
             

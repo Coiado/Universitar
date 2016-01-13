@@ -126,7 +126,14 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
         let info = question[indexPath.row] as Question
         cell.perguntaTitulo.text = info.questionTitle
-        cell.userIcon.image = info.userIcon
+        cell.userIcon.image = UIImage(named: "userIcon")
+        
+        info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+            
+            cell.userIcon.image = UIImage(data: data!)
+            
+        })
+        
         cell.userIcon.layer.cornerRadius = 15
         cell.userIcon.layer.masksToBounds = true
         cell.nickName.text = info.nickname
