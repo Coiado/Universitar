@@ -306,6 +306,11 @@ class ParseModel {
             
             if error == nil {
                 
+                
+                
+                
+                
+                
                 completionHandler(sucesso: true, error: nil)
                 
             }
