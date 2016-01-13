@@ -172,7 +172,14 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.commentText.sizeToFit()
             //cell.updateConstraints()
             //PRECISAMOS ALTERAR A MANEIRA COMO A CELULA EH POPULADA
-            cell.userImage.image = info.userIcon
+            cell.userImage.image = UIImage(named: "userIcon")
+            cell.userImage.layer.masksToBounds = true
+            cell.userImage.layer.cornerRadius = cell.userImage.frame.height/2
+            info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                
+                cell.userImage.image = UIImage(data: data!)
+                
+            })
             cell.userName.text = info.nickname
             cell.numberOfLikes = info.upvote
             cell.cellSetup()
