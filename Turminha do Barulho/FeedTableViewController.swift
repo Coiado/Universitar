@@ -153,10 +153,13 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 
             }
         }
-        cell.upvoteCount.text = "\(String(info.upvote!))"
+        cell.upvotes.text = "Upvotes: " + String(info.upvote!)
         cell.title.text = info.titulo
+        cell.title.adjustsFontSizeToFitWidth = true
         cell.subTitle.text = info.subtitulo!
+        cell.subTitle.adjustsFontSizeToFitWidth = true
         cell.textField.text = info.texto
+        cell.subTitle.adjustsFontSizeToFitWidth = true
         
         info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
             

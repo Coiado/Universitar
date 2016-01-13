@@ -15,7 +15,9 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var textField: UILabel!
     @IBOutlet weak var picture: UIImageView!
-    @IBOutlet weak var upvoteCount: UILabel!
+    @IBOutlet weak var upvotes: UILabel!
+    
+    
     
     var fullText: String!
         
@@ -41,7 +43,14 @@ class FeedCell: UITableViewCell {
 
     //Seta o layout da carta
     func cardSetup(){
-        
+        //Atributos do quadrado de curtidas
+        let squareOrigin : CGPoint = CGPoint(x: 0, y: (self.picture.frame.height-18))
+        let squareSize : CGSize = CGSize(width: self.picture.frame.width, height: 20)
+        let blackSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))
+        blackSquare.backgroundColor = UIColor.blackColor()
+        blackSquare.alpha = 1
+        self.picture.addSubview(blackSquare)
+        self.bringSubviewToFront(self.upvotes)
         
         //Arredondamos a celula e a imagem da noticia
         self.cardView.layer.masksToBounds = false

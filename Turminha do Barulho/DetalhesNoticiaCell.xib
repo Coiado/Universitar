@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-Qb-UUS">
-                        <rect key="frame" x="8" y="280" width="359" height="335.5"/>
+                        <rect key="frame" x="8" y="280" width="339" height="335.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -42,9 +42,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comentários" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyd-75-DW6">
-                        <rect key="frame" x="8" y="623" width="359" height="21"/>
-                        <animations/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentários" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyd-75-DW6">
+                        <rect key="frame" x="8" y="623" width="120.5" height="27.5"/>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +61,7 @@
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="RAm-cs-GFb"/>
                     <constraint firstItem="Tyd-75-DW6" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="SnK-rQ-hHK"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="top" secondItem="Xmn-a1-axf" secondAttribute="bottom" constant="8" id="ZD9-iQ-R3b"/>
-                    <constraint firstItem="nNe-Qb-UUS" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" id="cxp-I8-oT9"/>
+                    <constraint firstItem="nNe-Qb-UUS" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" constant="-20" id="cxp-I8-oT9"/>
                     <constraint firstItem="Xmn-a1-axf" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leading" id="dhK-f1-e4d"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="m1k-Xg-HR9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Tyd-75-DW6" secondAttribute="bottom" constant="2.5" id="xKl-4P-2j6"/>

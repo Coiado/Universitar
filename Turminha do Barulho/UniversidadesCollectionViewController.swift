@@ -23,7 +23,9 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     var curso: String?
     
-    let sectionInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
+    var tempLabel: UILabel = UILabel()
+    
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     
     @IBOutlet var UniversidadeCollectionView: UICollectionView!
     
@@ -31,6 +33,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tempLabel.numberOfLines = 0 
         self.activityIndicator.startAnimating()
         
         ParseModel.findCourseInfos(self.curso!, universidade: self.universidade!) { (object, error) -> Void in
@@ -64,7 +67,14 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     //Calculando o tamanho da celula da descrição
     func getSizeDescricao(string: String){
-        self.heightDescricao = CGFloat((string.characters.count/30)*17 + 35)
+        self.tempLabel = UILabel(frame: CGRectMake(0 , 0, self.view.frame.width, 70))
+        self.tempLabel.numberOfLines = 0
+        self.tempLabel.lineBreakMode = .ByWordWrapping
+        self.tempLabel.text = string
+        self.tempLabel.font = UIFont(name: "System", size: 17.0)
+        let size = self.tempLabel.sizeThatFits(CGSize(width: self.view.frame.width, height: CGFloat.max))
+//        self.tempLabel.sizeToFit()
+        self.heightDescricao = size.height
     }
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -116,6 +126,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
             cellDescricao.descricaoLabel.text = self.passedData.descricaoUniversidade
             cellDescricao.descricaoLabel.sizeToFit()
+            cellDescricao.descricaoLabel.updateConstraints()
             cellDescricao.layer.cornerRadius = 15
             cellDescricao.contentView.layer.masksToBounds = true
             return cellDescricao
@@ -140,7 +151,8 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
-            return CGSize(width: (self.view.frame.width)*0.8, height: self.heightDescricao!)
+            print ("self.heightDescricao! \(self.heightDescricao!)")
+            return CGSize(width: self.view.frame.width, height: self.heightDescricao! + 150)
         }
         else{
             return CGSize(width: 110, height: 60)
