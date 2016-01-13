@@ -27,6 +27,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
     
         
+        if PFUser.currentUser() != nil{
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self.performSegueWithIdentifier("config", sender: self)
+            })
+            
+            
+            print("teste")
+        }
+        
         self.activityIndicator.hidesWhenStopped = true
         
         configureButton()
@@ -66,7 +76,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if ((user) != nil){
             
-            self.performSegueWithIdentifier("configuração", sender: self)
+            self.performSegueWithIdentifier("config", sender: self)
             
             }
             else {

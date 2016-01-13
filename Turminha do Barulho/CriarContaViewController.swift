@@ -72,7 +72,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
                 self.activityIndicator.stopAnimating()
                 
                 if ErrorType == nil{
-                    self.performSegueWithIdentifier("configuração", sender: self)
+                    self.performSegueWithIdentifier("config", sender: self)
                 }
                 else{
                     print("ERROR CADASTRO")
