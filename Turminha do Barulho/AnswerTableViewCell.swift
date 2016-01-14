@@ -23,6 +23,7 @@ class AnswerTableViewCell: UITableViewCell {
     @IBOutlet weak var dislikeButton: UIButton!
     var id: String?
     var usuario : String?
+    var usuarioId : String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,15 +53,15 @@ class AnswerTableViewCell: UITableViewCell {
 
         if !liked{
             
-//            ParseModel.aumentarLikeComentario(self.id!, completionHandler: { (sucesso, error) -> Void in
-//                if error == nil{
-//                    ParseModel.salvarNovoLike(self.id!, usuario: self.usuario!, completionHandler: { (sucesso, error) -> Void in
-//                        if error == nil{
-//                            print("foi")
-//                        }
-//                    })
-//                }
-//            })
+            ParseModel.aumentarLikeComentario(self.id!, completionHandler: { (sucesso, error) -> Void in
+                if error == nil{
+                    ParseModel.salvarNovoLike(self.id!, usuario: self.usuarioId!, completionHandler: { (sucesso, error) -> Void in
+                        if error == nil{
+                            print("foi")
+                        }
+                    })
+                }
+            })
 
             
 //            ParseModel.diminuirLikeComentario(self.id!, completionHandler: { (sucesso, error) -> Void in
