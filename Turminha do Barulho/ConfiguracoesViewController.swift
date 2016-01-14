@@ -15,11 +15,16 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     var usuario: Usuario?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getUser()
         
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        getUser()
     }
     
     
@@ -27,16 +32,23 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
         let user = PFUser.currentUser()?.objectId
         
-        ParseModel.findUser(user!) { (object, error) -> Void in
-            
-            if error == nil{
+        if user != nil{
+            ParseModel.findUser(user!) { (object, error) -> Void in
                 
-                self.usuario = object
-                self.tableView.reloadData()
+                if error == nil{
+                    
+                    self.usuario = object
+                    self.tableView.reloadData()
+                    
+                }
                 
             }
-            
         }
+        else{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
         
     }
     

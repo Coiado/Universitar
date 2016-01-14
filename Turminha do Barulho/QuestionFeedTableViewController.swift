@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 protocol novaPergunta {
     func salvarNovaPergunta(titleText:String, doubtText:String)
@@ -101,8 +102,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     
     func fazerPergunta(){
+        let user = PFUser.currentUser()?.objectId
+        if user == nil{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        else{
+            self.performSegueWithIdentifier("criarPergunta", sender: self)
+        }
         
-        self.performSegueWithIdentifier("criarPergunta", sender: self)
         
     }
     

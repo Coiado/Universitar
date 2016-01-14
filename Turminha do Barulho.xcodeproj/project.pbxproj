@@ -40,9 +40,11 @@
 		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; };
 		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; };
 		3F1607F11C21DC6600120CB5 /* HeaderSemestreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1607F01C21DC6600120CB5 /* HeaderSemestreCollection.swift */; };
+		3F19F9231C47DFD80009287E /* NavigationConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19F9221C47DFD80009287E /* NavigationConfigViewController.swift */; };
+		3F19F9251C47FCB90009287E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19F9241C47FCB90009287E /* TabBarViewController.swift */; };
 		3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75CB4E1BF604E6002241AC /* MateriaCollectionViewCell.swift */; };
 		3F75CB511BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75CB501BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift */; };
-		3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */; };
+		3FF2D3BC1BEA6F3F00D085F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF2D3BA1BEA6F3F00D085F0 /* Main.storyboard */; settings = {ASSET_TAGS = (Storyboard, ); }; };
 		3FFA23D11BF21F3300D7AEDB /* Universidade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA23D01BF21F3300D7AEDB /* Universidade.swift */; };
 		3FFA23D31BF247AE00D7AEDB /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA23D21BF247AE00D7AEDB /* Subjects.swift */; };
 		3FFA23D51BF4BE6200D7AEDB /* DetalheUniversidadesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA23D41BF4BE6200D7AEDB /* DetalheUniversidadesLayout.swift */; };
@@ -131,6 +133,8 @@
 		3F0F14E21BD6658B002EA06A /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		3F1607E91C2184E600120CB5 /* Turminha do Barulho-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turminha do Barulho-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F1607F01C21DC6600120CB5 /* HeaderSemestreCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderSemestreCollection.swift; path = ../HeaderSemestreCollection.swift; sourceTree = "<group>"; };
+		3F19F9221C47DFD80009287E /* NavigationConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationConfigViewController.swift; sourceTree = "<group>"; };
+		3F19F9241C47FCB90009287E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3F75CB4E1BF604E6002241AC /* MateriaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F75CB501BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaSemestreCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FF2D3BB1BEA6F3F00D085F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				5F9082E01BDA839200FD2027 /* ConfiguracoesViewController.swift */,
+				3F19F9221C47DFD80009287E /* NavigationConfigViewController.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 		3F0F14A11BD55047002EA06A = {
 			isa = PBXGroup;
 			children = (
+				3F19F9241C47FCB90009287E /* TabBarViewController.swift */,
 				3F0F14AC1BD55047002EA06A /* Turminha do Barulho */,
 				3F0F14C41BD55047002EA06A /* Turminha do BarulhoTests */,
 				3F0F14CF1BD55047002EA06A /* Turminha do BarulhoUITests */,
@@ -524,6 +530,9 @@
 		3F0F14A21BD55047002EA06A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Storyboard,
+				);
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Lucas Coiado Mota";
@@ -629,10 +638,12 @@
 				3F0CF1241BDAE40B003E7488 /* UniversidadeTableViewController.swift in Sources */,
 				3F0CFCAF1BE83DCF0031F8DF /* AnswerViewController.swift in Sources */,
 				5F9082E51BDA890700FD2027 /* CriarContaViewController.swift in Sources */,
+				3F19F9231C47DFD80009287E /* NavigationConfigViewController.swift in Sources */,
 				3F1607F11C21DC6600120CB5 /* HeaderSemestreCollection.swift in Sources */,
 				3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
+				3F19F9251C47FCB90009287E /* TabBarViewController.swift in Sources */,
 				18CC108C1C087B3F00FDA6D3 /* NewsDetailCell.swift in Sources */,
 				5F09BF421C3BF13400227067 /* CursoInfo.swift in Sources */,
 				5F09BF401C3BEC1E00227067 /* MateriaDescricao.swift in Sources */,

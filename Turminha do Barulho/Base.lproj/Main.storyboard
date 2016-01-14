@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2gb-Zh-hbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -1302,7 +1302,6 @@
                         <outlet property="passwordTextField" destination="fPL-5Q-a7r" id="kNM-ru-LVs"/>
                         <outlet property="usuarioCheck" destination="dyz-EZ-eMU" id="37l-Qj-Qza"/>
                         <outlet property="usuarioTextField" destination="x4U-re-2z6" id="zuc-eO-xHP"/>
-                        <segue destination="qdT-60-V3d" kind="show" identifier="config" id="ap7-iq-vfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeH-Qs-Tzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1626,10 +1625,10 @@
             </objects>
             <point key="canvasLocation" x="1837.5" y="-2046.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="eEs-M8-7sb">
             <objects>
-                <tabBarController id="qdT-60-V3d" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Turminha do Barulho" id="qdT-60-V3d" customClass="TabBarViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="HvR-uz-7WE">
@@ -1679,7 +1678,7 @@
         <!--Login-->
         <scene sceneID="JaA-dU-EEc">
             <objects>
-                <viewController title="Login" id="2gb-Zh-hbK" customClass="LoginViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vcMainLogin" title="Login" id="2gb-Zh-hbK" customClass="LoginViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wWc-6I-HjM"/>
                         <viewControllerLayoutGuide type="bottom" id="EAC-8L-MPx"/>
@@ -1699,7 +1698,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJt-dR-1Vo">
                                 <rect key="frame" x="28" y="140" width="319" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="2gb-Zh-hbK" id="gGx-U7-Cqq"/>
                                 </connections>
@@ -1762,7 +1761,6 @@
                         <outlet property="passwordTextField" destination="WJt-dR-1Vo" id="cPI-pH-4zn"/>
                         <outlet property="signupButton" destination="Wyn-ga-i6s" id="YJ1-Iw-s5R"/>
                         <segue destination="m2D-bE-Wxj" kind="show" identifier="CriarConta" id="Hpj-VF-kBW"/>
-                        <segue destination="qdT-60-V3d" kind="show" identifier="config" id="yqa-Na-y9q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bs-6a-GrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1772,7 +1770,7 @@
         <!--Configuração-->
         <scene sceneID="fCK-TS-d7a">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cxl-pG-q0P" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cxl-pG-q0P" customClass="NavigationConfigViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Configuração" image="config2" id="gpy-pO-Pvg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="e0M-KF-pNo">
@@ -1848,7 +1846,6 @@
         <image name="perguntas3" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ap7-iq-vfY"/>
         <segue reference="1zD-E0-HBm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
