@@ -152,6 +152,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.id = info.id
                 cell.usuario = info.nickname
                 cell.userIcon.image = UIImage(named: "userIcon")
+                cell.usuarioId = info.userId
             
                 info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
                     

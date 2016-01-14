@@ -216,7 +216,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
             let para = self.passedCell.id
             
-            ParseModel.salvarAtividade(para, paraUsuario: "", conteudo: text, tipo: "Comentario", completionHandler: { (sucesso, error) -> Void in
+            ParseModel.salvarAtividade(para, paraUsuario: "", conteudo: text, tipo: "Comentario",completionHandler: { (sucesso, error) -> Void in
                 if error == nil{
                     
                     ParseModel.aumentarComentarioNoticia(para, completionHandler: { (sucesso, error) -> Void in

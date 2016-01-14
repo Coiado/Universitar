@@ -1,28 +1,29 @@
 //
-//  userCell.swift
+//  notificacaoCell.swift
 //  Turminha do Barulho
 //
-//  Created by Bruno Eiji Yoshida on 07/01/16.
+//  Created by Bruno Eiji Yoshida on 14/01/16.
 //  Copyright © 2016 Lucas Coiado Mota. All rights reserved.
 //
 
 import UIKit
 
-class userCell: UITableViewCell {
+class notificacaoCell : UITableViewCell {
     
     @IBOutlet weak var actInd: UIActivityIndicatorView!
     
-    @IBOutlet weak var userLabel: UILabel!
-
-    @IBOutlet weak var userImageButton: UIButton!
+    @IBOutlet weak var userImage: UIImageView!
     
-    @IBOutlet weak var editarButton: UIButton!
+    @IBOutlet weak var notificationLabel: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.userImage.layer.cornerRadius = 24
         // Initialization code
     }
+    
     
     
 }

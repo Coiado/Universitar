@@ -54,6 +54,7 @@
 		5F09BF401C3BEC1E00227067 /* MateriaDescricao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F09BF3F1C3BEC1E00227067 /* MateriaDescricao.swift */; };
 		5F09BF421C3BF13400227067 /* CursoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F09BF411C3BF13400227067 /* CursoInfo.swift */; };
 		5F23DEDA1C109FA400C754DD /* CriaRespostaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23DED91C109FA400C754DD /* CriaRespostaViewController.swift */; };
+		5F4D756F1C47C86400EDC8EF /* notificacaoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D756E1C47C86400EDC8EF /* notificacaoCell.swift */; };
 		5F68A5161C20650D0087621A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5151C20650C0087621A /* AudioToolbox.framework */; };
 		5F68A5181C2065140087621A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5171C2065140087621A /* CFNetwork.framework */; };
 		5F68A51A1C20651B0087621A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5191C20651B0087621A /* CoreGraphics.framework */; };
@@ -147,6 +148,7 @@
 		5F09BF3F1C3BEC1E00227067 /* MateriaDescricao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaDescricao.swift; sourceTree = "<group>"; };
 		5F09BF411C3BF13400227067 /* CursoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursoInfo.swift; sourceTree = "<group>"; };
 		5F23DED91C109FA400C754DD /* CriaRespostaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriaRespostaViewController.swift; sourceTree = "<group>"; };
+		5F4D756E1C47C86400EDC8EF /* notificacaoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificacaoCell.swift; sourceTree = "<group>"; };
 		5F68A5151C20650C0087621A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5F68A5171C2065140087621A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5F68A5191C20651B0087621A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -414,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				5F778B671C3EBB070074CB3E /* userCell.swift */,
+				5F4D756E1C47C86400EDC8EF /* notificacaoCell.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				5F09BF421C3BF13400227067 /* CursoInfo.swift in Sources */,
 				5F09BF401C3BEC1E00227067 /* MateriaDescricao.swift in Sources */,
 				3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */,
+				5F4D756F1C47C86400EDC8EF /* notificacaoCell.swift in Sources */,
 				180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */,
 				3F75CB511BF653C2002241AC /* MateriaSemestreCollectionViewCell.swift in Sources */,
 				185125611BDA9AF900E59F89 /* QuestionFeedTableViewController.swift in Sources */,

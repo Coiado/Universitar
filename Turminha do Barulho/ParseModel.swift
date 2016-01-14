@@ -62,6 +62,8 @@ class ParseModel {
         
         query.includeKey("usuarioPergunta")
         
+        query.orderByAscending("createdAt")
+        
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
             
             if error == nil{
@@ -294,28 +296,52 @@ class ParseModel {
     
     
     
-    static func findAllNotifications(completionHandler:(sucesso:Bool, error:NSError?) -> Void){
+    static func findAllNotifications(completionHandler:(array:[Notificacao]?, error:NSError?) -> Void){
         
-        let user = (PFUser.currentUser()?.objectId)!
+        let user = PFUser.currentUser()!
         
         let query = PFQuery(className: "Atividade")
         
-        query.whereKey("paraUsuario", equalTo: user)
+        query.whereKey("paraUsuario", equalTo: user.objectId!)
+        
+        query.whereKey("deUsuario", notEqualTo: user)
+        
+        query.addDescendingOrder("createdAt")
+        
+        query.includeKey("deUsuario")
+        
+        var array = [Notificacao]()
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             if error == nil {
                 
+                if let objects = objects{
+                    
+                    
+                    for object in objects{
+                        
+                        let user = object["deUsuario"] as! PFUser
+                        let nome = user["nome"] as! String
+                        let imagem = user["foto"] as? PFFile
+
+                       
+                        let para = object["para"] as! String
+                        
+                        let notificacao = Notificacao(usuario: nome, imagem: imagem, para: para)
+                        
+                        array.append(notificacao)
+                        
+                    }
+                    
+                }
                 
                 
-                
-                
-                
-                completionHandler(sucesso: true, error: nil)
+                completionHandler(array: array, error: nil)
                 
             }
             else{
-                completionHandler(sucesso: false, error: error)
+                completionHandler(array: nil, error: error)
             }
         }
         
@@ -347,11 +373,10 @@ class ParseModel {
             
             if error == nil{
                 
-                let username = object!["username"] as! String
                 let foto = object!["foto"] as? PFFile
                 let nome = object!["nome"] as! String
                 
-                let user = Usuario(nome: nome, foto: foto, username: username)
+                let user = Usuario(nome: nome, foto: foto)
                 
                 completionHandler(object: user, error: nil)
                 
