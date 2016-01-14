@@ -59,7 +59,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,8 +66,21 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
     }
     
+    
     override func viewWillAppear(animated: Bool) {
-        getUser()
+        let currentUser = PFUser.currentUser()?.objectId
+        if currentUser != nil{
+            getUser()
+            getNotification()
+            configRefresh()
+            
+            imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+        }
+        else{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
     }
     
     
@@ -76,23 +88,16 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
         let userId = PFUser.currentUser()?.objectId
         
-        if user != nil{
-            ParseModel.findUser(user!) { (object, error) -> Void in
+        ParseModel.findUser(userId!) { (object, error) -> Void in
                 
-                if error == nil{
+            if error == nil{
                     
-                    self.usuario = object
-                    self.tableView.reloadData()
+                self.usuario = object
+                self.tableView.reloadData()
                     
-                }
-                
             }
+                
         }
-        else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
-            self.presentViewController(vc, animated: true, completion: nil)
-        }
-        
         
         
     }

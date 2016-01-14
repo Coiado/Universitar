@@ -211,9 +211,16 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-    
-        performSegueWithIdentifier("responderPergunta", sender: self)
-        self.newQuestion.endEditing(true)
+        let user = PFUser.currentUser()?.objectId
+        if user != nil{
+            performSegueWithIdentifier("responderPergunta", sender: self)
+            self.newQuestion.endEditing(true)
+        }
+        else{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
         
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
     
@@ -192,11 +193,19 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func textFieldDidBeginEditing(textField: UITextField) {
-    
+        let user = PFUser.currentUser()?.objectId
         
-        performSegueWithIdentifier("criarComentário", sender: self)
-
-        self.comentarTextField.endEditing(true)
+        if user != nil{
+            performSegueWithIdentifier("criarComentário", sender: self)
+            
+            self.comentarTextField.endEditing(true)
+        }
+        else{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
+        
         
     }
     
