@@ -34,7 +34,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imagePicker.dismissViewControllerAnimated(false, completion: nil)
         self.newUserPhoto = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.saveImage(self.newUserPhoto, completionHandler: { (sucess, error) -> Void in
             
@@ -55,7 +55,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     func choosePhoto()
     {
         imagePicker.sourceType = .PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: false, completion: nil)
     
     }
     
@@ -234,6 +234,8 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             cell.userImageButton.setBackgroundImage(userIcon, forState: .Normal)
             
             cell.userImageButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
+            
+            cell.editarButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
             if usuario?.foto != nil {
             

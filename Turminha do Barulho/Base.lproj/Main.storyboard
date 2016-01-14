@@ -1102,17 +1102,23 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ska-1l-OFU">
-                                                    <rect key="frame" x="20" y="22" width="48" height="48"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="16" y="22" width="48" height="48"/>
+                                                    <state key="normal" title="Editar"/>
                                                 </button>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="X8S-Qa-5HG">
                                                     <rect key="frame" x="34" y="36" width="20" height="20"/>
                                                     <color key="color" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsG-a6-npT">
+                                                    <rect key="frame" x="20" y="64" width="40" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="Editar"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="actInd" destination="X8S-Qa-5HG" id="Fc9-Qk-nlE"/>
+                                            <outlet property="editarButton" destination="zsG-a6-npT" id="uuV-71-GlS"/>
                                             <outlet property="userImageButton" destination="ska-1l-OFU" id="dKg-ef-1TF"/>
                                             <outlet property="userLabel" destination="8dk-FC-WQl" id="Qdd-sT-z3m"/>
                                         </connections>

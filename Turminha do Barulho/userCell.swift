@@ -16,6 +16,9 @@ class userCell: UITableViewCell {
 
     @IBOutlet weak var userImageButton: UIButton!
     
+    @IBOutlet weak var editarButton: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
