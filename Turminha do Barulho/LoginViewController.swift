@@ -76,7 +76,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if ((user) != nil){
             
-            self.performSegueWithIdentifier("config", sender: self)
+            self.dismissViewControllerAnimated(true, completion: nil)
             
             }
             else {

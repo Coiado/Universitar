@@ -13,14 +13,11 @@ struct Usuario {
     
     var nome: String
     var foto: PFFile?
-    var username: String
     
-    
-    init(nome: String, foto: PFFile?, username: String){
+    init(nome: String, foto: PFFile?){
         
         self.nome = nome
         self.foto = foto
-        self.username = username
         
     }
     

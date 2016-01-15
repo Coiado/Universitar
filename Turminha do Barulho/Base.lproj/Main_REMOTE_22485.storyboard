@@ -982,7 +982,6 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pxX-xw-ltG">
                                                     <rect key="frame" x="2" y="8" width="42" height="43"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="XMi-be-pfd"/>
                                                         <constraint firstAttribute="width" constant="42" id="i6c-nk-jj7"/>

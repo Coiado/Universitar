@@ -13,10 +13,12 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var nomeTextField: UITextField!
-    @IBOutlet weak var nomeCheck: UIImageView!
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheck: UIImageView!
+    
+    @IBOutlet weak var usuarioTextField: UITextField!
+    @IBOutlet weak var usuarioCheck: UIImageView!
     
     @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet weak var confirmationCheck: UIImageView!
@@ -44,6 +46,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.nomeTextField.resignFirstResponder()
+        self.usuarioTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.confirmationTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
@@ -57,13 +60,15 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     func confirmaAction(){
         
         let nome = nomeTextField.text!
+        let usuario = usuarioTextField.text!
         let senha = passwordTextField.text!
         let confirmacao = confirmationTextField.text!
         let email = emailTextField.text!
         
         self.activityIndicator.startAnimating()
         let user = PFUser()
-        user.username = nome
+        user["nome"] = nome
+        user.username = usuario
         user.password = senha
         user.email = email
         if confirmacao == senha{
@@ -72,7 +77,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
                 self.activityIndicator.stopAnimating()
                 
                 if ErrorType == nil{
-                    self.performSegueWithIdentifier("config", sender: self)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else{
                     print("ERROR CADASTRO")
