@@ -13,6 +13,11 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var comentarTextField: UITextField!
+    
+    //Upvotes
+    @IBOutlet weak var upVoteButton: UIBarButtonItem!
+    var isVoted : Bool!
+    
     //TableView
     @IBOutlet weak var detailsTableView : UITableView!
     
@@ -55,7 +60,32 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         pegarComentarios()
         
+        //ALTERAR COM OS METODOS DO PARSE
+        self.isVoted = false
+        self.upVoteButton.possibleTitles = Set(["      ★","      ☆"])
     }
+    
+    //UpVoteAction
+    @IBAction func upVote(sender: AnyObject) {
+        
+        
+        if(!self.isVoted)
+        {
+            self.upVoteButton.title = "      ☆"
+            self.isVoted = true
+            print("true")
+            
+        }else
+        {
+            self.upVoteButton.title = "      ★"
+            self.isVoted = false
+            print("false")
+        }
+        
+        //Inserir metodos relativos ao Parse com relacao ao upvote
+    }
+    
+    
     //MARK: - Refresh
     
     func configRefresh(){
