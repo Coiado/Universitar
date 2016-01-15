@@ -42,6 +42,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         
+        
         self.navigationController?.navigationBarHidden = false
         
         self.detailsTableView.registerNib(UINib(nibName: "DetalhesNoticiaCell", bundle: nil), forCellReuseIdentifier: "detailsCell")
@@ -102,6 +103,10 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.pegarComentarios()
         self.refreshControl.endRefreshing()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func pegarComentarios(){

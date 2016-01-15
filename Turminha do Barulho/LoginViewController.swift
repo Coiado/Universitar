@@ -24,19 +24,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var tabBar : UITabBarController?
+    
     override func viewDidLoad() {
     
         
-        if PFUser.currentUser() != nil{
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                self.performSegueWithIdentifier("config", sender: self)
-            })
-            
-            
-            print("teste")
-        }
-        
+//        if PFUser.currentUser() != nil{
+//            
+//            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+//                self.performSegueWithIdentifier("config", sender: self)
+//            })
+//            
+//            
+//            print("teste")
+//        }
         self.activityIndicator.hidesWhenStopped = true
         
         configureButton()
@@ -71,7 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.startAnimating()
         
         PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
-                    
+            
             self.activityIndicator.stopAnimating()
             
             if ((user) != nil){
@@ -93,6 +94,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func voltarParaTela(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func forgetAction(){
         

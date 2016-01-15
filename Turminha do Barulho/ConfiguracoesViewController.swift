@@ -62,10 +62,10 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getUser()
 }
 
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         let currentUser = PFUser.currentUser()?.objectId
@@ -78,16 +78,32 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             imagePicker.delegate = self
         }
         else{
+            self.tabBarController?.selectedIndex = 0
+            
             let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.presentViewController(vc, animated: true, completion:nil)
+//                {() -> Void in
+//                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+//            })
+//            self.navigationController?.popViewControllerAnimated(true)
+//            
+//            self.performSegueWithIdentifier("login", sender: self)
+            
         }
+    }
+    
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        
+        
     }
     
     
     func getUser(){
         
         let userId = PFUser.currentUser()?.objectId
-        
         ParseModel.findUser(userId!) { (object, error) -> Void in
                 
             if error == nil{

@@ -1104,11 +1104,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNl-iC-K5x">
                                 <rect key="frame" x="135" y="340" width="69" height="30"/>
                                 <animations/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Confirmar"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-5Q-a7r">
                                 <rect key="frame" x="38" y="190" width="262.5" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4sB-uQ-sKs"/>
                                 </constraints>
@@ -1121,6 +1123,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirme sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yqg-Cq-WyS">
                                 <rect key="frame" x="38" y="240" width="262.5" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
@@ -1160,11 +1163,13 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-OE-9d2">
                                 <rect key="frame" x="162" y="217" width="37" height="37"/>
                                 <animations/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EB-Qe-RU5">
                                 <rect key="frame" x="38" y="90" width="262.5" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZNo-fd-QlK"/>
                                 </constraints>
@@ -1177,6 +1182,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x4U-re-2z6">
                                 <rect key="frame" x="38" y="140" width="262.5" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1184,7 +1190,7 @@
                                 <rect key="frame" x="152" y="39" width="70" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKL-w8-Isg">
@@ -1196,7 +1202,7 @@
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.16078431372549018" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="x4U-re-2z6" firstAttribute="top" secondItem="4EB-Qe-RU5" secondAttribute="bottom" constant="20" id="7mR-Ov-50l"/>
                             <constraint firstItem="tKL-w8-Isg" firstAttribute="centerY" secondItem="Yqg-Cq-WyS" secondAttribute="centerY" id="9Dk-v8-Xvj"/>
@@ -1683,14 +1689,14 @@
                                     <outlet property="delegate" destination="2gb-Zh-hbK" id="gGx-U7-Cqq"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zby-oZ-Z3a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Não tem conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zby-oZ-Z3a">
                                 <rect key="frame" x="28" y="270" width="120.5" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyn-ga-i6s">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyn-ga-i6s">
                                 <rect key="frame" x="168" y="265" width="78" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Clique Aqui"/>
@@ -1705,38 +1711,47 @@
                                 <animations/>
                                 <state key="normal" title="Login"/>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-k3-bIV">
-                                <rect key="frame" x="170" y="270" width="37" height="37"/>
-                                <animations/>
-                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-Z7-PnF">
-                                <rect key="frame" x="166" y="39" width="42" height="20.5"/>
+                                <rect key="frame" x="166" y="39.5" width="42" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZM-MY-lOx">
+                                <rect key="frame" x="23" y="19" width="41" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="voltarParaTela:" destination="2gb-Zh-hbK" eventType="touchUpInside" id="yoe-sr-C5E"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-k3-bIV">
+                                <rect key="frame" x="169" y="34" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.16078431372549018" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="width" secondItem="0C1-il-COO" secondAttribute="width" multiplier="0.85" id="3Ut-ro-NBn"/>
-                            <constraint firstItem="zby-oZ-Z3a" firstAttribute="top" secondItem="jju-3u-lYc" secondAttribute="bottom" constant="50" id="6sB-hr-cNU"/>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="9bW-fN-rNh"/>
                             <constraint firstItem="1Mj-p5-oGQ" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="9gG-ed-bYh"/>
-                            <constraint firstItem="Wyn-ga-i6s" firstAttribute="centerY" secondItem="zby-oZ-Z3a" secondAttribute="centerY" id="Fhf-Ic-jEk"/>
-                            <constraint firstItem="Wyn-ga-i6s" firstAttribute="leading" secondItem="zby-oZ-Z3a" secondAttribute="trailing" constant="20" id="ILM-QB-rJk"/>
                             <constraint firstItem="WJt-dR-1Vo" firstAttribute="top" secondItem="kfl-L2-phK" secondAttribute="bottom" constant="20" id="LEw-Vg-QgH"/>
+                            <constraint firstItem="1Mj-p5-oGQ" firstAttribute="centerX" secondItem="Wyn-ga-i6s" secondAttribute="centerX" id="PkJ-8p-qEN"/>
                             <constraint firstItem="WJt-dR-1Vo" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="VlG-up-msg"/>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="top" secondItem="wWc-6I-HjM" secondAttribute="bottom" constant="70" id="Yss-9y-4m3"/>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="top" secondItem="D8b-Z7-PnF" secondAttribute="bottom" constant="30" id="Z3I-PM-SvZ"/>
                             <constraint firstItem="WJt-dR-1Vo" firstAttribute="width" secondItem="0C1-il-COO" secondAttribute="width" multiplier="0.85" id="ej4-fe-dce"/>
                             <constraint firstItem="D8b-Z7-PnF" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="gaS-q1-CJL"/>
-                            <constraint firstItem="1Mj-p5-oGQ" firstAttribute="top" secondItem="zby-oZ-Z3a" secondAttribute="bottom" constant="70" id="jiy-mi-1zA"/>
+                            <constraint firstItem="Wyn-ga-i6s" firstAttribute="top" secondItem="jju-3u-lYc" secondAttribute="bottom" constant="45" id="hrv-3Z-uN6"/>
                             <constraint firstItem="jju-3u-lYc" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="mnb-Ru-Z3n"/>
-                            <constraint firstItem="zby-oZ-Z3a" firstAttribute="leading" secondItem="WJt-dR-1Vo" secondAttribute="leading" id="rX6-In-02X"/>
                             <constraint firstItem="jju-3u-lYc" firstAttribute="top" secondItem="WJt-dR-1Vo" secondAttribute="bottom" constant="20" id="vt8-rQ-GQ3"/>
+                            <constraint firstItem="Wyn-ga-i6s" firstAttribute="centerX" secondItem="jju-3u-lYc" secondAttribute="centerX" id="zCK-dS-UGc"/>
+                            <constraint firstItem="1Mj-p5-oGQ" firstAttribute="top" secondItem="Wyn-ga-i6s" secondAttribute="bottom" constant="65" id="zhN-kg-hhr"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1752,7 +1767,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bs-6a-GrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816.5" y="-1121.5"/>
+            <point key="canvasLocation" x="792.5" y="-1122.5"/>
         </scene>
         <!--Configuração-->
         <scene sceneID="fCK-TS-d7a">
