@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        
+        if self.tabBar.selectedItem?.title == 
         
     }
     
