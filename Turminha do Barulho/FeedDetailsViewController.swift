@@ -27,11 +27,11 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     var refreshControl : UIRefreshControl!
     
     
-    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
     
-    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    let detailsColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
     
-    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1) //Cor do fundo apenas da tableview
+    let tableBG = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1) //Cor do fundo apenas da tableview
     
     
     override func viewDidLoad() {
@@ -45,19 +45,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         detailsTableView.estimatedRowHeight = 700
         detailsTableView.rowHeight = UITableViewAutomaticDimension
-        /*
-        self.detailsTableView.estimatedRowHeight = 500
-        self.detailsTableView.rowHeight = UITableViewAutomaticDimension
-        */
-        /*
-        image.image = passedCell.imagem
-        fullText.text = passedCell.fulltext
-        subTitle.text = passedCell.subtitulo
-        navigationBarTitle.topItem?.title = passedCell.titulo
-        
-        fullText.layer.cornerRadius = 15
-        fullText.layer.borderWidth = 3
-        */
+       
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         self.detailsTableView.separatorStyle = .SingleLine
         

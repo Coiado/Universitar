@@ -19,8 +19,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         super.viewDidLoad()
         
         getUser()
-        
-    }
+}
     
     
     func getUser(){

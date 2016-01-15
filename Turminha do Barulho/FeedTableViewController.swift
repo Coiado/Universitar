@@ -33,11 +33,11 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
     //Colors
-    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
     
-    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    let detailsColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
     
-    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1) //Cor do fundo apenas da tableview
+    let tableBG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor do fundo apenas da tableview
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         self.tableView.reloadData()
         
         self.nightMode = false
-        
+                
         self.refreshColors()
         
         
@@ -153,10 +153,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 
             }
         }
-        cell.upvotes.text = "Upvotes: " + String(info.upvote!)
-        cell.title.text = info.titulo
+        cell.upvotes.text = "☆ " + String(info.upvote!)
+        cell.subTitle.text = info.titulo
         cell.title.adjustsFontSizeToFitWidth = true
-        cell.subTitle.text = info.subtitulo!
+        cell.title.text = info.subtitulo!
         cell.subTitle.adjustsFontSizeToFitWidth = true
         cell.textField.text = info.texto
         cell.subTitle.adjustsFontSizeToFitWidth = true
@@ -171,13 +171,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         
         cell.cardSetup()
-        
-        
-        //self.refreshColors()
-        if(self.nightMode == true)
-        {
-            cell.setColors()
-        }
         
         return cell
     }
