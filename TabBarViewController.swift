@@ -23,7 +23,14 @@ class TabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        if self.tabBar.selectedItem?.title == 
+        if self.tabBar.selectedItem?.title == "Configuração"{
+            let currentUser = PFUser.currentUser()?.objectId
+            if currentUser == nil{
+                self.popoverPresentationController
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+                self.presentViewController(vc, animated: true, completion:nil)
+            }
+        }
         
     }
     

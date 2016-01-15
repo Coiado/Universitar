@@ -62,8 +62,8 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
+}
+
     
     
     
@@ -78,15 +78,16 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             imagePicker.delegate = self
         }
         else{
+            self.tabBarController?.selectedIndex = 0
             
-//            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
-//            self.presentViewController(vc, animated: true, completion:nil)
-////                {() -> Void in
-////                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
-////            })
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion:nil)
+//                {() -> Void in
+//                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+//            })
 //            self.navigationController?.popViewControllerAnimated(true)
-            
-            self.performSegueWithIdentifier("login", sender: self)
+//            
+//            self.performSegueWithIdentifier("login", sender: self)
             
         }
     }
@@ -94,7 +95,9 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     
     override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        
+        
     }
     
     
