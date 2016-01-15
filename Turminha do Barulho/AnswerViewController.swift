@@ -13,7 +13,7 @@ protocol novaResposta {
     func salvarNovaResposta(text:String)
 }
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIScrollViewDelegate, novaResposta{
 
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -39,6 +39,49 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
         pegarComentarios()
         configRefresh()
+    }
+    
+    
+    //MARK: - Load more answer
+    
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreRespostas()
+            
+        }
+    }
+    
+    func getMoreRespostas(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreComents((self.question?.id)!, skip: self.comentarios.count) { (array, error) -> Void in
+            
+            if error == nil{
+                
+                if let array = array{
+                    
+                    self.comentarios = self.comentarios + array
+                    self.tableViewQuestion.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+                
+            }
+            
+            self.activityIndicator.stopAnimating()
+        }
+        
     }
     
     

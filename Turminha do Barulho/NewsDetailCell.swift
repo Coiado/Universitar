@@ -16,17 +16,24 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var fullText: UILabel!
     
     //Atributos do quadrado branco
-    let squareOrigin : CGPoint = CGPoint(x: 0, y: 0)
-    let squareSize : CGSize = CGSize(width: 120, height: 30)
+    let squareOrigin : CGPoint = CGPoint(x: -10, y: -10)
+    
+    //let charNumber = (self.categoriaTitle.text?.characters.count)!*8
+    let squareSize : CGSize = CGSize(width: 240, height: 40)
 
     func prepareCell()
     {
-        //Quadrado branco com a label da noticia
+        
+        //Quadrado branco com! a label da noticia
         let whiteSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))
-        whiteSquare.backgroundColor = UIColor.whiteColor()
+        
+        whiteSquare.layer.cornerRadius = 10
+        whiteSquare.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         whiteSquare.alpha = 0.8
         self.imagem.addSubview(whiteSquare)
         self.bringSubviewToFront(self.subTitle)
+        
+        self.subTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
     }
     
     override func awakeFromNib() {
