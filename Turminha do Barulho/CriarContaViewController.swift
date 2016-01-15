@@ -87,6 +87,10 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func voltarParaTela(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     
 }
 
