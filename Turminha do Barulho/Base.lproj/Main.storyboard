@@ -42,7 +42,7 @@
                                         </textField>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.1058823529" green="0.2156862745" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="LO5-bV-l39" firstAttribute="leading" secondItem="pfK-oe-qed" secondAttribute="leading" constant="18" id="23Y-zN-mLc"/>
                                         <constraint firstItem="LO5-bV-l39" firstAttribute="centerY" secondItem="pfK-oe-qed" secondAttribute="centerY" id="KdV-jL-x9b"/>
@@ -57,7 +57,7 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cUx-gr-DDx">
                                 <rect key="frame" x="169" y="258" width="37" height="37"/>
                                 <animations/>
-                                <color key="color" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.1058823529" green="0.2156862745" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <animations/>
@@ -112,7 +112,7 @@
                             <rect key="frame" x="0.0" y="122" width="375" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <color key="color" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="color" red="0.1058823529" green="0.2156862745" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                         </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCard" rowHeight="94" id="blW-1k-vaN" customClass="FeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
@@ -1623,7 +1623,7 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="0.7982012333420454" blue="0.079036642119817424" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
