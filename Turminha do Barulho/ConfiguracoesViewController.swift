@@ -18,6 +18,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     var usuario: Usuario?
     var notificacoes = [Notificacao]()
     
+    var lastIndex  = 0
     
     var question : Question?
     
@@ -93,7 +94,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             if error == nil{
                     
                 self.usuario = object
-                self.tableView.reloadData()
                     
             }
                 
@@ -108,6 +108,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             if error == nil{
                 
                 self.notificacoes = array!
+                self.lastIndex = self.notificacoes.count
                 self.tableView.reloadData()
                 self.actInd.stopAnimating()
                 
@@ -220,6 +221,13 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
         
     }
+    
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        if indexPath.row ==
+//        
+//    }
     
     
     

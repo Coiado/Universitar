@@ -443,6 +443,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="gSw-YH-fDH">
+                                    <rect key="frame" x="0.0" y="302" width="375" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="1" selectionStyle="none" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="113" id="yhn-RX-Ov0" customClass="QuestionFeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="113"/>
@@ -757,10 +762,6 @@
                                     <outlet property="delegate" destination="ETo-HA-SXP" id="rO7-cg-PG4"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gSw-YH-fDH">
-                                <rect key="frame" x="0.0" y="259" width="375" height="37"/>
-                                <color key="color" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1869,8 +1870,8 @@
         <image name="perguntas3" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zD-E0-HBm"/>
-        <segue reference="cck-PX-VFc"/>
+        <segue reference="nU2-4M-6w8"/>
+        <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -52,7 +52,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         self.refreshColors()
         
-        
     }
     
     //Funcao que usaremos para eventualmente implementar metodo de leitura noturna, talvez
@@ -308,6 +307,50 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     @IBAction func segmentedControlTapped(sender: AnyObject) {
         self.tableView.reloadData()
     }
+    
+    
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = 50.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreNews()
+        }
+    }
+    
+    func getMoreNews(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreNews(self.data.count) { (array, error) -> Void in
+            
+            if error == nil {
+                
+                if let array = array {
+                    
+                    self.data = self.data + array
+                    self.tableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+            self.activityIndicator.stopAnimating()
+            
+        }
+    
+    }
+    
     
 }
 

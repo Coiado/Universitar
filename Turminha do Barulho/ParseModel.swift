@@ -20,6 +20,11 @@ class ParseModel {
 
         var array = [Dados]()
         // funcao para pegar todas as noticias
+        
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
+        
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil{
@@ -52,7 +57,50 @@ class ParseModel {
         
     }//func
     
-    
+    static func findMoreNews(skip: Int,completionHandler: (array: [Dados]?, error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        
+        var array = [Dados]()
+        // funcao para pegar todas as noticias
+        
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
+        
+        query.skip = skip
+        
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil{
+                if let objects = objects {
+                    for object in objects {
+                        //pegar os PFObject e transformar no estilo Dados
+                        let titulo = object["titulo"] as! String
+                        let texto = object["texto"] as! String
+                        let textoInteiro = object["textoInteiro"] as! String
+                        let tags = object["tags"] as! String
+                        let upvote = object["upvote"] as! Int
+                        let imagem = object["imagem"] as! PFFile
+                        let id = (object.objectId)!
+                        
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        
+                        array.append(dados)
+                        
+                    }//for
+                    completionHandler(array: array, error: nil)
+                }// if let
+                
+            }// if
+                
+            else{
+                completionHandler(array: nil, error: error)
+            }
+            
+        }//find
+        
+    }//func
     
     static func findAllQuestion(completionHandler: (array: [Question]?, error: NSError?) -> Void ){
         
@@ -62,7 +110,9 @@ class ParseModel {
         
         query.includeKey("usuarioPergunta")
         
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
         
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
             
@@ -115,13 +165,79 @@ class ParseModel {
         
     }//func
 
+    static func findMoreQuestion(skip:Int, completionHandler: (array: [Question]?, error: NSError?) -> Void ){
+        
+        var array = [Question]()
+        
+        let query = PFQuery(className: "Question")
+        
+        query.includeKey("usuarioPergunta")
+        
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
+        
+        query.skip = skip
+        
+        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
+            
+            if error == nil{
+                
+                if let objects = objects{
+                    
+                    for object in objects{
+                        
+                        
+                        let text = object["textoPergunta"] as! String
+                        
+                        let titulo = object["tituloPergunta"] as! String
+                        
+                        let tags = object["tagsPergunta"] as! String
+                        
+                        let upvote = object["upvotePergunta"] as! Int
+                        
+                        let comentarios = object["comentariosPergunta"] as! Int
+                        
+                        let user = object["usuarioPergunta"] as! PFUser
+                        
+                        let nick = user["nome"] as? String
+                        
+                        let icon = user["foto"] as? PFFile
+                        
+                        let id = object.objectId
+                        
+                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!)
+                        
+                        array.append(question)
+                        
+                        
+                    }//for
+                    
+                    completionHandler(array: array, error: nil)
+                    
+                }//if let
+                
+            }// if
+                
+            else{
+                
+                completionHandler(array: nil, error: error)
+                
+            }
+            
+        }// completion
+        
+        
+    }//func
+    
+    
     static func findAllMaterias(completionHandler: (array: [String]?, error: NSError?) -> Void){
         
         let query = PFQuery(className: "TodasMaterias")
         
         var array = [String]()
         
-        query.orderByAscending("materia")
+        query.orderByDescending("materia")
         
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
             
@@ -258,7 +374,9 @@ class ParseModel {
         
         query.whereKey("tipo", equalTo: "Comentario")
         
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
         
         query.includeKey("deUsuario")
         
@@ -294,6 +412,53 @@ class ParseModel {
         
     }
     
+    static func findMoreComents(para: String ,skip: Int, completionHandler: (array:[Answer]?, error:NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        
+        query.whereKey("para", equalTo: para)
+        
+        query.whereKey("tipo", equalTo: "Comentario")
+        
+        query.orderByDescending("createdAt")
+        
+        query.limit = 10
+        
+        query.skip = skip
+        
+        query.includeKey("deUsuario")
+        
+        var array = [Answer]()
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error:NSError?) -> Void in
+            
+            if error == nil{
+                
+                for object in objects! {
+                    
+                    let conteudo = object["conteudo"] as! String
+                    let user = object["deUsuario"] as? PFUser
+                    let image = user!["foto"] as? PFFile
+                    let upvote = object["upvote"] as? Int
+                    let id = (object.objectId)!
+                    let nick = user!["nome"] as? String
+                    
+                    
+                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId)
+                    
+                    array.append(answer)
+                    
+                }
+                
+                completionHandler(array: array, error: nil)
+                
+            }
+            else{
+                completionHandler(array: nil, error: error)
+            }
+        }
+        
+    }
     
     
     static func findAllNotifications(completionHandler:(array:[Notificacao]?, error:NSError?) -> Void){

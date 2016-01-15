@@ -33,7 +33,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     override func viewDidAppear(animated: Bool) {
         
-        self.tableView.reloadData()
+        self.getQuestion()
     
     }
     
@@ -150,11 +150,11 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Fazendo com que o texto fique adaptavel com a celula da tableview
         cell.questionText.sizeToFit()
         cell.updateConstraints()
-//        cell.answers = info.answers!
         cell.cardSetup()
         
         // Deixando a foto do perfil arredondada
         cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
         
         return cell
         
@@ -214,6 +214,48 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
+    
+    let threshold: CGFloat = 100.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            self.getMoreQuestion()
+            
+        }
+    }
+    
+    
+    func getMoreQuestion(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreQuestion(self.question.count) { (array, error) -> Void in
+            
+            if error == nil {
+                
+                if let array = array{
+                    
+                    self.question = self.question + array
+                    self.tableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            self.activityIndicator.stopAnimating()
+            
+        }
+        
+        
+    }
+    
     // Criacao do vetor com as informacoes a serem apresentadas
     func getQuestion()
     {
@@ -224,31 +266,18 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
             
             if error == nil{
                 
-                self.question = array!
+                if let array = array {
+                
+                    self.question = array
+                
+                }
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
+                
             }
         }
         
     }
-
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return false
-//    }
-//    
-//    
-//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-//        if text == "\n"{
-//            
-////            self.view.endEditing(true)
-//            textView.resignFirstResponder()
-//            return false
-//        
-//        }
-//        
-//        return true
-//    }
     
     func salvarNovaPergunta(titleText:String, doubtText:String){
     
