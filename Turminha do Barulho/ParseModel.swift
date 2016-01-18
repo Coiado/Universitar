@@ -613,6 +613,38 @@ class ParseModel {
         
     }
     
+    static func findLike (para:String, completionHandler:(existe:Bool, error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        
+        let user = PFUser.currentUser()
+        
+        query.whereKey("tipo", equalTo: "Upvote")
+        query.whereKey("para", equalTo: para)
+        query.whereKey("deUsuario", equalTo: user!)
+        
+        query.countObjectsInBackgroundWithBlock { (count, error) -> Void in
+            
+            if error == nil {
+                
+                if count != 1{
+                    completionHandler(existe: false, error: nil)
+                }
+                else{
+                    completionHandler(existe: true, error: nil)
+                }
+                
+            }
+            else{
+                
+                completionHandler(existe: false, error: error)
+                
+            }
+            
+        }
+        
+    }
+    
     
     //MARK: - Salvar
     
@@ -860,6 +892,67 @@ class ParseModel {
             
         }
 
+    }
+    
+    
+    static func aumentarUpvotesNoticia(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                var upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote++
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    static func diminuirUpvotesNoticia(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                var upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote--
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+                
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
     }
     
     
