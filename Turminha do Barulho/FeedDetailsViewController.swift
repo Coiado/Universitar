@@ -264,4 +264,46 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             self.detailsTableView.reloadData()
         }
     }
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = -5.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreComments()
+        }
+    }
+    
+    func getMoreComments(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreComents(self.passedCell.id, skip: self.commentArray.count) { (array, error) -> Void in
+        
+            if error == nil{
+                
+                if let array = array {
+                    
+                    self.commentArray = self.commentArray + array
+                    self.detailsTableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+            self.activityIndicator.stopAnimating()
+            
+        }
+        
+    }
+    
 }

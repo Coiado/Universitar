@@ -286,12 +286,23 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     }
     
     func didChangeSearchText(searchText: String) {
-        // Filter the data array and get only those countries that match the search text.
+        
         self.dadosFiltrados = self.data.filter({ (Dados) -> Bool in
-            let stringMatch: NSString = Dados.titulo!
+            let titleMatch: NSString = Dados.titulo!
             
-            return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+            if (titleMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound{
+                return true
+            }
+            
+            else{
+                
+                let tagMatch: NSString = Dados.subtitulo!
+                
+                return (tagMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+                
+            }
         })
+        
         // Reload the tableview.
         self.tableView.reloadData()
     }
@@ -305,7 +316,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     //MARK: - Metodos para carregar mais
     
-    let threshold: CGFloat = 50.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     

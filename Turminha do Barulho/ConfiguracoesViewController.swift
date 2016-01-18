@@ -424,6 +424,48 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         refreshControl.endRefreshing()
     }
     
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreNotification()
+        }
+    }
+    
+    func getMoreNotification(){
+        
+//        self.activityIndicator.startAnimating() adicionar depois, nao quero mexer no storyboard
+        
+        ParseModel.findMoreNotification(self.notificacoes.count) { (array, error) -> Void in
+            
+            if error == nil {
+                
+                if let array = array {
+                    
+                    self.notificacoes = self.notificacoes + array
+                    self.tableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+//            self.activityIndicator.stopAnimating()
+            
+        }
+        
+    }
+    
 }
 
 

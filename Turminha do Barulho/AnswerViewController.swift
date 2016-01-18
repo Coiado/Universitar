@@ -44,7 +44,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Load more answer
     
-    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -30.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     
