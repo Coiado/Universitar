@@ -53,6 +53,22 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbF-G6-hgi">
+                        <rect key="frame" x="294" y="604" width="53" height="46"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="53" id="BIv-21-ods"/>
+                            <constraint firstAttribute="height" constant="46" id="NLf-Xl-FrI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                        <state key="normal" title="☆">
+                            <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="upVote:" destination="oRC-gG-AmF" eventType="touchUpInside" id="Iif-7s-QZi"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -60,12 +76,14 @@
                     <constraint firstAttribute="bottomMargin" secondItem="Tyd-75-DW6" secondAttribute="bottom" constant="2.5" id="7Un-CY-Hgd"/>
                     <constraint firstItem="Tyd-75-DW6" firstAttribute="top" secondItem="nNe-Qb-UUS" secondAttribute="bottom" constant="7.5" id="8Sv-fY-18R"/>
                     <constraint firstItem="Tyd-75-DW6" firstAttribute="top" secondItem="nNe-Qb-UUS" secondAttribute="bottom" constant="7.5" id="996-rp-ZYs"/>
+                    <constraint firstItem="cbF-G6-hgi" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" constant="-20" id="BA3-FE-jw2"/>
                     <constraint firstAttribute="trailing" secondItem="Xmn-a1-axf" secondAttribute="trailing" id="GHu-H6-CU6"/>
                     <constraint firstAttribute="height" secondItem="nNe-Qb-UUS" secondAttribute="height" constant="319" id="ICA-E7-GYl"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="top" secondItem="WKX-lg-U7t" secondAttribute="bottom" constant="1" id="IXE-KA-Loe"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" id="Jzz-i8-VyT"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="RAm-cs-GFb"/>
                     <constraint firstItem="Tyd-75-DW6" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leadingMargin" id="SnK-rQ-hHK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cbF-G6-hgi" secondAttribute="bottom" constant="-3.5" id="X7h-4e-sCy"/>
                     <constraint firstItem="WKX-lg-U7t" firstAttribute="top" secondItem="Xmn-a1-axf" secondAttribute="bottom" constant="8" id="ZD9-iQ-R3b"/>
                     <constraint firstItem="nNe-Qb-UUS" firstAttribute="trailing" secondItem="uh6-Le-h5l" secondAttribute="trailingMargin" constant="-20" id="cxp-I8-oT9"/>
                     <constraint firstItem="Xmn-a1-axf" firstAttribute="leading" secondItem="uh6-Le-h5l" secondAttribute="leading" id="dhK-f1-e4d"/>
@@ -89,6 +107,7 @@
                 <outlet property="fullText" destination="nNe-Qb-UUS" id="iAH-X7-yGq"/>
                 <outlet property="imagem" destination="Xmn-a1-axf" id="cdP-ao-jhB"/>
                 <outlet property="subTitle" destination="ecd-8O-C3f" id="xt6-Sp-lW5"/>
+                <outlet property="upVoteButton" destination="cbF-G6-hgi" id="sVh-28-JEQ"/>
             </connections>
             <point key="canvasLocation" x="386.5" y="230.5"/>
         </tableViewCell>

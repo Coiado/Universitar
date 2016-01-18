@@ -69,26 +69,12 @@
                             <constraint firstItem="z2J-Te-ggd" firstAttribute="top" secondItem="one-Ix-0Uo" secondAttribute="bottom" id="uwZ-EC-8m9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fjY-Ls-APG">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Cee-Fu-OOE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="07v-Jy-HAI">
-                                <rect key="frame" x="276" y="-4" width="83" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <state key="normal" title="      ☆"/>
-                                <connections>
-                                    <action selector="upVote:" destination="ihL-bu-1DM" eventType="touchUpInside" id="MzI-JT-6Fb"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="fjY-Ls-APG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="activityIndicator" destination="cUx-gr-DDx" id="lRe-iW-v0s"/>
                         <outlet property="comentarTextField" destination="LO5-bV-l39" id="bkh-W2-4OB"/>
                         <outlet property="detailsTableView" destination="one-Ix-0Uo" id="fO6-gC-e7o"/>
-                        <outlet property="upVoteButton" destination="Cee-Fu-OOE" id="kyt-Cl-1ja"/>
                         <segue destination="o6X-ci-G4o" kind="show" identifier="criarComentário" id="1zD-E0-HBm"/>
                     </connections>
                 </viewController>
