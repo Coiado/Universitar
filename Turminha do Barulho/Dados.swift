@@ -14,14 +14,15 @@ struct Dados {
     var titulo : String?
     var subtitulo : String?
     var texto: String?
-    var imagem: PFFile?
+    var file: PFFile?
+    var imagem: UIImage
     var upvote: Int?
     var upvoted:Bool = false
     var fulltext: String
     var id : String
 
     
-    init (titulo: String?, subtitulo: String?, texto: String?, imagem: PFFile, upvote: Int? = 0, fulltext: String, id: String)
+    init (titulo: String?, subtitulo: String?, texto: String?, file: PFFile, upvote: Int? = 0, fulltext: String, id: String)
     {
         
 //        let novaNoticia = PFObject(className: "Noticia")
@@ -36,13 +37,19 @@ struct Dados {
         self.titulo = titulo
         self.subtitulo = subtitulo
         self.texto = texto
-        self.imagem = imagem
+        self.file = file
         self.upvote = upvote
         self.upvoted = false
         self.fulltext = fulltext
         self.id = id
+        self.imagem = UIImage(named: "userIcon")!
+        file.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+            if error == nil{
+                self.imagem = UIImage(data: data!)!
+            }
+        }
     }
-    
     
     
 }

@@ -68,7 +68,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     
     override func viewWillAppear(animated: Bool) {
-        let currentUser = PFUser.currentUser()?.objectId
+        let currentUser = PFUser.currentUser()
         if currentUser != nil{
             getUser()
             getNotification()
@@ -76,6 +76,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             imagePicker = UIImagePickerController()
             imagePicker.delegate = self
+            self.tableView.reloadData()
         }
         else{
             self.tabBarController?.selectedIndex = 0
@@ -102,17 +103,15 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     
     func getUser(){
+
         
-        let userId = PFUser.currentUser()?.objectId
-        ParseModel.findUser(userId!) { (object, error) -> Void in
-                
-            if error == nil{
-                    
-                self.usuario = object
-                    
-            }
-                
-        }
+        let user = PFUser.currentUser()
+        
+        let foto = user?.valueForKey("foto") as! PFFile
+        
+        let nome = user?.valueForKey("nome") as! String
+        
+        self.usuario = Usuario(nome: nome, foto: foto)
         
         
     }
@@ -135,12 +134,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     }
     
-    
-    func getImages(){
-        
-        
-        
-    }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -261,38 +254,38 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             cell.userImageButton.layer.masksToBounds = true
             
-            let userIcon = UIImage(named: "userIcon")
+//            let userIcon = UIImage(named: "userIcon")
             
             cell.userImageButton.tintColor = UIColor.clearColor()
             
-            cell.userImageButton.setBackgroundImage(userIcon, forState: .Normal)
+            cell.userImageButton.setBackgroundImage(self.usuario?.imagem, forState: .Normal)
             
             cell.userImageButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
             cell.editarButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
-            if usuario?.foto != nil {
-            
-            self.usuario?.foto?.getDataInBackgroundWithBlock({ (foto, error) -> Void in
-                if foto != nil{
-                    
-                    let image = UIImage(data: foto!)
-                    
-                    cell.userImageButton.setBackgroundImage(image, forState: .Normal)
-                    
-                    cell.actInd.stopAnimating()
-                    
-                }
-                
-            })
-            
-            }
-            
-            else{
-                
-                cell.actInd.stopAnimating()
-                
-            }
+//            if usuario?.foto != nil {
+//            
+//            self.usuario?.foto?.getDataInBackgroundWithBlock({ (foto, error) -> Void in
+//                if foto != nil{
+//                    
+//                    let image = UIImage(data: foto!)
+//                    
+//                    cell.userImageButton.setBackgroundImage(image, forState: .Normal)
+//                    
+//                    cell.actInd.stopAnimating()
+//                    
+//                }
+//                
+//            })
+//
+//            }
+//            
+//            else{
+//                
+//                cell.actInd.stopAnimating()
+//                
+//            }
             
             return cell
         }
@@ -422,6 +415,8 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         getNotification()
         
         refreshControl.endRefreshing()
+        
+        self.tableView.reloadData()
     }
     
     

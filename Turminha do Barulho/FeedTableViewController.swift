@@ -160,14 +160,15 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         cell.textField.text = info.texto
         cell.subTitle.adjustsFontSizeToFitWidth = true
         
-        info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-            
-            cell.picture.image = UIImage(data: result!)
-            
-        })
+//        info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
+//            
+//            cell.picture.image = UIImage(data: result!)
+//            
+//        })
+        
+        cell.picture.image = info.imagem
         
         cell.fullText = info.fulltext
-        
         
         cell.cardSetup()
         
@@ -231,7 +232,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     func refreshTableView(sender: AnyObject){
         
         self.createData()
-        
+        self.refreshControl?.endRefreshing()
     }
     
     
