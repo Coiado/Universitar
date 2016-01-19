@@ -26,6 +26,7 @@ class CriaPerguntaViewController: UIViewController, UITextViewDelegate {
         self.tituloTextField.layer.cornerRadius = 15
         
         
+        
     }
     
     

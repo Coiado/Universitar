@@ -15,10 +15,9 @@ class MateriasDetalheViewController: UIViewController {
     @IBOutlet weak var titulo: UINavigationItem!
     @IBOutlet weak var texto: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var aumentaLetra: UIButton!
-    @IBOutlet weak var modoNoturno: UIButton!
-    
+    @IBOutlet weak var imagemCurso: UIImageView!
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var isModoNoturno:Bool = false
@@ -92,7 +91,7 @@ class MateriasDetalheViewController: UIViewController {
     func configButtons(){
         
         self.aumentaLetra.addTarget(self, action: "aumentaLetra:", forControlEvents: .TouchUpInside)
-        self.modoNoturno.addTarget(self, action: "modoNoturno:", forControlEvents: .TouchUpInside)
+        self.aumentaLetra.tintColor = UIColor.whiteColor()
         
     }
     

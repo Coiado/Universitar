@@ -28,7 +28,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     // na funcao chamada createQuestion
     
     // Cores que serao usadas para colorir o fundo da tableview
-    let tableBG = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+    let tableBG = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
 
     
     override func viewDidAppear(animated: Bool) {
@@ -51,8 +51,10 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         //navigationItem.backBarButtonItem = backItem
         
         // Mudanca na coloracao da navigationBar
-        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0) ]
         
         // Uncomment the following line to preserve selection between presentations
@@ -62,7 +64,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.backgroundColor = tableBG
-        self.tableView.separatorColor = tableBG
+        self.tableView.separatorStyle = .None
     }
 
     override func didReceiveMemoryWarning() {

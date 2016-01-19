@@ -26,6 +26,14 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var refreshControl : UIRefreshControl!
     
+    //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
+    //Colors
+    let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
+    
+    let detailsColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
+    
+    let tableBG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor do fundo apenas da tableview
+    
     override func viewDidAppear(animated: Bool) {
         self.tableViewQuestion.reloadData()
     }
@@ -83,14 +91,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-    
-    
-    //MARK: - Refresh
-    
-    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
-    
-    let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
-    
+        
     func configRefresh(){
         
         self.refreshControl = UIRefreshControl()
@@ -211,7 +212,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.answerText.font = UIFont(name: "Futura", size: 14.0)
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
-                cell.likes.text = String(info.upvote!)
                 //cell.cardSetup()
                 return cell
             }
