@@ -17,9 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var signupButton: UIButton!
-    
     @IBOutlet weak var forgetButton: UIButton!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -48,8 +46,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func configureButton() {
         
         self.loginButton.addTarget(self, action: "loginAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.loginButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        self.loginButton.layer.cornerRadius = 5
+        
         self.signupButton.addTarget(self, action: "signupAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.signupButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        self.signupButton.layer.cornerRadius = 5
+
+        
         self.forgetButton.addTarget(self, action: "forgetAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.forgetButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        self.forgetButton.layer.cornerRadius = 5
+
+        
         
     }
     

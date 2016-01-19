@@ -14,6 +14,8 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var categoriaTitle: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var fullText: UILabel!
+    @IBOutlet weak var upVoteButton: UIButton!
+    var isVoted: Bool!
     
     //Atributos do quadrado branco
     let squareOrigin : CGPoint = CGPoint(x: -10, y: -10)
@@ -34,6 +36,9 @@ class NewsDetailCell: UITableViewCell {
         self.bringSubviewToFront(self.subTitle)
         
         self.subTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        
+        self.updateButton()
+        
     }
     
     override func awakeFromNib() {
@@ -43,5 +48,33 @@ class NewsDetailCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.None
         
     }
+    
+    
+    func updateButton()
+    {
+        if((self.isVoted) != nil)
+        {
+            if(self.isVoted == false)
+            {
+                self.upVoteButton.setTitle("☆", forState: .Normal)
+                self.isVoted = false
+            }
+            else
+            {
+                self.upVoteButton.setTitle("★", forState: .Normal)
+                self.isVoted = true
+            }
+        }
+        
+    }
+    
+    @IBAction func upVote(sender: AnyObject) {
+        
+        self.updateButton()
+        
+        //INSERIR METODOS DO PARSE
+        
+    }
+    
 
 }
