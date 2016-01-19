@@ -155,6 +155,10 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 //                
 //            })
             cell.imagem.image = passedCell.imagem
+            
+            //PROVISORIO
+            cell.isVoted = false
+            
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext
