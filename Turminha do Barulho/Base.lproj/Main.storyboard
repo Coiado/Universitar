@@ -968,6 +968,53 @@
                                             <outlet property="userImage" destination="6oB-eC-hbM" id="6uB-vZ-MB1"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Veg-fl-U6H">
+                                        <rect key="frame" x="0.0" y="212" width="375" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Veg-fl-U6H" id="2zj-O8-dAD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-4w-Bzs">
+                                                    <rect key="frame" x="15" y="14" width="48" height="48"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="7Tv-Gs-mBv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2l-ae-87g">
+                                                    <rect key="frame" x="71" y="14" width="232" height="50"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="232" id="SHi-kQ-sbI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBm-0I-maz">
+                                                    <rect key="frame" x="335" y="30" width="32" height="18"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="d02-8K-7yV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="r2l-ae-87g" firstAttribute="leading" secondItem="I2p-4w-Bzs" secondAttribute="trailing" constant="8" id="0Ak-ny-37g"/>
+                                                <constraint firstItem="RBm-0I-maz" firstAttribute="leading" secondItem="r2l-ae-87g" secondAttribute="trailing" constant="32" id="0BY-rx-7G1"/>
+                                                <constraint firstItem="RBm-0I-maz" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="22" id="7yX-nq-Stw"/>
+                                                <constraint firstItem="I2p-4w-Bzs" firstAttribute="leading" secondItem="2zj-O8-dAD" secondAttribute="leadingMargin" constant="7" id="8zD-nN-7Ux"/>
+                                                <constraint firstItem="I2p-4w-Bzs" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="6" id="Lp2-om-B3a"/>
+                                                <constraint firstItem="r2l-ae-87g" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="6" id="NDX-J5-w83"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="frame.cornerRadius">
@@ -1772,7 +1819,7 @@
         <image name="perguntas3" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nU2-4M-6w8"/>
+        <segue reference="cck-PX-VFc"/>
         <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
