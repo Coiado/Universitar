@@ -11,6 +11,8 @@ import Parse
 
 class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var sairButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var actInd: UIActivityIndicatorView!
@@ -68,14 +70,16 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     
     override func viewWillAppear(animated: Bool) {
-        let currentUser = PFUser.currentUser()?.objectId
+        let currentUser = PFUser.currentUser()
         if currentUser != nil{
             getUser()
             getNotification()
             configRefresh()
+            configButton()
             
             imagePicker = UIImagePickerController()
             imagePicker.delegate = self
+            self.tableView.reloadData()
         }
         else{
             self.tabBarController?.selectedIndex = 0
@@ -101,18 +105,29 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     }
     
     
-    func getUser(){
+    func configButton(){
         
-        let userId = PFUser.currentUser()?.objectId
-        ParseModel.findUser(userId!) { (object, error) -> Void in
-                
-            if error == nil{
-                    
-                self.usuario = object
-                    
-            }
-                
-        }
+        self.sairButton.addTarget(self, action: "sair:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    func sair(sender: AnyObject){
+        
+        PFUser.logOut()
+        self.tabBarController?.selectedIndex = 0
+        
+    }
+    
+    func getUser(){
+
+        
+        let user = PFUser.currentUser()
+        
+        let foto = user?.valueForKey("foto") as! PFFile
+        
+        let nome = user?.valueForKey("nome") as! String
+        
+        self.usuario = Usuario(nome: nome, foto: foto)
         
         
     }
@@ -135,12 +150,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     }
     
-    
-    func getImages(){
-        
-        
-        
-    }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -238,14 +247,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     }
     
     
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        if indexPath.row ==
-//        
-//    }
-    
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
@@ -261,38 +262,38 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             cell.userImageButton.layer.masksToBounds = true
             
-            let userIcon = UIImage(named: "userIcon")
+//            let userIcon = UIImage(named: "userIcon")
             
             cell.userImageButton.tintColor = UIColor.clearColor()
             
-            cell.userImageButton.setBackgroundImage(userIcon, forState: .Normal)
+            cell.userImageButton.setBackgroundImage(self.usuario?.imagem, forState: .Normal)
             
             cell.userImageButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
             cell.editarButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
-            if usuario?.foto != nil {
-            
-            self.usuario?.foto?.getDataInBackgroundWithBlock({ (foto, error) -> Void in
-                if foto != nil{
-                    
-                    let image = UIImage(data: foto!)
-                    
-                    cell.userImageButton.setBackgroundImage(image, forState: .Normal)
-                    
-                    cell.actInd.stopAnimating()
-                    
-                }
-                
-            })
-            
-            }
-            
-            else{
-                
-                cell.actInd.stopAnimating()
-                
-            }
+//            if usuario?.foto != nil {
+//            
+//            self.usuario?.foto?.getDataInBackgroundWithBlock({ (foto, error) -> Void in
+//                if foto != nil{
+//                    
+//                    let image = UIImage(data: foto!)
+//                    
+//                    cell.userImageButton.setBackgroundImage(image, forState: .Normal)
+//                    
+//                    cell.actInd.stopAnimating()
+//                    
+//                }
+//                
+//            })
+//
+//            }
+//            
+//            else{
+//                
+//                cell.actInd.stopAnimating()
+//                
+//            }
             
             return cell
         }
@@ -422,6 +423,50 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         getNotification()
         
         refreshControl.endRefreshing()
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreNotification()
+        }
+    }
+    
+    func getMoreNotification(){
+        
+//        self.activityIndicator.startAnimating() adicionar depois, nao quero mexer no storyboard
+        
+        ParseModel.findMoreNotification(self.notificacoes.count) { (array, error) -> Void in
+            
+            if error == nil {
+                
+                if let array = array {
+                    
+                    self.notificacoes = self.notificacoes + array
+                    self.tableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+//            self.activityIndicator.stopAnimating()
+            
+        }
+        
     }
     
 }

@@ -217,7 +217,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     
-    let threshold: CGFloat = 100.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     
@@ -227,7 +227,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
             self.isLoadingMore = true
-            
             self.getMoreQuestion()
             
         }

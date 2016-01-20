@@ -52,7 +52,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Load more answer
     
-    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -30.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     
@@ -204,12 +204,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                 })
             
+                cell.isTextTooBig = false
+            
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
                 cell.nickName.text = info.nickname
                 cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
                 cell.answerText.font = UIFont(name: "Futura", size: 14.0)
+                cell.formatText()
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
                 //cell.cardSetup()

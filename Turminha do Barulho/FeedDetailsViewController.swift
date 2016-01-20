@@ -11,11 +11,18 @@ import Parse
 
 class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
     
+    @IBOutlet weak var aumentaLetra: UIButton!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var comentarTextField: UITextField!
     
     //TableView
     @IBOutlet weak var detailsTableView : UITableView!
+    
+    //aumenta letra
+    let fontSize:[CGFloat] = [17.0, 20.0, 23.0]
+    
+    var actualFontSize:Int = 0
     
     //Dados das noticias, devemos usar para mandar para nossa TableView
     var passedCell: Dados!
@@ -44,8 +51,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.detailsTableView.registerNib(UINib(nibName: "DetalhesNoticiaCell", bundle: nil), forCellReuseIdentifier: "detailsCell")
         self.detailsTableView.registerNib(UINib(nibName: "ComentarioDetalhes", bundle: nil), forCellReuseIdentifier: "comentarioDetalhes")
         
-        self.detailsTableView.reloadData()
-        
         detailsTableView.estimatedRowHeight = 700
         detailsTableView.rowHeight = UITableViewAutomaticDimension
        
@@ -53,9 +58,40 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.detailsTableView.separatorStyle = .SingleLine
         
+        ParseModel.findLike(self.passedCell.id) { (existe, error) -> Void in
+            
+            self.passedCell.upvoted = existe
+            self.detailsTableView.reloadData()
+            
+        }
+        
+        self.aumentaLetra.addTarget(self, action: "aumentaLetra:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         configRefresh()
         
         pegarComentarios()
+        
+    }
+    
+    
+    //MARK: - aumenta letra
+    
+    func aumentaLetra(sender:AnyObject){
+        
+        let size = self.actualFontSize + 1
+        
+        if size < self.fontSize.count{
+            
+            self.actualFontSize = size
+            
+        }
+        else{
+            
+            self.actualFontSize = 0
+            
+        }
+        
+        self.detailsTableView.reloadData()
         
     }
     
@@ -149,18 +185,24 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         if (indexPath.row==0){
             let cell = tableView.dequeueReusableCellWithIdentifier("detailsCell", forIndexPath: indexPath) as! NewsDetailCell
             
-            passedCell.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-                
-                cell.imagem.image = UIImage(data: result!)
-                
-            })
+//            passedCell.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
+//                
+//                cell.imagem.image = UIImage(data: result!)
+//                
+//            })
+            cell.imagem.image = passedCell.imagem
             
             //PROVISORIO
-            cell.isVoted = false
+            
+            cell.id = self.passedCell.id
+            
+            cell.isVoted = passedCell.upvoted
+            cell.configButton()
             
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext
+            cell.fullText.font = UIFont(name: "Futura", size: self.fontSize[self.actualFontSize])
             cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell
@@ -240,4 +282,46 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             self.detailsTableView.reloadData()
         }
     }
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = -5.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreComments()
+        }
+    }
+    
+    func getMoreComments(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreComents(self.passedCell.id, skip: self.commentArray.count) { (array, error) -> Void in
+        
+            if error == nil{
+                
+                if let array = array {
+                    
+                    self.commentArray = self.commentArray + array
+                    self.detailsTableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+            self.activityIndicator.stopAnimating()
+            
+        }
+        
+    }
+    
 }

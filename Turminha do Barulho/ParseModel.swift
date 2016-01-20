@@ -39,7 +39,7 @@ class ParseModel {
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
                         
                         array.append(dados)
                         
@@ -84,7 +84,7 @@ class ParseModel {
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, imagem: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file:imagem, upvote: upvote, fulltext: textoInteiro,id: id)
                         
                         array.append(dados)
                         
@@ -475,6 +475,8 @@ class ParseModel {
         
         query.includeKey("deUsuario")
         
+        query.limit = 10
+        
         var array = [Notificacao]()
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -510,6 +512,60 @@ class ParseModel {
             }
         }
         
+    }
+    
+    static func findMoreNotification(skip:Int,completionHandler:(array:[Notificacao]?, error:NSError?) -> Void){
+        let user = PFUser.currentUser()!
+        
+        let query = PFQuery(className: "Atividade")
+        
+        query.whereKey("paraUsuario", equalTo: user.objectId!)
+        
+        query.whereKey("deUsuario", notEqualTo: user)
+        
+        query.addDescendingOrder("createdAt")
+        
+        query.includeKey("deUsuario")
+        
+        query.limit = 10
+        
+        query.skip = skip
+        
+        var array = [Notificacao]()
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            if error == nil {
+                
+                if let objects = objects{
+                    
+                    
+                    for object in objects{
+                        
+                        let user = object["deUsuario"] as! PFUser
+                        let nome = user["nome"] as! String
+                        let imagem = user["foto"] as? PFFile
+                        
+                        
+                        let para = object["para"] as! String
+                        
+                        let notificacao = Notificacao(usuario: nome, imagem: imagem, para: para)
+                        
+                        array.append(notificacao)
+                        
+                    }
+                    
+                }
+                
+                
+                completionHandler(array: array, error: nil)
+                
+            }
+            else{
+                completionHandler(array: nil, error: error)
+            }
+        }
+
     }
     
     
@@ -554,6 +610,38 @@ class ParseModel {
             
         }
         
+        
+    }
+    
+    static func findLike (para:String, completionHandler:(existe:Bool, error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Atividade")
+        
+        let user = PFUser.currentUser()
+        
+        query.whereKey("tipo", equalTo: "Upvote")
+        query.whereKey("para", equalTo: para)
+        query.whereKey("deUsuario", equalTo: user!)
+        
+        query.countObjectsInBackgroundWithBlock { (count, error) -> Void in
+            
+            if error == nil {
+                
+                if count != 1{
+                    completionHandler(existe: false, error: nil)
+                }
+                else{
+                    completionHandler(existe: true, error: nil)
+                }
+                
+            }
+            else{
+                
+                completionHandler(existe: false, error: error)
+                
+            }
+            
+        }
         
     }
     
@@ -807,16 +895,77 @@ class ParseModel {
     }
     
     
+    static func aumentarUpvotesNoticia(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                var upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote++
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+            
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    static func diminuirUpvotesNoticia(id: String,completionHandler:(sucesso:Bool,error: NSError?) -> Void){
+        
+        let query = PFQuery(className: "Noticia")
+        
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                var upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote--
+                object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
+                    
+                    if error == nil {
+                        completionHandler(sucesso: true, error: nil)
+                    }
+                    else{
+                        completionHandler(sucesso: false, error: error)
+                    }
+                })
+                
+            }
+                
+            else{
+                completionHandler(sucesso: false, error: error)
+            }
+            
+        }
+        
+    }
+    
+    
     //MARK: - Apagar
     
     static func apagarLike(para:String, completionHandler:(sucesso:Bool, error:NSError?) -> Void){
         
         let query = PFQuery(className: "Atividade")
-        let deUsuario = (PFUser.currentUser()?.objectId)!
+        let deUsuario = PFUser.currentUser()
         
         
         query.whereKey("para", equalTo: para)
-        query.whereKey("deUsuario", equalTo: deUsuario)
+        query.whereKey("deUsuario", equalTo: deUsuario!)
         query.whereKey("tipo", equalTo: "Upvote")
         
         query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in

@@ -20,8 +20,6 @@ class MateriasDetalheViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var isModoNoturno:Bool = false
-    
     let fontSize:[CGFloat] = [17.0, 20.0, 23.0]
     
     var actualFontSize:Int = 0
@@ -113,27 +111,6 @@ class MateriasDetalheViewController: UIViewController {
         }
     }
     
-    func modoNoturno(sender: AnyObject){
-        
-        if isModoNoturno{
-            
-            self.texto.textColor = UIColor.blackColor()
-            self.scrollView.backgroundColor = UIColor.whiteColor()
-            self.view.backgroundColor = UIColor.whiteColor()
-            
-            self.isModoNoturno = false
-
-            
-        }
-        else{
-            
-            self.texto.textColor = UIColor.whiteColor()
-            self.scrollView.backgroundColor = UIColor.blackColor()
-            self.view.backgroundColor = UIColor.blackColor()
-            
-            self.isModoNoturno = true
-        }
-    }
     
 }
 

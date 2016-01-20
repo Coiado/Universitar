@@ -25,6 +25,11 @@ class AnswerTableViewCell: UITableViewCell {
     var usuario : String?
     var usuarioId : String?
     
+    //Numero maximo de caracteres para inserir o "veja mais"
+    var maximumCharacterNumber = 300
+    var isTextTooBig: Bool!
+    var fullAnswer : String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,6 +39,54 @@ class AnswerTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    //Checa o numero de caracteres e formata o texto se for necessario
+    func formatText()
+    {
+        //Salvamos o texto inteiro
+        self.fullAnswer = self.answerText.text
+        
+        //Contamos se o numero de caracteres é maior que o nosso maximo
+        if(self.answerText.text?.characters.count > self.maximumCharacterNumber)
+        {
+            var firstString: String = ""
+            
+            //Formatamos a String
+            for i in 0...150
+            {
+                let index = self.answerText.text?.startIndex.advancedBy(i)
+                let char = self.answerText.text![index!]
+                firstString.append(char)
+            }
+            
+            firstString = firstString + "...\n(Clique para ver mais)"
+            
+            self.answerText.text = firstString
+            self.isTextTooBig = true
+        }
+    }
+    
+    //Checa se clicamos no label
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        //Checamos se eh necessario checar o toque
+        if(self.isTextTooBig == true)
+        {
+            let touch : UITouch = touches.first!
+            let touchPoint : CGPoint = touch.locationInView(self)
+           
+            //Checamos se nosso toque se encontra no retangulo da label
+            if(self.answerText.frame.contains(touchPoint))
+            {
+                print("VER MAIS")
+                //TO DO
+                //Inserir metodo para mostrar o resto do texto, para isso usar a string fullAnswer
+            }
+        
+        }
+        
     }
     
     func cardSetup(){
