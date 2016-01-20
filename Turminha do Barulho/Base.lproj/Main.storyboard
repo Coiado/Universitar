@@ -925,9 +925,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9GA-AT-Of0"/>
+                    <navigationItem key="navigationItem" id="9GA-AT-Of0">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rrU-Mn-dSr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LmX-PH-iqF">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sair"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="actInd" destination="FyQ-G6-upY" id="llK-dR-nJ3"/>
+                        <outlet property="sairButton" destination="LmX-PH-iqF" id="6jl-rv-aui"/>
                         <outlet property="tableView" destination="A9f-B7-RNb" id="tMG-rp-mZI"/>
                         <segue destination="ETo-HA-SXP" kind="show" identifier="pergunta" id="cck-PX-VFc"/>
                     </connections>

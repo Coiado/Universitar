@@ -11,6 +11,8 @@ import Parse
 
 class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var sairButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var actInd: UIActivityIndicatorView!
@@ -73,6 +75,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             getUser()
             getNotification()
             configRefresh()
+            configButton()
             
             imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -101,6 +104,19 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
     }
     
+    
+    func configButton(){
+        
+        self.sairButton.addTarget(self, action: "sair:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    func sair(sender: AnyObject){
+        
+        PFUser.logOut()
+        self.tabBarController?.selectedIndex = 0
+        
+    }
     
     func getUser(){
 
