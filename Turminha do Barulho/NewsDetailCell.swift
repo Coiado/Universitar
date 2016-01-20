@@ -16,6 +16,7 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var fullText: UILabel!
     @IBOutlet weak var upVoteButton: UIButton!
     var isVoted: Bool!
+    var id : String = ""
     
     //Atributos do quadrado branco
     let squareOrigin : CGPoint = CGPoint(x: -10, y: -10)
@@ -37,7 +38,7 @@ class NewsDetailCell: UITableViewCell {
         
         self.subTitle.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         
-        self.updateButton()
+        self.configButton()
         
     }
     
@@ -49,30 +50,52 @@ class NewsDetailCell: UITableViewCell {
         
     }
     
+    func configButton(){
+        
+        if (self.isVoted == false) {
+            
+            self.upVoteButton.setTitle("☆", forState: .Normal)
+            
+        }
+        else{
+            
+            self.upVoteButton.setTitle("★", forState: .Normal)
+            
+        }
+    
+    }
     
     func updateButton()
     {
-        if((self.isVoted) != nil)
-        {
-            if(self.isVoted == false)
-            {
-                self.upVoteButton.setTitle("☆", forState: .Normal)
-                self.isVoted = false
-            }
-            else
-            {
-                self.upVoteButton.setTitle("★", forState: .Normal)
-                self.isVoted = true
-            }
-        }
+        self.isVoted = !self.isVoted
         
+        self.configButton()
     }
     
     @IBAction func upVote(sender: AnyObject) {
         
         self.updateButton()
         
-        //INSERIR METODOS DO PARSE
+        self.upVoteButton.enabled = false
+        
+        if self.isVoted! {
+            
+            ParseModel.salvarNovoLike(self.id, usuario: "", completionHandler: { (sucesso, error) -> Void in
+                
+                self.upVoteButton.enabled = true
+                
+            })
+            
+        }
+        else{
+            
+            ParseModel.apagarLike(self.id, completionHandler: { (sucesso, error) -> Void in
+                
+                self.upVoteButton.enabled = true
+                
+            })
+            
+        }
         
     }
     

@@ -20,18 +20,6 @@ struct Usuario {
         self.nome = nome
         self.foto = foto
         self.imagem = UIImage(named: "userIcon")!
-        foto?.getDataInBackgroundWithBlock({ (data, error) -> Void in
-            
-            if error == nil {
-                
-                if data != nil{
-                    self.imagem = UIImage(data: data!)!
-                    
-                    print(self.imagem)
-                }
-            
-            }
-        })
         
     }
     

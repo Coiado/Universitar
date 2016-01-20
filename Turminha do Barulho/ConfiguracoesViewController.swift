@@ -231,14 +231,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     }
     
     
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        if indexPath.row ==
-//        
-//    }
-    
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {

@@ -43,12 +43,7 @@ struct Dados {
         self.fulltext = fulltext
         self.id = id
         self.imagem = UIImage(named: "userIcon")!
-        file.getDataInBackgroundWithBlock { (data, error) -> Void in
-            
-            if error == nil{
-                self.imagem = UIImage(data: data!)!
-            }
-        }
+        
     }
     
     
