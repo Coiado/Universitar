@@ -21,8 +21,9 @@ struct Question{
     var upvotes: Int?
     var tags: String?
     var user: String
+    var date: NSDate
     
-    init(nickname: String?, userIcon: PFFile?, questionTitle: String?, questionText: String?, answers: [Answer]?, id: String?, comentarios: Int?, upvotes: Int?, tags: String?, user: String)
+    init(nickname: String?, userIcon: PFFile?, questionTitle: String?, questionText: String?, answers: [Answer]?, id: String?, comentarios: Int?, upvotes: Int?, tags: String?, user: String, date: NSDate)
     {
         
 //        let novaQuestao = PFObject(className: "Question")
@@ -45,6 +46,7 @@ struct Question{
         self.comentarios = comentarios
         self.upvotes = upvotes
         self.tags = tags
+        self.date = date
     }
     
 }

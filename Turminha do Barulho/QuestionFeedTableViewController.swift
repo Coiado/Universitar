@@ -154,9 +154,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.updateConstraints()
         cell.cardSetup()
         
+        let now = NSDate()
+        
+        cell.dateLabel.text = now.offsetFrom(info.date)
+        
         // Deixando a foto do perfil arredondada
         cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
-        
         
         return cell
         
@@ -316,6 +319,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         }
         
     }
+    
+    
     
 }
 

@@ -220,7 +220,9 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
                     
                     let id = perguntaId
                     
-                    self.question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!)
+                    let date = object?.createdAt
+                    
+                    self.question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!,date: date! )
                     
                     
                     self.performSegueWithIdentifier("pergunta", sender: self)
