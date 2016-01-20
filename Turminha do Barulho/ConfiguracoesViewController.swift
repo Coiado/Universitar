@@ -129,6 +129,17 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
         self.usuario = Usuario(nome: nome, foto: foto)
         
+        foto.getDataInBackgroundWithBlock { (data, error) -> Void in
+        
+            if error == nil {
+                
+                self.usuario?.imagem = UIImage(data: data!)!
+                self.tableView.reloadData()
+                
+            }
+            
+        }
+        
         
     }
     
@@ -254,7 +265,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("Perfil", forIndexPath: indexPath) as! userCell
             
-            cell.actInd.startAnimating()
+            //cell.actInd.startAnimating()
             
             cell.userLabel.text = self.usuario?.nome
             
@@ -263,8 +274,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             cell.userImageButton.layer.cornerRadius = 24
             
             cell.userImageButton.layer.masksToBounds = true
-            
-//            let userIcon = UIImage(named: "userIcon")
             
             cell.userImageButton.tintColor = UIColor.clearColor()
             

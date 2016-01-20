@@ -650,6 +650,17 @@ class ParseModel {
     }
     
     
+    static func getImage(file:PFFile, completionHandler:(data: NSData?, error: NSError?, file:PFFile) -> Void){
+        
+        file.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+            completionHandler(data: data!, error: error, file: file)
+            
+        }
+        
+    }
+    
+    
     //MARK: - Salvar
     
     
