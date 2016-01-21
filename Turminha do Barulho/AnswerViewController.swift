@@ -260,8 +260,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 let now = NSDate()
             
-                cell.answerDate.text = now.offsetFrom(info.date)
+                let stringDate = now.offsetFrom(info.date)
             
+                cell.answerDate.text = stringDate
+
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
                 cell.nickName.text = info.nickname
@@ -312,6 +314,20 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerTableViewCell
+        
+        if cell.isTextTooBig! {
+            
+            print("teste")
+            
+            self.performSegueWithIdentifier("verMais", sender: self)
+        }
+        
+    }
+    
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         let user = PFUser.currentUser()?.objectId
         if user != nil{
@@ -332,6 +348,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             destination.respostaDelegate = self
         }
+//        if segue.identifier == "verMais"
+//        {
+//            
+//            let destination = segue.destinationViewController as!
+//            
+//        }
     }
     
 

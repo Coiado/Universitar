@@ -93,6 +93,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         pegarComentarios()
         
+        self.detailsTableView.remembersLastFocusedIndexPath = true
+        
     }
     
     
