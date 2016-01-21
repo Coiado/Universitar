@@ -141,7 +141,9 @@ class ParseModel {
                         
                         let id = object.objectId
                         
-                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!)
+                        let date = object.createdAt!
+                        
+                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!, date: date )
                         
                         array.append(question)
                         
@@ -206,7 +208,9 @@ class ParseModel {
                         
                         let id = object.objectId
                         
-                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!)
+                        let date = object.createdAt!
+                        
+                        let question = Question(nickname: nick , userIcon: icon, questionTitle: titulo, questionText: text, answers: nil, id: id, comentarios: comentarios, upvotes: upvote, tags: tags, user: user.objectId!,date: date)
                         
                         array.append(question)
                         
@@ -640,6 +644,17 @@ class ParseModel {
                 completionHandler(existe: false, error: error)
                 
             }
+            
+        }
+        
+    }
+    
+    
+    static func getImage(file:PFFile, completionHandler:(data: NSData?, error: NSError?, file:PFFile) -> Void){
+        
+        file.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+            completionHandler(data: data!, error: error, file: file)
             
         }
         

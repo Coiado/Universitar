@@ -29,6 +29,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     //Vetor com os comentarios
     var commentArray: [Answer] = []
+
+    var isLogged : Bool = false
     
     //Celula da noticia
     var newsCell : NewsDetailCell!
@@ -58,11 +60,20 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.detailsTableView.separatorStyle = .SingleLine
         
-        ParseModel.findLike(self.passedCell.id) { (existe, error) -> Void in
+        if PFUser.currentUser() != nil {
+        
+            self.isLogged = true
             
-            self.passedCell.upvoted = existe
-            self.detailsTableView.reloadData()
+            ParseModel.findLike(self.passedCell.id) { (existe, error) -> Void in
+                
+                self.passedCell.upvoted = existe
+                self.detailsTableView.reloadData()
             
+            }
+        }
+        
+        else{
+            self.passedCell.upvoted = false
         }
         
         self.aumentaLetra.addTarget(self, action: "aumentaLetra:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -198,6 +209,13 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.isVoted = passedCell.upvoted
             cell.configButton()
+            cell.upVoteButton.enabled = false
+            
+            if isLogged{
+                
+                cell.upVoteButton.enabled = true
+                
+            }
             
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
