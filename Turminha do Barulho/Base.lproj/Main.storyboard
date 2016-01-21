@@ -63,11 +63,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="fjY-Ls-APG">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="XeP-b9-RCA"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="3mO-lh-1aB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZMg-GM-MWA">
+                                <rect key="frame" x="327" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="aumentaLetra2"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="activityIndicator" destination="cUx-gr-DDx" id="lRe-iW-v0s"/>
-                        <outlet property="aumentaLetra" destination="Yd0-kk-AUb" id="hNd-QK-B4C"/>
+                        <outlet property="aumentaLetra" destination="ZMg-GM-MWA" id="DpY-zY-W5U"/>
                         <outlet property="comentarTextField" destination="LO5-bV-l39" id="bkh-W2-4OB"/>
                         <outlet property="detailsTableView" destination="one-Ix-0Uo" id="fO6-gC-e7o"/>
                         <segue destination="o6X-ci-G4o" kind="show" identifier="criarComentário" id="1zD-E0-HBm"/>
@@ -1031,12 +1038,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cadastro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm1-0G-s1k">
+                                <rect key="frame" x="152" y="39" width="70" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKL-w8-Isg">
                                 <rect key="frame" x="310" y="264" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tKL-w8-Isg" secondAttribute="height" multiplier="1:1" id="hZn-bs-VNt"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-w2-WJb">
+                                <rect key="frame" x="41" y="20" width="41" height="30"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="voltarParaTela:" destination="m2D-bE-Wxj" eventType="touchUpInside" id="sz4-bt-etb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.25490196079999999" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
