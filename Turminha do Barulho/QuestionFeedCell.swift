@@ -83,6 +83,7 @@ class QuestionFeedCell: UITableViewCell {
         self.perguntaTitulo.textColor = UIColor.whiteColor()
         self.questionText.textColor = UIColor.whiteColor()
         self.dateLabel.textColor = UIColor.whiteColor()
+        self.nickName.sizeToFit()
 
         
 
