@@ -24,6 +24,8 @@ class AnswerTableViewCell: UITableViewCell {
     var id: String?
     var usuario : String?
     var usuarioId : String?
+    @IBOutlet weak var answerDate: UILabel!
+    
     
     //Numero maximo de caracteres para inserir o "veja mais"
     var maximumCharacterNumber = 300

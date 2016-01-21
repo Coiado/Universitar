@@ -259,6 +259,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 cell.isTextTooBig = false
             
+                let now = NSDate()
+            
+                cell.answerDate.text = now.offsetFrom(info.date)
+            
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
                 cell.nickName.text = info.nickname
