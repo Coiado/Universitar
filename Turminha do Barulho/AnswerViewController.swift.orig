@@ -260,10 +260,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 let now = NSDate()
             
+<<<<<<< HEAD
+                cell.answerDate.text = now.offsetFrom(info.date)
+            
+=======
                 let stringDate = now.offsetFrom(info.date)
             
                 cell.answerDate.text = stringDate
 
+>>>>>>> 80b1e0369302108404ddfc8238e44ce9dd74cb77
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
                 cell.nickName.text = info.nickname

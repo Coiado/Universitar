@@ -918,8 +918,8 @@ class ParseModel {
             
             if error == nil {
                 
-                var upvote = object!["upvote"] as! Int
-                object!["upvote"] = upvote++
+                let upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote + 1
                 object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
                     
                     if error == nil {
@@ -949,7 +949,7 @@ class ParseModel {
             if error == nil {
                 
                 var upvote = object!["upvote"] as! Int
-                object!["upvote"] = upvote--
+                object!["upvote"] = upvote - 1
                 object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
                     
                     if error == nil {
