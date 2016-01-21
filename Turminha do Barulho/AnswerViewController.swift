@@ -29,6 +29,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // Dicionario para imagens
     var imagesDictionary = [String:UIImage]()
     
+    var actualCell : AnswerTableViewCell?
     
     //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
     //Colors
@@ -342,7 +343,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
             if cell.isTextTooBig! {
                 
-                print("teste")
+                self.actualCell = cell
                 
                 self.performSegueWithIdentifier("verMais", sender: self)
             }
@@ -371,12 +372,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             destination.respostaDelegate = self
         }
-//        if segue.identifier == "verMais"
-//        {
-//            
-//            let destination = segue.destinationViewController as!
-//            
-//        }
+        if segue.identifier == "verMais"
+        {
+            
+            let destination = segue.destinationViewController as! AnswerDetailTableViewController
+            
+            destination.passedCell = self.actualCell!
+            
+            
+        }
     }
     
 
