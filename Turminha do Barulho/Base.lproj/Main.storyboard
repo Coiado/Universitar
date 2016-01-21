@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -752,10 +753,10 @@
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="jRO-Oq-ryg"/>
-                                                            <exclude reference="zHU-yK-FMN"/>
+                                                            <exclude reference="IzZ-fW-2dX"/>
                                                             <exclude reference="ZfA-7d-Qu0"/>
                                                             <exclude reference="pzA-Fg-B56"/>
-                                                            <exclude reference="IzZ-fW-2dX"/>
+                                                            <exclude reference="zHU-yK-FMN"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -1202,14 +1203,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-4w-Bzs">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-4w-Bzs">
                                                     <rect key="frame" x="15" y="14" width="48" height="48"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="7Tv-Gs-mBv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2l-ae-87g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2l-ae-87g">
                                                     <rect key="frame" x="71" y="14" width="232" height="50"/>
                                                     <animations/>
                                                     <constraints>
@@ -1232,12 +1233,10 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="r2l-ae-87g" firstAttribute="leading" secondItem="I2p-4w-Bzs" secondAttribute="trailing" constant="8" id="0Ak-ny-37g"/>
-                                                <constraint firstItem="RBm-0I-maz" firstAttribute="leading" secondItem="r2l-ae-87g" secondAttribute="trailing" constant="32" id="0BY-rx-7G1"/>
-                                                <constraint firstItem="RBm-0I-maz" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="22" id="7yX-nq-Stw"/>
-                                                <constraint firstItem="I2p-4w-Bzs" firstAttribute="leading" secondItem="2zj-O8-dAD" secondAttribute="leadingMargin" constant="7" id="8zD-nN-7Ux"/>
-                                                <constraint firstItem="I2p-4w-Bzs" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="6" id="Lp2-om-B3a"/>
-                                                <constraint firstItem="r2l-ae-87g" firstAttribute="top" secondItem="2zj-O8-dAD" secondAttribute="topMargin" constant="6" id="NDX-J5-w83"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RBm-0I-maz" secondAttribute="trailing" constant="8" id="Ah3-aB-cxJ"/>
+                                                <constraint firstItem="RBm-0I-maz" firstAttribute="trailing" secondItem="Lq8-46-sbI" secondAttribute="trailing" id="ZPC-BV-AVx"/>
+                                                <constraint firstItem="RBm-0I-maz" firstAttribute="top" secondItem="6oB-eC-hbM" secondAttribute="top" id="fsw-na-nta"/>
+                                                <constraint firstItem="RBm-0I-maz" firstAttribute="top" secondItem="QS3-Ys-HBU" secondAttribute="topMargin" constant="14" id="jHl-FW-HZH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -2112,7 +2111,7 @@
         <image name="perguntas3" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nU2-4M-6w8"/>
+        <segue reference="cck-PX-VFc"/>
         <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
