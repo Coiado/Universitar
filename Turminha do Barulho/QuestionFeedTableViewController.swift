@@ -174,7 +174,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         // Fazendo com que o texto fique adaptavel com a celula da tableview
         cell.questionText.sizeToFit()
         cell.updateConstraints()
-        cell.cardSetup()
         
         let now = NSDate()
         
@@ -182,6 +181,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         // Deixando a foto do perfil arredondada
         cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
+        
+        
+        cell.cardSetup()
         
         return cell
         
