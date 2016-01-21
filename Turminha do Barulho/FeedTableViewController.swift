@@ -159,6 +159,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
             }
         }
         
+        let date = info.date
+        
+        cell.dateLabel.text = date.dateToString(date)
+        
         
         // pega imagem do dicionario, caso nao exista, baixa a imagem e deixa ela no dicionario
         

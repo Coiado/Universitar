@@ -20,9 +20,10 @@ struct Dados {
     var upvoted:Bool = false
     var fulltext: String
     var id : String
+    var date : NSDate
 
     
-    init (titulo: String?, subtitulo: String?, texto: String?, file: PFFile, upvote: Int? = 0, fulltext: String, id: String)
+    init (titulo: String?, subtitulo: String?, texto: String?, file: PFFile, upvote: Int? = 0, fulltext: String, id: String, date: NSDate)
     {
         
 //        let novaNoticia = PFObject(className: "Noticia")
@@ -43,7 +44,7 @@ struct Dados {
         self.fulltext = fulltext
         self.id = id
         self.imagem = UIImage(named: "userIcon")!
-        
+        self.date = date
     }
     
     

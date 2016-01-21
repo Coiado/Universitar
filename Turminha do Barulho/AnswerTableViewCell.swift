@@ -24,6 +24,8 @@ class AnswerTableViewCell: UITableViewCell {
     var id: String?
     var usuario : String?
     var usuarioId : String?
+    @IBOutlet weak var answerDate: UILabel!
+    
     
     //Numero maximo de caracteres para inserir o "veja mais"
     var maximumCharacterNumber = 300
@@ -62,32 +64,38 @@ class AnswerTableViewCell: UITableViewCell {
             
             firstString = firstString + "...\n(Clique para ver mais)"
             
+            let noticeColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+            
+            let atrString : NSMutableAttributedString = NSMutableAttributedString(string: firstString)
+            atrString.addAttribute(NSForegroundColorAttributeName, value: noticeColor, range: NSRange(location: 154, length: 23))
+            
             self.answerText.text = firstString
+            self.answerText.attributedText = atrString
             self.isTextTooBig = true
         }
     }
     
     //Checa se clicamos no label
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        //Checamos se eh necessario checar o toque
-        if(self.isTextTooBig == true)
-        {
-            let touch : UITouch = touches.first!
-            let touchPoint : CGPoint = touch.locationInView(self)
-           
-            //Checamos se nosso toque se encontra no retangulo da label
-            if(self.answerText.frame.contains(touchPoint))
-            {
-                print("VER MAIS")
-                //TO DO
-                //Inserir metodo para mostrar o resto do texto, para isso usar a string fullAnswer
-            }
-        
-        }
-        
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        
+//        //Checamos se eh necessario checar o toque
+//        if(self.isTextTooBig == true)
+//        {
+//            let touch : UITouch = touches.first!
+//            let touchPoint : CGPoint = touch.locationInView(self)
+//           
+//            //Checamos se nosso toque se encontra no retangulo da label
+//            if(self.answerText.frame.contains(touchPoint))
+//            {
+//                print("VER MAIS")
+//                //TO DO
+//                //Inserir metodo para mostrar o resto do texto, para isso usar a string fullAnswer
+//            }
+//        
+//        }
+//        
+//    }
     
     func cardSetup(){
         

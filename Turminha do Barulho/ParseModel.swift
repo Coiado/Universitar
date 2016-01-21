@@ -38,8 +38,9 @@ class ParseModel {
                         let upvote = object["upvote"] as! Int
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
+                        let date = object.createdAt!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file: imagem, upvote: upvote, fulltext: textoInteiro,id: id,date: date)
                         
                         array.append(dados)
                         
@@ -83,8 +84,9 @@ class ParseModel {
                         let upvote = object["upvote"] as! Int
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
+                        let date = object.createdAt!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file:imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file:imagem, upvote: upvote, fulltext: textoInteiro,id: id,date: date)
                         
                         array.append(dados)
                         
@@ -398,9 +400,9 @@ class ParseModel {
                     let upvote = object["upvote"] as? Int
                     let id = (object.objectId)!
                     let nick = user!["nome"] as? String
+                    let date = object.createdAt!
                     
-                    
-                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId)
+                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId, date: date)
                     
                     array.append(answer)
                     
@@ -446,9 +448,9 @@ class ParseModel {
                     let upvote = object["upvote"] as? Int
                     let id = (object.objectId)!
                     let nick = user!["nome"] as? String
+                    let date = object.createdAt!
                     
-                    
-                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId)
+                    let answer = Answer(nickname: nick,userIcon: image, answerText: conteudo, upvote: upvote,id: id, userId: user?.objectId,date: date)
                     
                     array.append(answer)
                     
@@ -918,8 +920,8 @@ class ParseModel {
             
             if error == nil {
                 
-                var upvote = object!["upvote"] as! Int
-                object!["upvote"] = upvote++
+                let upvote = object!["upvote"] as! Int
+                object!["upvote"] = upvote + 1
                 object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
                     
                     if error == nil {
@@ -949,7 +951,7 @@ class ParseModel {
             if error == nil {
                 
                 var upvote = object!["upvote"] as! Int
-                object!["upvote"] = upvote--
+                object!["upvote"] = upvote - 1
                 object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
                     
                     if error == nil {

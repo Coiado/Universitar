@@ -93,6 +93,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         pegarComentarios()
         
+        self.detailsTableView.remembersLastFocusedIndexPath = true
+        
     }
     
     
@@ -135,9 +137,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.refreshControl.endRefreshing()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     func pegarComentarios(){
         
@@ -209,6 +208,10 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                 cell.upVoteButton.enabled = true
                 
             }
+            
+            let date = passedCell.date
+            
+            cell.dateLabel.text = date.dateToString(date)
             
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo

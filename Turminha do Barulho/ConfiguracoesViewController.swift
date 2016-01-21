@@ -135,23 +135,29 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         
         let user = PFUser.currentUser()
         
-        let foto = user?.valueForKey("foto") as! PFFile
+        let foto = user?.valueForKey("foto") as? PFFile
         
-        let nome = user?.valueForKey("nome") as! String
+        let nome = user?.valueForKey("nome") as! String 
         
         self.usuario = Usuario(nome: nome, foto: foto)
         
-        foto.getDataInBackgroundWithBlock { (data, error) -> Void in
-        
-            if error == nil {
-                
-                self.usuario?.imagem = UIImage(data: data!)!
-                self.tableView.reloadData()
-                
-            }
+        if foto == nil {
+            
+            self.usuario?.imagem = UIImage(named: "userIcon")!
             
         }
-        
+        else{
+            foto!.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
+                if error == nil {
+                    
+                    self.usuario?.imagem = UIImage(data: data!)!
+                    self.tableView.reloadData()
+                    
+                }
+                
+            }
+        }
         
     }
     

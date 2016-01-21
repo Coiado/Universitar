@@ -64,8 +64,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-
         self.imagesDictionary.removeAll()
+        
         // Dispose of any resources that can be recreated.
     }
 

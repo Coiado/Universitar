@@ -16,7 +16,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var textField: UILabel!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var upvotes: UILabel!
-    
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     var fullText: String!
@@ -72,6 +72,7 @@ class FeedCell: UITableViewCell {
         self.subTitle.textColor = UIColor.whiteColor()
         self.title.backgroundColor = UIColor.clearColor()
         self.textField.textColor = UIColor.whiteColor()
+        self.dateLabel.textColor = UIColor.whiteColor()
         
         self.cardView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
         

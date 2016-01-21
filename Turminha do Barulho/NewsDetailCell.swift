@@ -15,6 +15,7 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var fullText: UILabel!
     @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
     var isVoted: Bool!
     var id : String = ""
     
@@ -82,8 +83,13 @@ class NewsDetailCell: UITableViewCell {
             
             ParseModel.salvarNovoLike(self.id, usuario: "", completionHandler: { (sucesso, error) -> Void in
                 
-                self.upVoteButton.enabled = true
+                ParseModel.aumentarUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.upVoteButton.enabled = true
+
+                })
                 
+                                
             })
             
         }
@@ -91,7 +97,12 @@ class NewsDetailCell: UITableViewCell {
             
             ParseModel.apagarLike(self.id, completionHandler: { (sucesso, error) -> Void in
                 
-                self.upVoteButton.enabled = true
+                
+                ParseModel.diminuirUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.upVoteButton.enabled = true
+
+                })
                 
             })
             
