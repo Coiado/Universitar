@@ -33,6 +33,10 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     var imagePicker : UIImagePickerController!
     var newUserPhoto : UIImage!
     
+    
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
+    
     //ImagePickerDelegateMethods
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -43,7 +47,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             if error == nil{
                 
-                self.getUser()
+                self.tableView.reloadData()
                 
             }
             else{
@@ -53,6 +57,14 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             }
         })
 
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        self.imagesDictionary.removeAll()
+        
+        // Dispose of any resources that can be recreated.
     }
     
     func choosePhoto()
@@ -283,28 +295,6 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             cell.editarButton.addTarget(self, action: "choosePhoto", forControlEvents: .TouchUpInside)
             
-//            if usuario?.foto != nil {
-//            
-//            self.usuario?.foto?.getDataInBackgroundWithBlock({ (foto, error) -> Void in
-//                if foto != nil{
-//                    
-//                    let image = UIImage(data: foto!)
-//                    
-//                    cell.userImageButton.setBackgroundImage(image, forState: .Normal)
-//                    
-//                    cell.actInd.stopAnimating()
-//                    
-//                }
-//                
-//            })
-//
-//            }
-//            
-//            else{
-//                
-//                cell.actInd.stopAnimating()
-//                
-//            }
             
             return cell
         }
@@ -319,35 +309,41 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             
             let user = data.usuario
             
-            cell.userImage.image = UIImage(named: "userIcon")
-            
             cell.userImage.layer.masksToBounds = true
             
             cell.userImage.layer.cornerRadius = 24
             
-            if data.imagem != nil{
+            let file = String(data.imagem)
             
-            data.imagem?.getDataInBackgroundWithBlock({ (image, error) -> Void in
+            if let image = self.imagesDictionary[file]{
                 
-                if error == nil{
-                    
-                    let image = UIImage(data: image!)
-                    cell.userImage.image = image
-                    
-                }
+                cell.userImage.image = image
                 
-                cell.actInd.stopAnimating()
-                
-            })
-            
             }
-            
-            
             else{
                 
-                cell.actInd.stopAnimating()
-                
+                if let file = data.imagem {
+                    ParseModel.getImage(file, completionHandler: { (imagem, error, file) -> Void in
+                        
+                        if error == nil {
+                            
+                            let image = UIImage(data: imagem!)
+                            let file = String(data.imagem)
+                            cell.userImage.image = image
+                            self.imagesDictionary[file] = image
+                            
+                        }
+                        
+                    })
+                    
+                }
+                else{
+                    
+                    cell.userImage.image = UIImage(named: "userIcon")
+                    
+                }
             }
+            
             cell.notificationLabel.text = (user) + texto
             
             return cell
@@ -365,6 +361,8 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         let picture = PFFile(name: "image.png", data: compressedImage)
         
         PFUser.currentUser()!["foto"] = picture
+        
+        self.usuario?.imagem = UIImage(data: compressedImage)!
         
         PFUser.currentUser()!.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

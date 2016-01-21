@@ -37,12 +37,23 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var refreshControl : UIRefreshControl!
     
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
+    
     
     let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
     
     let detailsColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
     
     let tableBG = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1) //Cor do fundo apenas da tableview
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        self.imagesDictionary.removeAll()
+        
+        // Dispose of any resources that can be recreated.
+    }
     
     
     override func viewDidLoad() {
@@ -144,19 +155,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
-    
-//    func populateNewsDetails(cell: NewsDetailCell!)
-//    {
-//        cell.imagem.image = self.passedCell.imagem
-//        cell.categoriaTitle.text = self.passedCell.titulo
-//        cell.subTitle.text = self.passedCell.subtitulo
-//        cell.fullText.text = self.passedCell.fulltext
-//        //Metodo de resolucao da celula, TO DO
-//    }
-    
-//    func receiveCellData(cell: FeedCell) {
-//        self.passedCell = cell;
-//    }
 
     
     @IBAction func dismiss(sender: AnyObject) {
@@ -196,11 +194,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         if (indexPath.row==0){
             let cell = tableView.dequeueReusableCellWithIdentifier("detailsCell", forIndexPath: indexPath) as! NewsDetailCell
             
-//            passedCell.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-//                
-//                cell.imagem.image = UIImage(data: result!)
-//                
-//            })
             cell.imagem.image = passedCell.imagem
             
             //PROVISORIO
@@ -233,14 +226,40 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.commentText.sizeToFit()
             //cell.updateConstraints()
             //PRECISAMOS ALTERAR A MANEIRA COMO A CELULA EH POPULADA
-            cell.userImage.image = UIImage(named: "userIcon")
             cell.userImage.layer.masksToBounds = true
             cell.userImage.layer.cornerRadius = cell.userImage.frame.height/2
-            info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+            
+            let file = String(info.userIcon)
+            
+            if let image = self.imagesDictionary[file]{
                 
-                cell.userImage.image = UIImage(data: data!)
+                cell.userImage.image = image
                 
-            })
+            }
+            else{
+                
+                if let file = info.userIcon {
+                    ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                        
+                        if error == nil {
+                            
+                            let image = UIImage(data: data!)
+                            let file = String(info.userIcon)
+                            cell.userImage.image = image
+                            self.imagesDictionary[file] = image
+                            
+                        }
+                        
+                    })
+                    
+                }
+                else{
+                    
+                    cell.userImage.image = UIImage(named: "userIcon")
+                    
+                }
+            }
+            
             cell.userName.text = info.nickname
             cell.numberOfLikes = info.upvote
             cell.cellSetup()

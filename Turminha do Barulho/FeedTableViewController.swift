@@ -27,6 +27,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     var dadosFiltrados = [Dados]()
     var chosenCell: Dados?
     
+    
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
+    
     //Array de celulas, usamos para poder acessar toda as celulas de uma vez so
     var cellArray : [FeedCell] = []
     var nightMode : Bool!
@@ -66,6 +70,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     }
     
+    
     //Esta funcao seta todas as cores da view, é usada como redundancia ao storyboard para que tenhamos
     //total controle sobre elas
     func refreshColors()
@@ -100,6 +105,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.imagesDictionary.removeAll()
         // Dispose of any resources that can be recreated.
     }
 
@@ -152,6 +158,42 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 
             }
         }
+        
+        
+        // pega imagem do dicionario, caso nao exista, baixa a imagem e deixa ela no dicionario
+        
+        let file = String(info.file)
+        
+        if let image = self.imagesDictionary[file]{
+            
+            cell.picture.image = image
+            
+        }
+        else{
+            
+            if let file = info.file {
+                ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                    
+                    if error == nil {
+                        
+                        let image = UIImage(data: data!)
+                        let file = String(info.file)
+                        cell.picture.image = image
+                        self.imagesDictionary[file] = image
+                        
+                    }
+                    
+                })
+                
+            }
+            else{
+                
+                cell.picture.image = UIImage(named: "userIcon")
+                
+            }
+        }
+        
+        
         cell.upvotes.text = "☆ " + String(info.upvote!)
         cell.subTitle.text = info.titulo
         cell.title.adjustsFontSizeToFitWidth = true
@@ -159,14 +201,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         cell.subTitle.adjustsFontSizeToFitWidth = true
         cell.textField.text = info.texto
         cell.subTitle.adjustsFontSizeToFitWidth = true
-        
-//        info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-//            
-//            cell.picture.image = UIImage(data: result!)
-//            
-//        })
-        
-        cell.picture.image = info.imagem
         
         cell.fullText = info.fulltext
         
@@ -194,6 +228,11 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
        
         if segue.identifier == "detalhesNoticia" {
             if let destination = segue.destinationViewController as? FeedDetailsViewController {
+                
+                let file = String(self.chosenCell?.file)
+                
+                self.chosenCell?.imagem = self.imagesDictionary[file]!
+                
                 destination.passedCell = self.chosenCell
             }
         }
