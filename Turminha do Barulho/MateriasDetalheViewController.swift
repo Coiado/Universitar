@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MateriasDetalheViewController: UIViewController {
 
@@ -22,6 +23,9 @@ class MateriasDetalheViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let squareOrigin : CGPoint = CGPoint(x: -10, y: -10)
+    
+    @IBOutlet weak var activityIndicatorImagem: UIActivityIndicatorView!
+    
     
     //let charNumber = (self.categoriaTitle.text?.characters.count)!*8
     let squareSize : CGSize = CGSize(width: 240, height: 40)
@@ -73,7 +77,25 @@ class MateriasDetalheViewController: UIViewController {
                 self.imagemCurso.bringSubviewToFront(self.tituloEngenharia)
                 self.activityIndicator.startAnimating()
                 self.activityIndicator.stopAnimating()
+                
+                let file = object?.file
+                
+                file?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                    
+                    if error == nil {
+                        
+                        self.imagemCurso.image = UIImage(data: data!)
+                        self.activityIndicatorImagem.startAnimating()
+                        
+                        
+                    }
+                    self.activityIndicatorImagem.stopAnimating()
+                    self.activityIndicatorImagem.removeFromSuperview()
+                })
+                
             }
+            
+            
             
         }
         
