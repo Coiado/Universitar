@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 
 struct MateriaDescricao {
@@ -14,14 +15,16 @@ struct MateriaDescricao {
     var curso: String?
     var universidades: [String]?
     var descricao: String?
+    var file: PFFile
     
     
-    init(curso: String?, universidades: [String]?, descricao: String?){
+    init(curso: String?, universidades: [String]?, descricao: String?,file: PFFile){
         
         
         self.curso = curso
         self.universidades = universidades
         self.descricao = descricao
+        self.file = file
         
     }
     
