@@ -136,7 +136,6 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         }
         else{
             let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
-            cellMateria.materiaSemestre.adjustsFontSizeToFitWidth = true
             cellMateria.layer.masksToBounds = true
             cellMateria.layer.cornerRadius = 10.0
             cellMateria.contentView.layer.cornerRadius = 10.0
@@ -161,6 +160,15 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             return CGSize(width: 110, height: 60)
         }
         
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section != 0){
+            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
+            let detalhe = UIAlertController(title: (self.universidade! + " - " + self.curso!), message:self.passedData.semestres![indexPath.section-1][indexPath.row], preferredStyle: UIAlertControllerStyle.Alert)
+            detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(detalhe, animated: true, completion: nil)
+        }
     }
         
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAtIndex section: Int) -> UIEdgeInsets {

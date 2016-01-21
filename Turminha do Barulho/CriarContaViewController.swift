@@ -40,6 +40,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         
         self.activityIndicator.hidesWhenStopped = true
         
+        
     }
 
     func configureButton(){
@@ -93,7 +94,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
+
     
 }
 
