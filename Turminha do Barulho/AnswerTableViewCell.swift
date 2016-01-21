@@ -62,7 +62,13 @@ class AnswerTableViewCell: UITableViewCell {
             
             firstString = firstString + "...\n(Clique para ver mais)"
             
+            let noticeColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+            
+            let atrString : NSMutableAttributedString = NSMutableAttributedString(string: firstString)
+            atrString.addAttribute(NSForegroundColorAttributeName, value: noticeColor, range: NSRange(location: 154, length: 23))
+            
             self.answerText.text = firstString
+            self.answerText.attributedText = atrString
             self.isTextTooBig = true
         }
     }
