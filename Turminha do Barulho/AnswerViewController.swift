@@ -29,6 +29,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // Dicionario para imagens
     var imagesDictionary = [String:UIImage]()
     
+    var actualCell : AnswerTableViewCell?
     
     //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
     //Colors
@@ -208,6 +209,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.updateConstraints()
             //cell.cardSetup()
             
+            cell.denunciaButton.addTarget(self, action: "denunciaQuestao", forControlEvents: UIControlEvents.TouchUpInside)
+            
             return cell
         }
         else{if(indexPath.row==1){
@@ -267,6 +270,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let stringDate = now.offsetFrom(info.date)
             
                 cell.answerDate.text = stringDate
+            
+                cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
@@ -283,6 +288,20 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    
+    func denunciaComentario(){
+        
+        print("comentario")
+        
+    }
+    
+    func denunciaQuestao(){
+        
+        print("questao")
+        
+    }
+    
+    
     
     func salvarNovaResposta(text:String){
         
@@ -320,13 +339,14 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerTableViewCell
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AnswerTableViewCell{
         
-        if cell.isTextTooBig! {
-            
-            print("teste")
-            
-            self.performSegueWithIdentifier("verMais", sender: self)
+            if cell.isTextTooBig! {
+                
+                self.actualCell = cell
+                
+                self.performSegueWithIdentifier("verMais", sender: self)
+            }
         }
         
     }
@@ -352,12 +372,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             destination.respostaDelegate = self
         }
-//        if segue.identifier == "verMais"
-//        {
-//            
-//            let destination = segue.destinationViewController as!
-//            
-//        }
+        if segue.identifier == "verMais"
+        {
+            
+            let destination = segue.destinationViewController as! AnswerDetailTableViewController
+            
+            destination.passedCell = self.actualCell!
+            
+            
+        }
     }
     
 

@@ -49,7 +49,7 @@ class FeedCell: UITableViewCell {
         
         //Atributos do quadrado de curtidas
         let squareOrigin : CGPoint = CGPoint(x: 0, y: 0)
-        let squareSize : CGSize = CGSize(width: self.picture.frame.width, height: 20)
+        let squareSize : CGSize = CGSize(width: self.picture.frame.width+100, height: 20)
         let blackSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))
         blackSquare.backgroundColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)
         blackSquare.alpha = 1

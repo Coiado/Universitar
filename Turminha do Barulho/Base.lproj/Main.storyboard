@@ -440,6 +440,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="PoT-CH-MvP" id="qT3-Ld-Nq7"/>
+                                            <outlet property="denunciaButton" destination="LmI-5e-C46" id="IYt-Cy-n6N"/>
                                             <outlet property="nickName" destination="Rui-Ws-ivz" id="RSv-iZ-82H"/>
                                             <outlet property="perguntaTitulo" destination="Gbd-aF-MNT" id="eZR-QI-wML"/>
                                             <outlet property="questionText" destination="xlt-p6-FhJ" id="znw-wK-9d4"/>
@@ -595,6 +596,7 @@
                                             <outlet property="answerDate" destination="fq3-p6-MSZ" id="5lX-dB-Uar"/>
                                             <outlet property="answerText" destination="2eu-NS-OhC" id="EXF-iR-WNK"/>
                                             <outlet property="answerView" destination="qwP-O9-10g" id="9W9-xt-hBW"/>
+                                            <outlet property="denunciaButton" destination="vU3-rR-8lN" id="jTt-5p-eGC"/>
                                             <outlet property="nickName" destination="73X-AL-Lvp" id="6O1-Tb-qFI"/>
                                             <outlet property="userIcon" destination="YKU-HS-06U" id="sBz-kD-c4e"/>
                                             <outlet property="viewAnswer" destination="qwP-O9-10g" id="hgE-q8-0x3"/>
@@ -2111,8 +2113,8 @@
         <image name="perguntas3" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cck-PX-VFc"/>
-        <segue reference="v9w-QC-30v"/>
+        <segue reference="nU2-4M-6w8"/>
+        <segue reference="1zD-E0-HBm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
