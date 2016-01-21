@@ -208,6 +208,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.updateConstraints()
             //cell.cardSetup()
             
+            cell.denunciaButton.addTarget(self, action: "denunciaQuestao", forControlEvents: UIControlEvents.TouchUpInside)
+            
             return cell
         }
         else{if(indexPath.row==1){
@@ -267,6 +269,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let stringDate = now.offsetFrom(info.date)
             
                 cell.answerDate.text = stringDate
+            
+                cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
@@ -283,6 +287,20 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    
+    func denunciaComentario(){
+        
+        print("comentario")
+        
+    }
+    
+    func denunciaQuestao(){
+        
+        print("questao")
+        
+    }
+    
+    
     
     func salvarNovaResposta(text:String){
         
@@ -320,13 +338,14 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerTableViewCell
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AnswerTableViewCell{
         
-        if cell.isTextTooBig! {
-            
-            print("teste")
-            
-            self.performSegueWithIdentifier("verMais", sender: self)
+            if cell.isTextTooBig! {
+                
+                print("teste")
+                
+                self.performSegueWithIdentifier("verMais", sender: self)
+            }
         }
         
     }

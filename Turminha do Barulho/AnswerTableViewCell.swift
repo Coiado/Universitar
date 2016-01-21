@@ -25,6 +25,7 @@ class AnswerTableViewCell: UITableViewCell {
     var usuario : String?
     var usuarioId : String?
     @IBOutlet weak var answerDate: UILabel!
+    @IBOutlet weak var denunciaButton: UIButton!
     
     
     //Numero maximo de caracteres para inserir o "veja mais"

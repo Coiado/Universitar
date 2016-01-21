@@ -16,6 +16,7 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var perguntaTitulo: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var denunciaButton: UIButton!
     var answers : [Answer] = []
     
     
@@ -84,9 +85,7 @@ class QuestionFeedCell: UITableViewCell {
         self.questionText.textColor = UIColor.whiteColor()
         self.dateLabel.textColor = UIColor.whiteColor()
 
-        
-
     }
-
+    
     
 }
