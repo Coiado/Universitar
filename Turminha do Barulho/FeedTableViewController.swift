@@ -250,9 +250,29 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 self.data = array!
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
+                self.getImages()
                 self.refreshControl!.endRefreshing()
             }
         })
+    }
+    
+    func getImages(){
+        
+        for index in 0...(self.data.count - 1){
+            
+            
+            self.data[index].file?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                
+                if error == nil {
+                
+                    self.data[index].imagem = UIImage(data: data!)!
+                    self.tableView.reloadData()
+                
+                }
+            })
+            
+        }
+        
     }
     
     
