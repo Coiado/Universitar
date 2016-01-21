@@ -14,6 +14,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nomeTextField: UITextField!
     
+    @IBOutlet weak var navigationCadastro: UINavigationItem!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheck: UIImageView!
     
@@ -34,6 +35,9 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         
         configureButton()
         
+        self.navigationCadastro.title = "Cadastro"
+        
+        
         self.activityIndicator.hidesWhenStopped = true
         
     }
@@ -41,6 +45,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     func configureButton(){
         
         self.confirmaButton.addTarget(self, action: "confirmaAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.confirmaButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        self.confirmaButton.layer.cornerRadius = 5
         
     }
     
@@ -88,10 +94,6 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func voltarParaTela(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
     
 }
 

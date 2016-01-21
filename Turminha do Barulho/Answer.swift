@@ -17,9 +17,10 @@ struct Answer{
     var upvote: Int?
     var id: String?
     var userId: String?
+    var date: NSDate
     
     
-    init(nickname: String?, userIcon: PFFile? = nil, answerText: String? = "teste", upvote: Int? = 0, id: String?, userId: String?)
+    init(nickname: String?, userIcon: PFFile? = nil, answerText: String? = "teste", upvote: Int? = 0, id: String?, userId: String?, date: NSDate)
     {
         
 //        let novaAtividade = PFObject(className: "Atividade")
@@ -30,7 +31,8 @@ struct Answer{
 //        novaAtividade["paraUsuario"] = "jO84U8Q9iE"
 //        
 //        novaAtividade.saveInBackground()
-
+        
+        self.date = date
         
         self.nickname = nickname
         self.userIcon = userIcon

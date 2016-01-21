@@ -21,6 +21,7 @@ class MateriasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //setando o navigation bar
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)  //Cor de fundo
 
@@ -29,7 +30,7 @@ class MateriasTableViewController: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0) ]
         
         //setando a tableview
-        self.tableView.backgroundColor = UIColor.blackColor()
+        self.tableView.backgroundColor = UIColor.whiteColor()
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         
         

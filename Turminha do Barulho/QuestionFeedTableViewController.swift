@@ -104,7 +104,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     func fazerPergunta(){
         let user = PFUser.currentUser()?.objectId
         if user == nil{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
             self.presentViewController(vc, animated: true, completion: nil)
         }
         else{

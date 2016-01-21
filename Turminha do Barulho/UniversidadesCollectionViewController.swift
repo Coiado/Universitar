@@ -13,6 +13,7 @@ private let reuseIdentifier2 = "Materia"
 
 class UniversidadesCollectionViewController: UICollectionViewController {
     
+    @IBOutlet weak var navigationUniversidades: UINavigationItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var passedData : CursoInfo!
@@ -32,7 +33,6 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tempLabel.numberOfLines = 0 
         self.activityIndicator.startAnimating()
         
@@ -44,6 +44,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
                 self.collectionView?.reloadData()
                 self.getSizeDescricao(self.passedData.descricaoUniversidade!)
                 self.activityIndicator.stopAnimating()
+                self.navigationUniversidades.title = object?.universidade
             }
             
         }
@@ -52,6 +53,8 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         
         
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -152,7 +155,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
             print ("self.heightDescricao! \(self.heightDescricao!)")
-            return CGSize(width: self.view.frame.width, height: self.heightDescricao! + 150)
+            return CGSize(width: self.view.frame.width - 20, height: self.heightDescricao! + 350)
         }
         else{
             return CGSize(width: 110, height: 60)
