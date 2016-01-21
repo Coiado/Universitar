@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
             let currentUser = PFUser.currentUser()?.objectId
             if currentUser == nil{
                 self.popoverPresentationController
-                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
                 self.presentViewController(vc, animated: true, completion:nil)
             }
         }

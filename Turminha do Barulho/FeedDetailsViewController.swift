@@ -196,12 +196,11 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         let user = PFUser.currentUser()?.objectId
         
         if user != nil{
-            performSegueWithIdentifier("criarComentário", sender: self)
-            
             self.comentarTextField.endEditing(true)
+            performSegueWithIdentifier("criarComentário", sender: self)
         }
         else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
             self.presentViewController(vc, animated: true, completion: nil)
         }
         

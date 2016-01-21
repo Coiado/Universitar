@@ -80,7 +80,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
         else{
             self.tabBarController?.selectedIndex = 0
             
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
             self.presentViewController(vc, animated: true, completion:nil)
 //                {() -> Void in
 //                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)

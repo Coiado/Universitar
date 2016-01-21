@@ -62,7 +62,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
             self.isLoadingMore = true
-            
             getMoreRespostas()
             
         }
@@ -260,7 +259,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.newQuestion.endEditing(true)
         }
         else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! LoginViewController
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
             self.presentViewController(vc, animated: true, completion: nil)
         }
         

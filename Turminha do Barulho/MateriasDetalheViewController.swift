@@ -12,6 +12,7 @@ class MateriasDetalheViewController: UIViewController {
 
     @IBOutlet weak var UniversidadeButton: UIButton!
     
+    @IBOutlet weak var tituloEngenharia: UILabel!
     @IBOutlet weak var titulo: UINavigationItem!
     @IBOutlet weak var texto: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,6 +20,11 @@ class MateriasDetalheViewController: UIViewController {
     @IBOutlet weak var imagemCurso: UIImageView!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let squareOrigin : CGPoint = CGPoint(x: -10, y: -10)
+    
+    //let charNumber = (self.categoriaTitle.text?.characters.count)!*8
+    let squareSize : CGSize = CGSize(width: 240, height: 40)
     
     var isModoNoturno:Bool = false
     
@@ -30,34 +36,48 @@ class MateriasDetalheViewController: UIViewController {
 
     var universidade = [String]()
     
-    override func viewWillDisappear(animated: Bool) {
-
+    
+    override func viewWillAppear(animated: Bool) {
+        self.UniversidadeButton.titleLabel?.textColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
+        self.UniversidadeButton.enabled = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.texto.layer.cornerRadius = 8
+        
+        self.UniversidadeButton.enabled = false
 
         self.automaticallyAdjustsScrollViewInsets = false
 //        self.view.backgroundColor = passedCell.backgroundColor
 //        self.titulo.title = passedCell.textLabel?.text
 //        self.texto.text = passedCell.descricao
         
-        self.activityIndicator.startAnimating()
-        
         ParseModel.findMateria(course) { (object, error) -> Void in
             
             if error == nil{
             
-                self.titulo.title = object?.curso
                 self.texto.text = object?.descricao
                 self.texto.textColor = UIColor.blackColor()
-                self.UniversidadeButton.titleLabel?.textColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1)
+                self.UniversidadeButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+                self.UniversidadeButton.layer.cornerRadius = 5
+                self.UniversidadeButton.titleLabel?.textColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
                 self.universidade = (object?.universidades)!
+                let whiteSquare : UIView = UIView(frame: CGRect(origin: self.squareOrigin, size: self.squareSize))
+                self.tituloEngenharia.text = object?.curso
+                whiteSquare.layer.cornerRadius = 10
+                whiteSquare.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+                whiteSquare.alpha = 0.8
+                self.imagemCurso.addSubview(whiteSquare)
+                self.imagemCurso.bringSubviewToFront(self.tituloEngenharia)
+                self.activityIndicator.startAnimating()
                 self.activityIndicator.stopAnimating()
             }
+            
         }
+        
+        
         
         self.texto.numberOfLines = 0
         
@@ -65,7 +85,10 @@ class MateriasDetalheViewController: UIViewController {
         
         configButtons()
         
+        self.UniversidadeButton.titleLabel?.textColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1)
+        
     }
+    
     
     //Celula passada pela view com as materias é recebida por esse metodo
     func receiveCellData(cell: String) {

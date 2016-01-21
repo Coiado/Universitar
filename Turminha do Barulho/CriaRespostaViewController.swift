@@ -18,12 +18,16 @@ class CriaRespostaViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.respostaTextView.editable = true
+        
         
         self.respostaTextView.becomeFirstResponder()
         
         self.respostaTextView.layer.cornerRadius = 15
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.respostaTextView.editable = true
     }
     
 
