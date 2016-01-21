@@ -16,6 +16,7 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var perguntaTitulo: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var denunciaButton: UIButton!
     var answers : [Answer] = []
     
     
@@ -69,7 +70,7 @@ class QuestionFeedCell: UITableViewCell {
         
         //RED SQUARE
         let redSquareOrigin = CGPoint(x: 0, y: 0)
-        let redSquareSize = CGSize(width: self.questionView.frame.width, height: 20)
+        let redSquareSize = CGSize(width: self.questionView.frame.width+100, height: 20)
         
         let redSquare = UIView(frame: CGRect(origin:redSquareOrigin, size: redSquareSize))
         redSquare.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
@@ -83,10 +84,9 @@ class QuestionFeedCell: UITableViewCell {
         self.perguntaTitulo.textColor = UIColor.whiteColor()
         self.questionText.textColor = UIColor.whiteColor()
         self.dateLabel.textColor = UIColor.whiteColor()
-
-        
+        self.nickName.sizeToFit()
 
     }
-
+    
     
 }

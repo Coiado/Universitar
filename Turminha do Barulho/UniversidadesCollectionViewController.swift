@@ -45,6 +45,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
                 self.getSizeDescricao(self.passedData.descricaoUniversidade!)
                 self.activityIndicator.stopAnimating()
                 self.navigationUniversidades.title = object?.universidade
+                
             }
             
         }

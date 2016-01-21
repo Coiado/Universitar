@@ -58,6 +58,13 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        self.createData()
+        
+    }
+    
+    
     //Funcao que usaremos para eventualmente implementar metodo de leitura noturna, talvez
     //nao precisemos mais
     @IBAction func setNightMode(sender: AnyObject) {
@@ -254,30 +261,11 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 self.data = array!
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
-                self.getImages()
                 self.refreshControl!.endRefreshing()
             }
         })
     }
     
-    func getImages(){
-        
-        for index in 0...(self.data.count - 1){
-            
-            
-            self.data[index].file?.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                
-                if error == nil {
-                
-                    self.data[index].imagem = UIImage(data: data!)!
-                    self.tableView.reloadData()
-                
-                }
-            })
-            
-        }
-        
-    }
     
     
     //MARK - Metodos para o refresh
