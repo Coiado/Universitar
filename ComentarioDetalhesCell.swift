@@ -30,8 +30,8 @@ class ComentarioDetalhesCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.None
         
         //Alteramos as cores dos botoes, fazemos isso aqui para que o storyboard seja mais visivel
-        self.likeCount.backgroundColor = UIColor.clearColor()
-        self.likeButton.backgroundColor = UIColor.clearColor()
+//        self.likeCount.backgroundColor = UIColor.clearColor()
+//        self.likeButton.backgroundColor = UIColor.clearColor()
         self.flagButton.backgroundColor = UIColor.clearColor()
         self.commentText.backgroundColor = UIColor.clearColor()
         self.userName.backgroundColor = UIColor.clearColor()
@@ -46,29 +46,15 @@ class ComentarioDetalhesCell: UITableViewCell {
     }
     
     //Formata a string de likes, basicamente colocando na forma: X likes
-    func updateLike()
-    {
-        let currentLike = String(self.numberOfLikes)
-        let formatedString = "\(currentLike) likes"
-        self.likeCount.text = formatedString
-    }
+
     
     //Setup inicial da celula
     func cellSetup()
     {
         self.commentText.sizeToFit()
-        self.updateLike()
     }
 
-    //METODO DE LIKE, NECESSARIO INTEGRAR COM O PARSE
-    //TAMBEM E NECESSARIO CRIAR BOOLEAN PARA TOOGLE E INTEGRAR COM O PARSE
-    @IBAction func pressLike(sender: AnyObject) {
-        
-        //Alteramos a string de likes
-        self.numberOfLikes = self.numberOfLikes + 1
-        self.updateLike()
-        
-    }
+
     
     //METODO DE FLAG(DENUNCIA)
     @IBAction func pressFlag(sender: AnyObject) {

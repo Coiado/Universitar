@@ -30,10 +30,18 @@ extension NSDate {
     func secondsFrom(date:NSDate) -> Int{
         return NSCalendar.currentCalendar().components(.Second, fromDate: date, toDate: self, options: []).second
     }
+    
+    func dateToString(date:NSDate) -> String{
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"
+        return dateFormatter.stringFromDate(date)
+        
+    }
+    
+    
     func offsetFrom(date:NSDate) -> String {
-        if yearsFrom(date)   > 0 { return "\(yearsFrom(date))y"   }
-        if monthsFrom(date)  > 0 { return "\(monthsFrom(date))M"  }
-        if weeksFrom(date)   > 0 { return "\(weeksFrom(date))w"   }
+        if daysFrom(date)    > 3 { return dateToString(date)      }
         if daysFrom(date)    > 0 { return "\(daysFrom(date))d"    }
         if hoursFrom(date)   > 0 { return "\(hoursFrom(date))h"   }
         if minutesFrom(date) > 0 { return "\(minutesFrom(date))m" }

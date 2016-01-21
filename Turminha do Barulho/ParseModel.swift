@@ -38,8 +38,9 @@ class ParseModel {
                         let upvote = object["upvote"] as! Int
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
+                        let date = object.createdAt!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file: imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file: imagem, upvote: upvote, fulltext: textoInteiro,id: id,date: date)
                         
                         array.append(dados)
                         
@@ -83,8 +84,9 @@ class ParseModel {
                         let upvote = object["upvote"] as! Int
                         let imagem = object["imagem"] as! PFFile
                         let id = (object.objectId)!
+                        let date = object.createdAt!
                         
-                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file:imagem, upvote: upvote, fulltext: textoInteiro,id: id)
+                        let dados = Dados(titulo: titulo, subtitulo: tags, texto: texto, file:imagem, upvote: upvote, fulltext: textoInteiro,id: id,date: date)
                         
                         array.append(dados)
                         

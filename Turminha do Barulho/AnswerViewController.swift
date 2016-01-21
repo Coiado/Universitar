@@ -164,6 +164,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.perguntaTitulo.sizeToFit()
             cell.updateConstraints()
             
+            let now = NSDate()
+            
+            cell.dateLabel.text = now.offsetFrom(self.question!.date)
+            
             let file = String(question!.userIcon)
             
             if let image = self.imagesDictionary[file]{

@@ -15,6 +15,7 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var fullText: UILabel!
     @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
     var isVoted: Bool!
     var id : String = ""
     
