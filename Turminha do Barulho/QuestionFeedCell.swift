@@ -70,7 +70,7 @@ class QuestionFeedCell: UITableViewCell {
         
         //RED SQUARE
         let redSquareOrigin = CGPoint(x: 0, y: 0)
-        let redSquareSize = CGSize(width: self.questionView.frame.width, height: 20)
+        let redSquareSize = CGSize(width: self.questionView.frame.width+100, height: 20)
         
         let redSquare = UIView(frame: CGRect(origin:redSquareOrigin, size: redSquareSize))
         redSquare.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
