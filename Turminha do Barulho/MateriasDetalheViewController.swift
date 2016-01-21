@@ -136,27 +136,6 @@ class MateriasDetalheViewController: UIViewController {
         }
     }
     
-    func modoNoturno(sender: AnyObject){
-        
-        if isModoNoturno{
-            
-            self.texto.textColor = UIColor.blackColor()
-            self.scrollView.backgroundColor = UIColor.whiteColor()
-            self.view.backgroundColor = UIColor.whiteColor()
-            
-            self.isModoNoturno = false
-
-            
-        }
-        else{
-            
-            self.texto.textColor = UIColor.whiteColor()
-            self.scrollView.backgroundColor = UIColor.blackColor()
-            self.view.backgroundColor = UIColor.blackColor()
-            
-            self.isModoNoturno = true
-        }
-    }
     
 }
 

@@ -13,11 +13,13 @@ struct Usuario {
     
     var nome: String
     var foto: PFFile?
+    var imagem: UIImage
     
     init(nome: String, foto: PFFile?){
         
         self.nome = nome
         self.foto = foto
+        self.imagem = UIImage(named: "userIcon")!
         
     }
     

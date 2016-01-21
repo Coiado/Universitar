@@ -24,18 +24,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     
     var chosenCell : QuestionFeedCell!
     
-    // Questoes implementadas em hardcode elas serão colocadas no vetor de questoes, 
-    // na funcao chamada createQuestion
+
+    var imagesDictionary = [String:UIImage]()
+    
     
     // Cores que serao usadas para colorir o fundo da tableview
     let tableBG = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
-
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        self.getQuestion()
-    
-    }
     
     override func viewDidLoad() {
         
@@ -69,6 +63,9 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        self.imagesDictionary.removeAll()
+        
         // Dispose of any resources that can be recreated.
     }
 
@@ -136,13 +133,37 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
 
         let info = question[indexPath.row] as Question
         cell.perguntaTitulo.text = info.questionTitle
-        cell.userIcon.image = UIImage(named: "userIcon")
         
-        info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+        let file = String(info.userIcon)
+        
+        if let image = self.imagesDictionary[file]{
+        
+            cell.userIcon.image = image
+        
+        }
+        else{
             
-            cell.userIcon.image = UIImage(data: data!)
+            if let file = info.userIcon {
+                ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                    
+                    if error == nil {
+                        
+                        let image = UIImage(data: data!)
+                        let file = String(info.userIcon)
+                        cell.userIcon.image = image
+                        self.imagesDictionary[file] = image
+                        
+                    }
+                    
+                })
             
-        })
+            }
+            else{
+                
+                cell.userIcon.image = UIImage(named: "userIcon")
+                
+            }
+        }
         
         cell.userIcon.layer.cornerRadius = 15
         cell.userIcon.layer.masksToBounds = true
@@ -154,9 +175,12 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         cell.updateConstraints()
         cell.cardSetup()
         
+        let now = NSDate()
+        
+        cell.dateLabel.text = now.offsetFrom(info.date)
+        
         // Deixando a foto do perfil arredondada
         cell.userIcon.layer.cornerRadius = cell.userIcon.frame.width/2
-        
         
         return cell
         
@@ -217,7 +241,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     
-    let threshold: CGFloat = 100.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     
@@ -227,7 +251,6 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
             self.isLoadingMore = true
-            
             self.getMoreQuestion()
             
         }
@@ -317,6 +340,8 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         }
         
     }
+    
+    
     
 }
 

@@ -26,6 +26,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var refreshControl : UIRefreshControl!
     
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
+    
+    
     //QUANDO QUISER ALTERAR UMA COR ALTERE AQUI =)
     //Colors
     let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
@@ -52,7 +56,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Load more answer
     
-    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -30.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     
@@ -133,6 +137,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.imagesDictionary.removeAll()
         // Dispose of any resources that can be recreated.
     }
     
@@ -158,13 +163,37 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.perguntaTitulo.text = self.question!.questionTitle
             cell.perguntaTitulo.sizeToFit()
             cell.updateConstraints()
-            cell.userIcon.image = UIImage(named: "userIcon")
             
-            question!.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+            let file = String(question!.userIcon)
+            
+            if let image = self.imagesDictionary[file]{
                 
-                cell.userIcon.image = UIImage(data: data!)
+                cell.userIcon.image = image
                 
-            })
+            }
+            else{
+                
+                if let file = question!.userIcon {
+                    ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                        
+                        if error == nil {
+                            
+                            let image = UIImage(data: data!)
+                            let file = String(self.question!.userIcon)
+                            cell.userIcon.image = image
+                            self.imagesDictionary[file] = image
+                            
+                        }
+                        
+                    })
+                    
+                }
+                else{
+                    
+                    cell.userIcon.image = UIImage(named: "userIcon")
+                    
+                }
+            }
             
             cell.userIcon.layer.masksToBounds = true
             cell.userIcon.layer.cornerRadius = 15
@@ -194,14 +223,38 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 cell.id = info.id
                 cell.usuario = info.nickname
-                cell.userIcon.image = UIImage(named: "userIcon")
                 cell.usuarioId = info.userId
             
-                info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                let file = String(info.userIcon)
+                
+                if let image = self.imagesDictionary[file]{
                     
-                    cell.userIcon.image = UIImage(data: data!)
+                    cell.userIcon.image = image
                     
-                })
+                }
+                else{
+                    
+                    if let file = info.userIcon {
+                        ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                            
+                            if error == nil {
+                                
+                                let image = UIImage(data: data!)
+                                let file = String(info.userIcon)
+                                cell.userIcon.image = image
+                                self.imagesDictionary[file] = image
+                                
+                            }
+                            
+                        })
+                        
+                    }
+                    else{
+                        
+                        cell.userIcon.image = UIImage(named: "userIcon")
+                        
+                    }
+                }
             
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15

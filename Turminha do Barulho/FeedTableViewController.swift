@@ -27,6 +27,10 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     var dadosFiltrados = [Dados]()
     var chosenCell: Dados?
     
+    
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
+    
     //Array de celulas, usamos para poder acessar toda as celulas de uma vez so
     var cellArray : [FeedCell] = []
     var nightMode : Bool!
@@ -66,6 +70,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     }
     
+    
     //Esta funcao seta todas as cores da view, é usada como redundancia ao storyboard para que tenhamos
     //total controle sobre elas
     func refreshColors()
@@ -100,6 +105,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.imagesDictionary.removeAll()
         // Dispose of any resources that can be recreated.
     }
 
@@ -152,6 +158,42 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                 
             }
         }
+        
+        
+        // pega imagem do dicionario, caso nao exista, baixa a imagem e deixa ela no dicionario
+        
+        let file = String(info.file)
+        
+        if let image = self.imagesDictionary[file]{
+            
+            cell.picture.image = image
+            
+        }
+        else{
+            
+            if let file = info.file {
+                ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                    
+                    if error == nil {
+                        
+                        let image = UIImage(data: data!)
+                        let file = String(info.file)
+                        cell.picture.image = image
+                        self.imagesDictionary[file] = image
+                        
+                    }
+                    
+                })
+                
+            }
+            else{
+                
+                cell.picture.image = UIImage(named: "userIcon")
+                
+            }
+        }
+        
+        
         cell.upvotes.text = "☆ " + String(info.upvote!)
         cell.subTitle.text = info.titulo
         cell.title.adjustsFontSizeToFitWidth = true
@@ -160,14 +202,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         cell.textField.text = info.texto
         cell.subTitle.adjustsFontSizeToFitWidth = true
         
-        info.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-            
-            cell.picture.image = UIImage(data: result!)
-            
-        })
-        
         cell.fullText = info.fulltext
-        
         
         cell.cardSetup()
         
@@ -193,6 +228,11 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
        
         if segue.identifier == "detalhesNoticia" {
             if let destination = segue.destinationViewController as? FeedDetailsViewController {
+                
+                let file = String(self.chosenCell?.file)
+                
+                self.chosenCell?.imagem = self.imagesDictionary[file]!
+                
                 destination.passedCell = self.chosenCell
             }
         }
@@ -231,7 +271,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     func refreshTableView(sender: AnyObject){
         
         self.createData()
-        
+        self.refreshControl?.endRefreshing()
     }
     
     
@@ -286,12 +326,23 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     }
     
     func didChangeSearchText(searchText: String) {
-        // Filter the data array and get only those countries that match the search text.
+        
         self.dadosFiltrados = self.data.filter({ (Dados) -> Bool in
-            let stringMatch: NSString = Dados.titulo!
+            let titleMatch: NSString = Dados.titulo!
             
-            return (stringMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+            if (titleMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound{
+                return true
+            }
+            
+            else{
+                
+                let tagMatch: NSString = Dados.subtitulo!
+                
+                return (tagMatch.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+                
+            }
         })
+        
         // Reload the tableview.
         self.tableView.reloadData()
     }
@@ -305,7 +356,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     //MARK: - Metodos para carregar mais
     
-    let threshold: CGFloat = 50.0 // threshold from bottom of tableView
+    let threshold: CGFloat = -10.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
     
     

@@ -11,22 +11,34 @@ import Parse
 
 class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
     
+    @IBOutlet weak var aumentaLetra: UIButton!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var comentarTextField: UITextField!
     
     //TableView
     @IBOutlet weak var detailsTableView : UITableView!
     
+    //aumenta letra
+    let fontSize:[CGFloat] = [17.0, 20.0, 23.0]
+    
+    var actualFontSize:Int = 0
+    
     //Dados das noticias, devemos usar para mandar para nossa TableView
     var passedCell: Dados!
     
     //Vetor com os comentarios
     var commentArray: [Answer] = []
+
+    var isLogged : Bool = false
     
     //Celula da noticia
     var newsCell : NewsDetailCell!
     
     var refreshControl : UIRefreshControl!
+    
+    // Dicionario para imagens
+    var imagesDictionary = [String:UIImage]()
     
     
     let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
@@ -34,6 +46,14 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     let detailsColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
     
     let tableBG = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1) //Cor do fundo apenas da tableview
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        self.imagesDictionary.removeAll()
+        
+        // Dispose of any resources that can be recreated.
+    }
     
     
     override func viewDidLoad() {
@@ -44,8 +64,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.detailsTableView.registerNib(UINib(nibName: "DetalhesNoticiaCell", bundle: nil), forCellReuseIdentifier: "detailsCell")
         self.detailsTableView.registerNib(UINib(nibName: "ComentarioDetalhes", bundle: nil), forCellReuseIdentifier: "comentarioDetalhes")
         
-        self.detailsTableView.reloadData()
-        
         detailsTableView.estimatedRowHeight = 700
         detailsTableView.rowHeight = UITableViewAutomaticDimension
        
@@ -53,9 +71,49 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.detailsTableView.separatorStyle = .SingleLine
         
+        if PFUser.currentUser() != nil {
+        
+            self.isLogged = true
+            
+            ParseModel.findLike(self.passedCell.id) { (existe, error) -> Void in
+                
+                self.passedCell.upvoted = existe
+                self.detailsTableView.reloadData()
+            
+            }
+        }
+        
+        else{
+            self.passedCell.upvoted = false
+        }
+        
+        self.aumentaLetra.addTarget(self, action: "aumentaLetra:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         configRefresh()
         
         pegarComentarios()
+        
+    }
+    
+    
+    //MARK: - aumenta letra
+    
+    func aumentaLetra(sender:AnyObject){
+        
+        let size = self.actualFontSize + 1
+        
+        if size < self.fontSize.count{
+            
+            self.actualFontSize = size
+            
+        }
+        else{
+            
+            self.actualFontSize = 0
+            
+        }
+        
+        self.detailsTableView.reloadData()
         
     }
     
@@ -97,19 +155,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
-    
-//    func populateNewsDetails(cell: NewsDetailCell!)
-//    {
-//        cell.imagem.image = self.passedCell.imagem
-//        cell.categoriaTitle.text = self.passedCell.titulo
-//        cell.subTitle.text = self.passedCell.subtitulo
-//        cell.fullText.text = self.passedCell.fulltext
-//        //Metodo de resolucao da celula, TO DO
-//    }
-    
-//    func receiveCellData(cell: FeedCell) {
-//        self.passedCell = cell;
-//    }
 
     
     @IBAction func dismiss(sender: AnyObject) {
@@ -149,18 +194,26 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         if (indexPath.row==0){
             let cell = tableView.dequeueReusableCellWithIdentifier("detailsCell", forIndexPath: indexPath) as! NewsDetailCell
             
-            passedCell.imagem?.getDataInBackgroundWithBlock({ (result, error) -> Void in
-                
-                cell.imagem.image = UIImage(data: result!)
-                
-            })
+            cell.imagem.image = passedCell.imagem
             
             //PROVISORIO
-            cell.isVoted = false
+            
+            cell.id = self.passedCell.id
+            
+            cell.isVoted = passedCell.upvoted
+            cell.configButton()
+            cell.upVoteButton.enabled = false
+            
+            if isLogged{
+                
+                cell.upVoteButton.enabled = true
+                
+            }
             
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext
+            cell.fullText.font = UIFont(name: "Futura", size: self.fontSize[self.actualFontSize])
             cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell
@@ -173,14 +226,40 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.commentText.sizeToFit()
             //cell.updateConstraints()
             //PRECISAMOS ALTERAR A MANEIRA COMO A CELULA EH POPULADA
-            cell.userImage.image = UIImage(named: "userIcon")
             cell.userImage.layer.masksToBounds = true
             cell.userImage.layer.cornerRadius = cell.userImage.frame.height/2
-            info.userIcon?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+            
+            let file = String(info.userIcon)
+            
+            if let image = self.imagesDictionary[file]{
                 
-                cell.userImage.image = UIImage(data: data!)
+                cell.userImage.image = image
                 
-            })
+            }
+            else{
+                
+                if let file = info.userIcon {
+                    ParseModel.getImage(file, completionHandler: { (data, error, file) -> Void in
+                        
+                        if error == nil {
+                            
+                            let image = UIImage(data: data!)
+                            let file = String(info.userIcon)
+                            cell.userImage.image = image
+                            self.imagesDictionary[file] = image
+                            
+                        }
+                        
+                    })
+                    
+                }
+                else{
+                    
+                    cell.userImage.image = UIImage(named: "userIcon")
+                    
+                }
+            }
+            
             cell.userName.text = info.nickname
             cell.numberOfLikes = info.upvote
             cell.cellSetup()
@@ -239,4 +318,46 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             self.detailsTableView.reloadData()
         }
     }
+    
+    //MARK: - Metodos para carregar mais
+    
+    let threshold: CGFloat = -5.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            self.isLoadingMore = true
+            
+            getMoreComments()
+        }
+    }
+    
+    func getMoreComments(){
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findMoreComents(self.passedCell.id, skip: self.commentArray.count) { (array, error) -> Void in
+        
+            if error == nil{
+                
+                if let array = array {
+                    
+                    self.commentArray = self.commentArray + array
+                    self.detailsTableView.reloadData()
+                    self.isLoadingMore = false
+                    
+                }
+                
+            }
+            
+            self.activityIndicator.stopAnimating()
+            
+        }
+        
+    }
+    
 }

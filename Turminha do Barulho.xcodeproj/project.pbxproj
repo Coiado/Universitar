@@ -65,6 +65,8 @@
 		5F68A5241C2065450087621A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5231C2065450087621A /* SystemConfiguration.framework */; };
 		5F68A5261C2065580087621A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5251C2065580087621A /* libz.tbd */; };
 		5F68A5281C2065620087621A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F68A5271C2065620087621A /* libsqlite3.tbd */; };
+		5F70A73D1C4D5B070071E7A4 /* ParseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F70A73C1C4D5B070071E7A4 /* ParseErrorHandler.swift */; };
+		5F70A73F1C4FF68B0071E7A4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F70A73E1C4FF68B0071E7A4 /* Date.swift */; };
 		5F778B641C3D79890074CB3E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778B631C3D79890074CB3E /* Usuario.swift */; };
 		5F778B661C3EA27C0074CB3E /* Notificacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778B651C3EA27C0074CB3E /* Notificacao.swift */; };
 		5F778B681C3EBB070074CB3E /* userCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778B671C3EBB070074CB3E /* userCell.swift */; };
@@ -159,6 +161,8 @@
 		5F68A5231C2065450087621A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5F68A5251C2065580087621A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5F68A5271C2065620087621A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5F70A73C1C4D5B070071E7A4 /* ParseErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorHandler.swift; sourceTree = "<group>"; };
+		5F70A73E1C4FF68B0071E7A4 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5F778B631C3D79890074CB3E /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		5F778B651C3EA27C0074CB3E /* Notificacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificacao.swift; sourceTree = "<group>"; };
 		5F778B671C3EBB070074CB3E /* userCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userCell.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				5F09BF411C3BF13400227067 /* CursoInfo.swift */,
 				5F778B631C3D79890074CB3E /* Usuario.swift */,
 				5F778B651C3EA27C0074CB3E /* Notificacao.swift */,
+				5F70A73E1C4FF68B0071E7A4 /* Date.swift */,
 			);
 			name = Materias;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				5F09BF3C1C33420700227067 /* ParseModel.swift */,
+				5F70A73C1C4D5B070071E7A4 /* ParseErrorHandler.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -629,6 +635,7 @@
 				08F10C221C2076C8000F2034 /* QuestionViewController.swift in Sources */,
 				3FFA23D91BF4CD5900D7AEDB /* DescricaoCollectionViewCell.swift in Sources */,
 				5F778B641C3D79890074CB3E /* Usuario.swift in Sources */,
+				5F70A73D1C4D5B070071E7A4 /* ParseErrorHandler.swift in Sources */,
 				3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */,
 				185125591BDA91F800E59F89 /* Dados.swift in Sources */,
 				3FFA23D11BF21F3300D7AEDB /* Universidade.swift in Sources */,
@@ -644,6 +651,7 @@
 				3F19F9231C47DFD80009287E /* NavigationConfigViewController.swift in Sources */,
 				3F1607F11C21DC6600120CB5 /* HeaderSemestreCollection.swift in Sources */,
 				3F75CB4F1BF604E6002241AC /* MateriaCollectionViewCell.swift in Sources */,
+				5F70A73F1C4FF68B0071E7A4 /* Date.swift in Sources */,
 				3F0F14AE1BD55047002EA06A /* AppDelegate.swift in Sources */,
 				1851255F1BDA9A2A00E59F89 /* Question.swift in Sources */,
 				3F19F9251C47FCB90009287E /* TabBarViewController.swift in Sources */,

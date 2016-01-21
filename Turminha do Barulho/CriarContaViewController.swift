@@ -86,7 +86,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else{
-                    print("ERROR CADASTRO")
+                    let alert = ParseErrorHandler.errorHandler((ErrorType?.code)!)
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
             
             }
