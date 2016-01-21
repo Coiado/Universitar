@@ -14,10 +14,15 @@ class UniversidadeTableViewController: UITableViewController {
     
     var universidades = [String]()
     
+    @IBOutlet weak var navigationDetalhes: UINavigationItem!
     var course: String?
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
