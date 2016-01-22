@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import ParseFacebookUtilsV4
+import ParseUI
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -24,19 +26,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var tabBar : UITabBarController?
+    let permissions = ["public_profile"]
     
     override func viewDidLoad() {
     
         
-//        if PFUser.currentUser() != nil{
-//            
-//            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-//                self.performSegueWithIdentifier("config", sender: self)
-//            })
-//            
-//            
-//            print("teste")
-//        }
+        if PFUser.currentUser() != nil{
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self.performSegueWithIdentifier("config", sender: self)
+            })
+            
+            
+            print("teste")
+        }
         self.navigationLogin.title = "Login"
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
@@ -99,7 +102,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             }
             else {
-                print("ERRO LOGIN")
+                
+                let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+
             }
         })
         
@@ -166,6 +173,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+    }
+
+    
+    @IBAction func signInFacebook(sender: AnyObject) {
+    
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(["public_profile", "email"], block: {(user:PFUser?, error:NSError?) -> Void in
+        
+            if(error != nil) {
+            // Display alert to warn the user of the error that happened
+                let myAlert = UIAlertController(title:"",message:error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
+                
+                let okClicked = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                
+                myAlert.addAction(okClicked)
+                self.presentViewController(myAlert,  animated: true, completion: nil)
+            
+                return
+            
+            }
+            
+            print(user)
+            print("Token atual = \(FBSDKAccessToken.currentAccessToken().tokenString)")
+            print("ID do Usuario, do Face = \(FBSDKAccessToken.currentAccessToken().userID) ")
+            
+             //I can take the user to  protected page, since it isn't nil
+            if (FBSDKAccessToken.currentAccessToken() != nil){
+            
+                let protectedPage = self.storyboard?.instantiateViewControllerWithIdentifier("ProtectedProfilePage") as! ConfigViewController
+                
+                let protectedPageNavigator = UINavigationController(rootViewController: protectedPage)
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+                appDelegate.window?.rootViewController = protectedPage
+            
+            }
+            
+        })
+    
     }
     
 }

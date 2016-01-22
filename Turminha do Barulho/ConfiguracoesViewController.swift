@@ -52,7 +52,10 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             }
             else{
                 
-                //DEU RUIM
+                
+                let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
                 
             }
         })
@@ -326,6 +329,10 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
                             cell.userImage.image = image
                             self.imagesDictionary[file] = image
                             
+                        }
+                        else{
+                            
+                            cell.userImage.image = UIImage(named: "userIcon")
                         }
                         
                     })
