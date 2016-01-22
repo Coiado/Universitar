@@ -39,19 +39,11 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
 
         cell.usuario = passedCell?.usuario
         cell.usuarioId = passedCell?.usuarioId
-<<<<<<< HEAD
         
         cell.answerDate.text = passedCell?.answerDate.text
         
 //        cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
         
-=======
-        
-        cell.answerDate.text = passedCell?.answerDate.text
-        
-//        cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
-        
->>>>>>> 8edbb9b83b9d60b575e35f5807dc97a7db8943ff
         cell.userIcon.image = passedCell?.userIcon.image
         
         cell.userIcon.layer.masksToBounds = true

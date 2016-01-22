@@ -25,8 +25,7 @@ class NewsDetailCell: UITableViewCell {
     //let charNumber = (self.categoriaTitle.text?.characters.count)!*8
     let squareSize : CGSize = CGSize(width: 240, height: 40)
 
-    func prepareCell()
-    {
+    func prepareCell(){
         
         //Quadrado branco com! a label da noticia
         let whiteSquare : UIView = UIView(frame: CGRect(origin: squareOrigin, size: squareSize))

@@ -45,6 +45,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
                 self.getSizeDescricao(self.passedData.descricaoUniversidade!)
                 self.activityIndicator.stopAnimating()
                 self.navigationUniversidades.title = object?.universidade
+                
             }
             
         }
@@ -162,7 +163,16 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         }
         
     }
-        
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section != 0){
+            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
+            let detalhe = UIAlertController(title: (self.universidade! + " - " + self.curso!), message:self.passedData.semestres![indexPath.section-1][indexPath.row], preferredStyle: UIAlertControllerStyle.Alert)
+            detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(detalhe, animated: true, completion: nil)
+        }
+    }
+    
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
         return sectionInsets

@@ -281,17 +281,18 @@ class ParseModel {
         
         query.limit = 1
         
-        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
+        query.getFirstObjectInBackgroundWithBlock{ (objects:PFObject?, error) -> Void in
             
             if error == nil{
                 
                 if let object = objects{
                 
-                    let curso = object[0]["nome"] as! String
-                    let universidades = object[0]["universidades"] as! [String]
-                    let descricao = object[0]["descricao"] as! String
+                    let curso = object["nome"] as! String
+                    let universidades = object["universidades"] as! [String]
+                    let descricao = object["descricao"] as! String
+                    let file = object["imagem"] as! PFFile
                     
-                    let materia = MateriaDescricao(curso: curso, universidades: universidades, descricao: descricao)
+                    let materia = MateriaDescricao(curso: curso, universidades: universidades, descricao: descricao,file:file)
                     
                     completionHandler(object: materia, error: nil)
                 
