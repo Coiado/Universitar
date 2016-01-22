@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdT-60-V3d">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1044,7 +1044,7 @@
         <!--Config View Controller-->
         <scene sceneID="Is6-iX-Mni">
             <objects>
-                <viewController id="exc-qO-C5v" customClass="ConfigViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProtectedProfilePage" id="exc-qO-C5v" customClass="ConfigViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zML-Bs-Pgd"/>
                         <viewControllerLayoutGuide type="bottom" id="cnF-Ef-xD3"/>
@@ -1543,7 +1543,7 @@
                                                         <constraint firstAttribute="width" constant="77" id="BjJ-lT-U5T"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Dd-l1g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Dd-l1g">
                                                     <rect key="frame" x="97" y="18" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1826,6 +1826,13 @@
                                 <state key="normal" title="Esqueci minha Senha">
                                     <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-T2-kPH">
+                                <rect key="frame" x="124" y="406" width="119" height="30"/>
+                                <state key="normal" title="Login (Facebook)"/>
+                                <connections>
+                                    <action selector="signInFacebook:" destination="2gb-Zh-hbK" eventType="touchUpInside" id="Hl1-A6-eEX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.25490196078431371" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
