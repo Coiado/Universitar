@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol QuestionFeedCellDelegate: class {
+    func didClickDenunciaButtonForCell(cell: QuestionFeedCell)
+}
+
 class QuestionFeedCell: UITableViewCell {
 
     @IBOutlet weak var userIcon: UIImageView!
@@ -18,9 +22,8 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var denunciaButton: UIButton!
     var answers : [Answer] = []
+    weak var delegate: QuestionFeedCellDelegate?
     
-    
-        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -88,5 +91,8 @@ class QuestionFeedCell: UITableViewCell {
 
     }
     
+    @IBAction func denunciaButtonClicked(sender: UIButton) {
+        delegate?.didClickDenunciaButtonForCell(self)
+    }
     
 }
