@@ -155,6 +155,10 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
                         self.imagesDictionary[file] = image
                         
                     }
+                    else{
+                        
+                        cell.userIcon.image = UIImage(named: "userIcon")
+                    }
                     
                 })
             

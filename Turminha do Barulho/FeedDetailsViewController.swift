@@ -252,6 +252,11 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                             self.imagesDictionary[file] = image
                             
                         }
+                        else{
+                            
+                            cell.userImage.image = UIImage(named: "userIcon")
+                            
+                        }
                         
                     })
                     
@@ -296,7 +301,10 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                         
                     }
                     else{
-                        //falar que deu ruim
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
                     }
                     
                 })
@@ -311,7 +319,10 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                         self.denunciaFeita()
                     }
                     else{
-                        //flar que deu ruim
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
                     }
                     
                 })
@@ -377,6 +388,15 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                     })
                     
                     self.pegarComentarios()
+                    
+                }
+                else{
+                    
+                    
+                    let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+
                     
                 }
             })
