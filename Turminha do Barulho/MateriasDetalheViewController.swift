@@ -77,6 +77,7 @@ class MateriasDetalheViewController: UIViewController {
                 self.imagemCurso.bringSubviewToFront(self.tituloEngenharia)
                 self.activityIndicator.startAnimating()
                 self.activityIndicator.stopAnimating()
+                self.activityIndicatorImagem.startAnimating()
                 
                 let file = object?.file
                 
@@ -85,12 +86,11 @@ class MateriasDetalheViewController: UIViewController {
                     if error == nil {
                         
                         self.imagemCurso.image = UIImage(data: data!)
-                        self.activityIndicatorImagem.startAnimating()
+                        
                         
                         
                     }
                     self.activityIndicatorImagem.stopAnimating()
-                    self.activityIndicatorImagem.removeFromSuperview()
                 })
                 
             }

@@ -94,26 +94,14 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
             self.tableView.reloadData()
         }
         else{
-            self.tabBarController?.selectedIndex = 0
-            
             let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
-            self.presentViewController(vc, animated: true, completion:nil)
-//                {() -> Void in
-//                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
-//            })
-//            self.navigationController?.popViewControllerAnimated(true)
-//            
-//            self.performSegueWithIdentifier("login", sender: self)
+            self.presentViewController(vc, animated: true, completion: { () -> Void in
+                
+                self.tabBarController?.selectedIndex = 0
+                
+            })
             
         }
-    }
-    
-    
-    
-    override func viewWillDisappear(animated: Bool) {
-        
-        
-        
     }
     
     
