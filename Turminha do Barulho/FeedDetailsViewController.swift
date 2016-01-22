@@ -422,6 +422,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+
+    
     func getMoreComments(){
         
         self.activityIndicator.startAnimating()
@@ -436,6 +438,9 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                     self.detailsTableView.reloadData()
                     self.isLoadingMore = false
                     
+                    if self.commentArray.count > 1 {
+                        self.detailsTableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Bottom, animated: true)
+                    }
                 }
                 
             }

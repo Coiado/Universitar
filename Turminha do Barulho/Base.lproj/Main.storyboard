@@ -308,7 +308,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="1" selectionStyle="none" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="113" id="yhn-RX-Ov0" customClass="QuestionFeedCell" customModule="Turminha_do_Barulho" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="yhn-RX-Ov0" id="Y8G-yK-JMU">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhn-RX-Ov0" id="Y8G-yK-JMU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -338,16 +338,6 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmI-5e-C46">
-                                                            <rect key="frame" x="297" y="63" width="70" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <state key="normal" title="Denunciar">
-                                                                <color key="titleColor" red="1" green="0.14117647059999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="denunciaQuestao:" destination="ETo-HA-SXP" eventType="touchUpInside" id="olB-oF-OSe"/>
-                                                            </connections>
-                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoT-CH-MvP">
                                                             <rect key="frame" x="331" y="5" width="36" height="25"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
@@ -368,6 +358,16 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmI-5e-C46">
+                                                            <rect key="frame" x="297" y="49" width="70" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Denunciar">
+                                                                <color key="titleColor" red="1" green="0.14117647059999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="denunciaButtonClicked:" destination="yhn-RX-Ov0" eventType="touchUpInside" id="MYU-1h-yLv"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -385,7 +385,6 @@
                                                         <constraint firstItem="PoT-CH-MvP" firstAttribute="leading" secondItem="zDE-If-bOa" secondAttribute="leading" constant="331" id="PxT-r2-w7t"/>
                                                         <constraint firstItem="xlt-p6-FhJ" firstAttribute="top" secondItem="Gbd-aF-MNT" secondAttribute="bottom" constant="17" id="Ttn-oG-Bg0"/>
                                                         <constraint firstItem="Gbd-aF-MNT" firstAttribute="leading" secondItem="54O-z7-HdW" secondAttribute="trailing" constant="10" id="XeS-Po-y21"/>
-                                                        <constraint firstItem="LmI-5e-C46" firstAttribute="leading" secondItem="xlt-p6-FhJ" secondAttribute="trailing" constant="-7" id="acs-nB-rGn"/>
                                                         <constraint firstAttribute="height" secondItem="xlt-p6-FhJ" secondAttribute="height" constant="80" id="bZl-UO-pDK"/>
                                                         <constraint firstItem="Rui-Ws-ivz" firstAttribute="leading" secondItem="54O-z7-HdW" secondAttribute="trailing" constant="10" id="bid-pa-uAf"/>
                                                         <constraint firstItem="xlt-p6-FhJ" firstAttribute="height" secondItem="zDE-If-bOa" secondAttribute="height" constant="-58" id="fsL-ac-glS"/>
@@ -407,7 +406,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LmI-5e-C46" secondAttribute="bottom" constant="2.5" id="Q2n-C7-vom"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zDE-If-bOa" secondAttribute="bottom" constant="2.5" id="SoQ-xb-zFU"/>
                                                 <constraint firstItem="xlt-p6-FhJ" firstAttribute="height" secondItem="Y8G-yK-JMU" secondAttribute="height" id="TFg-67-Dci"/>
                                                 <constraint firstAttribute="trailing" secondItem="zDE-If-bOa" secondAttribute="trailing" id="jFW-R9-5PL"/>
@@ -570,7 +568,7 @@
                                             <outlet property="answerDate" destination="fq3-p6-MSZ" id="5lX-dB-Uar"/>
                                             <outlet property="answerText" destination="2eu-NS-OhC" id="EXF-iR-WNK"/>
                                             <outlet property="answerView" destination="qwP-O9-10g" id="9W9-xt-hBW"/>
-                                            <outlet property="denunciaButton" destination="vU3-rR-8lN" id="jTt-5p-eGC"/>
+                                            <outlet property="denunciaButton" destination="vU3-rR-8lN" id="5Jl-Po-dle"/>
                                             <outlet property="nickName" destination="73X-AL-Lvp" id="6O1-Tb-qFI"/>
                                             <outlet property="userIcon" destination="YKU-HS-06U" id="sBz-kD-c4e"/>
                                             <outlet property="viewAnswer" destination="qwP-O9-10g" id="hgE-q8-0x3"/>
