@@ -46,8 +46,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     func configureButton(){
         
         self.confirmaButton.addTarget(self, action: "confirmaAction", forControlEvents: UIControlEvents.TouchUpInside)
-        self.confirmaButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
-        self.confirmaButton.layer.cornerRadius = 5
+//        self.confirmaButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+//        self.confirmaButton.layer.cornerRadius = 5
         
     }
     
