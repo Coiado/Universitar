@@ -171,7 +171,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             self.presentViewController(detalhe, animated: true, completion: nil)
         }
     }
-        
+    
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
         return sectionInsets
