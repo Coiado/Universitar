@@ -36,7 +36,7 @@ class QuestionFeedCell: UITableViewCell {
         
         //QUESTION VIEW
         self.questionView.layer.masksToBounds = true
-        self.questionView.layer.cornerRadius = 15
+        self.questionView.layer.cornerRadius = 0
         self.questionView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
         
         //CONTENT VIEW
@@ -63,7 +63,7 @@ class QuestionFeedCell: UITableViewCell {
         
         let blueSquare = UIView(frame: CGRect(origin: blueSquareOrigin, size: blueSquareSize))
         blueSquare.backgroundColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)
-        blueSquare.layer.cornerRadius = 15
+        blueSquare.layer.cornerRadius = 0
 
         self.questionView.addSubview(blueSquare)
         self.questionView.sendSubviewToBack(blueSquare)
