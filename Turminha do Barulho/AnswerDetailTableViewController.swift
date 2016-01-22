@@ -12,6 +12,7 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var passedCell:AnswerTableViewCell?
 
@@ -57,6 +58,71 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
         //cell.cardSetup()
         return cell
 
+        
+    }
+    @IBAction func denunciaComentario(sender: AnyObject) {
+        
+        let id = self.passedCell?.id
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil{
+                        self.denunciaFeita()
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil {
+                        
+                        self.denunciaFeita()
+                        
+                    }
+                    else{
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+
+                    }
+                    
+                    
+                })
+                
+            }
+            
+        }
+        
+    }
+    
+    func denunciaFeita(){
+        
+        let alertController = UIAlertController(title: "Denuncia realiza", message: "Obrigado, sua denuncia foi realizada com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
     

@@ -331,6 +331,9 @@
                                                             <state key="normal" title="Denunciar">
                                                                 <color key="titleColor" red="1" green="0.14117647059999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="denunciaQuestao:" destination="ETo-HA-SXP" eventType="touchUpInside" id="olB-oF-OSe"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoT-CH-MvP">
                                                             <rect key="frame" x="331" y="5" width="36" height="25"/>
@@ -409,7 +412,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="PoT-CH-MvP" id="qT3-Ld-Nq7"/>
-                                            <outlet property="denunciaButton" destination="LmI-5e-C46" id="IYt-Cy-n6N"/>
+                                            <outlet property="denunciaButton" destination="LmI-5e-C46" id="1D4-3c-VG4"/>
                                             <outlet property="nickName" destination="Rui-Ws-ivz" id="RSv-iZ-82H"/>
                                             <outlet property="perguntaTitulo" destination="Gbd-aF-MNT" id="eZR-QI-wML"/>
                                             <outlet property="questionText" destination="xlt-p6-FhJ" id="znw-wK-9d4"/>
@@ -627,6 +630,10 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iFY-wb-tUW">
+                                <rect key="frame" x="169" y="258" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="181" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ewZ-NT-b8N">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -683,6 +690,9 @@
                                                             <state key="normal" title="Denunciar">
                                                                 <color key="titleColor" red="1" green="0.14117647059999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="denunciaComentario:" destination="MQs-MG-cEK" eventType="touchUpInside" id="Yxo-WC-exl"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -757,6 +767,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iFY-wb-tUW" id="ES8-9H-gRR"/>
                         <outlet property="tableView" destination="ewZ-NT-b8N" id="R8y-qQ-nrx"/>
                     </connections>
                 </viewController>
@@ -1978,8 +1989,8 @@
         <image name="iosUser" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zD-E0-HBm"/>
         <segue reference="cck-PX-VFc"/>
+        <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

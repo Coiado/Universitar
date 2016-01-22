@@ -166,7 +166,6 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section != 0){
-            let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
             let detalhe = UIAlertController(title: (self.universidade! + " - " + self.curso!), message:self.passedData.semestres![indexPath.section-1][indexPath.row], preferredStyle: UIAlertControllerStyle.Alert)
             detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(detalhe, animated: true, completion: nil)

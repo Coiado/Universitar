@@ -99,7 +99,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             }
             else {
-                print("ERRO LOGIN")
+                
+                let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+
             }
         })
         

@@ -34,7 +34,7 @@ extension NSDate {
     func dateToString(date:NSDate) -> String{
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/mm/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.stringFromDate(date)
         
     }

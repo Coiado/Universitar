@@ -194,6 +194,12 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                         
                     }
                     
+                    else{
+                        
+                        cell.picture.image = UIImage(named: "userIcon")
+                        
+                    }
+                    
                 })
                 
             }
