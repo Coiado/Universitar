@@ -118,7 +118,53 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func forgetAction(){
         
-        //cuidar disso depois
+        let titlePrompt = UIAlertController(title: "Nova senha",
+            message: "Entre o e-mail que você cadastrou:",
+            preferredStyle: .Alert)
+        
+        var titleTextField: UITextField?
+        titlePrompt.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            titleTextField = textField
+            textField.placeholder = "E-mail"
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
+        
+        titlePrompt.addAction(cancelAction)
+        
+        titlePrompt.addAction(UIAlertAction(title: "Resetar", style: .Default , handler: { (action) -> Void in
+            if let textField = titleTextField {
+                self.resetPassword(textField.text!)
+            }
+        }))
+        
+        self.presentViewController(titlePrompt, animated: true, completion: nil)
+
+    }
+    
+    
+    func resetPassword(email:String){
+        
+        // convert the email string to lower case
+        let emailToLowerCase = email.lowercaseString
+        // remove any whitespaces before and after the email address
+        let emailClean = emailToLowerCase.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        PFUser.requestPasswordResetForEmailInBackground(emailClean) { (success, error) -> Void in
+            if (error == nil) {
+                let success = UIAlertController(title: "Successo", message: "Successo! Cheque seu e-mail!", preferredStyle: .Alert)
+                let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                success.addAction(okButton)
+                self.presentViewController(success, animated: false, completion: nil)
+                
+            }else {
+                let errormessage = error!.userInfo["error"] as! NSString
+                let error = UIAlertController(title: "Não foi possível renovar", message: errormessage as String, preferredStyle: .Alert)
+                let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                error.addAction(okButton)
+                self.presentViewController(error, animated: false, completion: nil)
+            }
+        }
         
     }
     

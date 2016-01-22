@@ -266,8 +266,71 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.userName.text = info.nickname
             cell.numberOfLikes = info.upvote
             cell.cellSetup()
+            
+            cell.flagButton.tag = index
+            cell.flagButton.addTarget(self, action: "denunciarComentario:", forControlEvents: UIControlEvents.TouchUpInside)
+            
             return cell //A priori
         }
+    }
+    
+    func denunciarComentario(sender:AnyObject){
+        
+        
+        self.activityIndicator.startAnimating()
+        
+        let id = self.commentArray[sender.tag].id
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil{
+                        
+                        self.denunciaFeita()
+                        
+                    }
+                    else{
+                        //falar que deu ruim
+                    }
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil {
+                        
+                        self.denunciaFeita()
+                    }
+                    else{
+                        //flar que deu ruim
+                    }
+                    
+                })
+                
+            }
+            
+        }
+        
+    }
+    
+    func denunciaFeita(){
+        
+        let alertController = UIAlertController(title: "Denuncia realiza", message: "Obrigado, sua denuncia foi realizada com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     

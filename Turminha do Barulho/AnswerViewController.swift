@@ -271,7 +271,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 cell.answerDate.text = stringDate
             
-                cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.denunciaButton.addTarget(self, action: "denunciaComentario:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+                cell.denunciaButton.tag = index
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
@@ -289,9 +291,43 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
-    func denunciaComentario(){
+    func denunciaComentario(sender: AnyObject){
         
-        print("comentario")
+        let id = self.comentarios[sender.tag].id
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    if error == nil{
+                        //AVISAR QUE DEU BOM
+                    }
+                    else{
+                        //falar que deu ruim
+                    }
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    if error == nil {
+                        
+                        //avisar que deu bom
+                        
+                    }
+                    else{
+                        //flar que deu ruim
+                    }
+                    
+                })
+                
+            }
+            
+        }
         
     }
     

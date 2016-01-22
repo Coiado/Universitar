@@ -1450,8 +1450,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NNB-Gt-msB">
-                                        <rect key="frame" x="177.5" y="107" width="20" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NNB-Gt-msB">
+                                        <rect key="frame" x="169.5" y="98" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -1739,7 +1739,7 @@
         <scene sceneID="GTc-CA-uDf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZCU-Lg-wuW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Materias" image="materias2" id="JMj-rM-Bxd"/>
+                    <tabBarItem key="tabBarItem" title="Materias" image="iosMaterias" id="JMj-rM-Bxd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fe3-O7-HAI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1880,11 +1880,11 @@
             </objects>
             <point key="canvasLocation" x="1609.5" y="-1047.5"/>
         </scene>
-        <!--Configuração-->
+        <!--Perfil-->
         <scene sceneID="fCK-TS-d7a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cxl-pG-q0P" customClass="NavigationConfigViewController" customModule="Turminha_do_Barulho" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configuração" image="config2" id="gpy-pO-Pvg"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="iosUser" id="gpy-pO-Pvg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="e0M-KF-pNo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1905,7 +1905,7 @@
         <scene sceneID="bJM-e4-YD0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="XQz-o1-Zad" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="feed2" id="VWh-3g-Svl"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="iosFeed3" id="VWh-3g-Svl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="2Fj-WA-ZmS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1929,7 +1929,7 @@
         <scene sceneID="qnx-Nu-9Di">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V6a-MI-SYP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perguntas" image="perguntas3" id="1rb-mc-7Av"/>
+                    <tabBarItem key="tabBarItem" title="Perguntas" image="iosPerguntas" id="1rb-mc-7Av"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="WCv-VU-wyg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1969,14 +1969,14 @@
     </scenes>
     <resources>
         <image name="aumentaLetra2" width="32" height="32"/>
-        <image name="config2" width="32" height="32"/>
-        <image name="feed2" width="32" height="32"/>
-        <image name="materias2" width="32" height="32"/>
-        <image name="perguntas3" width="32" height="32"/>
+        <image name="iosFeed3" width="33" height="33"/>
+        <image name="iosMaterias" width="33" height="33"/>
+        <image name="iosPerguntas" width="33" height="33"/>
+        <image name="iosUser" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nU2-4M-6w8"/>
         <segue reference="1zD-E0-HBm"/>
+        <segue reference="cck-PX-VFc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
