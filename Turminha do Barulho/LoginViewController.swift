@@ -28,6 +28,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var tabBar : UITabBarController?
     let permissions = ["public_profile"]
+    var keyboardUp : Bool = false
+    
     
     override func viewDidLoad() {
     
@@ -49,6 +51,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.hidesWhenStopped = true
         
         configureButton()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
         
         
@@ -215,6 +220,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     
     }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if (keyboardUp == false){
+            self.view.frame.origin.y -= 30
+            keyboardUp = true
+        }
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        if (keyboardUp){
+            self.view.frame.origin.y += 30
+            keyboardUp = false
+        }
+        
+    }
+    
+    
     
 }
 

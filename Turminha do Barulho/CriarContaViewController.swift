@@ -31,6 +31,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var keyboardUp : Bool = false
+    
     override func viewDidLoad() {
         
         configureButton()
@@ -39,6 +41,9 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         
         
         self.activityIndicator.hidesWhenStopped = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
         
     }
@@ -93,6 +98,20 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
             
             }
         }
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if (keyboardUp == false){
+            self.view.frame.origin.y -= 30
+            keyboardUp = true
+        }
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        if (keyboardUp){
+            self.view.frame.origin.y += 30
+            keyboardUp = false
+        }
+        
     }
 
     
