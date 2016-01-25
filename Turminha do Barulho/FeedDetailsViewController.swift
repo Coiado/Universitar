@@ -216,7 +216,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext
-            cell.fullText.font = UIFont(name: "Futura", size: self.fontSize[self.actualFontSize])
             cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell

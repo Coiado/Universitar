@@ -103,7 +103,7 @@ class MateriasDetalheViewController: UIViewController {
         
         self.texto.numberOfLines = 0
         
-        self.texto.font = UIFont(name: "Futura", size: 17.0)
+        //self.texto.font = UIFont(name: "Futura", size: 17.0)
         
         configButtons()
         
