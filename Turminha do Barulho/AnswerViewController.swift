@@ -236,7 +236,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let info = self.comentarios[index]
             
                 cell.id = info.id
-                cell.usuario = info.nickname
+                cell.usuario = self.cortarNickname(info.nickname!)
                 cell.usuarioId = info.userId
             
                 let file = String(info.userIcon)
@@ -289,7 +289,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
-                cell.nickName.text = info.nickname
+                cell.nickName.text = self.cortarNickname(info.nickname!) 
                 cell.nickName.font = UIFont(name: "Futura", size: 13.0)
                 cell.answerText.text = info.answerText
                 cell.answerText.font = UIFont(name: "Futura", size: 14.0)
@@ -515,6 +515,16 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
     
+    }
+    
+    func cortarNickname(nickname: String) -> String{
+        var nick = nickname.componentsSeparatedByString(" ")
+        if(nick.count<2){
+            return nick[0]
+        }
+        else{
+            return (nick[0] + " " + nick[1])
+        }
     }
 
 }
