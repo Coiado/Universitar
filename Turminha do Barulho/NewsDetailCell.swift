@@ -65,6 +65,45 @@ class NewsDetailCell: UITableViewCell {
     
     }
     
+    
+    @IBAction func upVote(sender: AnyObject) {
+    
+        self.updateButton()
+
+        self.upVoteButton.enabled = false
+
+        if self.isVoted! {
+    
+                    ParseModel.salvarNovoLike(self.id, usuario: "", completionHandler: { (sucesso, error) -> Void in
+        
+                        ParseModel.aumentarUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
+        
+                            self.upVoteButton.enabled = true
+        
+                        })
+        
+        
+                    })
+        
+            }
+        else{
+    
+                ParseModel.apagarLike(self.id, completionHandler: { (sucesso, error) -> Void in
+    
+                    
+                    ParseModel.diminuirUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
+                        
+                        self.upVoteButton.enabled = true
+    
+                    })
+                    
+                })
+                
+            }
+                
+        }
+    
+    
     func updateButton()
     {
         self.isVoted = !self.isVoted

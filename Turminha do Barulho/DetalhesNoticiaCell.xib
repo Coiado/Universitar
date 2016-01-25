@@ -60,7 +60,7 @@
                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
-                            <action selector="upVote:" destination="oRC-gG-AmF" eventType="touchUpInside" id="Iif-7s-QZi"/>
+                            <action selector="upVote:" destination="oRC-gG-AmF" eventType="touchUpInside" id="LtP-vi-Gz4"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqc-hW-yWW">
