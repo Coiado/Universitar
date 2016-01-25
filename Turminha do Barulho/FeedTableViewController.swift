@@ -194,6 +194,12 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
                         
                     }
                     
+                    else{
+                        
+                        cell.picture.image = UIImage(named: "userIcon")
+                        
+                    }
+                    
                 })
                 
             }
@@ -310,7 +316,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     //MARK: - SearchController
     
     func configureCustomSearchController() {
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: detailsColor, searchBarTintColor: bgColor)
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 35.0), searchBarFont: UIFont.systemFontOfSize(16), searchBarTextColor: UIColor.blackColor(), searchBarTintColor: tableBG)
         
         customSearchController.searchBar.searchBarStyle = UISearchBarStyle.Default
         customSearchController.customSearchBar.placeholder = "Procure"

@@ -13,7 +13,7 @@ protocol novaResposta {
     func salvarNovaResposta(text:String)
 }
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIScrollViewDelegate, novaResposta{
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIScrollViewDelegate, novaResposta, QuestionFeedCellDelegate {
 
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -160,10 +160,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(indexPath.row==0){
             
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
-            
+
             cell.perguntaTitulo.text = self.question!.questionTitle
             cell.perguntaTitulo.sizeToFit()
             cell.updateConstraints()
+            
+            cell.selectionStyle = .None
             
             let now = NSDate()
             
@@ -189,6 +191,11 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.imagesDictionary[file] = image
                             
                         }
+                        else{
+                            
+                            cell.userIcon.image = UIImage(named: "userIcon")
+                            
+                        }
                         
                     })
                     
@@ -209,7 +216,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.updateConstraints()
             //cell.cardSetup()
             
-            cell.denunciaButton.addTarget(self, action: "denunciaQuestao", forControlEvents: UIControlEvents.TouchUpInside)
+            cell.delegate = self
             
             return cell
         }
@@ -252,6 +259,11 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 self.imagesDictionary[file] = image
                                 
                             }
+                            else{
+                                
+                                cell.userIcon.image = UIImage(named: "userIcon")
+                                
+                            }
                             
                         })
                         
@@ -271,7 +283,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
                 cell.answerDate.text = stringDate
             
-                cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.denunciaButton.addTarget(self, action: "denunciaComentario:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+                cell.denunciaButton.tag = index
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
@@ -287,17 +301,71 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-
     
-    func denunciaComentario(){
+    func denunciaComentario(sender: AnyObject){
         
-        print("comentario")
+        let id = self.comentarios[sender.tag].id
+        
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil{
+                        self.denunciaFeita()
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+
+                    }
+                    
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                   
+                    self.activityIndicator.stopAnimating()
+
+                    if error == nil {
+                        
+                        self.denunciaFeita()
+                        
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+
+                    }
+                  
+                                        
+                })
+                
+            }
+            
+        }
         
     }
     
-    func denunciaQuestao(){
+    func denunciaFeita(){
         
-        print("questao")
+        let alertController = UIAlertController(title: "Denuncia realiza", message: "Obrigado, sua denuncia foi realizada com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
     
@@ -325,11 +393,21 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.tableViewQuestion.reloadData()
                             
                         }
+                        else{
+                            
+                            let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+
+                        }
                     })
                     self.pegarComentarios()
                 }
                 else{
-                    //cuidar do erro
+                    
+                    let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
                 
             })
@@ -383,5 +461,60 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func didClickDenunciaButtonForCell(cell: QuestionFeedCell) {
+        
+        let id = self.question?.id
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil{
+                        self.denunciaFeita()
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil {
+                        
+                        self.denunciaFeita()
+                        
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                })
+                
+            }
+            
+        }
+
+    
+    }
 
 }

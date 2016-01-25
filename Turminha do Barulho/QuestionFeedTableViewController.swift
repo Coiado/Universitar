@@ -155,6 +155,10 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
                         self.imagesDictionary[file] = image
                         
                     }
+                    else{
+                        
+                        cell.userIcon.image = UIImage(named: "userIcon")
+                    }
                     
                 })
             
@@ -168,7 +172,7 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         
         cell.userIcon.layer.cornerRadius = 15
         cell.userIcon.layer.masksToBounds = true
-        cell.nickName.text = info.nickname
+        cell.nickName.text = cortarNickname(info.nickname!)
         cell.questionText.text = info.questionText
         
         // Fazendo com que o texto fique adaptavel com a celula da tableview
@@ -243,6 +247,15 @@ class QuestionFeedTableViewController: UITableViewController, UITextFieldDelegat
         self.performSegueWithIdentifier("Answer", sender: self)
     }
     
+    func cortarNickname(nickname: String) -> String{
+        var nick = nickname.componentsSeparatedByString(" ")
+        if(nick.count<2){
+            return nick[0]
+        }
+        else{
+            return (nick[0] + " " + nick[1])
+        }
+    }
     
     let threshold: CGFloat = -10.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag

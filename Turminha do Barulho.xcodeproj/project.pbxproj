@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0866215A1C528C1900FCAB91 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086621571C528C1900FCAB91 /* FBSDKCoreKit.framework */; };
+		0866215B1C528C1900FCAB91 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086621581C528C1900FCAB91 /* FBSDKLoginKit.framework */; };
+		0866215C1C528C1900FCAB91 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086621591C528C1900FCAB91 /* ParseFacebookUtilsV4.framework */; };
+		0866215E1C528D0C00FCAB91 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0866215D1C528D0C00FCAB91 /* ParseUI.framework */; };
 		08F10C221C2076C8000F2034 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F10C211C2076C8000F2034 /* QuestionViewController.swift */; };
 		08F10C241C2076E1000F2034 /* CriaPerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F10C231C2076E1000F2034 /* CriaPerguntaViewController.swift */; };
 		180CA7C41BD915B300F5DFAB /* MateriasDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */; };
@@ -97,6 +101,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		086621571C528C1900FCAB91 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		086621581C528C1900FCAB91 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		086621591C528C1900FCAB91 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		0866215D1C528D0C00FCAB91 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		08F10C211C2076C8000F2034 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		08F10C231C2076E1000F2034 /* CriaPerguntaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriaPerguntaViewController.swift; sourceTree = "<group>"; };
 		180CA7C31BD915B300F5DFAB /* MateriasDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasDetalheViewController.swift; sourceTree = "<group>"; };
@@ -181,17 +189,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0866215E1C528D0C00FCAB91 /* ParseUI.framework in Frameworks */,
+				0866215A1C528C1900FCAB91 /* FBSDKCoreKit.framework in Frameworks */,
+				0866215B1C528C1900FCAB91 /* FBSDKLoginKit.framework in Frameworks */,
+				0866215C1C528C1900FCAB91 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				5F68A5281C2065620087621A /* libsqlite3.tbd in Frameworks */,
 				5F68A5261C2065580087621A /* libz.tbd in Frameworks */,
+				5FEA6A931C20816F00C16A5D /* Bolts.framework in Frameworks */,
+				5FEA6A941C20816F00C16A5D /* Parse.framework in Frameworks */,
 				5F68A5241C2065450087621A /* SystemConfiguration.framework in Frameworks */,
 				5F68A5221C20653B0087621A /* StoreKit.framework in Frameworks */,
 				5F68A5201C2065330087621A /* Security.framework in Frameworks */,
 				5F68A51E1C20652C0087621A /* QuartzCore.framework in Frameworks */,
 				5F68A51C1C2065250087621A /* CoreLocation.framework in Frameworks */,
 				5F68A51A1C20651B0087621A /* CoreGraphics.framework in Frameworks */,
-				5FEA6A931C20816F00C16A5D /* Bolts.framework in Frameworks */,
 				5F68A5181C2065140087621A /* CFNetwork.framework in Frameworks */,
-				5FEA6A941C20816F00C16A5D /* Parse.framework in Frameworks */,
 				5F68A5161C20650D0087621A /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +225,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0866214D1C5273DF00FCAB91 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				086621571C528C1900FCAB91 /* FBSDKCoreKit.framework */,
+				086621581C528C1900FCAB91 /* FBSDKLoginKit.framework */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
+		086621561C52751300FCAB91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0866214D1C5273DF00FCAB91 /* Facebook */,
+				5F68A5101C20649E0087621A /* Parse */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		185125501BDA919100E59F89 /* Materias */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,8 +402,8 @@
 				3F0A99E61BD803B30083B187 /* Controllers */,
 				3F0A99E51BD8037A0083B187 /* View */,
 				3F0A99E41BD8036A0083B187 /* Model */,
-				5F68A5101C20649E0087621A /* Parse */,
 				5F68A52C1C207A420087621A /* Xib Files */,
+				086621561C52751300FCAB91 /* Frameworks */,
 				3F0F14B91BD55047002EA06A /* LaunchScreen.storyboard */,
 				3F0F14AD1BD55047002EA06A /* AppDelegate.swift */,
 				3F0CF1271BDAED4C003E7488 /* UniversidadeData.swift */,
@@ -455,8 +485,10 @@
 		5F68A5101C20649E0087621A /* Parse */ = {
 			isa = PBXGroup;
 			children = (
+				086621591C528C1900FCAB91 /* ParseFacebookUtilsV4.framework */,
 				5F68A5271C2065620087621A /* libsqlite3.tbd */,
 				5F68A5251C2065580087621A /* libz.tbd */,
+				0866215D1C528D0C00FCAB91 /* ParseUI.framework */,
 				5FEA6A911C20816F00C16A5D /* Bolts.framework */,
 				5FEA6A921C20816F00C16A5D /* Parse.framework */,
 				5F68A5231C2065450087621A /* SystemConfiguration.framework */,
@@ -810,8 +842,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"\"./Turminha do Barulho/\"",
+					"$(PROJECT_DIR)/**",
+					./Turminha,
+					do,
+					Barulho/,
+					"$(PROJECT_DIR)/Turminha",
+					do,
+					Barulho,
 				);
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -831,8 +868,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"\"./Turminha do Barulho/\"",
+					"$(PROJECT_DIR)/**",
+					./Turminha,
+					do,
+					Barulho/,
+					"$(PROJECT_DIR)/Turminha",
+					do,
+					Barulho,
 				);
 				INFOPLIST_FILE = "Turminha do Barulho/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

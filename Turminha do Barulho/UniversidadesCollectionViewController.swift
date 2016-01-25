@@ -129,7 +129,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         if (indexPath.section == 0){
             let cellDescricao = UniversidadeCollectionView.dequeueReusableCellWithReuseIdentifier("Descricao", forIndexPath: indexPath) as! DescricaoCollectionViewCell
             cellDescricao.descricaoLabel.text = self.passedData.descricaoUniversidade
-            cellDescricao.descricaoLabel.sizeToFit()
+//            cellDescricao.descricaoLabel.sizeToFit()
             cellDescricao.descricaoLabel.updateConstraints()
             cellDescricao.layer.cornerRadius = 15
             cellDescricao.contentView.layer.masksToBounds = true
@@ -137,7 +137,6 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         }
         else{
             let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
-            cellMateria.materiaSemestre.adjustsFontSizeToFitWidth = true
             cellMateria.layer.masksToBounds = true
             cellMateria.layer.cornerRadius = 10.0
             cellMateria.contentView.layer.cornerRadius = 10.0
@@ -167,7 +166,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section != 0){
             let cellMateria = collectionView.dequeueReusableCellWithReuseIdentifier("Materia", forIndexPath: indexPath) as! MateriaCollectionViewCell
-            let detalhe = UIAlertController(title: (self.universidade! + " - " + self.curso!), message:self.passedData.semestres![indexPath.section-1][indexPath.row], preferredStyle: UIAlertControllerStyle.Alert)
+            let detalhe = UIAlertController(title: self.passedData.semestres![indexPath.section-1][indexPath.row], message: "", preferredStyle: UIAlertControllerStyle.Alert)
             detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(detalhe, animated: true, completion: nil)
         }
