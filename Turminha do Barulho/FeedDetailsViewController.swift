@@ -116,6 +116,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
+        
+        
         self.detailsTableView.reloadData()
         
     }
@@ -219,6 +221,9 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.fullText.text = self.passedCell.fulltext
             cell.fullText.sizeToFit()
             cell.prepareCell()
+            
+            cell.fullText.font = UIFont.systemFontOfSize(self.fontSize[self.actualFontSize])
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("comentarioDetalhes", forIndexPath: indexPath) as! ComentarioDetalhesCell

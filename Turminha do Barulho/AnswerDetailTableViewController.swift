@@ -48,9 +48,9 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
         cell.userIcon.layer.masksToBounds = true
         cell.userIcon.layer.cornerRadius = 15
         cell.nickName.text = passedCell?.nickName.text
-        cell.nickName.font = UIFont(name: "Futura", size: 13.0)
+        cell.nickName.font = UIFont.systemFontOfSize(13.0)
         cell.answerText.text = passedCell?.fullAnswer
-        cell.answerText.font = UIFont(name: "Futura", size: 14.0)
+        cell.answerText.font = UIFont.systemFontOfSize(14.0)
         cell.answerText.sizeToFit()
         cell.updateConstraints()
         //cell.cardSetup()
