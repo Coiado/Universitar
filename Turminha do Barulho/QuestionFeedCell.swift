@@ -40,7 +40,7 @@ class QuestionFeedCell: UITableViewCell {
         //QUESTION VIEW
         self.questionView.layer.masksToBounds = true
         self.questionView.layer.cornerRadius = 5
-        self.questionView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
+        self.questionView.backgroundColor = UIColor(red: 224/255, green: 227/255, blue: 232/255, alpha: 1)
         
         //CONTENT VIEW
         self.contentView.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
@@ -76,7 +76,7 @@ class QuestionFeedCell: UITableViewCell {
         let redSquareSize = CGSize(width: self.questionView.frame.width+100, height: 20)
         
         let redSquare = UIView(frame: CGRect(origin:redSquareOrigin, size: redSquareSize))
-        redSquare.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        redSquare.backgroundColor = UIColor(red: 241/255, green: 61/255, blue: 62/255, alpha: 1)
         
         self.questionView.addSubview(redSquare)
         self.questionView.sendSubviewToBack(redSquare)
@@ -85,8 +85,8 @@ class QuestionFeedCell: UITableViewCell {
         self.nickName.textColor = UIColor(red: 238/255, green: 171/255, blue: 32/255, alpha: 1)
         
         self.perguntaTitulo.textColor = UIColor.whiteColor()
-        self.questionText.textColor = UIColor.whiteColor()
-        self.dateLabel.textColor = UIColor.whiteColor()
+        self.questionText.textColor = UIColor.blackColor()
+        self.dateLabel.textColor = UIColor.blackColor()
         self.nickName.sizeToFit()
 
     }
