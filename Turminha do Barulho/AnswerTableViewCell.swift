@@ -76,27 +76,6 @@ class AnswerTableViewCell: UITableViewCell {
         }
     }
     
-    //Checa se clicamos no label
-    
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        
-//        //Checamos se eh necessario checar o toque
-//        if(self.isTextTooBig == true)
-//        {
-//            let touch : UITouch = touches.first!
-//            let touchPoint : CGPoint = touch.locationInView(self)
-//           
-//            //Checamos se nosso toque se encontra no retangulo da label
-//            if(self.answerText.frame.contains(touchPoint))
-//            {
-//                print("VER MAIS")
-//                //TO DO
-//                //Inserir metodo para mostrar o resto do texto, para isso usar a string fullAnswer
-//            }
-//        
-//        }
-//        
-//    }
     
     func cardSetup(){
         

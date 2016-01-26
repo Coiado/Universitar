@@ -28,8 +28,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var tabBar : UITabBarController?
     let permissions = ["public_profile"]
+
     var keyboardUp : Bool = false
-    
     
     override func viewDidLoad() {
     
@@ -192,10 +192,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func signInFacebook(sender: AnyObject) {
+        
+        self.activityIndicator.startAnimating()
     
         PFFacebookUtils.logInInBackgroundWithReadPermissions(["public_profile", "email"], block: {(user:PFUser?, error:NSError?) -> Void in
         
+            
             if(error != nil) {
+                
             // Display alert to warn the user of the error that happened
                 let myAlert = UIAlertController(title:"",message:error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
                 
@@ -208,22 +212,102 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             }
             
-            print(user)
-            print("Token atual = \(FBSDKAccessToken.currentAccessToken().tokenString)")
-            print("ID do Usuario, do Face = \(FBSDKAccessToken.currentAccessToken().userID) ")
+            if (FBSDKAccessToken.currentAccessToken() == nil){
+            
+                let failedFBAttempt = UIAlertController(title: "ERRO", message: "Não foi possível fazer login com o Facebook", preferredStyle: .Alert)
+                let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                failedFBAttempt.addAction(okButton)
+                self.presentViewController(failedFBAttempt, animated: false, completion: nil)
+            }
+            
+            // CHECK HERE IF USER IS NOT NIL
+//            print(user)
+//            print("Token atual = \(FBSDKAccessToken.currentAccessToken().tokenString)")
+//            print("ID do Usuario, do Face = \(FBSDKAccessToken.currentAccessToken().userID) ")
             
              //I can take the user to  protected page, since it isn't nil
             if (FBSDKAccessToken.currentAccessToken() != nil){
             
-                let protectedPage = self.storyboard?.instantiateViewControllerWithIdentifier("ProtectedProfilePage") as! ConfigViewController
+//                let protectedPage = self.storyboard?.instantiateViewControllerWithIdentifier("ProtectedProfilePage") as! ConfigViewController
+//                
+//                let protectedPageNavigator = UINavigationController(rootViewController: protectedPage)
+//                
+//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 
-                let protectedPageNavigator = UINavigationController(rootViewController: protectedPage)
+                //appDelegate.window?.rootViewController = protectedPage
                 
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                user!["nome"] = FBSDKLoginButton().readPermissions["public_profile"] as! String
+//                user.username = usuario
+//                user.password = senha
+//                user.email = email
                 
-                appDelegate.window?.rootViewController = protectedPage
+                
+                let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+                graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    
+                    if ((error) != nil)
+                    {
+                        // Process error
+                        print("Error: \(error)")
+                    }
+                    else
+                    {
+                       // print("fetched user: \(result)")
+                        let userName : NSString = result.valueForKey("name") as! NSString
+                       // print("User Name is: \(userName)")
+                        let userID : NSString = result.valueForKey("id") as! NSString
+                       // let userEmail : NSString = result.valueForKey("email") as! NSString
+                       // print("User Email is: \(userEmail)")
+                        
+                        // Saves the username
+                        user!["nome"] = userName
+                        
+                        // Gets the profile image
+                        //let url = NSURL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
+                        let url = "http://graph.facebook.com/\(userID)/picture?type=large"
+                        //let urlRequest = NSURLRequest(URL: url!)
+                        let urlRequest = NSURL(string: url)
+                        
+                        let imageData = NSData(contentsOfURL: urlRequest!)
+                       // print("NSData é: \(imageData)")
+                        //var image = UIImage(data: imageData!)
+                        
+                            // Display the image
+                            let image = PFFile(data: imageData!)
+                            user!["foto"] = image
+                        
+                        user?.saveInBackgroundWithBlock({ (sucess, error) -> Void in
+                            // Necessario alterar no storyboard
+                            if error == nil {
+                                
+                                print("Salvou")
+                                self.activityIndicator.stopAnimating()
+                                
+                                let facebookLoginOK = UIAlertController(title: "Sucesso!", message: "Login com Facebook realizado com sucesso", preferredStyle: .Alert)
+                                let okButton = UIAlertAction(title: "OK", style: .Default, handler:{ (UIAlertAction) -> Void in
+                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                })
+                                facebookLoginOK.addAction(okButton)
+                                self.presentViewController(facebookLoginOK, animated: false, completion: nil)
+                                
+//                                if(facebookLoginOK.isBeingDismissed()){
+//                                
+//                                self.dismissViewControllerAnimated(true, completion: nil)
+//                                }
+                                
+                            }
+                            
+                            
+                        })
+                        
+                        
+
+                    }
+                })
+
             
             }
+            
             
         })
     
