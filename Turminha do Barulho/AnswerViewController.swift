@@ -47,10 +47,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         newQuestion.enabled = true
+        
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
+        
         self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
+        self.tableViewQuestion.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
+        
         pegarComentarios()
+        
         configRefresh()
     }
     
