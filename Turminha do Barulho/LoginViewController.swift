@@ -61,13 +61,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        let detalhe = UIAlertController(title: "Para executar essa ação é preciso se logar", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(detalhe, animated: true, completion: nil)
-    }
-    
-    
     
     func configureButton() {
         
