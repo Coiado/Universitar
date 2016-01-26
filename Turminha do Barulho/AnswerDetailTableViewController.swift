@@ -61,61 +61,87 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
     @IBAction func denunciaComentario(sender: AnyObject) {
         
         let id = self.passedCell?.id
-        
+            
         self.activityIndicator.startAnimating()
         
-        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+        if let user = PFUser.currentUser(){
             
-            if error == nil {
+            ParseModel.findDenuncia(id!) { (object, error) -> Void in
                 
+                self.activityIndicator.stopAnimating()
                 
-                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                if error == nil{
                     
-                    self.activityIndicator.stopAnimating()
+                    let alert = UIAlertController(title: "Denúncia", message: "Você já denunciou esse comentário, vamos analisar, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "Ok", style: .Default, handler: { (UIAlertAction) -> Void in
+                    })
                     
-                    if error == nil{
-                        self.denunciaFeita()
-                    }
-                    else{
-                        
-                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
-                        
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        
-                    }
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
                     
+                else {
                     
-                })
-            }else{
-                
-                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    let alert = UIAlertController(title: "Denúncia", message: "Fale o motivo da denúncia que vamos analisar, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
                     
-                    self.activityIndicator.stopAnimating()
-                    
-                    if error == nil {
-                        
-                        self.denunciaFeita()
-                        
-                    }
-                    else{
-                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
-                        
-                        self.presentViewController(alert, animated: true, completion: nil)
-
+                    var titleTextField: UITextField?
+                    alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+                        titleTextField = textField
+                        textField.placeholder = "Motivo"
                     }
                     
+                    let cancelAction: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
                     
-                })
+                    alert.addAction(cancelAction)
+                    
+                    let action = UIAlertAction(title: "Enviar", style: .Default, handler: { (UIAlertAction) -> Void in
+                        
+                        if let text = titleTextField?.text{
+                            ParseModel.criarDenuncia(id!,motivo: text, completionHandler: { (sucesso, error) -> Void in
+                                
+                                if error == nil {
+                                    
+                                    self.denunciaFeita()
+                                }
+                                
+                            })
+                        }
+                    })
+                    
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }
                 
             }
+        }
+        else{
+            
+            self.activityIndicator.stopAnimating()
+            
+            let alert = UIAlertController(title: "Denúncia", message: "Para seguir essa ação por favor fazer login, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Login", style: .Default, handler: { (UIAlertAction) -> Void in
+            
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+                self.presentViewController(vc, animated: true, completion: { () -> Void in
+                    
+                    
+                })
+            
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
+            
+            alert.addAction(cancelAction)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
             
         }
-        
     }
     
     func denunciaFeita(){
         
-        let alertController = UIAlertController(title: "Denuncia realiza", message: "Obrigado, sua denuncia foi realizada com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Denúncia realiza", message: "Obrigado, sua denúncia foi realizada com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         
         alertController.addAction(okAction)
