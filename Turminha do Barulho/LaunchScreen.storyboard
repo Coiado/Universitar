@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-App-Final.png" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-sM-3Oc">
-                                <rect key="frame" x="124" y="70" width="351" height="285"/>
+                                <rect key="frame" x="124" y="41" width="351" height="285"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="351" id="6hl-hr-ncJ"/>
@@ -58,13 +58,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ScW-sM-3Oc" secondAttribute="trailing" constant="104" id="1nd-HH-Tm4"/>
                             <constraint firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ScW-sM-3Oc" secondAttribute="bottom" constant="277" id="EvL-gM-q7t"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="ScW-sM-3Oc" secondAttribute="bottom" constant="36" id="OZH-Za-U1j"/>
                             <constraint firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstItem="ScW-sM-3Oc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="105" id="UKw-Bp-Wir"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="183.5" id="moa-c2-u7t"/>
                             <constraint firstItem="ScW-sM-3Oc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uMK-bx-bAH"/>
-                            <constraint firstItem="ScW-sM-3Oc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="wLS-Te-wGm"/>
+                            <constraint firstItem="ScW-sM-3Oc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="21" id="wLS-Te-wGm"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="x7j-FC-K8j"/>
                             <constraint firstItem="ScW-sM-3Oc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="18" id="zHe-cl-WEl"/>
                         </constraints>
@@ -73,6 +74,7 @@
                                 <exclude reference="1nd-HH-Tm4"/>
                                 <exclude reference="UKw-Bp-Wir"/>
                                 <exclude reference="zHe-cl-WEl"/>
+                                <exclude reference="OZH-Za-U1j"/>
                                 <exclude reference="EvL-gM-q7t"/>
                             </mask>
                         </variation>

@@ -42,6 +42,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
         
         self.activityIndicator.hidesWhenStopped = true
         
+        self.confirmaButton.layer.cornerRadius = 5
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
