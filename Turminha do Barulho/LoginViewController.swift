@@ -210,6 +210,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if (FBSDKAccessToken.currentAccessToken() == nil){
             
+                self.activityIndicator.stopAnimating()
+                
                 let failedFBAttempt = UIAlertController(title: "ERRO", message: "Não foi possível fazer login com o Facebook", preferredStyle: .Alert)
                 let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 failedFBAttempt.addAction(okButton)
