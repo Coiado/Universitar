@@ -107,7 +107,6 @@ class MateriasTableViewController: UITableViewController {
         }
         
         cell.textLabel?.text = materia
-        cell.detailTextLabel?.text = "Exatas"
         
         return cell
         
