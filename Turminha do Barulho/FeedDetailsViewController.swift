@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
+class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta, NewsDetailCellDelegate{
     
     @IBOutlet weak var aumentaLetra: UIButton!
     
@@ -204,7 +204,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.isVoted = passedCell.upvoted
             cell.configButton()
-            cell.upVoteButton.enabled = false
+            cell.upVoteButton.enabled = true
             
             if isLogged{
                 
@@ -389,8 +389,23 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             performSegueWithIdentifier("criarComentário", sender: self)
         }
         else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
-            self.presentViewController(vc, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Cometário", message: "Para seguir essa ação por favor fazer login, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Login", style: .Default, handler: { (UIAlertAction) -> Void in
+                
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+                self.presentViewController(vc, animated: true, completion: { () -> Void in
+                    
+                    
+                })
+                
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
+            
+            alert.addAction(cancelAction)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
         
         
@@ -482,6 +497,26 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
+    }
+    
+    func clickLike(cell: NewsDetailCell){
+        let alert = UIAlertController(title: "Curtir", message: "Para seguir essa ação por favor fazer login, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Login", style: .Default, handler: { (UIAlertAction) -> Void in
+            
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+            self.presentViewController(vc, animated: true, completion: { () -> Void in
+                
+                
+            })
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+
     }
     
 }
