@@ -1396,8 +1396,12 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-OE-9d2">
+<<<<<<< HEAD
+                                <rect key="frame" x="169" y="188.5" width="37" height="37"/>
+=======
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <animations/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                 <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
@@ -1422,8 +1426,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cadastro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm1-0G-s1k">
+<<<<<<< HEAD
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+=======
                                 <rect key="frame" x="152" y="39" width="70" height="20.5"/>
                                 <animations/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1436,8 +1444,12 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-w2-WJb">
+<<<<<<< HEAD
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="30"/>
+=======
                                 <rect key="frame" x="41" y="20" width="41" height="30"/>
                                 <animations/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                 <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Voltar"/>
                                 <connections>
@@ -1806,7 +1818,10 @@
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+<<<<<<< HEAD
+=======
                                 <animations/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                 <color key="backgroundColor" red="0.8784313725490196" green="0.8901960784313725" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="lrR-rW-x5k" secondAttribute="trailing" constant="10" id="KDQ-us-AjE"/>
@@ -1839,7 +1854,11 @@
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+<<<<<<< HEAD
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8901960784313725" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+=======
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.67450980390000004" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="IBq-82-nKH" secondAttribute="trailing" constant="5" id="BF5-F6-1Tw"/>
                                     <constraint firstAttribute="bottom" secondItem="IBq-82-nKH" secondAttribute="bottom" id="GV1-o9-M49"/>
@@ -1858,7 +1877,11 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-m8-VFS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+<<<<<<< HEAD
+                                    <color key="backgroundColor" red="0.94509803920000002" green="0.23921568630000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+=======
                                     <color key="backgroundColor" red="0.20487853595730401" green="0.27664425399874421" blue="0.35869178921568623" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> c3b5616b0d0d9b654279d404815c524eee438811
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.94509803921568625" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>

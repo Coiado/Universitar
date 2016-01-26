@@ -578,8 +578,13 @@ class ParseModel {
     
     static func findDenuncia(comentario: String, completionHandler:(object:PFObject?, error: NSError?)->Void){
         
-        let query = PFQuery(className: "Denuncia")
-        query.whereKey("comentario", equalTo: comentario)
+        let query = PFQuery(className: "Atividade")
+        
+        let user = PFUser.currentUser()
+        
+        query.whereKey("tipo", equalTo: "Denuncia")
+        query.whereKey("para", equalTo: comentario)
+        query.whereKey("deUsuario", equalTo: user!)
         query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
             if error == nil{
                 completionHandler(object: object, error: nil)
@@ -748,11 +753,13 @@ class ParseModel {
     }
     
     
-    static func criarDenuncia(comentario: String, completionHandler:(sucesso:Bool, error: NSError?)->Void){
+    static func criarDenuncia(comentario: String,motivo:String, completionHandler:(sucesso:Bool, error: NSError?)->Void){
         
-        let denuncia = PFObject(className: "Denuncia")
-        denuncia["comentario"] = comentario
-        denuncia["denuncias"] = 1
+        let denuncia = PFObject(className: "Atividade")
+        denuncia["conteudo"] = motivo
+        denuncia["tipo"] = "Denuncia"
+        denuncia["para"] = comentario
+        denuncia["deUsuario"] = PFUser.currentUser()!
         
         denuncia.saveInBackgroundWithBlock { (Bool, error) -> Void in
             
@@ -951,7 +958,7 @@ class ParseModel {
             
             if error == nil {
                 
-                var upvote = object!["upvote"] as! Int
+                let upvote = object!["upvote"] as! Int
                 object!["upvote"] = upvote - 1
                 object?.saveInBackgroundWithBlock({ (Bool, error) -> Void in
                     

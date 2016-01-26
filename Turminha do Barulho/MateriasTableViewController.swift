@@ -32,8 +32,6 @@ class MateriasTableViewController: UITableViewController {
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            controller.searchBar.scopeButtonTitles = ["Todos", "Exatas", "Humanas", "Biológicas"]
-            controller.searchBar.delegate = self
             definesPresentationContext = true
             self.tableView.tableHeaderView = controller.searchBar
             
@@ -155,7 +153,7 @@ class MateriasTableViewController: UITableViewController {
     
     //MARK: - Update func
     
-    func filtrarDados(searchText: String, scope: String = "All"){
+    func filtrarDados(searchText: String){
         
         self.materiasFiltradas = self.materias.filter({ (materia) -> Bool in
             
@@ -176,24 +174,9 @@ extension MateriasTableViewController: UISearchResultsUpdating {
         
         let searchBarText = searchController.searchBar.text!
         
-        let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
-        
-        filtrarDados(searchBarText, scope: scope)
+        filtrarDados(searchBarText)
         
     }
 }
 
-extension MateriasTableViewController: UISearchBarDelegate {
-    
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-        let searchBarText = searchBar.text!
-        
-        let scope = searchBar.scopeButtonTitles![selectedScope]
-        
-        filtrarDados(searchBarText, scope: scope )
-        
-    }
-    
-}
 
