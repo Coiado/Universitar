@@ -467,8 +467,23 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.newQuestion.endEditing(true)
         }
         else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
-            self.presentViewController(vc, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Cometário", message: "Para seguir essa ação por favor fazer login, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Login", style: .Default, handler: { (UIAlertAction) -> Void in
+                
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+                self.presentViewController(vc, animated: true, completion: { () -> Void in
+                    
+                    
+                })
+                
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
+            
+            alert.addAction(cancelAction)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
         
         
