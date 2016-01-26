@@ -43,8 +43,6 @@ class AnswerDetailTableViewController: UIViewController, UITableViewDataSource, 
         
         cell.answerDate.text = passedCell?.answerDate.text
         
-//        cell.denunciaButton.addTarget(self, action: "denunciaComentario", forControlEvents: UIControlEvents.TouchUpInside)
-        
         cell.userIcon.image = passedCell?.userIcon.image
         
         cell.userIcon.layer.masksToBounds = true
