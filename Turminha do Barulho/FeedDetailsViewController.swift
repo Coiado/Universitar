@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta{
+class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, novaResposta, NewsDetailCellDelegate{
     
     @IBOutlet weak var aumentaLetra: UIButton!
     
@@ -448,6 +448,15 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
+    }
+    
+    func clickLike(cell: NewsDetailCell){
+        let user = PFUser.currentUser()?.objectId
+        
+        if user == nil{
+            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
     }
     
 }

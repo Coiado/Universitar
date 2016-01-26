@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 
+
+protocol NewsDetailCellDelegate: class {
+    func clickLike(cell: NewsDetailCell)
+}
+
 class NewsDetailCell: UITableViewCell {
     
     @IBOutlet weak var imagem: UIImageView!
@@ -17,6 +22,7 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var fullText: UILabel!
     @IBOutlet weak var upVoteButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
+    weak var delegate: NewsDetailCellDelegate?
     var isVoted: Bool!
     var id : String = ""
     
@@ -74,6 +80,8 @@ class NewsDetailCell: UITableViewCell {
 //            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
 //            self.presentViewController(vc, animated: true, completion: nil)
 //        }else{
+        let user = PFUser.currentUser()?.objectId
+        if user != nil{
             self.updateButton()
             
             self.upVoteButton.enabled = false
@@ -108,6 +116,8 @@ class NewsDetailCell: UITableViewCell {
             }
         }
         
+        }
+        
                 
 //    }
     
@@ -119,4 +129,8 @@ class NewsDetailCell: UITableViewCell {
         self.configButton()
     }
 
+    
+    @IBAction func didClickLike(sender:UIButton){
+        delegate!.clickLike(self)
+    }
 }

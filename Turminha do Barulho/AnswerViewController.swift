@@ -209,7 +209,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.userIcon.layer.masksToBounds = true
             cell.userIcon.layer.cornerRadius = 15
-            cell.nickName.text = question?.nickname
+            cell.nickName.text = self.cortarNickname((question?.nickname)!)
             cell.questionText.text = self.question!.questionText
             cell.questionText.font = UIFont(name: "Futura", size: 14.0)
             cell.questionText.sizeToFit()
