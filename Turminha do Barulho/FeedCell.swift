@@ -41,7 +41,7 @@ class FeedCell: UITableViewCell {
         let rectOrigin: CGPoint = CGPoint(x:0, y:0)
         let rectSize : CGSize = CGSize(width: self.cardView.frame.width, height: 20)
         let whiteRect : UIView = UIView(frame: CGRect(origin: rectOrigin, size: rectSize))
-        whiteRect.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+        whiteRect.backgroundColor = UIColor(red: 241/255, green: 61/255, blue: 62/255, alpha: 1)
         whiteRect.alpha = 1
         self.cardView.addSubview(whiteRect)
         self.cardView.sendSubviewToBack(whiteRect)
@@ -69,12 +69,12 @@ class FeedCell: UITableViewCell {
         
         //Alteramos o texto da tag para que haja contraste entre os textos
         self.title.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        self.subTitle.textColor = UIColor.whiteColor()
+        self.subTitle.textColor = UIColor.blackColor()
         self.title.backgroundColor = UIColor.clearColor()
-        self.textField.textColor = UIColor.whiteColor()
-        self.dateLabel.textColor = UIColor.whiteColor()
+        self.textField.textColor = UIColor.blackColor()
+        self.dateLabel.textColor = UIColor.blackColor()
         
-        self.cardView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
+        self.cardView.backgroundColor = UIColor(red: 224/255, green: 227/255, blue: 232/255, alpha: 1)
         
     }
     

@@ -1582,7 +1582,7 @@
                                                         <constraint firstAttribute="width" constant="77" id="BjJ-lT-U5T"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Dd-l1g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Dd-l1g">
                                                     <rect key="frame" x="97" y="18" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1655,13 +1655,11 @@
                                                 <constraint firstAttribute="height" constant="20.5" id="4sZ-bW-ep3"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-rW-x5k">
                                             <rect key="frame" x="29" y="48" width="320" height="182"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1691,7 +1689,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-82-nKH">
                                             <rect key="frame" x="5" y="0.0" width="80" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1718,7 +1716,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <color key="backgroundColor" red="0.20487853595730401" green="0.27664425399874421" blue="0.35869178921568623" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <color key="textColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.94509803921568625" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
                             </subviews>
                             <constraints>
@@ -1892,9 +1890,9 @@
                         <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="width" secondItem="0C1-il-COO" secondAttribute="width" multiplier="0.85" id="3Ut-ro-NBn"/>
-                            <constraint firstItem="Hr8-k3-bIV" firstAttribute="centerY" secondItem="0C1-il-COO" secondAttribute="centerY" id="90M-T6-FL3"/>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="9bW-fN-rNh"/>
                             <constraint firstItem="1Mj-p5-oGQ" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" constant="1.5" id="9gG-ed-bYh"/>
+                            <constraint firstItem="Hr8-k3-bIV" firstAttribute="centerY" secondItem="WJt-dR-1Vo" secondAttribute="centerY" constant="-24" id="F2z-Jf-8Ha"/>
                             <constraint firstItem="kfl-L2-phK" firstAttribute="top" secondItem="UXg-v7-aB7" secondAttribute="bottom" constant="15" id="FDU-pe-fZg"/>
                             <constraint firstItem="1Mj-p5-oGQ" firstAttribute="top" secondItem="Wyn-ga-i6s" secondAttribute="bottom" constant="20" id="FeA-4K-RRq"/>
                             <constraint firstItem="UXg-v7-aB7" firstAttribute="centerX" secondItem="0C1-il-COO" secondAttribute="centerX" id="Kv8-Wh-hbO"/>
