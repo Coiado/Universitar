@@ -73,6 +73,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.loginButton.addTarget(self, action: "loginAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.loginFacebook.layer.cornerRadius = 5
+        self.loginButton.layer.cornerRadius = 5
+        self.signupButton.layer.cornerRadius = 5
+        self.forgetButton.layer.cornerRadius = 5
+        
 //        self.loginButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
 //        self.loginButton.layer.cornerRadius = 5
         
