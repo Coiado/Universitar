@@ -216,7 +216,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.userIcon.layer.cornerRadius = 15
             cell.nickName.text = self.cortarNickname((question?.nickname)!)
             cell.questionText.text = self.question!.questionText
-            cell.questionText.font = UIFont(name: "Futura", size: 14.0)
+            cell.questionText.font = UIFont.systemFontOfSize(14.0)
             cell.questionText.sizeToFit()
             cell.updateConstraints()
             //cell.cardSetup()
@@ -229,7 +229,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
             let numberComments = String((self.question?.comentarios)!)
             cell.comments.text = numberComments + " Comentários:"
-            cell.comments.font = UIFont(name: "Futura", size: 14.0)
+            cell.comments.font = UIFont.systemFontOfSize(14.0)
             
             return cell
             }
@@ -294,10 +294,10 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
-                cell.nickName.text = self.cortarNickname(info.nickname!) 
-                cell.nickName.font = UIFont(name: "Futura", size: 13.0)
+                cell.nickName.text = info.nickname
+                cell.nickName.font = UIFont.systemFontOfSize(13.0)
                 cell.answerText.text = info.answerText
-                cell.answerText.font = UIFont(name: "Futura", size: 14.0)
+                cell.answerText.font = UIFont.systemFontOfSize(14.0)
                 cell.formatText()
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()

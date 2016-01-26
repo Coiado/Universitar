@@ -146,17 +146,19 @@ class MateriasDetalheViewController: UIViewController {
         
         if size < self.fontSize.count{
             
-            self.texto.font = UIFont(name: "Futura", size: self.fontSize[size])
             self.actualFontSize = size
         
         }
         else{
             
-            self.texto.font = UIFont(name: "Futura", size: self.fontSize[0])
             self.actualFontSize = 0
             
         }
+        
+        self.texto.font = UIFont.systemFontOfSize(self.fontSize[self.actualFontSize])
+        
     }
+    
     
     
 }
