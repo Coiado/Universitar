@@ -32,7 +32,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-App-Final.png" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-sM-3Oc">
-                                <rect key="frame" x="124" y="70" width="351" height="285"/>
+                                <rect key="frame" x="124" y="41" width="351" height="285"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="351" id="6hl-hr-ncJ"/>
                                     <constraint firstAttribute="height" constant="285" id="7Th-vw-9fZ"/>

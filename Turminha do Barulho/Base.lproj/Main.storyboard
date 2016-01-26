@@ -383,6 +383,7 @@
                                                         <constraint firstItem="54O-z7-HdW" firstAttribute="leading" secondItem="zDE-If-bOa" secondAttribute="leading" constant="10" id="Ltb-JQ-QJp"/>
                                                         <constraint firstItem="xlt-p6-FhJ" firstAttribute="leading" secondItem="54O-z7-HdW" secondAttribute="trailing" constant="11" id="MBV-0a-ap2"/>
                                                         <constraint firstItem="PoT-CH-MvP" firstAttribute="top" secondItem="zDE-If-bOa" secondAttribute="top" constant="5" id="NV5-8o-1PY"/>
+                                                        <constraint firstItem="PoT-CH-MvP" firstAttribute="leading" secondItem="zDE-If-bOa" secondAttribute="leading" constant="297" id="PxT-r2-w7t"/>
                                                         <constraint firstItem="xlt-p6-FhJ" firstAttribute="top" secondItem="Gbd-aF-MNT" secondAttribute="bottom" constant="17" id="Ttn-oG-Bg0"/>
                                                         <constraint firstItem="Gbd-aF-MNT" firstAttribute="leading" secondItem="54O-z7-HdW" secondAttribute="trailing" constant="10" id="XeS-Po-y21"/>
                                                         <constraint firstItem="PoT-CH-MvP" firstAttribute="leading" secondItem="Rui-Ws-ivz" secondAttribute="trailing" priority="700" id="aFS-D8-3Ey"/>
@@ -1864,8 +1865,8 @@
                                 <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-k3-bIV">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-k3-bIV">
+                                <rect key="frame" x="169" y="206.5" width="37" height="37"/>
                                 <color key="color" red="0.1058823529" green="0.2156862745" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-App-Final" translatesAutoresizingMaskIntoConstraints="NO" id="UXg-v7-aB7">
@@ -2068,6 +2069,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1zD-E0-HBm"/>
         <segue reference="cck-PX-VFc"/>
+        <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.074509803920000006" green="0.58039215690000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
