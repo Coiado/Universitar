@@ -59,7 +59,7 @@ class FeedCell: UITableViewCell {
         
         //Arredondamos a celula e a imagem da noticia
         self.cardView.layer.masksToBounds = false
-        self.cardView.layer.cornerRadius = 0
+        self.cardView.layer.cornerRadius = 5
         self.cardView.clipsToBounds = true
         self.picture.layer.masksToBounds = true
         self.picture.layer.cornerRadius = 0
