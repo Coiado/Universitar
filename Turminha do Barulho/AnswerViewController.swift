@@ -214,9 +214,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.userIcon.layer.masksToBounds = true
             cell.userIcon.layer.cornerRadius = 15
-            cell.nickName.text = question?.nickname
+            cell.nickName.text = self.cortarNickname((question?.nickname)!)
             cell.questionText.text = self.question!.questionText
-            cell.questionText.font = UIFont(name: "Futura", size: 14.0)
+            cell.questionText.font = UIFont.systemFontOfSize(14.0)
             cell.questionText.sizeToFit()
             cell.updateConstraints()
             //cell.cardSetup()
@@ -229,7 +229,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentTableViewCell
             let numberComments = String((self.question?.comentarios)!)
             cell.comments.text = numberComments + " Comentários:"
-            cell.comments.font = UIFont(name: "Futura", size: 14.0)
+            cell.comments.font = UIFont.systemFontOfSize(14.0)
             
             return cell
             }
@@ -241,7 +241,7 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let info = self.comentarios[index]
             
                 cell.id = info.id
-                cell.usuario = info.nickname
+                cell.usuario = self.cortarNickname(info.nickname!)
                 cell.usuarioId = info.userId
             
                 let file = String(info.userIcon)
@@ -295,9 +295,9 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.userIcon.layer.masksToBounds = true
                 cell.userIcon.layer.cornerRadius = 15
                 cell.nickName.text = info.nickname
-                cell.nickName.font = UIFont(name: "Futura", size: 13.0)
+                cell.nickName.font = UIFont.systemFontOfSize(13.0)
                 cell.answerText.text = info.answerText
-                cell.answerText.font = UIFont(name: "Futura", size: 14.0)
+                cell.answerText.font = UIFont.systemFontOfSize(14.0)
                 cell.formatText()
                 cell.answerText.sizeToFit()
                 cell.updateConstraints()
@@ -467,8 +467,23 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.newQuestion.endEditing(true)
         }
         else{
-            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
-            self.presentViewController(vc, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Cometário", message: "Para seguir essa ação por favor fazer login, obrigado.", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Login", style: .Default, handler: { (UIAlertAction) -> Void in
+                
+                let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+                self.presentViewController(vc, animated: true, completion: { () -> Void in
+                    
+                    
+                })
+                
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
+            
+            alert.addAction(cancelAction)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
         
         
@@ -570,4 +585,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
     }
+    
+    func cortarNickname(nickname: String) -> String{
+        var nick = nickname.componentsSeparatedByString(" ")
+        if(nick.count<2){
+            return nick[0]
+        }
+        else{
+            return (nick[0] + " " + nick[1])
+        }
+    }
+
 }

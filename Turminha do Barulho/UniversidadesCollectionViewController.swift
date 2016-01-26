@@ -115,7 +115,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             }
             else{
                 let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
-                headerView.header.text = "Semestre " + String(indexPath.section)
+                headerView.header.text =  String(indexPath.section ) + "º Semestre"
                 return headerView
             }
             

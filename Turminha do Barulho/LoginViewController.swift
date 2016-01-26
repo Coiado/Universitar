@@ -50,6 +50,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0) ]
         self.activityIndicator.hidesWhenStopped = true
         
+        
+        
         configureButton()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
@@ -58,7 +60,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
     }
-    
     
     
     func configureButton() {
