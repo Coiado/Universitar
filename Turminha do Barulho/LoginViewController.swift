@@ -50,6 +50,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0) ]
         self.activityIndicator.hidesWhenStopped = true
         
+        
+        
         configureButton()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
@@ -57,6 +59,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let detalhe = UIAlertController(title: "Para executar essa ação é preciso se logar", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        detalhe.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(detalhe, animated: true, completion: nil)
     }
     
     
