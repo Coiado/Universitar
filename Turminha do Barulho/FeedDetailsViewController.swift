@@ -70,6 +70,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         self.detailsTableView.separatorStyle = .SingleLine
+        self.detailsTableView.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
         
         if PFUser.currentUser() != nil {
         
@@ -216,7 +217,6 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.categoriaTitle.text = self.passedCell.titulo
             cell.subTitle.text = self.passedCell.subtitulo
             cell.fullText.text = self.passedCell.fulltext
-            cell.fullText.font = UIFont(name: "Futura", size: self.fontSize[self.actualFontSize])
             cell.fullText.sizeToFit()
             cell.prepareCell()
             return cell
@@ -422,6 +422,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+
+    
     func getMoreComments(){
         
         self.activityIndicator.startAnimating()
@@ -436,6 +438,9 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                     self.detailsTableView.reloadData()
                     self.isLoadingMore = false
                     
+                    if self.commentArray.count > 1 {
+                        self.detailsTableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Bottom, animated: true)
+                    }
                 }
                 
             }

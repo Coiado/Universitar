@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol QuestionFeedCellDelegate: class {
+    func didClickDenunciaButtonForCell(cell: QuestionFeedCell)
+}
+
 class QuestionFeedCell: UITableViewCell {
 
     @IBOutlet weak var userIcon: UIImageView!
@@ -18,9 +22,8 @@ class QuestionFeedCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var denunciaButton: UIButton!
     var answers : [Answer] = []
+    weak var delegate: QuestionFeedCellDelegate?
     
-    
-        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -36,7 +39,7 @@ class QuestionFeedCell: UITableViewCell {
         
         //QUESTION VIEW
         self.questionView.layer.masksToBounds = true
-        self.questionView.layer.cornerRadius = 15
+        self.questionView.layer.cornerRadius = 5
         self.questionView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
         
         //CONTENT VIEW
@@ -63,7 +66,7 @@ class QuestionFeedCell: UITableViewCell {
         
         let blueSquare = UIView(frame: CGRect(origin: blueSquareOrigin, size: blueSquareSize))
         blueSquare.backgroundColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)
-        blueSquare.layer.cornerRadius = 15
+        blueSquare.layer.cornerRadius = 0
 
         self.questionView.addSubview(blueSquare)
         self.questionView.sendSubviewToBack(blueSquare)
@@ -88,5 +91,8 @@ class QuestionFeedCell: UITableViewCell {
 
     }
     
+    @IBAction func denunciaButtonClicked(sender: UIButton) {
+        delegate?.didClickDenunciaButtonForCell(self)
+    }
     
 }

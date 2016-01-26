@@ -59,10 +59,10 @@ class FeedCell: UITableViewCell {
         
         //Arredondamos a celula e a imagem da noticia
         self.cardView.layer.masksToBounds = false
-        self.cardView.layer.cornerRadius = 15
+        self.cardView.layer.cornerRadius = 5
         self.cardView.clipsToBounds = true
         self.picture.layer.masksToBounds = true
-        self.picture.layer.cornerRadius = 15
+        self.picture.layer.cornerRadius = 0
         
         //Alteramos o background da celula (nao da card view
         self.contentView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)

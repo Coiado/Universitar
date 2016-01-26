@@ -10,6 +10,10 @@ import UIKit
 
 class MateriasTableViewController: UITableViewController {
     
+    //variaveis para o search bar
+    var materiasFiltradas = [String]()
+    
+    var resultSearchController = UISearchController()
     
     //Classes com dados em hardcode que serão utilizados para popular o aplicativo
     var materias : [String] = []
@@ -22,6 +26,21 @@ class MateriasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.resultSearchController = ({
+            
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            controller.searchBar.scopeButtonTitles = ["Todos", "Exatas", "Humanas", "Biológicas"]
+            controller.searchBar.delegate = self
+            definesPresentationContext = true
+            self.tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+            
+        })()
+        
         //setando o navigation bar
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 21/255, green: 41/255, blue: 60/255, alpha: 1)  //Cor de fundo
 
@@ -30,8 +49,8 @@ class MateriasTableViewController: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0) ]
         
         //setando a tableview
-        self.tableView.backgroundColor = UIColor.whiteColor()
-        self.tableView.tableFooterView = UIView(frame:CGRectZero)
+        //self.tableView.backgroundColor = UIColor.whiteColor()
+        //self.tableView.tableFooterView = UIView(frame:CGRectZero)
         
         
         
@@ -59,7 +78,14 @@ class MateriasTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return materias.count
+        if (self.resultSearchController.active && self.resultSearchController.searchBar.text != ""){
+            return materiasFiltradas.count
+        }
+        else{
+            
+            return materias.count
+            
+        }
     }
 
 
@@ -68,36 +94,30 @@ class MateriasTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Materia", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = self.materias[indexPath.row]
+        let index = indexPath.row
         
+        let materia: String
         
-//        let materia = materias[indexPath.row] as Materia
-//        
-//        //Descrição da materia que sera passada para a próxima view
-//        cell.descricao = materia.description
-//        
-//        //Lista de Universdades que possuem os cursos
-//        cell.Universidades = materia.Universidades
-//        
-//        //Lista com grade horária das materias daquele curso
-//        cell.Semestres = [materia.Semestre1,materia.Semestre2,materia.Semestre3]
-//        
-//        //Configuração da celula de materias
-//        cell.textLabel?.text = materia.name
-//        cell.imageView?.image = UIImage(named: materia.icon)
-//        cell.backgroundColor = materia.color
-//        
-//        //cell.backgroundColor = UIColor.blackColor()
-//        //cell.textLabel?.textColor = UIColor.init(red: 255/255, green: 204/255, blue: 51/255, alpha: 1)
-//
+        if self.resultSearchController.active && self.resultSearchController.searchBar.text != "" {
+            
+            materia = self.materiasFiltradas[index]
+            
+        }
+        else{
+            materia = self.materias[index]
+        
+        }
+        
+        cell.textLabel?.text = materia
+        cell.detailTextLabel?.text = "Exatas"
+        
         return cell
-    }
+        
+        }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
 //        Quando a celula é selecionada ela chama a próxima view com o Detalhe das materias
-//        self.chosenCell = self.tableView.cellForRowAtIndexPath(indexPath) as! MateriaTableViewCell
-//        self.performSegueWithIdentifier("Detalhe", sender: self)
         
         self.index = indexPath.row
         self.performSegueWithIdentifier("Detalhe", sender: self)
@@ -117,14 +137,63 @@ class MateriasTableViewController: UITableViewController {
         //Passamos as informacoes da celula selecionada, depois precisamos atrelar mais informacoes
         //Como o texto e o icone a celula.
         let secondViewController = segue.destinationViewController as! MateriasDetalheViewController
-        
-        let course = self.materias[self.index]
-        
-        secondViewController.receiveCellData(course);
-        
-        
+        if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
+            
+            let course = self.materiasFiltradas[self.index]
+            
+            secondViewController.receiveCellData(course)
+            
+        }
+        else{
+            let course = self.materias[self.index]
+            
+            secondViewController.receiveCellData(course);
+        }
         
     }
     
-
+    
+    //MARK: - Update func
+    
+    func filtrarDados(searchText: String, scope: String = "All"){
+        
+        self.materiasFiltradas = self.materias.filter({ (materia) -> Bool in
+            
+            //let categoryMatch = (scope == "All") || (materia.category == scope)
+            
+            return materia.lowercaseString.containsString(searchText.lowercaseString) //&& categoryMatch
+            
+        })
+        
+        self.tableView.reloadData()
+        
+    }
+    
 }
+
+extension MateriasTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        let searchBarText = searchController.searchBar.text!
+        
+        let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+        
+        filtrarDados(searchBarText, scope: scope)
+        
+    }
+}
+
+extension MateriasTableViewController: UISearchBarDelegate {
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+        let searchBarText = searchBar.text!
+        
+        let scope = searchBar.scopeButtonTitles![selectedScope]
+        
+        filtrarDados(searchBarText, scope: scope )
+        
+    }
+    
+}
+

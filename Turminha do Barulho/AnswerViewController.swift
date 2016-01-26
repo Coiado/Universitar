@@ -13,7 +13,7 @@ protocol novaResposta {
     func salvarNovaResposta(text:String)
 }
 
-class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIScrollViewDelegate, novaResposta{
+class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIScrollViewDelegate, novaResposta, QuestionFeedCellDelegate {
 
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -47,10 +47,15 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         newQuestion.enabled = true
+        
         tableViewQuestion.estimatedRowHeight = 90
         tableViewQuestion.rowHeight = UITableViewAutomaticDimension
+        
         self.tableViewQuestion.separatorStyle = UITableViewCellSeparatorStyle.init(rawValue: 1)!
+        self.tableViewQuestion.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
+        
         pegarComentarios()
+        
         configRefresh()
     }
     
@@ -160,14 +165,12 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(indexPath.row==0){
             
             let cell = tableViewQuestion.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as! QuestionFeedCell
-            
-            cell.userInteractionEnabled = true
-            
-            cell.denunciaButton.enabled = true
-            
+
             cell.perguntaTitulo.text = self.question!.questionTitle
             cell.perguntaTitulo.sizeToFit()
             cell.updateConstraints()
+            
+            cell.selectionStyle = .None
             
             let now = NSDate()
             
@@ -208,8 +211,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                 }
             }
-//            
-//            cell.denunciaButton.addTarget(self, action: "denunciaQuestao:", forControlEvents: UIControlEvents.TouchUpInside)
             
             cell.userIcon.layer.masksToBounds = true
             cell.userIcon.layer.cornerRadius = 15
@@ -219,6 +220,8 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.questionText.sizeToFit()
             cell.updateConstraints()
             //cell.cardSetup()
+            
+            cell.delegate = self
             
             return cell
         }
@@ -303,12 +306,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-
-    @IBAction func denunciaQuestao(sender: AnyObject) {
-        
-        print("Question")
-        
-    }
     
     func denunciaComentario(sender: AnyObject){
         
@@ -376,13 +373,6 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-
-//    
-//    func denunciaQuestao(sender: AnyObject){
-//        
-//        print("questao")
-//        
-//    }
     
     
     
@@ -476,5 +466,60 @@ class AnswerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func didClickDenunciaButtonForCell(cell: QuestionFeedCell) {
+        
+        let id = self.question?.id
+        self.activityIndicator.startAnimating()
+        
+        ParseModel.findDenuncia(id!) { (object, error) -> Void in
+            
+            if error == nil {
+                
+                
+                ParseModel.aumentarDenuncia(object!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil{
+                        self.denunciaFeita()
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                })
+            }else{
+                
+                ParseModel.criarDenuncia(id!, completionHandler: { (sucesso, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    
+                    if error == nil {
+                        
+                        self.denunciaFeita()
+                        
+                    }
+                    else{
+                        
+                        let alert = ParseErrorHandler.errorHandler((error?.code)!)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                })
+                
+            }
+            
+        }
+
+    
+    }
 
 }

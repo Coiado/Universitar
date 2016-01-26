@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginTextField: UITextField!
     
+    @IBOutlet weak var loginFacebook: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var navigationLogin: UINavigationItem!
     
@@ -27,8 +28,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var tabBar : UITabBarController?
     let permissions = ["public_profile"]
+<<<<<<< HEAD
     var usuario : Usuario?
 
+=======
+    var keyboardUp : Bool = false
+    
+>>>>>>> 422d2b5b0c9193a6b8f13316e945174676f17839
     
     override func viewDidLoad() {
     
@@ -51,23 +57,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         configureButton()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        
+        
         
     }
+    
+    
     
     func configureButton() {
         
         self.loginButton.addTarget(self, action: "loginAction", forControlEvents: UIControlEvents.TouchUpInside)
-        self.loginButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
-        self.loginButton.layer.cornerRadius = 5
+        self.loginFacebook.layer.cornerRadius = 5
+//        self.loginButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+//        self.loginButton.layer.cornerRadius = 5
         
         self.signupButton.addTarget(self, action: "signupAction", forControlEvents: UIControlEvents.TouchUpInside)
-        self.signupButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
-        self.signupButton.layer.cornerRadius = 5
+//        self.signupButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+//        self.signupButton.layer.cornerRadius = 5
 
         
         self.forgetButton.addTarget(self, action: "forgetAction", forControlEvents: UIControlEvents.TouchUpInside)
-        self.forgetButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
-        self.forgetButton.layer.cornerRadius = 5
+//        self.forgetButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
+//        self.forgetButton.layer.cornerRadius = 5
 
         
         
@@ -293,6 +306,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     
     }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if (keyboardUp == false){
+            self.view.frame.origin.y -= 30
+            keyboardUp = true
+        }
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        if (keyboardUp){
+            self.view.frame.origin.y += 30
+            keyboardUp = false
+        }
+        
+    }
+    
+    
     
 }
 
