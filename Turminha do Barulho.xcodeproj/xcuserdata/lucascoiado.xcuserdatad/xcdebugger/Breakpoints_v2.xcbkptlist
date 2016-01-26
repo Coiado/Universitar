@@ -60,29 +60,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Turminha do Barulho/NewsDetailCell.swift"
-            timestampString = "475467148.359658"
+            timestampString = "475523210.269268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "didClickLike(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Turminha do Barulho/NewsDetailCell.swift"
-            timestampString = "475467170.769453"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "upVote(_:)"
-            landmarkType = "5">
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "NewsDetailCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

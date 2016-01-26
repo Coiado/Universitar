@@ -201,7 +201,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.isVoted = passedCell.upvoted
             cell.configButton()
-            cell.upVoteButton.enabled = false
+            cell.upVoteButton.enabled = true
             
             if isLogged{
                 
@@ -218,6 +218,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.fullText.text = self.passedCell.fulltext
             cell.fullText.sizeToFit()
             cell.prepareCell()
+            cell.delegate = self
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("comentarioDetalhes", forIndexPath: indexPath) as! ComentarioDetalhesCell
@@ -451,12 +452,8 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func clickLike(cell: NewsDetailCell){
-        let user = PFUser.currentUser()?.objectId
-        
-        if user == nil{
             let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
             self.presentViewController(vc, animated: true, completion: nil)
-        }
     }
     
 }

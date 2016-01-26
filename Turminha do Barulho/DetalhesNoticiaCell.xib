@@ -60,7 +60,6 @@
                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
-                            <action selector="didClickLike:" destination="oRC-gG-AmF" eventType="touchUpInside" id="zoA-Bl-2pl"/>
                             <action selector="upVote:" destination="oRC-gG-AmF" eventType="touchUpInside" id="LtP-vi-Gz4"/>
                         </connections>
                     </button>

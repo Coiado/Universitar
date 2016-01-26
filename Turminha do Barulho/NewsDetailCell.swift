@@ -115,8 +115,12 @@ class NewsDetailCell: UITableViewCell {
                 
             }
         }
-        
+        else{
+            delegate!.clickLike(self)
         }
+        
+
+}
         
                 
 //    }
@@ -130,7 +134,4 @@ class NewsDetailCell: UITableViewCell {
     }
 
     
-    @IBAction func didClickLike(sender:UIButton){
-        delegate!.clickLike(self)
-    }
 }
