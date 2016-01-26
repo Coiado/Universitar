@@ -39,7 +39,7 @@ class QuestionFeedCell: UITableViewCell {
         
         //QUESTION VIEW
         self.questionView.layer.masksToBounds = true
-        self.questionView.layer.cornerRadius = 0
+        self.questionView.layer.cornerRadius = 5
         self.questionView.backgroundColor = UIColor(red: 90/255, green: 107/255, blue: 117/255, alpha: 1)
         
         //CONTENT VIEW

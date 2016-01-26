@@ -70,6 +70,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         self.detailsTableView.separatorStyle = .SingleLine
+        self.detailsTableView.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
         
         if PFUser.currentUser() != nil {
         
