@@ -28,13 +28,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var tabBar : UITabBarController?
     let permissions = ["public_profile"]
-<<<<<<< HEAD
-    var usuario : Usuario?
 
-=======
     var keyboardUp : Bool = false
-    
->>>>>>> 422d2b5b0c9193a6b8f13316e945174676f17839
     
     override func viewDidLoad() {
     
@@ -189,10 +184,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func signInFacebook(sender: AnyObject) {
+        
+        self.activityIndicator.startAnimating()
     
         PFFacebookUtils.logInInBackgroundWithReadPermissions(["public_profile", "email"], block: {(user:PFUser?, error:NSError?) -> Void in
         
+            
             if(error != nil) {
+                
             // Display alert to warn the user of the error that happened
                 let myAlert = UIAlertController(title:"",message:error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
                 
@@ -271,7 +270,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         
                         user?.saveInBackgroundWithBlock({ (sucess, error) -> Void in
                             // Necessario alterar no storyboard
-                        self.activityIndicator.startAnimating()
                             if error == nil {
                                 
                                 print("Salvou")
