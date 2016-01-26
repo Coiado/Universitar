@@ -2067,7 +2067,6 @@
         <image name="iosUser" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zD-E0-HBm"/>
         <segue reference="cck-PX-VFc"/>
         <segue reference="v9w-QC-30v"/>
     </inferredMetricsTieBreakers>
