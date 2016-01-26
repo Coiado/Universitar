@@ -221,6 +221,7 @@ class FeedDetailsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.fullText.text = self.passedCell.fulltext
             cell.fullText.sizeToFit()
             cell.prepareCell()
+            cell.delegate = self
             
             cell.fullText.font = UIFont.systemFontOfSize(self.fontSize[self.actualFontSize])
             

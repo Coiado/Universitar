@@ -1297,8 +1297,8 @@
                                     <constraint firstAttribute="width" secondItem="JGb-b6-Fw8" secondAttribute="height" multiplier="1:1" id="PrT-5O-VZj"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-OE-9d2">
-                                <rect key="frame" x="169" y="283" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-OE-9d2">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
