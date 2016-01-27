@@ -76,7 +76,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         self.tempLabel.lineBreakMode = .ByWordWrapping
         self.tempLabel.text = string
         self.tempLabel.font = UIFont(name: "System", size: 17.0)
-        let size = self.tempLabel.sizeThatFits(CGSize(width: self.view.frame.width, height: CGFloat.max))
+        let size = self.tempLabel.sizeThatFits(CGSize(width: (self.view.frame.width - 80), height: CGFloat.max))
 //        self.tempLabel.sizeToFit()
         self.heightDescricao = size.height
     }
@@ -155,7 +155,7 @@ class UniversidadesCollectionViewController: UICollectionViewController {
         //Altera o tamanho das celulas tanto headers quanto a descrição e as materias
         if (indexPath.section == 0){
             print ("self.heightDescricao! \(self.heightDescricao!)")
-            return CGSize(width: self.view.frame.width - 20, height: self.heightDescricao! + 350)
+            return CGSize(width: self.view.frame.width - 20, height: self.heightDescricao! + 100)
         }
         else{
             return CGSize(width: 110, height: 60)
