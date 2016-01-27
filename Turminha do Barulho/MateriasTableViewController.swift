@@ -31,6 +31,7 @@ class MateriasTableViewController: UITableViewController {
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
+            controller.hidesNavigationBarDuringPresentation = false
             controller.searchBar.sizeToFit()
             definesPresentationContext = true
             self.tableView.tableHeaderView = controller.searchBar

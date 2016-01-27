@@ -25,7 +25,7 @@ class ConfigViewController: UIViewController, UITableViewDataSource,UITableViewD
     var question : Question?
     
     //COR
-    let bgColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)  //Cor de fundo
+    let bgColor = UIColor(red: 27/255, green: 55/255, blue: 76/255, alpha: 1)  //Cor de fundo
     
     let detailsColor = UIColor(red: 255/255, green: 209/255, blue: 0/255, alpha: 1) //Cor dos detalhes (fonte, icones, etc)
     

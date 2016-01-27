@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import Parse
+
+
+protocol NewsDetailCellDelegate: class {
+    func clickLike(cell: NewsDetailCell)
+}
 
 class NewsDetailCell: UITableViewCell {
     
@@ -16,6 +22,7 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var fullText: UILabel!
     @IBOutlet weak var upVoteButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
+    weak var delegate: NewsDetailCellDelegate?
     var isVoted: Bool!
     var id : String = ""
     
@@ -67,41 +74,56 @@ class NewsDetailCell: UITableViewCell {
     
     
     @IBAction func upVote(sender: AnyObject) {
-    
-        self.updateButton()
-
-        self.upVoteButton.enabled = false
-
-        if self.isVoted! {
-    
-                    ParseModel.salvarNovoLike(self.id, usuario: "", completionHandler: { (sucesso, error) -> Void in
         
-                        ParseModel.aumentarUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
-        
-                            self.upVoteButton.enabled = true
-        
-                        })
-        
-        
+//        let user = PFUser.currentUser()?.objectId
+//        if user == nil{
+//            let vc : UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("vcMainLogin") as! UINavigationController
+//            self.presentViewController(vc, animated: true, completion: nil)
+//        }else{
+        let user = PFUser.currentUser()?.objectId
+        if user != nil{
+            self.updateButton()
+            
+            self.upVoteButton.enabled = false
+            
+            if self.isVoted! {
+                
+                ParseModel.salvarNovoLike(self.id, usuario: "", completionHandler: { (sucesso, error) -> Void in
+                    
+                    ParseModel.aumentarUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
+                        
+                        self.upVoteButton.enabled = true
+                        
                     })
-        
+                    
+                    
+                })
+                
             }
-        else{
-    
+            else{
+                
                 ParseModel.apagarLike(self.id, completionHandler: { (sucesso, error) -> Void in
-    
+                    
                     
                     ParseModel.diminuirUpvotesNoticia(self.id, completionHandler: { (sucesso, error) -> Void in
                         
                         self.upVoteButton.enabled = true
-    
+                        
                     })
                     
                 })
                 
             }
-                
         }
+        else{
+            delegate!.clickLike(self)
+        }
+        
+
+}
+        
+                
+//    }
     
     
     func updateButton()
@@ -111,4 +133,5 @@ class NewsDetailCell: UITableViewCell {
         self.configButton()
     }
 
+    
 }
