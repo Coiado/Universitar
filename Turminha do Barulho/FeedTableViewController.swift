@@ -70,6 +70,12 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.resultSearchController.searchBar.hidden = true
+        
+        self.resultSearchController.searchBar.resignFirstResponder()
+    }
     
     //Funcao que usaremos para eventualmente implementar metodo de leitura noturna, talvez
     //nao precisemos mais
@@ -297,8 +303,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     
     
      func GoToDetail(sender: Int) {
-       
-        self.resultSearchController.searchBar.hidden = true
         
         if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
             self.chosenCell = dadosFiltrados[sender] as Dados
@@ -324,8 +328,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     
         let text = self.resultSearchController.searchBar.text!
         
-        if (resultSearchController.isBeingDismissed()){print("dismissed")}
-        if (resultSearchController.isBeingPresented()){print("presented")}
         didChangeSearchText(text)
     
     }

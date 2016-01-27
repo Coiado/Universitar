@@ -69,6 +69,7 @@ class MateriasTableViewController: UITableViewController {
 
     override func viewWillDisappear(animated: Bool) {
         self.resultSearchController.searchBar.hidden = true
+        self.resultSearchController.searchBar.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
