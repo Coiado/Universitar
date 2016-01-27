@@ -104,13 +104,13 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(sender: NSNotification) {
         if (keyboardUp == false){
-            self.view.frame.origin.y -= 30
+            self.view.frame.origin.y -= 145
             keyboardUp = true
         }
     }
     func keyboardWillHide(sender: NSNotification) {
         if (keyboardUp){
-            self.view.frame.origin.y += 30
+            self.view.frame.origin.y += 145
             keyboardUp = false
         }
         
