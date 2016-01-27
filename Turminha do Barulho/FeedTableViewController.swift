@@ -48,7 +48,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         resultSearchController.dimsBackgroundDuringPresentation = false
         resultSearchController.searchBar.sizeToFit()
         resultSearchController.hidesNavigationBarDuringPresentation = false
-        definesPresentationContext = true
         self.tableView.tableHeaderView = resultSearchController.searchBar
         
         self.createData()
@@ -66,6 +65,8 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     override func viewWillAppear(animated: Bool) {
         
         self.createData()
+        
+        self.resultSearchController.searchBar.hidden = false
         
     }
     
@@ -258,7 +259,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    //Essa funcao cria dados hardcoded para que possamos testar o layout da tableview
     func createData()
     {
         
@@ -298,6 +298,8 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     
      func GoToDetail(sender: Int) {
        
+        self.resultSearchController.searchBar.hidden = true
+        
         if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
             self.chosenCell = dadosFiltrados[sender] as Dados
             
@@ -321,8 +323,6 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
     
         let text = self.resultSearchController.searchBar.text!
-        
-        print("entrei aqui")
         
         if (resultSearchController.isBeingDismissed()){print("dismissed")}
         if (resultSearchController.isBeingPresented()){print("presented")}

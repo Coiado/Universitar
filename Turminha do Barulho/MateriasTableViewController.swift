@@ -33,7 +33,6 @@ class MateriasTableViewController: UITableViewController {
             controller.dimsBackgroundDuringPresentation = false
             controller.hidesNavigationBarDuringPresentation = false
             controller.searchBar.sizeToFit()
-            definesPresentationContext = true
             self.tableView.tableHeaderView = controller.searchBar
             
             return controller
@@ -62,7 +61,16 @@ class MateriasTableViewController: UITableViewController {
         }
         
     }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        self.resultSearchController.searchBar.hidden = false
+    }
 
+    override func viewWillDisappear(animated: Bool) {
+        self.resultSearchController.searchBar.hidden = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
