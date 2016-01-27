@@ -47,6 +47,7 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
         resultSearchController.searchResultsUpdater = self
         resultSearchController.dimsBackgroundDuringPresentation = false
         resultSearchController.searchBar.sizeToFit()
+        resultSearchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         self.tableView.tableHeaderView = resultSearchController.searchBar
         
@@ -321,6 +322,10 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     
         let text = self.resultSearchController.searchBar.text!
         
+        print("entrei aqui")
+        
+        if (resultSearchController.isBeingDismissed()){print("dismissed")}
+        if (resultSearchController.isBeingPresented()){print("presented")}
         didChangeSearchText(text)
     
     }
