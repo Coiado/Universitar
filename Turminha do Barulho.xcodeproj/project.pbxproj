@@ -135,7 +135,7 @@
 		3F0E2DDE1C0493EF00CB4722 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		3F0E2DE31C06120C00CB4722 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		3F0E2DE51C06121C00CB4722 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
-		3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turminha do Barulho.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0F14AA1BD55047002EA06A /* Universitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Universitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0F14AD1BD55047002EA06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F0F14B51BD55047002EA06A /* Turminha_do_Barulho.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turminha_do_Barulho.xcdatamodel; sourceTree = "<group>"; };
 		3F0F14BC1BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -402,7 +402,7 @@
 		3F0F14AB1BD55047002EA06A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */,
+				3F0F14AA1BD55047002EA06A /* Universitar.app */,
 				3F0F14C11BD55047002EA06A /* Turminha do BarulhoTests.xctest */,
 				3F0F14CC1BD55047002EA06A /* Turminha do BarulhoUITests.xctest */,
 			);
@@ -529,9 +529,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F0F14A91BD55047002EA06A /* Turminha do Barulho */ = {
+		3F0F14A91BD55047002EA06A /* Universitar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do Barulho" */;
+			buildConfigurationList = 3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Universitar" */;
 			buildPhases = (
 				3F0F14A61BD55047002EA06A /* Sources */,
 				3F0F14A71BD55047002EA06A /* Frameworks */,
@@ -541,9 +541,9 @@
 			);
 			dependencies = (
 			);
-			name = "Turminha do Barulho";
+			name = Universitar;
 			productName = "Turminha do Barulho";
-			productReference = 3F0F14AA1BD55047002EA06A /* Turminha do Barulho.app */;
+			productReference = 3F0F14AA1BD55047002EA06A /* Universitar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3F0F14C01BD55047002EA06A /* Turminha do BarulhoTests */ = {
@@ -621,7 +621,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F0F14A91BD55047002EA06A /* Turminha do Barulho */,
+				3F0F14A91BD55047002EA06A /* Universitar */,
 				3F0F14C01BD55047002EA06A /* Turminha do BarulhoTests */,
 				3F0F14CB1BD55047002EA06A /* Turminha do BarulhoUITests */,
 			);
@@ -739,12 +739,12 @@
 /* Begin PBXTargetDependency section */
 		3F0F14C31BD55047002EA06A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F0F14A91BD55047002EA06A /* Turminha do Barulho */;
+			target = 3F0F14A91BD55047002EA06A /* Universitar */;
 			targetProxy = 3F0F14C21BD55047002EA06A /* PBXContainerItemProxy */;
 		};
 		3F0F14CE1BD55047002EA06A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F0F14A91BD55047002EA06A /* Turminha do Barulho */;
+			target = 3F0F14A91BD55047002EA06A /* Universitar */;
 			targetProxy = 3F0F14CD1BD55047002EA06A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -953,7 +953,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Turminha do Barulho" */ = {
+		3F0F14D51BD55047002EA06A /* Build configuration list for PBXNativeTarget "Universitar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F0F14D61BD55047002EA06A /* Debug */,

@@ -15,6 +15,7 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nomeTextField: UITextField!
     
     @IBOutlet weak var navigationCadastro: UINavigationItem!
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheck: UIImageView!
     
@@ -27,9 +28,13 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailCheck: UIImageView!
     
+    @IBOutlet weak var nomeCheck: UIImageView!
+    
     @IBOutlet weak var confirmaButton: UIButton!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var senha : String = String()
     
     var keyboardUp : Bool = false
     
@@ -53,6 +58,8 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     func configureButton(){
         
         self.confirmaButton.addTarget(self, action: "confirmaAction", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.confirmaButton.enabled = false
 //        self.confirmaButton.backgroundColor = UIColor(red: 255/255, green: 89/255, blue: 72/255, alpha: 1)
 //        self.confirmaButton.layer.cornerRadius = 5
         
@@ -104,21 +111,177 @@ class CriarContaViewController : UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(sender: NSNotification) {
         if (keyboardUp == false){
-            self.view.frame.origin.y -= 30
+            self.view.frame.origin.y -= 145
             keyboardUp = true
         }
     }
     func keyboardWillHide(sender: NSNotification) {
         if (keyboardUp){
-            self.view.frame.origin.y += 30
+            self.view.frame.origin.y += 145
             keyboardUp = false
         }
         
     }
 
     
-}
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        
+        let tag = textFieldTag.init(rawValue: textField.tag)!
+        
+        let check = UIImage(named: "checkIcon")
+        
+        let uncheck = UIImage(named: "uncheckIcon")
+        
+        
+        
+        switch tag {
+            
+        case textFieldTag.nome:
+            
+            if textField.text != "" {
+                
+                self.nomeCheck.image = check
+            }
+            else{
+                
+                self.nomeCheck.image = uncheck
+                
+            }
+            
+            break
+        case textFieldTag.usuario:
+            if textField.text == "" {
+                
+                self.usuarioCheck.image = uncheck
+            }
 
+            else{
+                
+                let query = PFUser.query()
+                
+                let username = textField.text!
+                
+                query?.whereKey("username", equalTo: username)
+                
+                query?.countObjectsInBackgroundWithBlock({ (count, error) -> Void in
+                    
+                    if count > 0 {
+                        
+                        self.usuarioCheck.image = uncheck
+                        
+                        let alert = UIAlertController(title: "Erro", message: "Esse usuário já existe.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let action = UIAlertAction(title: "Ok", style: .Default, handler: { (UIAlertAction) -> Void in
+                        })
+                        
+                        alert.addAction(action)
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    else{
+                        
+                        self.usuarioCheck.image = check
+                        
+                    }
+                })
+                
+            }
+            break
+        case textFieldTag.senha:
+            
+            if textField.text != "" {
+                self.senha = textField.text!
+                self.passwordCheck.image = check
+            }
+            else{
+                
+                self.passwordCheck.image = uncheck
+                
+            }
+            
+            break
+        case textFieldTag.confirmacao:
+            print("confirmaca")
+            
+            if textField.text == senha && textField.text != ""{
+                
+                self.confirmationCheck.image = check
+            }
+            else{
+                
+                self.confirmationCheck.image = uncheck
+                
+                let alert = UIAlertController(title: "Error", message: "As senhas não coincidem, tente novamente.", preferredStyle: UIAlertControllerStyle.Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default, handler: { (UIAlertAction) -> Void in
+                })
+                
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+            
+            break
+        case textFieldTag.email:
+            
+            if textField.text == "" {
+                
+                self.emailCheck.image = uncheck
+            }
+                
+            else{
+                
+                let query = PFUser.query()
+                
+                let username = textField.text!
+                
+                query?.whereKey("email", equalTo: username)
+                
+                query?.countObjectsInBackgroundWithBlock({ (count, error) -> Void in
+                    
+                    if count > 0 {
+                        
+                        self.emailCheck.image = uncheck
+                        let alert = UIAlertController(title: "Erro", message: "Esse e-mail já foi cadastrado.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let action = UIAlertAction(title: "Ok", style: .Default, handler: { (UIAlertAction) -> Void in
+                        })
+                        
+                        alert.addAction(action)
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
+                        
+                    else{
+                        
+                        self.emailCheck.image = check
+                        
+                    }
+                })
+                
+            }
+            
+            break
+            
+        }
+        
+        if (nomeCheck.image == check && usuarioCheck.image == check && emailCheck.image == check && passwordCheck.image == check && confirmationCheck.image == check){
+            
+            
+            self.confirmaButton.enabled = true
+            
+        }
+        
+        
+    }
+    
+    
+}//classe
+
+enum textFieldTag: Int {
+    
+    case nome = 1, usuario,senha,confirmacao,email
+    
+}
 
 
 

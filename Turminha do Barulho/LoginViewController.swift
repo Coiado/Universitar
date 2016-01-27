@@ -213,7 +213,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
                 self.activityIndicator.stopAnimating()
                 
-                let failedFBAttempt = UIAlertController(title: "ERRO", message: "Não foi possível fazer login com o Facebook", preferredStyle: .Alert)
+                let failedFBAttempt = UIAlertController(title: "Um erro ocorreu", message: "Não foi possível fazer login com o Facebook", preferredStyle: .Alert)
                 let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 failedFBAttempt.addAction(okButton)
                 self.presentViewController(failedFBAttempt, animated: false, completion: nil)

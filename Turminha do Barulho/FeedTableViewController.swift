@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class FeedTableViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, CustomSearchControllerDelegate {
+class FeedTableViewController: UITableViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     //Outlets
@@ -17,10 +17,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     @IBOutlet weak var searchView: UIView!
     @IBOutlet var segControl: UISegmentedControl!
     @IBOutlet weak var nightmodeButton: UIBarButtonItem!
-    
-    //Search controllers
-    var customSearchController: CustomSearchController!
-    var shouldShowSearchResults = false
     
     //Volume de dados
     var data : [Dados] = []
@@ -43,8 +39,16 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     let tableBG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1) //Cor do fundo apenas da tableview
     
+    let resultSearchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        resultSearchController.searchResultsUpdater = self
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.searchBar.sizeToFit()
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        self.tableView.tableHeaderView = resultSearchController.searchBar
         
         self.createData()
         
@@ -62,8 +66,16 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         self.createData()
         
+        self.resultSearchController.searchBar.hidden = false
+        
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.resultSearchController.searchBar.hidden = true
+        
+        self.resultSearchController.searchBar.resignFirstResponder()
+    }
     
     //Funcao que usaremos para eventualmente implementar metodo de leitura noturna, talvez
     //nao precisemos mais
@@ -96,8 +108,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         self.setNeedsStatusBarAppearanceUpdate()
         //UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
         
-        //Configure the custom search controller
-        configureCustomSearchController()
         
         //TableView Background
         self.tableView.backgroundView = nil
@@ -128,7 +138,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.shouldShowSearchResults{
+        if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
             return dadosFiltrados.count
         }
         
@@ -144,7 +154,7 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         
         let info: Dados
         
-        if self.shouldShowSearchResults{
+        if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
         
             info = dadosFiltrados[indexPath.row] as Dados
             
@@ -255,7 +265,6 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
         }
     }
     
-    //Essa funcao cria dados hardcoded para que possamos testar o layout da tableview
     func createData()
     {
         
@@ -294,8 +303,8 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     
      func GoToDetail(sender: Int) {
-       
-        if self.shouldShowSearchResults{
+        
+        if self.resultSearchController.active && self.resultSearchController.searchBar.text != ""{
             self.chosenCell = dadosFiltrados[sender] as Dados
             
         }
@@ -315,32 +324,12 @@ class FeedTableViewController: UITableViewController, UISearchControllerDelegate
     
     //MARK: - SearchController
     
-    func configureCustomSearchController() {
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 35.0), searchBarFont: UIFont.systemFontOfSize(16), searchBarTextColor: UIColor.blackColor(), searchBarTintColor: tableBG)
-        
-        customSearchController.searchBar.searchBarStyle = UISearchBarStyle.Default
-        customSearchController.customSearchBar.placeholder = "Procure"
-        self.tableView.tableHeaderView = customSearchController.customSearchBar
-        
-        customSearchController.customDelegate = self
-        
-    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
     
-    func didStartSearching() {
-        shouldShowSearchResults = true
-        self.tableView.reloadData()
-    }
+        let text = self.resultSearchController.searchBar.text!
+        
+        didChangeSearchText(text)
     
-    func didTapOnSearchButton() {
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            self.tableView.reloadData()
-        }
-    }
-    
-    func didTapOnCancelButton() {
-        shouldShowSearchResults = false
-        self.tableView.reloadData()
     }
     
     func didChangeSearchText(searchText: String) {
