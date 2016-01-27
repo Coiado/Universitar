@@ -45,6 +45,7 @@
 		3F0F14D11BD55047002EA06A /* Turminha_do_BarulhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14D01BD55047002EA06A /* Turminha_do_BarulhoUITests.swift */; };
 		3F0F14E11BD664A3002EA06A /* MateriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */; };
 		3F0F14E31BD6658B002EA06A /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F14E21BD6658B002EA06A /* Materia.swift */; };
+		3F1121CD1C592E7B0069C5B1 /* PrivacidadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1121CC1C592E7B0069C5B1 /* PrivacidadeViewController.swift */; };
 		3F1607F11C21DC6600120CB5 /* HeaderSemestreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1607F01C21DC6600120CB5 /* HeaderSemestreCollection.swift */; };
 		3F19F9231C47DFD80009287E /* NavigationConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19F9221C47DFD80009287E /* NavigationConfigViewController.swift */; };
 		3F19F9251C47FCB90009287E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19F9241C47FCB90009287E /* TabBarViewController.swift */; };
@@ -146,6 +147,7 @@
 		3F0F14D21BD55047002EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0F14E01BD664A3002EA06A /* MateriasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriasTableViewController.swift; sourceTree = "<group>"; };
 		3F0F14E21BD6658B002EA06A /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		3F1121CC1C592E7B0069C5B1 /* PrivacidadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacidadeViewController.swift; sourceTree = "<group>"; };
 		3F1607E91C2184E600120CB5 /* Turminha do Barulho-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turminha do Barulho-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F1607F01C21DC6600120CB5 /* HeaderSemestreCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderSemestreCollection.swift; path = ../HeaderSemestreCollection.swift; sourceTree = "<group>"; };
 		3F19F9221C47DFD80009287E /* NavigationConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationConfigViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				185125501BDA919100E59F89 /* Materias */,
 				5F9082E41BDA890700FD2027 /* CriarContaViewController.swift */,
 				5F9082E21BDA88DC00FD2027 /* LoginViewController.swift */,
+				3F1121CC1C592E7B0069C5B1 /* PrivacidadeViewController.swift */,
 				3F0E2DE01C06117500CB4722 /* SearchController */,
 			);
 			name = Controllers;
@@ -668,6 +671,7 @@
 				5F9082E31BDA88DC00FD2027 /* LoginViewController.swift in Sources */,
 				3F0F14B61BD55047002EA06A /* Turminha_do_Barulho.xcdatamodeld in Sources */,
 				3F0CF12C1BDFBE28003E7488 /* MateriaTableViewCell.swift in Sources */,
+				3F1121CD1C592E7B0069C5B1 /* PrivacidadeViewController.swift in Sources */,
 				3FFA23D71BF4C70800D7AEDB /* UniversidadesCollectionViewController.swift in Sources */,
 				5FF948981BE2A9BC003C6D2E /* FeedDetailsViewController.swift in Sources */,
 				185125631BDA9B1400E59F89 /* QuestionFeedCell.swift in Sources */,
