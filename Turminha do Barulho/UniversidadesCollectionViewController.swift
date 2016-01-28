@@ -121,6 +121,9 @@ class UniversidadesCollectionViewController: UICollectionViewController {
             
         default:
             assert(false, "Unexpected element kind")
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! HeaderSemestreCollection
+            headerView.header.text =  "º Semestre"
+            return headerView
         }
     }
 
